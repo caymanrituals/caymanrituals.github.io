@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cayman Rituals — West Indies</title>
+<meta name="description" content="A scent house from the Cayman Islands. One scent for each layer of the island, from the top of the Bluff to the floor of the Trench.">
+<meta name="theme-color" content="#0A1416">
+<link rel="icon" href="brand/cay-rit-stamp-800.png" type="image/png">
+<link rel="apple-touch-icon" href="brand/cay-rit-stamp-800.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cayman Rituals">
+<meta property="og:title" content="Cayman Rituals — West Indies">
+<meta property="og:description" content="One scent for each layer of the island, from the top of the Bluff to the floor of the Trench.">
+<meta property="og:image" content="https://marzouca.github.io/cayman-rituals/brand/cayman-rituals-share-1200x630.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Hallmark · pre-emit critique: P5 H5 E4 S5 R4 V5 */
+/* Hallmark · macrostructure: depth-descent · knobs: ground=transmutes-with-scroll(js)|darkens-with-depth(no-js), gauge=fixed-elevation+segment-track, bands=uniform-section+element-sigil, pivot=sea-level(drawn-line), cta=queue-slip, pieces=core-sample(exploded strata) */
+/* Hallmark · v3 2026-09-24 · products open as a geological section (4 strata, leader lines on desktop, flat on touch/reduced motion) · v2 2026-09-23 · single visual world (the descent) — one theme by design, every colour a :root token · motion: transform/opacity/stroke-dashoffset/background-color only · reduced-motion: every end state shown, canvas not started · JS off: resting state, bands keep their own colours */
+:root{
+  color-scheme:light;
+  --limestone:#EEEDE8; --clay:#E6D6CB; --thatch:#D5D6C6; --ironshore:#22201F; --trench:#0A1416;
+  --ink:#1D191C; --ink-soft:#4A4247; --bone:#EDE9E2; --bone-soft:#B9B3AA;
+  --oxblood:#6E2436; --brass:#C4A36B;
+  --rule-light:rgba(29,25,28,.18); --rule-dark:rgba(237,233,226,.18);
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --text:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px; --s7:96px; --s8:128px;
+  --ease-out:cubic-bezier(.2,.7,.2,1); --ease-draw:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:clip}
+html{scroll-behavior:smooth;background:var(--trench)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--limestone);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.w{max-width:1180px;margin:0 auto;padding-inline:16px}
+@media(min-width:900px){.w{padding-inline:var(--s5) calc(var(--s5) + 120px)}}
+a{color:inherit;text-underline-offset:4px;text-decoration-thickness:1px}
+a:hover{text-decoration-color:currentColor}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--oxblood);outline-offset:3px}
+.dark a:focus-visible,.dark button:focus-visible,.dark input:focus-visible{outline-color:var(--brass)}
+p{margin:0 0 var(--s2);max-width:62ch}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;overflow-wrap:anywhere;min-width:0}
+
+/* masthead */
+.top{padding-block:var(--s5) var(--s5)}
+.top .wordmark{width:min(300px,70vw);height:auto;display:block;color:var(--ink)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5);padding-block:0 var(--s7)}
+@media(min-width:900px){.hero{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:end}}
+.kicker{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--oxblood);font-weight:600;margin:0 0 var(--s3)}
+.hero h1{font-size:clamp(3.2rem,9vw,6.4rem);line-height:.98;letter-spacing:-.01em;margin-bottom:var(--s3)}
+.hero h1 .ln{display:inline-block}
+.hero .lede{font-size:1.125rem;color:var(--ink-soft)}
+.begin:active{opacity:.7}
+.begin{display:inline-block;margin-top:var(--s2);font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;white-space:nowrap}
+figure{margin:0}
+figure img{display:block;width:100%;height:auto;max-width:100%}
+figcaption{font-size:12px;color:var(--ink-soft);margin-top:var(--s1);max-width:60ch}
+figcaption .credit{display:block;font-size:11px;margin-top:2px}
+.dark figcaption{color:var(--bone-soft)}
+
+/* the layers — one structure, repeated */
+.layer{padding-block:var(--s7);border-top:1px solid var(--rule-light)}
+.layer--bluff{background:var(--limestone)}
+.layer--caymanite{background:var(--clay)}
+.layer--thatch{background:var(--thatch)}
+.layer--ironshore{background:var(--ironshore)}
+.layer--trench{background:var(--trench)}
+.dark{color:var(--bone);border-top-color:var(--rule-dark)}
+.row{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5)}
+@media(min-width:900px){.row{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:var(--s6)}}
+.elev{font-family:var(--display);font-size:clamp(3.4rem,8vw,5.6rem);line-height:1;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.02em;display:block}
+.name{font-family:var(--text);font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;margin:var(--s2) 0 var(--s3);display:flex;align-items:center;gap:var(--s2);line-height:1}
+.layer h2{font-size:clamp(1.6rem,3.4vw,2.2rem);line-height:1.2;margin-bottom:var(--s3);max-width:22ch}
+.notes{font-size:15px;color:var(--ink-soft);border-top:1px solid var(--rule-light);padding-top:var(--s2);margin-top:var(--s3);max-width:44ch}
+.dark .notes{color:var(--bone-soft);border-top-color:var(--rule-dark)}
+.notes b{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--ink);margin-bottom:4px}
+.dark .notes b{color:var(--bone)}
+.status{display:inline-block;margin-top:var(--s2);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--oxblood)}
+.dark .status{color:var(--brass)}
+.pieces{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5)}
+.piece h3{font-size:1.5rem;margin:var(--s3) 0 var(--s1)}
+.piece p{font-size:16px}
+.dark .piece p{color:var(--bone)}
+
+/* the sigils — one classical element per layer, hairline, stroke only */
+.sigil{display:block;width:24px;height:24px;flex:none;color:var(--oxblood);overflow:visible}
+.sigil path,.sigil circle{fill:none;stroke:currentColor;stroke-width:1.1;vector-effect:non-scaling-stroke;stroke-linejoin:miter;stroke-linecap:butt}
+.dark .sigil{color:var(--brass)}
+
+/* the core sample — each piece opens as a geological section: four strata of one image, pulled apart */
+.core{position:relative;--g:96px}
+@media(min-width:600px){.core{--g:76px}}
+.stack{position:relative;width:100%;aspect-ratio:4/3}
+button.spec{all:unset;display:block;position:absolute;inset:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+button.spec:hover,button.spec:active{background:transparent;border:0}
+button.spec:focus-visible{outline:2px solid var(--oxblood);outline-offset:3px}
+.dark button.spec:focus-visible{outline-color:var(--brass)}
+button.spec:disabled{opacity:.55;cursor:not-allowed}
+.s1,.l1{--i:0}.s2,.l2{--i:1}.s3,.l3{--i:2}.s4,.l4{--i:3}
+.stratum{position:absolute;inset:0;display:block;clip-path:inset(calc(var(--i)*25%) 0 calc((3 - var(--i))*25% - 1px) 0);transform-origin:50% 50%;backface-visibility:hidden;transition:transform 440ms var(--ease-out);transition-delay:calc((3 - var(--i))*70ms)}
+.stratum img{display:block;width:100%;height:auto;max-width:100%}
+.stratum .pt{position:absolute;right:0;top:calc(var(--i)*25% + 12.5%);width:1px;height:1px;display:block}
+.strata{position:absolute;inset:0;pointer-events:none}
+.lab{position:absolute;left:0;right:0;top:calc((var(--i) + 1)*25% + 8px);display:grid;grid-template-columns:20px minmax(0,1fr);gap:2px var(--s2);align-items:start;font-size:15px;line-height:1.4;opacity:0;transition:opacity 360ms var(--ease-out)}
+.lab .mk{width:16px;height:16px;grid-row:1/3;margin-top:0;color:var(--oxblood)}
+.dark .lab .mk{color:var(--brass)}
+.lab .mt{grid-row:1/3;display:block;width:12px;height:1px;margin-top:7px;background:var(--oxblood)}
+.dark .lab .mt{background:var(--brass)}
+.lt{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;line-height:1.4;color:var(--ink)}
+.dark .lt{color:var(--bone)}
+.ll{display:block;color:var(--ink-soft)}
+.dark .ll{color:var(--bone-soft)}
+.dev{display:inline-block;margin-top:var(--s1);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--oxblood)}
+.dark .dev{color:var(--brass)}
+.leads{display:none;position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;color:var(--brass);opacity:0;transition:opacity 160ms var(--ease-out)}
+.ld{fill:none;stroke:currentColor;stroke-width:1;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1}
+.lp{fill:none;stroke:currentColor;stroke-width:1}
+/* open — flat: strata separate down the section, each label directly under its stratum. the column grows once on open (no height animation) */
+.core.is-open .stack{margin-bottom:calc(4*var(--g))}
+.core.is-open .stratum{transform:translateY(calc(var(--i)*var(--g)));transition-delay:calc(var(--i)*70ms)}
+.core.is-open .lab{opacity:1;transform:translateY(calc(var(--i)*var(--g)));transition-delay:calc(180ms + var(--i)*70ms)}
+.core.is-open .strata{pointer-events:auto}
+/* open — desktop flourish: the stack tilts into perspective and floats apart; labels in a column beside it, joined by brass leader lines */
+@media (hover:hover) and (pointer:fine) and (min-width:1180px){
+  button.spec{perspective:1100px;perspective-origin:50% 50%}
+  .core.is-open .stack{margin-bottom:0}
+  .core.is-open .stratum{transform:translate(-25%,10%) scale(.48) rotateX(52deg) rotateZ(-28deg) translateZ(calc((3 - var(--i))*88px)) translateY(calc((var(--i) - 1.5)*-11%))}
+  .strata{left:54%;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:space-between;padding-block:2% 3%}
+  .lab{position:static;transform:translateY(6px);transition:opacity 360ms var(--ease-out),transform 360ms var(--ease-out)}
+  .core.is-open .lab{transform:none}
+  .leads{display:block}
+  .core.leads-on .leads{opacity:1}
+  .core.leads-on .ld{stroke-dashoffset:0;transition:stroke-dashoffset 420ms var(--ease-out)}
+  .core.leads-on .ld:nth-of-type(2){transition-delay:70ms}.core.leads-on .ld:nth-of-type(3){transition-delay:140ms}.core.leads-on .ld:nth-of-type(4){transition-delay:210ms}
+}
+
+/* sea level — the pivot of the page */
+.sealevel{background:var(--ironshore);color:var(--bone);padding-block:var(--s3)}
+.sealevel .w{display:flex;align-items:center;gap:var(--s2);font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;white-space:nowrap}
+.sea{flex:1;position:relative;height:1px;min-width:0}
+.sea::before,.sea::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--brass);transform-origin:0 50%}
+.sea::after{opacity:0}
+
+/* the deep — marine snow lives only in the trench and on the floor */
+.layer--trench,.floor{position:relative}
+.layer--trench>.w,.floor>.w{position:relative}
+.snow{display:none}
+
+/* the floor */
+.floor{background:var(--trench);color:var(--bone);padding-block:var(--s7) var(--s8);border-top:1px solid var(--rule-dark)}
+.doors{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s6)}
+@media(min-width:900px){.doors{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}}
+.floor h2{font-size:clamp(2rem,4.4vw,3rem);line-height:1.1;margin-bottom:var(--s3)}
+.floor p{color:var(--bone)}
+.slip{margin-top:var(--s4);border-top:1px dashed var(--brass);padding-top:var(--s3);display:grid;gap:var(--s2);max-width:460px}
+label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--bone-soft);display:block;margin-bottom:6px}
+input{width:100%;font:inherit;font-size:16px;color:var(--bone);background:transparent;border:0;border-bottom:1px solid var(--bone-soft);padding:10px 0;border-radius:0;transition:border-color 140ms var(--ease-out,cubic-bezier(.2,.7,.2,1))}
+input:hover{border-bottom-color:var(--bone)}
+input:focus{border-bottom-color:var(--brass)}
+button{font:inherit;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--trench);background:var(--bone);border:1px solid var(--bone);padding:14px 22px;min-height:48px;cursor:pointer;justify-self:start;white-space:nowrap;transition:background-color 140ms var(--ease-out,cubic-bezier(.2,.7,.2,1)),color 140ms var(--ease-out,cubic-bezier(.2,.7,.2,1))}
+button:hover{background:var(--brass);border-color:var(--brass)}
+button:active{background:var(--bone-soft)}
+button:disabled{opacity:.55;cursor:not-allowed}
+.msg{font-size:14px;color:var(--brass);min-height:1lh;margin:0}
+.trade{border-left:1px solid var(--rule-dark);padding-left:var(--s4)}
+@media(max-width:899px){.trade{border-left:0;padding-left:0;border-top:1px solid var(--rule-dark);padding-top:var(--s5)}}
+.trade h2{font-size:clamp(1.6rem,3vw,2.1rem)}
+
+footer{background:var(--trench);color:var(--bone-soft);padding-block:var(--s5) var(--s6);border-top:1px solid var(--rule-dark);font-size:13px}
+footer .wordmark{width:180px;height:auto;display:block;color:var(--bone);margin-bottom:var(--s3)}
+footer .meta{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4)}
+footer .fine{margin-top:var(--s3);font-size:12px;max-width:70ch}
+
+/* the gauge — elevation readout, fixed; desktop adds a segment track */
+.gauge{position:fixed;z-index:20;font-family:var(--display);font-variant-numeric:lining-nums tabular-nums;color:var(--ink);background:var(--limestone);border:1px solid var(--rule-light);transition:color 200ms ease,background-color 200ms ease,border-color 200ms ease;
+  left:16px;right:16px;bottom:calc(12px + env(safe-area-inset-bottom,0px));display:flex;align-items:baseline;justify-content:space-between;gap:var(--s2);padding:10px 16px}
+.gauge .v{font-size:1.35rem;line-height:1;white-space:nowrap}
+.gauge .l{font-family:var(--text);font-size:10px;letter-spacing:.24em;text-transform:uppercase;font-weight:600}
+.gauge.is-dark{color:var(--bone);background:var(--trench);border-color:var(--rule-dark)}
+.track{display:none}
+@media(min-width:900px){.gauge{left:auto;right:var(--s4);bottom:auto;top:50%;transform:translateY(-50%);flex-direction:column;align-items:flex-end;width:120px;padding:var(--s2);background:transparent;border:0}
+  .gauge.is-dark{background:transparent}
+  .gauge .v{font-size:1.9rem}
+  .track{display:block;position:relative;width:12px;height:160px;margin-bottom:var(--s2)}
+  .track::before{content:"";position:absolute;right:0;top:0;bottom:0;width:1px;background:currentColor;opacity:.35}
+  .track .tk{position:absolute;right:0;width:5px;height:1px;background:currentColor;opacity:.35}
+  .track .tk:nth-of-type(1){top:0}.track .tk:nth-of-type(2){top:20%}.track .tk:nth-of-type(3){top:40%}.track .tk:nth-of-type(4){top:60%}.track .tk:nth-of-type(5){top:80%}.track .tk:nth-of-type(6){top:auto;bottom:0}
+  .track .mk{position:absolute;right:0;top:0;width:12px;height:2px;background:currentColor;transition:transform 120ms linear}}
+
+/* ── motion: everything below is gated behind .js on the root (added by the script) ── */
+/* 1 · load: wordmark rises, then kicker, headline line by line, lede, staggered */
+:root.js .rise{opacity:0;animation:rise 700ms var(--ease-out) both;animation-delay:var(--dl,0ms)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* 2 · transmuting ground: the script paints the ground colour on the page; these bands go clear so it shows through. thatch, sea level and ironshore stay solid on purpose (they are the crossing) */
+:root.ground-on .layer--bluff,:root.ground-on .layer--caymanite,:root.ground-on .layer--trench,:root.ground-on .floor,:root.ground-on footer{background:transparent}
+/* 3 · sigils draw themselves, once, when the band enters */
+:root.js .sigil .d{stroke-dasharray:64;stroke-dashoffset:64}
+:root.js .sigil .d.b{stroke-dasharray:16;stroke-dashoffset:16}
+:root.js .sigil .d.c{stroke-dasharray:58;stroke-dashoffset:58}
+:root.js .sigil .d.p{stroke-dasharray:6;stroke-dashoffset:6}
+:root.js .is-in .sigil .d{stroke-dashoffset:0;transition:stroke-dashoffset 900ms var(--ease-out)}
+:root.js .is-in .sigil .d.b,:root.js .is-in .sigil .d.p{transition-duration:500ms;transition-delay:520ms}
+/* 5 · sea level: the brass line draws across from the left; one slow ripple under it */
+:root.js .sea::before{transform:scaleX(0)}
+:root.js .sealevel.is-in .sea::before{transform:none;transition:transform 1000ms var(--ease-draw)}
+:root.js .sealevel.is-in .sea::after{animation:ripple 1100ms var(--ease-out) 240ms both}
+@keyframes ripple{0%{transform:scaleX(0) translateY(0);opacity:0}30%{opacity:.55}100%{transform:scaleX(1) translateY(6px);opacity:0}}
+/* 6 · the deep: marine snow canvas, only with JS */
+:root.js .snow{display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+
+@media (prefers-reduced-motion:reduce){
+  .gauge,input,button,.track .mk{transition:none}
+  :root.js .rise{animation:none;opacity:1;transform:none}
+  :root.js .sigil .d{stroke-dashoffset:0;transition:none}
+  :root.js .sea::before{transform:none;transition:none}
+  :root.js .sealevel.is-in .sea::after{animation:none;opacity:0}
+  :root.js .snow{display:none}
+  .stratum,.lab,.ld,.leads{transition:none}
+  .core .stack,.core.is-open .stack{margin-bottom:calc(4*var(--g))}
+  .core .stratum,.core.is-open .stratum{transform:translateY(calc(var(--i)*var(--g)))}
+  .core .strata,.core.is-open .strata{position:absolute;inset:0;display:block;padding:0;left:0;pointer-events:auto}
+  .core .lab,.core.is-open .lab{position:absolute;opacity:1;transform:translateY(calc(var(--i)*var(--g)))}
+  .leads{display:none}
+}
+.layer:not(.dark) .leads{color:var(--oxblood)}
+@media(max-width:399px){.core{--g:118px}}
+
+.slip--embed{display:grid;gap:var(--s1);margin-top:var(--s4);max-width:460px;width:100%;min-width:0}
+.doors>*{min-width:0}
+.embed-note{font-size:13px;color:var(--bone-soft)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--trench);background:var(--bone);border:1px solid var(--bone);padding:14px 22px;min-height:48px;text-decoration:none;white-space:nowrap;transition:background-color 140ms var(--ease-out),border-color 140ms var(--ease-out)}
+.btn:hover{background:var(--brass);border-color:var(--brass)}
+.btn:active{background:var(--bone-soft)}
+.btn:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.slip{justify-items:start}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="wm" viewBox="0 0 616 310">
+<g fill="currentColor"><g transform="translate(44.00 119.00)"><path d="M38.15 1.00Q28.00 1.00 20.35 -3.98Q12.70 -8.95 8.43 -17.65Q4.15 -26.35 4.15 -37.50Q4.15 -48.65 8.43 -57.35Q12.70 -66.05 20.35 -71.03Q28.00 -76.00 38.15 -76.00Q43.20 -76.00 47.68 -74.20Q52.15 -72.40 55.40 -69.20L61.45 -75.00H61.65V-54.50H61.45Q61.45 -60.60 58.25 -65.35Q55.05 -70.10 49.95 -72.80Q44.85 -75.50 39.15 -75.50Q32.65 -75.50 28.12 -72.18Q23.60 -68.85 20.88 -63.33Q18.15 -57.80 16.90 -51.08Q15.65 -44.35 15.65 -37.50Q15.65 -30.70 16.90 -23.95Q18.15 -17.20 20.88 -11.68Q23.60 -6.15 28.12 -2.83Q32.65 0.50 39.15 0.50Q44.35 0.50 48.62 -1.18Q52.90 -2.85 56.00 -5.80Q59.10 -8.75 60.78 -12.53Q62.45 -16.30 62.45 -20.50H62.65V0.00H62.45L56.90 -6.25Q53.65 -2.90 48.83 -0.95Q44.00 1.00 38.15 1.00Z"/></g><g transform="translate(129.08 119.00)"><path d="M20.05 -24.30V-24.50H51.85V-24.30ZM38.30 -76.50 64.75 -0.20H71.85V0.00H42.85V-0.20H53.80L33.60 -62.80L11.70 -0.20H23.85V0.00H1.85V-0.20H11.50L38.10 -76.50Z"/></g><g transform="translate(217.56 119.00)"><path d="M22.45 0.00V-0.20H31.45V-35.98L8.05 -74.80H1.00V-75.00H30.00V-74.80H19.05L40.75 -38.50L60.25 -74.80H48.50V-75.00H69.50V-74.80H60.55L40.95 -38.30V-0.20H51.00V0.00Z"/></g><g transform="translate(305.34 119.00)"><path d="M37.45 1.00 9.65 -75.00H19.19L42.20 -12.90L64.25 -75.00H64.45L37.60 1.00ZM9.75 -75.00V-0.20H17.50V0.00H2.30V-0.20H9.55V-74.80H1.85V-75.00ZM80.85 -75.00V-74.80H73.85V-0.20H80.85V0.00H56.30V-0.20H64.35V-75.00Z"/></g><g transform="translate(406.72 119.00)"><path d="M20.05 -24.30V-24.50H51.85V-24.30ZM38.30 -76.50 64.75 -0.20H71.85V0.00H42.85V-0.20H53.80L33.60 -62.80L11.70 -0.20H23.85V0.00H1.85V-0.20H11.50L38.10 -76.50Z"/></g><g transform="translate(498.90 119.00)"><path d="M11.95 -75.00V-0.20H24.05V0.00H1.85V-0.20H11.75V-74.80H1.85V-75.00ZM71.30 -75.00V-74.80H60.80V1.00H60.60L11.85 -75.00H23.30L60.60 -15.20V-74.80H48.60V-75.00Z"/></g><g transform="translate(44.00 206.00)"><path d="M19.85 -38.40V-38.60H34.85Q39.65 -38.60 43.00 -40.80Q46.35 -43.00 48.10 -47.03Q49.85 -51.05 49.85 -56.50Q49.85 -61.95 48.10 -66.08Q46.35 -70.20 42.99 -72.50Q39.63 -74.80 34.85 -74.80H1.85V-75.00H34.85Q42.40 -75.00 48.03 -73.08Q53.65 -71.15 56.75 -67.08Q59.85 -63.00 59.85 -56.50Q59.85 -50.00 56.95 -46.02Q54.05 -42.03 48.48 -40.22Q42.90 -38.40 34.85 -38.40ZM1.85 0.00V-0.20H33.35V0.00ZM12.80 -0.10V-74.90H22.35V-0.10ZM59.35 0.50Q55.00 0.50 52.58 -1.14Q50.15 -2.78 49.05 -5.56Q47.95 -8.34 47.68 -11.80Q47.40 -15.25 47.35 -18.94Q47.30 -22.64 46.95 -26.09Q46.60 -29.55 45.40 -32.34Q44.20 -35.12 41.58 -36.76Q38.95 -38.40 34.35 -38.40H19.85V-38.60H36.35Q43.70 -38.60 48.03 -36.50Q52.35 -34.40 54.48 -30.98Q56.60 -27.55 57.30 -23.43Q58.00 -19.30 58.03 -15.18Q58.05 -11.05 58.15 -7.62Q58.25 -4.20 59.20 -2.10Q60.15 0.00 62.80 0.00Q64.40 0.00 65.80 -0.35Q67.20 -0.70 68.25 -1.20L68.35 -1.10Q67.15 -0.45 64.90 0.02Q62.65 0.50 59.35 0.50Z"/></g><g transform="translate(131.39 206.00)"><path d="M1.85 0.00V-0.20H12.80V-74.80H1.85V-75.00H34.35V-74.80H22.35V-0.20H34.35V0.00Z"/></g><g transform="translate(185.48 206.00)"><path d="M15.85 0.00V-0.20H26.85V-74.80H16.82Q12.40 -74.80 9.55 -73.12Q6.70 -71.45 5.05 -68.43Q3.40 -65.40 2.73 -61.33Q2.05 -57.25 2.05 -52.50H1.85V-75.00H61.35V-52.50H61.10Q61.10 -57.25 60.42 -61.33Q59.75 -65.40 58.10 -68.43Q56.45 -71.45 53.58 -73.12Q50.70 -74.80 46.32 -74.80H36.35V-0.20H47.35V0.00Z"/></g><g transform="translate(266.17 206.00)"><path d="M67.85 -75.00V-74.80H57.95V-23.00Q57.95 -10.65 52.80 -4.58Q47.65 1.50 35.80 1.50Q22.85 1.50 16.83 -4.28Q10.80 -10.05 10.80 -23.00V-74.80H1.85V-75.00H30.35V-74.80H20.35V-24.00Q20.35 -19.05 21.08 -14.55Q21.80 -10.05 23.68 -6.55Q25.55 -3.05 28.98 -1.03Q32.40 1.00 37.80 1.00Q44.50 1.00 48.92 -1.62Q53.35 -4.25 55.55 -9.57Q57.75 -14.90 57.75 -23.00V-74.80H48.30V-75.00Z"/></g><g transform="translate(353.57 206.00)"><path d="M20.05 -24.30V-24.50H51.85V-24.30ZM38.30 -76.50 64.75 -0.20H71.85V0.00H42.85V-0.20H53.80L33.60 -62.80L11.70 -0.20H23.85V0.00H1.85V-0.20H11.50L38.10 -76.50Z"/></g><g transform="translate(444.06 206.00)"><path d="M1.85 0.00V-0.20H10.80V-74.80H1.85V-75.00H29.30V-74.80H20.35V-0.20H35.80Q41.70 -0.20 45.40 -1.88Q49.10 -3.55 51.10 -6.58Q53.10 -9.60 53.85 -13.68Q54.60 -17.75 54.60 -22.50H54.80V0.00Z"/></g><g transform="translate(516.20 206.00)"><path d="M28.90 1.50Q22.15 1.50 17.58 -0.60Q13.00 -2.70 10.05 -6.30L4.60 1.00H4.40V-19.50H4.60Q5.45 -15.05 7.20 -11.28Q8.95 -7.50 11.78 -4.70Q14.60 -1.90 18.62 -0.35Q22.65 1.20 28.10 1.20Q33.40 1.20 37.40 -0.70Q41.40 -2.60 43.65 -6.33Q45.90 -10.05 45.90 -15.50Q45.90 -19.90 43.70 -22.95Q41.50 -26.00 37.90 -28.25Q34.30 -30.50 29.98 -32.45Q25.65 -34.40 21.33 -36.50Q17.00 -38.60 13.40 -41.38Q9.80 -44.15 7.60 -48.05Q5.40 -51.95 5.40 -57.50Q5.40 -63.00 8.28 -67.18Q11.15 -71.35 15.85 -73.68Q20.55 -76.00 26.10 -76.00Q31.20 -76.00 35.30 -74.40Q39.40 -72.80 42.30 -69.40L47.70 -76.00H47.90V-55.50H47.70Q46.70 -62.45 43.88 -66.90Q41.05 -71.35 36.75 -73.48Q32.45 -75.60 27.10 -75.60Q19.90 -75.60 16.15 -72.03Q12.40 -68.45 12.40 -62.50Q12.40 -58.55 14.55 -55.78Q16.70 -53.00 20.20 -50.88Q23.70 -48.75 27.93 -46.83Q32.15 -44.90 36.38 -42.68Q40.60 -40.45 44.10 -37.45Q47.60 -34.45 49.75 -30.23Q51.90 -26.00 51.90 -20.00Q51.90 -13.50 49.10 -8.68Q46.30 -3.85 41.12 -1.18Q35.95 1.50 28.90 1.50Z"/></g></g>
+<g fill="currentColor"><g transform="translate(44.00 266.38)"><path d="M6.19 0.18 1.83 -13.84H0.18V-13.88H13.13V-13.84H8.51L12.00 -2.57L16.09 -13.84H14.06V-13.88H17.75V-13.84H16.15L11.05 0.18H11.02L6.67 -13.84H3.68L7.21 -2.57L9.05 -7.43L9.07 -7.34L6.23 0.18ZM10.00 -8.79 9.96 -8.84 11.65 -13.86H11.71Z"/></g><g transform="translate(103.11 266.38)"><path d="M0.34 0.00V-0.04H2.00V-13.84H0.34V-13.88H10.05V-10.08H10.02Q10.02 -11.07 9.69 -11.93Q9.37 -12.78 8.68 -13.31Q7.99 -13.84 6.91 -13.84H3.76V-0.04H6.72Q7.99 -0.04 8.76 -0.58Q9.52 -1.12 9.86 -2.05Q10.20 -2.99 10.20 -4.16H10.24V0.00ZM6.87 -5.14Q6.87 -5.76 6.60 -6.22Q6.32 -6.67 5.86 -6.91Q5.40 -7.16 4.87 -7.16H3.02V-7.20H4.87Q5.40 -7.20 5.86 -7.42Q6.32 -7.64 6.60 -8.07Q6.87 -8.50 6.87 -9.12H6.91V-5.14Z"/></g><g transform="translate(155.06 266.38)"><path d="M5.35 0.28Q4.10 0.28 3.25 -0.11Q2.40 -0.50 1.86 -1.17L0.85 0.18H0.81V-3.61H0.85Q1.01 -2.78 1.33 -2.09Q1.66 -1.39 2.18 -0.87Q2.70 -0.35 3.45 -0.06Q4.19 0.22 5.20 0.22Q6.18 0.22 6.92 -0.13Q7.66 -0.48 8.08 -1.17Q8.49 -1.86 8.49 -2.87Q8.49 -3.68 8.08 -4.25Q7.68 -4.81 7.01 -5.23Q6.35 -5.64 5.55 -6.00Q4.75 -6.36 3.95 -6.75Q3.15 -7.14 2.48 -7.65Q1.81 -8.17 1.41 -8.89Q1.00 -9.61 1.00 -10.64Q1.00 -11.65 1.53 -12.43Q2.06 -13.20 2.93 -13.63Q3.80 -14.06 4.83 -14.06Q5.77 -14.06 6.53 -13.76Q7.29 -13.47 7.83 -12.84L8.82 -14.06H8.86V-10.27H8.82Q8.64 -11.55 8.12 -12.38Q7.59 -13.20 6.80 -13.59Q6.00 -13.99 5.01 -13.99Q3.68 -13.99 2.99 -13.32Q2.29 -12.66 2.29 -11.56Q2.29 -10.83 2.69 -10.32Q3.09 -9.80 3.74 -9.41Q4.38 -9.02 5.17 -8.66Q5.95 -8.31 6.73 -7.89Q7.51 -7.48 8.16 -6.93Q8.81 -6.37 9.20 -5.59Q9.60 -4.81 9.60 -3.70Q9.60 -2.50 9.08 -1.60Q8.57 -0.71 7.61 -0.22Q6.65 0.28 5.35 0.28Z"/></g><g transform="translate(206.57 266.38)"><path d="M2.93 0.00V-0.04H4.97V-13.84H3.11Q2.29 -13.84 1.77 -13.53Q1.24 -13.22 0.93 -12.66Q0.63 -12.10 0.50 -11.35Q0.38 -10.59 0.38 -9.71H0.34V-13.88H11.35V-9.71H11.30Q11.30 -10.59 11.18 -11.35Q11.05 -12.10 10.75 -12.66Q10.44 -13.22 9.91 -13.53Q9.38 -13.84 8.57 -13.84H6.72V-0.04H8.76V0.00Z"/></g><g transform="translate(305.23 266.38)"><path d="M0.34 0.00V-0.04H2.37V-13.84H0.34V-13.88H6.35V-13.84H4.13V-0.04H6.35V0.00Z"/></g><g transform="translate(353.10 266.38)"><path d="M2.21 -13.88V-0.04H4.45V0.00H0.34V-0.04H2.17V-13.84H0.34V-13.88ZM13.19 -13.88V-13.84H11.25V0.18H11.21L2.19 -13.88H4.31L11.21 -2.81V-13.84H8.99V-13.88Z"/></g><g transform="translate(407.73 266.38)"><path d="M5.52 -13.88Q7.58 -13.88 9.07 -12.96Q10.56 -12.05 11.37 -10.48Q12.18 -8.91 12.18 -6.94Q12.18 -5.46 11.70 -4.19Q11.21 -2.93 10.32 -1.99Q9.43 -1.05 8.21 -0.52Q6.99 0.00 5.51 0.00H0.34V-0.04H2.00V-13.84H0.34V-13.88ZM3.76 -0.04H5.51Q6.79 -0.04 7.66 -0.63Q8.53 -1.23 9.06 -2.22Q9.58 -3.22 9.81 -4.45Q10.05 -5.68 10.05 -6.94Q10.05 -8.20 9.79 -9.43Q9.53 -10.66 8.99 -11.65Q8.45 -12.64 7.58 -13.24Q6.72 -13.84 5.51 -13.84H3.76Z"/></g><g transform="translate(461.85 266.38)"><path d="M0.34 0.00V-0.04H2.37V-13.84H0.34V-13.88H6.35V-13.84H4.13V-0.04H6.35V0.00Z"/></g><g transform="translate(509.72 266.38)"><path d="M0.34 0.00V-0.04H2.00V-13.84H0.34V-13.88H10.05V-10.08H10.02Q10.02 -11.07 9.69 -11.93Q9.37 -12.78 8.68 -13.31Q7.99 -13.84 6.91 -13.84H3.76V-0.04H6.72Q7.99 -0.04 8.76 -0.58Q9.52 -1.12 9.86 -2.05Q10.20 -2.99 10.20 -4.16H10.24V0.00ZM6.87 -5.14Q6.87 -5.76 6.60 -6.22Q6.32 -6.67 5.86 -6.91Q5.40 -7.16 4.87 -7.16H3.02V-7.20H4.87Q5.40 -7.20 5.86 -7.42Q6.32 -7.64 6.60 -8.07Q6.87 -8.50 6.87 -9.12H6.91V-5.14Z"/></g><g transform="translate(561.68 266.38)"><path d="M5.35 0.28Q4.10 0.28 3.25 -0.11Q2.40 -0.50 1.86 -1.17L0.85 0.18H0.81V-3.61H0.85Q1.01 -2.78 1.33 -2.09Q1.66 -1.39 2.18 -0.87Q2.70 -0.35 3.45 -0.06Q4.19 0.22 5.20 0.22Q6.18 0.22 6.92 -0.13Q7.66 -0.48 8.08 -1.17Q8.49 -1.86 8.49 -2.87Q8.49 -3.68 8.08 -4.25Q7.68 -4.81 7.01 -5.23Q6.35 -5.64 5.55 -6.00Q4.75 -6.36 3.95 -6.75Q3.15 -7.14 2.48 -7.65Q1.81 -8.17 1.41 -8.89Q1.00 -9.61 1.00 -10.64Q1.00 -11.65 1.53 -12.43Q2.06 -13.20 2.93 -13.63Q3.80 -14.06 4.83 -14.06Q5.77 -14.06 6.53 -13.76Q7.29 -13.47 7.83 -12.84L8.82 -14.06H8.86V-10.27H8.82Q8.64 -11.55 8.12 -12.38Q7.59 -13.20 6.80 -13.59Q6.00 -13.99 5.01 -13.99Q3.68 -13.99 2.99 -13.32Q2.29 -12.66 2.29 -11.56Q2.29 -10.83 2.69 -10.32Q3.09 -9.80 3.74 -9.41Q4.38 -9.02 5.17 -8.66Q5.95 -8.31 6.73 -7.89Q7.51 -7.48 8.16 -6.93Q8.81 -6.37 9.20 -5.59Q9.60 -4.81 9.60 -3.70Q9.60 -2.50 9.08 -1.60Q8.57 -0.71 7.61 -0.22Q6.65 0.28 5.35 0.28Z"/></g></g>
+</symbol></svg>
+
+<header class="w top">
+  <svg class="wordmark rise" viewBox="0 0 616 310" role="img" aria-label="Cayman Rituals, West Indies"><use href="#wm"/></svg>
+</header>
+
+<section class="w hero" data-elev="43" data-label="Above the Bluff">
+  <div>
+    <p class="kicker rise" style="--dl:480ms">Cayman Islands · West Indies</p>
+    <h1><span class="ln rise" style="--dl:570ms">Keep the</span> <span class="ln rise" style="--dl:660ms">island.</span></h1>
+    <p class="lede rise" style="--dl:750ms">Cayman is not a beach. It is the top of an underwater mountain. From the floor of the Cayman Trench to the top of the Bluff is almost eight vertical kilometres, and all of life here happens in the top forty metres.</p>
+    <p class="lede rise" style="--dl:840ms">We make one thing from each layer. Four elements, and the fifth at the bottom of the sea.</p>
+    <a class="begin rise" style="--dl:930ms" href="#bluff">Begin at the top ↓</a>
+  </div>
+  <figure>
+    <img src="img/bluff-statement.jpg" alt="Looking out from the top of the Bluff on Cayman Brac: grey ironshore and low scrub in the foreground, a rock islet in white water directly below, and open blue sea to the horizon under a sky of small clouds." width="2400" height="1800" fetchpriority="high">
+    <figcaption>From the top of the Bluff, Cayman Brac, looking out to Little Cayman Brac.<span class="credit">Photo: EvaZL, CC BY 4.0, via Wikimedia Commons. Edited.</span></figcaption>
+  </figure>
+</section>
+
+<section class="layer layer--bluff" id="bluff" data-elev="43" data-label="Bluff">
+  <div class="w row">
+    <div>
+      <span class="elev"><span class="sg">+</span><span class="n">43</span> m</span>
+      <span class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M12 2.5L21.5 21H2.5Z"/><path class="d b" d="M4.5 11.5H19.5"/></svg>Bluff · Air</span>
+      <h2>The highest ground in the country, on Cayman Brac.</h2>
+      <div class="notes"><b>The scent</b>Dry white height. Frangipani, sea grape leaf, sun-bleached grass, limestone dust.</div>
+      <span class="status">Coming later</span>
+    </div>
+    <div class="pieces">
+      <p>Every piece we make carries the height of the place it comes from, printed under its name. The numbers are only true here, which is the point.</p>
+    </div>
+  </div>
+</section>
+
+<section class="layer layer--caymanite" id="caymanite" data-elev="20" data-label="Caymanite">
+  <div class="w row">
+    <div>
+      <span class="elev"><span class="sg">+</span><span class="n">20</span> m</span>
+      <span class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M2.5 3H21.5L12 21.5Z"/><path class="d b" d="M4.5 13H19.5"/></svg>Caymanite · Earth</span>
+      <h2>A banded stone laid down in the fissures of the Bluff.</h2>
+      <div class="notes"><b>The scent</b>Warm mineral. Red clay, labdanum, saffron, dry cedar, a trace of hot iron.</div>
+      <span class="status">Coming later</span>
+    </div>
+    <div class="pieces">
+      <div class="piece">
+        <div class="core" id="core-keeper">
+          <div class="stack">
+            <button class="spec" type="button" aria-expanded="false" aria-controls="strata-keeper" aria-labelledby="n-keeper">
+              <span class="stratum s1"><img src="img/g-keeper.jpg" alt="A polished disc of banded caymanite engraved with CAY over RIT, held at a lapidary bench." loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s2"><img src="img/g-keeper.jpg" alt="" loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s3"><img src="img/g-keeper.jpg" alt="" loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s4"><img src="img/g-keeper.jpg" alt="" loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+            </button>
+            <div class="strata" id="strata-keeper">
+              <div class="lab l1"><svg class="sigil mk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 3H21.5L12 21.5Z"/><path d="M4.5 13H19.5"/></svg><b class="lt">The stamp</b><span class="ll">CAY RIT cut into the face. Never printed.</span></div>
+              <div class="lab l2"><i class="mt"></i><b class="lt">The stone</b><span class="ll">Caymanite, banded stone of the Bluff, from documented sources only.</span></div>
+              <div class="lab l3"><i class="mt"></i><b class="lt">The hand</b><span class="ll">Turned by hand, so no two bands fall alike.</span></div>
+              <div class="lab l4"><i class="mt"></i><b class="lt">The life</b><span class="ll">Bought once. It moves onto every refill after.</span></div>
+            </div>
+            <svg class="leads" aria-hidden="true" focusable="false"><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><circle class="lp" r="2"/><circle class="lp" r="2"/><circle class="lp" r="2"/><circle class="lp" r="2"/></svg>
+          </div>
+          <span class="dev">In development</span>
+        </div>
+        <h3 id="n-keeper">The Keeper</h3>
+        <p>A lid turned from caymanite. You buy it once, and it moves onto every candle refill after that.</p>
+      </div>
+      <div class="piece">
+        <div class="core" id="core-slab">
+          <div class="stack">
+            <button class="spec" type="button" aria-expanded="false" aria-controls="strata-slab" aria-labelledby="n-slab">
+              <span class="stratum s1"><img src="img/g-slab.jpg" alt="A rectangular pendant of banded red and cream stone in a thin gold frame on a fine chain." loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s2"><img src="img/g-slab.jpg" alt="" loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s3"><img src="img/g-slab.jpg" alt="" loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s4"><img src="img/g-slab.jpg" alt="" loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+            </button>
+            <div class="strata" id="strata-slab">
+              <div class="lab l1"><svg class="sigil mk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 3H21.5L12 21.5Z"/><path d="M4.5 13H19.5"/></svg><b class="lt">The cut</b><span class="ll">Sliced so the bands run level. A section you can wear.</span></div>
+              <div class="lab l2"><i class="mt"></i><b class="lt">The stone</b><span class="ll">Caymanite, from documented sources only.</span></div>
+              <div class="lab l3"><i class="mt"></i><b class="lt">The frame</b><span class="ll">Plain gold, closed around the edge. Caymanite is soft; the frame keeps it.</span></div>
+              <div class="lab l4"><i class="mt"></i><b class="lt">The back</b><span class="ll">CAY RIT stamped where only you will see it.</span></div>
+            </div>
+            <svg class="leads" aria-hidden="true" focusable="false"><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><circle class="lp" r="2"/><circle class="lp" r="2"/><circle class="lp" r="2"/><circle class="lp" r="2"/></svg>
+          </div>
+          <span class="dev">In development</span>
+        </div>
+        <h3 id="n-slab">The Slab</h3>
+        <p>A slice of the stone, cut so its bands run level, set in a plain gold frame. A section you can wear.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="layer layer--thatch" id="thatch" data-elev="8" data-label="Thatch">
+  <div class="w row">
+    <div>
+      <span class="elev"><span class="sg">+</span><span class="n">8</span> m</span>
+      <span class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M12 2.5L21.5 21H2.5Z"/></svg>Thatch · Fire</span>
+      <h2>The canopy of the silver thatch palm.</h2>
+      <div class="notes"><b>The scent</b>Green and fibrous. Fresh palm, dry plaited frond, coconut water, vetiver, hay. Cured by sun.</div>
+      <span class="status">One of the first three</span>
+    </div>
+    <div class="pieces">
+      <div class="piece">
+        <div class="core" id="core-rope">
+          <div class="stack">
+            <button class="spec" type="button" aria-expanded="false" aria-controls="strata-rope" aria-labelledby="n-rope">
+              <span class="stratum s1"><img src="img/f-bracelet.jpg" alt="A hand-plaited pale palm-fibre rope bracelet with brass end caps." loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s2"><img src="img/f-bracelet.jpg" alt="" loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s3"><img src="img/f-bracelet.jpg" alt="" loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s4"><img src="img/f-bracelet.jpg" alt="" loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+            </button>
+            <div class="strata" id="strata-rope">
+              <div class="lab l1"><svg class="sigil mk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5L21.5 21H2.5Z"/></svg><b class="lt">The plait</b><span class="ll">Silver thatch, plaited by hand in Cayman.</span></div>
+              <div class="lab l2"><i class="mt"></i><b class="lt">The craft</b><span class="ll">An island craft, kept alive in new hands.</span></div>
+              <div class="lab l3"><i class="mt"></i><b class="lt">The number</b><span class="ll">Every piece numbered, and filmed from frond to wrist.</span></div>
+              <div class="lab l4"><i class="mt"></i><b class="lt">The ends</b><span class="ll">Brass ends. When the cord wears, it is replaced, not thrown away.</span></div>
+            </div>
+            <svg class="leads" aria-hidden="true" focusable="false"><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><circle class="lp" r="2"/><circle class="lp" r="2"/><circle class="lp" r="2"/><circle class="lp" r="2"/></svg>
+          </div>
+          <span class="dev">In development</span>
+        </div>
+        <h3 id="n-rope">The Rope</h3>
+        <p>Silver thatch rope was a Caymanian export within living memory, and very few people still plait it. Ours carries the old plait into new work, by hand, and every piece is numbered. Rope No. 001 is being made now.</p>
+      </div>
+      <div class="piece">
+        <div class="core" id="core-edp">
+          <div class="stack">
+            <button class="spec" type="button" aria-expanded="false" aria-controls="strata-edp" aria-labelledby="n-edp">
+              <span class="stratum s1"><img src="img/g-edp.jpg" alt="A heavy square glass perfume bottle, its cap wrapped in plaited pale palm cord, standing on wet black rock." loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s2"><img src="img/g-edp.jpg" alt="" loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s3"><img src="img/g-edp.jpg" alt="" loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s4"><img src="img/g-edp.jpg" alt="" loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+            </button>
+            <div class="strata" id="strata-edp">
+              <div class="lab l1"><svg class="sigil mk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5L21.5 21H2.5Z"/></svg><b class="lt">The cap</b><span class="ll">Wrapped by hand in plaited silver thatch. The one part no catalogue sells.</span></div>
+              <div class="lab l2"><i class="mt"></i><b class="lt">The glass</b><span class="ll">Heavy and plain. The ornament is the island, not the bottle.</span></div>
+              <div class="lab l3"><i class="mt"></i><b class="lt">The scent</b><span class="ll">Named for one layer of the island and its real height.</span></div>
+              <div class="lab l4"><i class="mt"></i><b class="lt">The time</b><span class="ll">Rested before it is bottled. Never rushed.</span></div>
+            </div>
+            <svg class="leads" aria-hidden="true" focusable="false"><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><circle class="lp" r="2"/><circle class="lp" r="2"/><circle class="lp" r="2"/><circle class="lp" r="2"/></svg>
+          </div>
+          <span class="dev">In development</span>
+        </div>
+        <h3 id="n-edp">Eau de parfum</h3>
+        <p>Plain heavy glass, with the cap wrapped by hand in the same plaited thatch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sealevel dark" aria-hidden="true"><div class="w">Sea level · 0 m<span class="sea"></span></div></div>
+
+<section class="layer layer--ironshore dark" id="ironshore" data-elev="0" data-label="Ironshore">
+  <div class="w row">
+    <div>
+      <span class="elev"><span class="sg"></span><span class="n">0</span> m</span>
+      <span class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M2.5 3H21.5L12 21.5Z"/></svg>Ironshore · Water</span>
+      <h2>The fossil limestone where the island meets the sea. Sharp enough to open your hand.</h2>
+      <div class="notes"><b>The scent</b>The cut itself. Sea salt, seaweed, wet rock, driftwood, clean ambergris.</div>
+      <span class="status">One of the first three</span>
+    </div>
+    <div class="pieces">
+      <div class="piece">
+        <div class="core" id="core-candle">
+          <div class="stack">
+            <button class="spec" type="button" aria-expanded="false" aria-controls="strata-candle" aria-labelledby="n-candle">
+              <span class="stratum s1"><img src="img/g-candle.jpg" alt="A heavy glass tumbler candle poured in three horizontal bands of cream, oxblood and umber wax." loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s2"><img src="img/g-candle.jpg" alt="" loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s3"><img src="img/g-candle.jpg" alt="" loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s4"><img src="img/g-candle.jpg" alt="" loading="lazy" width="1200" height="900"><i class="pt"></i></span>
+            </button>
+            <div class="strata" id="strata-candle">
+              <div class="lab l1"><svg class="sigil mk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 3H21.5L12 21.5Z"/></svg><b class="lt">The mark</b><span class="ll">Letterpress on torn cotton paper, glued on by hand.</span></div>
+              <div class="lab l2"><i class="mt"></i><b class="lt">The pour</b><span class="ll">Three bands poured by hand, one at a time, set level like stone.</span></div>
+              <div class="lab l3"><i class="mt"></i><b class="lt">The scent</b><span class="ll">One layer of the island, named for its real height.</span></div>
+              <div class="lab l4"><i class="mt"></i><b class="lt">The vessel</b><span class="ll">Heavy glass, made to be refilled. The Keeper moves to every refill.</span></div>
+            </div>
+            <svg class="leads" aria-hidden="true" focusable="false"><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><circle class="lp" r="2"/><circle class="lp" r="2"/><circle class="lp" r="2"/><circle class="lp" r="2"/></svg>
+          </div>
+          <span class="dev">In development</span>
+        </div>
+        <h3 id="n-candle">The Section Candle</h3>
+        <p>Poured in three bands, like the stone. As it burns, it melts down through its own layers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="layer layer--trench dark" id="trench" data-elev="-7686" data-label="Trench">
+  <canvas class="snow" aria-hidden="true"></canvas>
+  <div class="w row">
+    <div>
+      <span class="elev"><span class="sg">−</span><span class="n">7,686</span> m</span>
+      <span class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle class="d c" cx="12" cy="12" r="9"/><circle class="d p" cx="12" cy="12" r=".9"/></svg>Trench · The fifth</span>
+      <h2>The deepest water in the Caribbean, just off our north coast.</h2>
+      <div class="notes"><b>The scent</b>Cold depth. Black pepper, ink, ambrette, cold musk, a far-off smoke.</div>
+      <span class="status">One of the first three</span>
+    </div>
+    <div class="pieces">
+      <p>Everything we make starts somewhere on this line, between the Bluff and the Trench. Nothing on it can be made anywhere else.</p>
+    </div>
+  </div>
+</section>
+
+<section class="floor" id="floor" data-elev="-7686" data-label="The floor">
+  <canvas class="snow" aria-hidden="true"></canvas>
+  <div class="w doors">
+    <div>
+      <p class="kicker" style="color:var(--brass)">First Pour</p>
+      <h2>Fifty candles, poured into coconut shells, once a year.</h2>
+      <p>The first Cayman Rituals candles were poured into coconut shells at a kitchen table. Every year Bianca pours fifty more the same way, cleaned and prepared by hand, each one numbered and dated. When they are gone, that year is gone.</p>
+      <p>Join the queue to be told first. We write rarely.</p>
+      <div class="slip"><a class="btn" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=first-pour">Join the queue</a><small class="embed-note">Opens our sign-up page. One email to confirm; we write rarely.</small></div>
+    </div>
+    <div class="trade">
+      <p class="kicker" style="color:var(--brass)">For villas, hotels and spas</p>
+      <h2>A scent that belongs to your property alone.</h2>
+      <p>We cut a layer for your site: its height, its exposure, what grows on it. It arrives as diffusers, room spray and candles, refilled on a schedule, with a caymanite tablet for your door.</p>
+      <div class="slip"><a class="btn" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=private-section">Request a consultation</a><small class="embed-note">Leave your email and Bianca will write to arrange a time.</small></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="w">
+    <svg class="wordmark" viewBox="0 0 616 310" role="img" aria-label="Cayman Rituals, West Indies"><use href="#wm"/></svg>
+    <div class="meta"><span>caymanrituals@gmail.com</span><span>+1 345 928 1570</span><span>Instagram @caymanrituals</span></div>
+    <p class="fine">Pieces shown are in development and pictured as studies, not product photographs. Made in the Cayman Islands.</p>
+  </div>
+</footer>
+
+<div class="gauge" id="gauge" aria-hidden="true"><span class="track"><i class="tk"></i><i class="tk"></i><i class="tk"></i><i class="tk"></i><i class="tk"></i><i class="tk"></i><i class="mk"></i></span><span class="v" id="gv">+43 m</span><span class="l" id="gl">Above the Bluff</span></div>
+
+<script>
+(function(){
+  var doc=document,root=doc.documentElement,cr=doc.querySelector('.cr'),host=cr||doc.body;
+  root.classList.add('js');if(cr)cr.classList.add('js');
+  var rm=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var raf=window.requestAnimationFrame||function(f){return setTimeout(f,16)};
+
+  /* ── tokens: colours are read from the :root block, never repeated here ── */
+  var g=doc.getElementById('gauge'),gv=doc.getElementById('gv'),gl=doc.getElementById('gl');
+  var cs=window.getComputedStyle(g||doc.body);
+  function rgb(name){var h=(cs.getPropertyValue(name)||'').trim().replace('#','');if(h.length===3)h=h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
+    var v=[parseInt(h.substr(0,2),16),parseInt(h.substr(2,2),16),parseInt(h.substr(4,2),16)];return isNaN(v[0]+v[1]+v[2])?null:v}
+  var C={limestone:rgb('--limestone'),clay:rgb('--clay'),thatch:rgb('--thatch'),ironshore:rgb('--ironshore'),trench:rgb('--trench'),brass:rgb('--brass'),bone:rgb('--bone')};
+  var tokensOK=!!(C.limestone&&C.clay&&C.thatch&&C.ironshore&&C.trench&&C.brass&&C.bone);
+  function mix(a,b,t){t=t<0?0:t>1?1:t;return 'rgb('+Math.round(a[0]+(b[0]-a[0])*t)+','+Math.round(a[1]+(b[1]-a[1])*t)+','+Math.round(a[2]+(b[2]-a[2])*t)+')'}
+
+  /* ── gauge + track + transmuting ground: one rAF-throttled scroll handler ── */
+  var secs=[].slice.call(doc.querySelectorAll('[data-elev]'));
+  var mk=g&&g.querySelector('.mk'),track=g&&g.querySelector('.track');
+  var cay=doc.getElementById('caymanite'),th=doc.getElementById('thatch'),iron=doc.getElementById('ironshore'),tre=doc.getElementById('trench');
+  var groundOK=tokensOK&&!rm&&cay&&th&&iron&&tre,groundOn=false;
+  function fmt(n){n=Math.round(n);var s=Math.abs(n).toLocaleString('en-US');return (n>0?'+':n<0?'−':'')+s+' m';}
+  function setGround(on){if(on===groundOn)return;groundOn=on;
+    root.classList.toggle('ground-on',on);if(cr)cr.classList.toggle('ground-on',on);if(!on)host.style.backgroundColor='';}
+  function tick(){
+    var vh=window.innerHeight,sy=window.pageYOffset||root.scrollTop||0,mid=vh*0.5,cur=0;
+    for(var i=0;i<secs.length;i++){if(secs[i].getBoundingClientRect().top<=mid)cur=i;}
+    var a=secs[cur],b=secs[cur+1]||a,r=a.getBoundingClientRect();
+    var t=Math.min(1,Math.max(0,(mid-r.top)/Math.max(1,r.height)));
+    var ea=+a.dataset.elev,eb=+b.dataset.elev;
+    if(gv)gv.textContent=fmt(ea+(eb-ea)*t);
+    if(gl)gl.textContent=a.dataset.label;
+    if(g)g.classList.toggle('is-dark',a.classList.contains('dark')||a.classList.contains('floor'));
+    if(mk&&track){var th_=track.clientHeight;if(th_){var pos=cur===0?0:cur>=secs.length-1?1:Math.min(1,(cur-1+t)/5);mk.style.transform='translateY('+(pos*(th_-2)).toFixed(1)+'px)';}}
+    if(groundOK){
+      var ct=cay.getBoundingClientRect().top+sy,tt=th.getBoundingClientRect().top+sy,ib=iron.getBoundingClientRect().bottom+sy,tr=tre.getBoundingClientRect(),t0=tr.top+sy,t1=tr.bottom+sy;
+      var hold=tt+vh+24;
+      if(ib-hold<40){setGround(false);}
+      else{setGround(true);var yb=sy+vh,c,u;
+        if(yb<=ct)c=mix(C.limestone,C.limestone,0);
+        else if(yb<=tt){u=(yb-ct)/Math.max(1,tt-ct);c=u<.5?mix(C.limestone,C.clay,u*2):mix(C.clay,C.thatch,(u-.5)*2);}
+        else if(yb<=hold)c=mix(C.thatch,C.thatch,0);
+        else if(yb<ib)c=mix(C.thatch,C.ironshore,(yb-hold)/Math.max(1,ib-hold));
+        else if(sy<=t0)c=mix(C.ironshore,C.ironshore,0);
+        else c=mix(C.ironshore,C.trench,(sy-t0)/Math.max(1,t1-t0));
+        host.style.backgroundColor=c;}
+    }
+  }
+  var pending=0;function onScroll(){if(!pending)pending=raf(function(){pending=0;tick();});}
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',function(){onScroll();for(var i=0;i<snows.length;i++)snows[i].size();});
+  tick();
+
+  /* ── bands enter: sigils draw (CSS), elevations count (here), sea level draws (CSS) ── */
+  var layers=[].slice.call(doc.querySelectorAll('.layer'));
+  function count(sec){
+    var n=sec.querySelector('.elev .n'),sg=sec.querySelector('.elev .sg');if(!n||!sg||rm)return;
+    var i=layers.indexOf(sec);if(i<0)return;
+    var to=+sec.dataset.elev,from=i>0?+layers[i-1].dataset.elev:0;if(from===to)return;
+    var start=null;
+    function step(ts){if(start===null)start=ts;var p=Math.min(1,(ts-start)/900);p=1-Math.pow(1-p,3);
+      var v=Math.round(from+(to-from)*p);n.textContent=Math.abs(v).toLocaleString('en-US');sg.textContent=v>0?'+':v<0?'−':'';
+      if(p<1)raf(step);}
+    raf(step);
+  }
+  var bands=layers.concat([].slice.call(doc.querySelectorAll('.sealevel')));
+  if(rm||!('IntersectionObserver' in window)){for(var k=0;k<bands.length;k++)bands[k].classList.add('is-in');}
+  else{var io=new IntersectionObserver(function(es){for(var j=0;j<es.length;j++){var e=es[j];if(e.isIntersecting){e.target.classList.add('is-in');count(e.target);io.unobserve(e.target);}}},{threshold:.2});
+    for(var m=0;m<bands.length;m++)io.observe(bands[m]);}
+
+  /* ── the deep: sparse marine snow, ≤60 motes in total, runs only while visible ── */
+  var snows=[];
+  function Snow(canvas,n){
+    var ctx=canvas.getContext&&canvas.getContext('2d');if(!ctx)return null;
+    var motes=[],W=1,H=1,dpr=Math.min(2,window.devicePixelRatio||1),run=false,last=0,cols=[C.brass,C.bone];
+    for(var i=0;i<n;i++)motes.push({x:Math.random(),y:Math.random(),r:.6+Math.random()*1.2,s:8+Math.random()*14,a:.08+Math.random()*.22,ph:Math.random()*6.283,c:cols[i%2]});
+    function size(){var b=canvas.parentNode.getBoundingClientRect();W=Math.max(1,Math.round(b.width));H=Math.max(1,Math.round(b.height));canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+    function frame(ts){if(!run)return;var dt=last?Math.min(.05,(ts-last)/1000):0;last=ts;ctx.clearRect(0,0,W,H);
+      for(var i=0;i<motes.length;i++){var m=motes[i];m.y+=m.s*dt/H;m.ph+=dt*.5;if(m.y>1.02){m.y=-.02;m.x=Math.random();}
+        ctx.beginPath();ctx.arc(m.x*W+Math.sin(m.ph)*6,m.y*H,m.r,0,6.283);ctx.fillStyle='rgba('+m.c[0]+','+m.c[1]+','+m.c[2]+','+m.a.toFixed(2)+')';ctx.fill();}
+      raf(frame);}
+    return {start:function(){if(run)return;run=true;last=0;size();raf(frame);},stop:function(){run=false;},size:function(){if(run)size();}};
+  }
+  if(tokensOK&&!rm&&'IntersectionObserver' in window){
+    var cvs=[].slice.call(doc.querySelectorAll('canvas.snow')),share=[36,24];
+    var sio=new IntersectionObserver(function(es){for(var j=0;j<es.length;j++){var s=es[j].target.__snow;if(!s)continue;if(es[j].isIntersecting)s.start();else s.stop();}},{threshold:0});
+    for(var q=0;q<cvs.length&&q<2;q++){var s=Snow(cvs[q],share[q]);if(s){cvs[q].__snow=s;snows.push(s);sio.observe(cvs[q]);}}
+  }
+
+  /* ── the core sample: hover/focus opens, leaving/blur closes, click pins, one open at a time, Escape closes ── */
+  var cores=[].slice.call(doc.querySelectorAll('.core'));
+  var flQ=window.matchMedia?window.matchMedia('(hover:hover) and (pointer:fine) and (min-width:1180px)'):{matches:false};
+  function isFl(){return flQ.matches&&!rm}
+  function leads(core){
+    if(!isFl()||!core.classList.contains('is-open')){core.classList.remove('leads-on');return;}
+    var r=core.getBoundingClientRect(),svg=core.querySelector('.leads');if(!svg)return;
+    var ls=svg.querySelectorAll('.ld'),ps=svg.querySelectorAll('.lp'),labs=core.querySelectorAll('.lab'),pts=core.querySelectorAll('.pt');
+    for(var i=0;i<4&&i<ls.length;i++){
+      var p=pts[i].getBoundingClientRect(),t=labs[i].querySelector('.lt').getBoundingClientRect(),l=labs[i].getBoundingClientRect();
+      var x2=p.left+p.width/2-r.left,y2=p.top+p.height/2-r.top,x1=l.left-r.left-8,y1=t.top+t.height/2-r.top;
+      ls[i].setAttribute('x1',x1.toFixed(1));ls[i].setAttribute('y1',y1.toFixed(1));ls[i].setAttribute('x2',x2.toFixed(1));ls[i].setAttribute('y2',y2.toFixed(1));
+      ps[i].setAttribute('cx',x2.toFixed(1));ps[i].setAttribute('cy',y2.toFixed(1));
+    }
+    core.classList.add('leads-on');
+  }
+  function setOpen(core,open){
+    var btn=core.querySelector('.spec');
+    if(open){for(var i=0;i<cores.length;i++)if(cores[i]!==core){cores[i]._pin=false;setOpen(cores[i],false);}}
+    core.classList.toggle('is-open',open);btn.setAttribute('aria-expanded',open?'true':'false');
+    clearTimeout(core._t);core.classList.remove('leads-on');
+    if(open)core._t=setTimeout(function(){leads(core);},700);
+  }
+  function closeAll(){for(var i=0;i<cores.length;i++){cores[i]._pin=false;setOpen(cores[i],false);}}
+  if(rm){for(var c=0;c<cores.length;c++)cores[c].querySelector('.spec').setAttribute('aria-expanded','true');}
+  else for(var k2=0;k2<cores.length;k2++)(function(core){
+    var btn=core.querySelector('.spec');
+    btn.addEventListener('click',function(){if(core.classList.contains('is-open')&&core._pin){core._pin=false;setOpen(core,false);}else{core._pin=true;setOpen(core,true);}});
+    core.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse')setOpen(core,true);});
+    core.addEventListener('pointerleave',function(e){if(e.pointerType==='mouse'&&!core._pin)setOpen(core,false);});
+    btn.addEventListener('focus',function(){if(!core.classList.contains('is-open'))setOpen(core,true);});
+    btn.addEventListener('blur',function(){if(!core._pin)setOpen(core,false);});
+  })(cores[k2]);
+  doc.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+  window.addEventListener('resize',function(){for(var i=0;i<cores.length;i++)if(cores[i].classList.contains('is-open'))leads(cores[i]);});
+
+  /* ── forms: preview only, as v1 ── */
+  function wire(id,msgId,text){
+    var f=doc.getElementById(id),m=doc.getElementById(msgId);if(!f||!m)return;
+    f.addEventListener('submit',function(e){e.preventDefault();
+      var bad=[].slice.call(f.querySelectorAll('input')).filter(function(i){return !i.checkValidity();});
+      if(bad.length){m.textContent=bad[0].type==='email'?'Enter an email address, like name@example.com.':'Enter the property name.';bad[0].focus();return;}
+      m.textContent=text;});
+  }
+  var note='Preview only: this page does not collect addresses yet. The live form will run on beehiiv.';
+  wire('queue','q-msg',note);wire('trade','t-msg',note);
+})();
+</script>
+</body>
+</html>
