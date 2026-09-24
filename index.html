@@ -23,7 +23,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* Hallmark · pre-emit critique: P5 H5 E4 S5 R4 V5 */
-/* Hallmark · macrostructure: depth-descent · knobs: preloader=wordmark-draw, hero=cinematic-pinned(descend-through-horizon), chapters=pinned+giant-numeral+line-mask, ground=transmutes(scrolltrigger), pivot=sea-level(webgl-refraction, css-line fallback), pieces=horizontal-rail→core-sample(exploded strata), cursor=ring+magnetic, cta=two-doors */
+/* Hallmark · macrostructure: depth-descent · knobs: preloader=wordmark-draw, hero=cinematic-pinned(descend-through-horizon), chapters=pinned+giant-numeral+line-mask, ground=transmutes(scrolltrigger), pivot=sea-level(webgl-refraction, css-line fallback), pieces=horizontal-rail→core-sample(exploded strata), cursor=ring+magnetic, cta=two-doors, nav=index-overlay(section-axis), story=two-column-editorial, interstitials=manifesto×3, footer=flagship-3col */
+/* Hallmark · v5 2026-09-24 · + story chapter (The house), three manifesto lines, house index overlay (section of the island), flagship footer, polish · landing locked as v4
 /* Hallmark · v4 2026-09-24 · standalone site · libs: gsap 3.12.5 + ScrollTrigger, lenis 1.1.18, three 0.158.0 (lazy, sea level only), all pinned on jsdelivr · motion: transform/opacity/stroke-dashoffset/background-color (+ one clip-path curtain, + WebGL) · reduced motion: native scroll, no pins, no WebGL, everything visible · JS off: static readable page, samples open by :target */
 :root{
   color-scheme:light;
@@ -124,7 +125,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;o
 .chap-in{width:100%;max-width:1180px;margin:0 auto;padding-inline:20px;display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s3)}
 @media(min-width:900px){.chap-in{padding-inline:var(--s6) calc(var(--s6) + 120px);grid-template-columns:minmax(0,7fr) minmax(0,5fr);column-gap:var(--s6);align-items:end}
   .chap-in .elev{grid-column:1/-1}.chap-in .aside{grid-column:2;align-self:start;margin:0}}
-.elev{font-family:var(--display);font-size:clamp(5.5rem,22vw,20rem);line-height:.9;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.03em;display:block;font-weight:400}
+.elev{font-family:var(--display);font-size:clamp(5.5rem,22vw,20rem);line-height:.9;margin-left:-.04em;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.03em;display:block;font-weight:400}
 .elev .sg{font-family:var(--text);font-weight:400;font-size:.42em;vertical-align:.5em;margin-right:.06em;color:var(--oxblood)}
 .dark .elev .sg{color:var(--brass)}
 .elev .u{font-size:.34em;letter-spacing:0;vertical-align:baseline;margin-left:.06em}
@@ -267,7 +268,7 @@ button.spec:disabled{opacity:.55;cursor:not-allowed}
 .floor{background:var(--trench);color:var(--bone);padding-block:var(--s7) var(--s8);border-top:1px solid var(--rule-dark)}
 .doors{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s6)}
 @media(min-width:900px){.doors{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}}
-.floor h2{font-size:clamp(2rem,4.4vw,3rem);line-height:1.1;margin-bottom:var(--s3)}
+.floor h2{font-size:clamp(2rem,4.4vw,3rem);line-height:1.1;margin-bottom:var(--s3);max-width:16ch}
 .floor p{color:var(--bone)}
 .slip{margin-top:var(--s4);border-top:1px dashed var(--brass);padding-top:var(--s3);display:grid;gap:var(--s2);max-width:460px}
 label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--bone-soft);display:block;margin-bottom:6px}
@@ -325,7 +326,73 @@ footer .fine{margin-top:var(--s3);font-size:12px;max-width:70ch}
 :root.js .chap.is-in .sigil .d,:root.js.static .chap .sigil .d{stroke-dashoffset:0;transition:stroke-dashoffset 900ms var(--ease-out)}
 :root.js .chap.is-in .sigil .d.b,:root.js .chap.is-in .sigil .d.p{transition-duration:500ms;transition-delay:520ms}
 
+
+/* ── v5 · the house: story chapter, manifesto lines, index, flagship footer ── */
+.eyebrow{margin:0 0 var(--s3);font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--oxblood)}
+.dark .eyebrow{color:var(--brass)}
+.story{padding-block:var(--s7) var(--s8);border-top:1px solid var(--rule-light)}
+.story-in{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5)}
+@media(min-width:900px){.story{padding-block:var(--s8)}.story-in{grid-template-columns:minmax(0,6fr) minmax(0,5fr);column-gap:var(--s7);align-items:start}.story-r{padding-top:var(--s7)}}
+.story .lead{font-family:var(--display);font-size:clamp(1.2rem,1.8vw,1.5rem);line-height:1.3;color:var(--ink-soft);max-width:30ch;margin:0 0 var(--s4)}
+.story h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.04;letter-spacing:-.01em;max-width:14ch}
+.ritual{font-style:normal;font-weight:600;color:var(--oxblood);background-image:linear-gradient(currentColor,currentColor);background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:.04em}
+.story h2 .ritual{font-weight:500;background-size:0 2px;padding-bottom:.02em}
+.dark .ritual{color:var(--brass)}
+.story.is-in .ritual,:root:not(.js) .ritual,:root.static .ritual{background-size:100% 1px;transition:background-size 900ms var(--ease-out) 700ms}
+.story.is-in h2 .ritual,:root:not(.js) .story h2 .ritual,:root.static .story h2 .ritual{background-size:100% 2px}
+.story-r p{font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--ink-soft);max-width:44ch}
+.story-r p.sig{display:flex;align-items:center;gap:var(--s2);margin-top:var(--s5);font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+.seal{width:40px;height:40px;display:block;flex:none;opacity:.9}
+.mani{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding-block:var(--s7)}
+.mani--light{color:var(--ink)}
+.mani-l{margin:0 auto;max-width:1180px;padding-inline:20px;width:100%;font-family:var(--display);font-size:clamp(2.2rem,7vw,7.2rem);line-height:1;letter-spacing:-.015em;text-wrap:balance;overflow-wrap:anywhere}
+@media(min-width:900px){.mani-l{padding-inline:var(--s6) calc(var(--s6) + 120px)}.mani{padding-block:0}}
+@media(max-width:899px){.mani{min-height:0;padding-block:var(--s8)}}
+:root.js .mani:not(.is-in) .mani-l .lmi{transform:translateY(112%)}
+/* index */
+.idx-btn{position:fixed;right:var(--s3);top:var(--s3);z-index:45;font:inherit;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--ink);background:transparent;border:0;padding:12px 4px;cursor:pointer;line-height:1;transition:color 300ms var(--ease-out),opacity 400ms var(--ease-out)}
+.idx-btn.is-dark{color:var(--bone)}
+.idx-btn .idx-x{display:none}
+.idx-btn[aria-expanded="true"]{color:var(--bone)}
+.idx-btn[aria-expanded="true"] .idx-w{display:none}.idx-btn[aria-expanded="true"] .idx-x{display:inline}
+.idx-btn:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.idx-btn:active{opacity:.7}
+:root:not(.js) .idx-btn{display:none}
+:root.js.pre-on .idx-btn{opacity:0;pointer-events:none}
+@media(min-width:900px){.idx-btn{right:var(--s6);top:var(--s5)}}
+.idx{position:fixed;inset:0;z-index:40;background:var(--trench);color:var(--bone);overflow:auto;opacity:0;visibility:hidden;transition:opacity 500ms var(--ease-out),visibility 0s linear 500ms}
+.idx.is-on{opacity:1;visibility:visible;transition-delay:0s,0s}
+.idx[hidden]{display:block}
+.idx-in{min-height:100%;max-width:1180px;margin:0 auto;padding:var(--s7) 20px var(--s6);display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s6);align-content:center}
+@media(min-width:900px){.idx-in{padding-inline:var(--s6);grid-template-columns:minmax(0,4fr) minmax(0,7fr);column-gap:var(--s7);align-items:center}}
+.idx-wm{width:min(320px,60vw);height:auto;display:block;color:var(--bone)}
+.idx-nav{position:relative;padding-left:var(--s5)}
+.idx-axis{position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--bone);opacity:.3}
+.idx-list{list-style:none;margin:0;padding:0;display:grid;gap:var(--s3)}
+.idx-it{position:relative;opacity:0;transform:translateY(10px);transition:opacity 500ms var(--ease-out),transform 500ms var(--ease-out);transition-delay:calc(120ms + var(--d)*60ms)}
+.idx.is-on .idx-it{opacity:1;transform:none}
+.idx-it::before{content:"";position:absolute;left:calc(-1*var(--s5));top:50%;width:var(--s3);height:1px;background:var(--brass)}
+.idx-it:nth-child(3){margin-block:var(--s2)}
+.idx-it:nth-child(3)::before{width:var(--s5);background:var(--brass)}
+.idx-a{display:grid;grid-template-columns:7ch minmax(0,1fr);gap:var(--s3);align-items:baseline;text-decoration:none;color:inherit;padding:6px 0}
+.idx-e{font-family:var(--display);font-variant-numeric:lining-nums tabular-nums;font-size:1.1rem;color:var(--bone-soft)}
+.idx-n{font-family:var(--display);font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.05;background-image:linear-gradient(currentColor,currentColor);background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size 420ms var(--ease-out)}
+.idx-a:hover .idx-n,.idx-a:focus-visible .idx-n{background-size:100% 1px}
+.idx-a:focus-visible{outline:2px solid var(--brass);outline-offset:6px}
+.idx-a:active .idx-n{opacity:.7}
+.idx-foot{margin:0;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--bone-soft)}
+@media(min-width:900px){.idx-foot{grid-column:1/-1}}
+/* flagship footer */
+footer .cols{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5);margin-bottom:var(--s7)}
+@media(min-width:700px){footer .cols{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s6)}}
+footer .col p{margin:0 0 var(--s1);font-size:15px;color:var(--bone)}
+footer .col .eyebrow{margin-bottom:var(--s2)}
+footer .cols{border-bottom:1px solid var(--rule-dark);padding-bottom:var(--s6)}
+footer .fine{padding-top:var(--s3);margin-top:0}
+footer .ul{padding-bottom:1px}
+
 @media (prefers-reduced-motion:reduce){
+  .idx,.idx-it,.idx-btn,.idx-n,.ritual{transition:none}
   .gauge,.track .mk,.card-f img,.ul,.btn,.mast,.cur{transition:none}
   :root.js .pre{display:none}
   :root.js .hero-cue,:root.js .hero-cap,:root.js .hero-kick{opacity:1;transition:none}
@@ -352,6 +419,24 @@ footer .fine{margin-top:var(--s3);font-size:12px;max-width:70ch}
 <g fill="currentColor"><g transform="translate(44.00 266.38)"><path pathLength="1" d="M6.19 0.18 1.83 -13.84H0.18V-13.88H13.13V-13.84H8.51L12.00 -2.57L16.09 -13.84H14.06V-13.88H17.75V-13.84H16.15L11.05 0.18H11.02L6.67 -13.84H3.68L7.21 -2.57L9.05 -7.43L9.07 -7.34L6.23 0.18ZM10.00 -8.79 9.96 -8.84 11.65 -13.86H11.71Z"/></g><g transform="translate(103.11 266.38)"><path pathLength="1" d="M0.34 0.00V-0.04H2.00V-13.84H0.34V-13.88H10.05V-10.08H10.02Q10.02 -11.07 9.69 -11.93Q9.37 -12.78 8.68 -13.31Q7.99 -13.84 6.91 -13.84H3.76V-0.04H6.72Q7.99 -0.04 8.76 -0.58Q9.52 -1.12 9.86 -2.05Q10.20 -2.99 10.20 -4.16H10.24V0.00ZM6.87 -5.14Q6.87 -5.76 6.60 -6.22Q6.32 -6.67 5.86 -6.91Q5.40 -7.16 4.87 -7.16H3.02V-7.20H4.87Q5.40 -7.20 5.86 -7.42Q6.32 -7.64 6.60 -8.07Q6.87 -8.50 6.87 -9.12H6.91V-5.14Z"/></g><g transform="translate(155.06 266.38)"><path pathLength="1" d="M5.35 0.28Q4.10 0.28 3.25 -0.11Q2.40 -0.50 1.86 -1.17L0.85 0.18H0.81V-3.61H0.85Q1.01 -2.78 1.33 -2.09Q1.66 -1.39 2.18 -0.87Q2.70 -0.35 3.45 -0.06Q4.19 0.22 5.20 0.22Q6.18 0.22 6.92 -0.13Q7.66 -0.48 8.08 -1.17Q8.49 -1.86 8.49 -2.87Q8.49 -3.68 8.08 -4.25Q7.68 -4.81 7.01 -5.23Q6.35 -5.64 5.55 -6.00Q4.75 -6.36 3.95 -6.75Q3.15 -7.14 2.48 -7.65Q1.81 -8.17 1.41 -8.89Q1.00 -9.61 1.00 -10.64Q1.00 -11.65 1.53 -12.43Q2.06 -13.20 2.93 -13.63Q3.80 -14.06 4.83 -14.06Q5.77 -14.06 6.53 -13.76Q7.29 -13.47 7.83 -12.84L8.82 -14.06H8.86V-10.27H8.82Q8.64 -11.55 8.12 -12.38Q7.59 -13.20 6.80 -13.59Q6.00 -13.99 5.01 -13.99Q3.68 -13.99 2.99 -13.32Q2.29 -12.66 2.29 -11.56Q2.29 -10.83 2.69 -10.32Q3.09 -9.80 3.74 -9.41Q4.38 -9.02 5.17 -8.66Q5.95 -8.31 6.73 -7.89Q7.51 -7.48 8.16 -6.93Q8.81 -6.37 9.20 -5.59Q9.60 -4.81 9.60 -3.70Q9.60 -2.50 9.08 -1.60Q8.57 -0.71 7.61 -0.22Q6.65 0.28 5.35 0.28Z"/></g><g transform="translate(206.57 266.38)"><path pathLength="1" d="M2.93 0.00V-0.04H4.97V-13.84H3.11Q2.29 -13.84 1.77 -13.53Q1.24 -13.22 0.93 -12.66Q0.63 -12.10 0.50 -11.35Q0.38 -10.59 0.38 -9.71H0.34V-13.88H11.35V-9.71H11.30Q11.30 -10.59 11.18 -11.35Q11.05 -12.10 10.75 -12.66Q10.44 -13.22 9.91 -13.53Q9.38 -13.84 8.57 -13.84H6.72V-0.04H8.76V0.00Z"/></g><g transform="translate(305.23 266.38)"><path pathLength="1" d="M0.34 0.00V-0.04H2.37V-13.84H0.34V-13.88H6.35V-13.84H4.13V-0.04H6.35V0.00Z"/></g><g transform="translate(353.10 266.38)"><path pathLength="1" d="M2.21 -13.88V-0.04H4.45V0.00H0.34V-0.04H2.17V-13.84H0.34V-13.88ZM13.19 -13.88V-13.84H11.25V0.18H11.21L2.19 -13.88H4.31L11.21 -2.81V-13.84H8.99V-13.88Z"/></g><g transform="translate(407.73 266.38)"><path pathLength="1" d="M5.52 -13.88Q7.58 -13.88 9.07 -12.96Q10.56 -12.05 11.37 -10.48Q12.18 -8.91 12.18 -6.94Q12.18 -5.46 11.70 -4.19Q11.21 -2.93 10.32 -1.99Q9.43 -1.05 8.21 -0.52Q6.99 0.00 5.51 0.00H0.34V-0.04H2.00V-13.84H0.34V-13.88ZM3.76 -0.04H5.51Q6.79 -0.04 7.66 -0.63Q8.53 -1.23 9.06 -2.22Q9.58 -3.22 9.81 -4.45Q10.05 -5.68 10.05 -6.94Q10.05 -8.20 9.79 -9.43Q9.53 -10.66 8.99 -11.65Q8.45 -12.64 7.58 -13.24Q6.72 -13.84 5.51 -13.84H3.76Z"/></g><g transform="translate(461.85 266.38)"><path pathLength="1" d="M0.34 0.00V-0.04H2.37V-13.84H0.34V-13.88H6.35V-13.84H4.13V-0.04H6.35V0.00Z"/></g><g transform="translate(509.72 266.38)"><path pathLength="1" d="M0.34 0.00V-0.04H2.00V-13.84H0.34V-13.88H10.05V-10.08H10.02Q10.02 -11.07 9.69 -11.93Q9.37 -12.78 8.68 -13.31Q7.99 -13.84 6.91 -13.84H3.76V-0.04H6.72Q7.99 -0.04 8.76 -0.58Q9.52 -1.12 9.86 -2.05Q10.20 -2.99 10.20 -4.16H10.24V0.00ZM6.87 -5.14Q6.87 -5.76 6.60 -6.22Q6.32 -6.67 5.86 -6.91Q5.40 -7.16 4.87 -7.16H3.02V-7.20H4.87Q5.40 -7.20 5.86 -7.42Q6.32 -7.64 6.60 -8.07Q6.87 -8.50 6.87 -9.12H6.91V-5.14Z"/></g><g transform="translate(561.68 266.38)"><path pathLength="1" d="M5.35 0.28Q4.10 0.28 3.25 -0.11Q2.40 -0.50 1.86 -1.17L0.85 0.18H0.81V-3.61H0.85Q1.01 -2.78 1.33 -2.09Q1.66 -1.39 2.18 -0.87Q2.70 -0.35 3.45 -0.06Q4.19 0.22 5.20 0.22Q6.18 0.22 6.92 -0.13Q7.66 -0.48 8.08 -1.17Q8.49 -1.86 8.49 -2.87Q8.49 -3.68 8.08 -4.25Q7.68 -4.81 7.01 -5.23Q6.35 -5.64 5.55 -6.00Q4.75 -6.36 3.95 -6.75Q3.15 -7.14 2.48 -7.65Q1.81 -8.17 1.41 -8.89Q1.00 -9.61 1.00 -10.64Q1.00 -11.65 1.53 -12.43Q2.06 -13.20 2.93 -13.63Q3.80 -14.06 4.83 -14.06Q5.77 -14.06 6.53 -13.76Q7.29 -13.47 7.83 -12.84L8.82 -14.06H8.86V-10.27H8.82Q8.64 -11.55 8.12 -12.38Q7.59 -13.20 6.80 -13.59Q6.00 -13.99 5.01 -13.99Q3.68 -13.99 2.99 -13.32Q2.29 -12.66 2.29 -11.56Q2.29 -10.83 2.69 -10.32Q3.09 -9.80 3.74 -9.41Q4.38 -9.02 5.17 -8.66Q5.95 -8.31 6.73 -7.89Q7.51 -7.48 8.16 -6.93Q8.81 -6.37 9.20 -5.59Q9.60 -4.81 9.60 -3.70Q9.60 -2.50 9.08 -1.60Q8.57 -0.71 7.61 -0.22Q6.65 0.28 5.35 0.28Z"/></g></g>
 </svg><span class="pre-d" id="pre-d">+43 m</span><button class="pre-skip" type="button" id="pre-skip">Skip</button></div>
 <div class="cur" id="cur" aria-hidden="true"><i class="cur-r"></i><span class="cur-l" id="cur-l">Open</span></div>
+<button class="idx-btn" id="idx-btn" type="button" aria-expanded="false" aria-controls="idx" data-cur="Index"><span class="idx-w">Index</span><span class="idx-x">Close</span></button>
+<div class="idx" id="idx" role="dialog" aria-modal="true" aria-label="House index" hidden>
+  <div class="idx-in">
+    <svg class="idx-wm" viewBox="0 0 616 310" aria-hidden="true" focusable="false"><use href="#wm"/></svg>
+    <nav class="idx-nav" aria-label="Sections">
+      <span class="idx-axis" aria-hidden="true"></span>
+      <ol class="idx-list">
+        <li class="idx-it" style="--d:0"><a class="idx-a" href="#house"><span class="idx-e">+43 m</span><span class="idx-n">The house</span></a></li>
+        <li class="idx-it" style="--d:1"><a class="idx-a" href="#bluff"><span class="idx-e">+43 m</span><span class="idx-n">The layers</span></a></li>
+        <li class="idx-it" style="--d:2"><a class="idx-a" href="#sealevel"><span class="idx-e">0 m</span><span class="idx-n">Sea level</span></a></li>
+        <li class="idx-it" style="--d:3"><a class="idx-a" href="#pieces"><span class="idx-e">−7,686 m</span><span class="idx-n">The pieces</span></a></li>
+        <li class="idx-it" style="--d:4"><a class="idx-a" href="#trade"><span class="idx-e">−7,686 m</span><span class="idx-n">Private Section</span></a></li>
+        <li class="idx-it" style="--d:5"><a class="idx-a" href="#queue"><span class="idx-e">−7,686 m</span><span class="idx-n">The queue</span></a></li>
+      </ol>
+    </nav>
+    <p class="idx-foot">Cayman Islands · West Indies</p>
+  </div>
+</div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="wm" viewBox="0 0 616 310">
 <g fill="currentColor"><g transform="translate(44.00 119.00)"><path d="M38.15 1.00Q28.00 1.00 20.35 -3.98Q12.70 -8.95 8.43 -17.65Q4.15 -26.35 4.15 -37.50Q4.15 -48.65 8.43 -57.35Q12.70 -66.05 20.35 -71.03Q28.00 -76.00 38.15 -76.00Q43.20 -76.00 47.68 -74.20Q52.15 -72.40 55.40 -69.20L61.45 -75.00H61.65V-54.50H61.45Q61.45 -60.60 58.25 -65.35Q55.05 -70.10 49.95 -72.80Q44.85 -75.50 39.15 -75.50Q32.65 -75.50 28.12 -72.18Q23.60 -68.85 20.88 -63.33Q18.15 -57.80 16.90 -51.08Q15.65 -44.35 15.65 -37.50Q15.65 -30.70 16.90 -23.95Q18.15 -17.20 20.88 -11.68Q23.60 -6.15 28.12 -2.83Q32.65 0.50 39.15 0.50Q44.35 0.50 48.62 -1.18Q52.90 -2.85 56.00 -5.80Q59.10 -8.75 60.78 -12.53Q62.45 -16.30 62.45 -20.50H62.65V0.00H62.45L56.90 -6.25Q53.65 -2.90 48.83 -0.95Q44.00 1.00 38.15 1.00Z"/></g><g transform="translate(129.08 119.00)"><path d="M20.05 -24.30V-24.50H51.85V-24.30ZM38.30 -76.50 64.75 -0.20H71.85V0.00H42.85V-0.20H53.80L33.60 -62.80L11.70 -0.20H23.85V0.00H1.85V-0.20H11.50L38.10 -76.50Z"/></g><g transform="translate(217.56 119.00)"><path d="M22.45 0.00V-0.20H31.45V-35.98L8.05 -74.80H1.00V-75.00H30.00V-74.80H19.05L40.75 -38.50L60.25 -74.80H48.50V-75.00H69.50V-74.80H60.55L40.95 -38.30V-0.20H51.00V0.00Z"/></g><g transform="translate(305.34 119.00)"><path d="M37.45 1.00 9.65 -75.00H19.19L42.20 -12.90L64.25 -75.00H64.45L37.60 1.00ZM9.75 -75.00V-0.20H17.50V0.00H2.30V-0.20H9.55V-74.80H1.85V-75.00ZM80.85 -75.00V-74.80H73.85V-0.20H80.85V0.00H56.30V-0.20H64.35V-75.00Z"/></g><g transform="translate(406.72 119.00)"><path d="M20.05 -24.30V-24.50H51.85V-24.30ZM38.30 -76.50 64.75 -0.20H71.85V0.00H42.85V-0.20H53.80L33.60 -62.80L11.70 -0.20H23.85V0.00H1.85V-0.20H11.50L38.10 -76.50Z"/></g><g transform="translate(498.90 119.00)"><path d="M11.95 -75.00V-0.20H24.05V0.00H1.85V-0.20H11.75V-74.80H1.85V-75.00ZM71.30 -75.00V-74.80H60.80V1.00H60.60L11.85 -75.00H23.30L60.60 -15.20V-74.80H48.60V-75.00Z"/></g><g transform="translate(44.00 206.00)"><path d="M19.85 -38.40V-38.60H34.85Q39.65 -38.60 43.00 -40.80Q46.35 -43.00 48.10 -47.03Q49.85 -51.05 49.85 -56.50Q49.85 -61.95 48.10 -66.08Q46.35 -70.20 42.99 -72.50Q39.63 -74.80 34.85 -74.80H1.85V-75.00H34.85Q42.40 -75.00 48.03 -73.08Q53.65 -71.15 56.75 -67.08Q59.85 -63.00 59.85 -56.50Q59.85 -50.00 56.95 -46.02Q54.05 -42.03 48.48 -40.22Q42.90 -38.40 34.85 -38.40ZM1.85 0.00V-0.20H33.35V0.00ZM12.80 -0.10V-74.90H22.35V-0.10ZM59.35 0.50Q55.00 0.50 52.58 -1.14Q50.15 -2.78 49.05 -5.56Q47.95 -8.34 47.68 -11.80Q47.40 -15.25 47.35 -18.94Q47.30 -22.64 46.95 -26.09Q46.60 -29.55 45.40 -32.34Q44.20 -35.12 41.58 -36.76Q38.95 -38.40 34.35 -38.40H19.85V-38.60H36.35Q43.70 -38.60 48.03 -36.50Q52.35 -34.40 54.48 -30.98Q56.60 -27.55 57.30 -23.43Q58.00 -19.30 58.03 -15.18Q58.05 -11.05 58.15 -7.62Q58.25 -4.20 59.20 -2.10Q60.15 0.00 62.80 0.00Q64.40 0.00 65.80 -0.35Q67.20 -0.70 68.25 -1.20L68.35 -1.10Q67.15 -0.45 64.90 0.02Q62.65 0.50 59.35 0.50Z"/></g><g transform="translate(131.39 206.00)"><path d="M1.85 0.00V-0.20H12.80V-74.80H1.85V-75.00H34.35V-74.80H22.35V-0.20H34.35V0.00Z"/></g><g transform="translate(185.48 206.00)"><path d="M15.85 0.00V-0.20H26.85V-74.80H16.82Q12.40 -74.80 9.55 -73.12Q6.70 -71.45 5.05 -68.43Q3.40 -65.40 2.73 -61.33Q2.05 -57.25 2.05 -52.50H1.85V-75.00H61.35V-52.50H61.10Q61.10 -57.25 60.42 -61.33Q59.75 -65.40 58.10 -68.43Q56.45 -71.45 53.58 -73.12Q50.70 -74.80 46.32 -74.80H36.35V-0.20H47.35V0.00Z"/></g><g transform="translate(266.17 206.00)"><path d="M67.85 -75.00V-74.80H57.95V-23.00Q57.95 -10.65 52.80 -4.58Q47.65 1.50 35.80 1.50Q22.85 1.50 16.83 -4.28Q10.80 -10.05 10.80 -23.00V-74.80H1.85V-75.00H30.35V-74.80H20.35V-24.00Q20.35 -19.05 21.08 -14.55Q21.80 -10.05 23.68 -6.55Q25.55 -3.05 28.98 -1.03Q32.40 1.00 37.80 1.00Q44.50 1.00 48.92 -1.62Q53.35 -4.25 55.55 -9.57Q57.75 -14.90 57.75 -23.00V-74.80H48.30V-75.00Z"/></g><g transform="translate(353.57 206.00)"><path d="M20.05 -24.30V-24.50H51.85V-24.30ZM38.30 -76.50 64.75 -0.20H71.85V0.00H42.85V-0.20H53.80L33.60 -62.80L11.70 -0.20H23.85V0.00H1.85V-0.20H11.50L38.10 -76.50Z"/></g><g transform="translate(444.06 206.00)"><path d="M1.85 0.00V-0.20H10.80V-74.80H1.85V-75.00H29.30V-74.80H20.35V-0.20H35.80Q41.70 -0.20 45.40 -1.88Q49.10 -3.55 51.10 -6.58Q53.10 -9.60 53.85 -13.68Q54.60 -17.75 54.60 -22.50H54.80V0.00Z"/></g><g transform="translate(516.20 206.00)"><path d="M28.90 1.50Q22.15 1.50 17.58 -0.60Q13.00 -2.70 10.05 -6.30L4.60 1.00H4.40V-19.50H4.60Q5.45 -15.05 7.20 -11.28Q8.95 -7.50 11.78 -4.70Q14.60 -1.90 18.62 -0.35Q22.65 1.20 28.10 1.20Q33.40 1.20 37.40 -0.70Q41.40 -2.60 43.65 -6.33Q45.90 -10.05 45.90 -15.50Q45.90 -19.90 43.70 -22.95Q41.50 -26.00 37.90 -28.25Q34.30 -30.50 29.98 -32.45Q25.65 -34.40 21.33 -36.50Q17.00 -38.60 13.40 -41.38Q9.80 -44.15 7.60 -48.05Q5.40 -51.95 5.40 -57.50Q5.40 -63.00 8.28 -67.18Q11.15 -71.35 15.85 -73.68Q20.55 -76.00 26.10 -76.00Q31.20 -76.00 35.30 -74.40Q39.40 -72.80 42.30 -69.40L47.70 -76.00H47.90V-55.50H47.70Q46.70 -62.45 43.88 -66.90Q41.05 -71.35 36.75 -73.48Q32.45 -75.60 27.10 -75.60Q19.90 -75.60 16.15 -72.03Q12.40 -68.45 12.40 -62.50Q12.40 -58.55 14.55 -55.78Q16.70 -53.00 20.20 -50.88Q23.70 -48.75 27.93 -46.83Q32.15 -44.90 36.38 -42.68Q40.60 -40.45 44.10 -37.45Q47.60 -34.45 49.75 -30.23Q51.90 -26.00 51.90 -20.00Q51.90 -13.50 49.10 -8.68Q46.30 -3.85 41.12 -1.18Q35.95 1.50 28.90 1.50Z"/></g></g>
@@ -378,6 +463,21 @@ footer .fine{margin-top:var(--s3);font-size:12px;max-width:70ch}
   </div>
 </section>
 
+<section class="story" id="house" data-elev="43" data-label="The house">
+  <div class="w story-in">
+    <div class="story-l">
+      <p class="eyebrow fu">The house</p>
+      <p class="lead fu">It began at a kitchen table, with a saucepan and a coconut shell.</p>
+      <h2 class="lm">Before there was a brand, there was a <strong class="ritual">ritual</strong>.</h2>
+    </div>
+    <div class="story-r">
+      <p class="fu">Before there was a brand, there was a <strong class="ritual">ritual</strong>: pouring wax into shells cleaned by hand, for the people around the table. The island was in every one of them — the salt, the thatch, the rock.</p>
+      <p class="fu">Cayman Rituals is that habit, held to a higher standard. Made slowly, in small numbers, from the only place on earth these layers exist.</p>
+      <p class="sig fu"><img class="seal" src="brand/cay-rit-stamp-800.png" alt="" width="800" height="800" loading="lazy">Cayman Rituals · Cayman Islands</p>
+    </div>
+  </div>
+</section>
+<section class="mani mani--light" id="mani-1" aria-label="Everyone sells the horizon. We sell the cut."><p class="mani-l lm">Everyone sells the horizon. We sell the cut.</p></section>
 <section class="layer layer--bluff chap" id="bluff" data-elev="43" data-label="Bluff">
   <div class="chap-in">
     <span class="elev"><span class="sg">+</span><span class="n">43</span><span class="u"> m</span></span>
@@ -409,6 +509,7 @@ footer .fine{margin-top:var(--s3);font-size:12px;max-width:70ch}
   </div>
 </section>
 
+<section class="mani mani--light" id="mani-2" aria-label="Every scent carries the height of the place it comes from."><p class="mani-l lm">Every scent carries the height of the place it comes from.</p></section>
 <section class="seax dark is-static" id="sealevel" data-elev="0" data-label="Sea level">
   <canvas class="seax-c" id="seax-c" aria-hidden="true"></canvas>
   <div class="seax-w"><span class="seax-l">Sea level · 0 m</span><span class="sea" aria-hidden="true"></span></div>
@@ -445,18 +546,19 @@ footer .fine{margin-top:var(--s3);font-size:12px;max-width:70ch}
   </ul>
 </section>
 
+<section class="mani dark" id="mani-3" aria-label="Made here. Nowhere else."><p class="mani-l lm">Made here. Nowhere else.</p></section>
 <section class="floor dark" id="floor" data-elev="-7686" data-label="The floor">
   <canvas class="snow" aria-hidden="true"></canvas>
   <div class="w doors">
-    <div>
-      <p class="kicker" style="color:var(--brass)">First Pour</p>
+    <div id="queue">
+      <p class="eyebrow">First Pour</p>
       <h2>Fifty candles, poured into coconut shells, once a year.</h2>
       <p>The first Cayman Rituals candles were poured into coconut shells at a kitchen table. Every year Bianca pours fifty more the same way, cleaned and prepared by hand, each one numbered and dated. When they are gone, that year is gone.</p>
       <p>Join the queue to be told first. We write rarely.</p>
       <div class="slip"><a class="btn" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=first-pour">Join the queue</a><small class="embed-note">Opens our sign-up page. One email to confirm; we write rarely.</small></div>
     </div>
-    <div class="trade">
-      <p class="kicker" style="color:var(--brass)">For villas, hotels and spas</p>
+    <div class="trade" id="trade">
+      <p class="eyebrow">For villas, hotels and spas</p>
       <h2>A scent that belongs to your property alone.</h2>
       <p>We cut a layer for your site: its height, its exposure, what grows on it. It arrives as diffusers, room spray and candles, refilled on a schedule, with a caymanite tablet for your door.</p>
       <div class="slip"><a class="btn" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=private-section">Request a consultation</a><small class="embed-note">Leave your email and Bianca will write to arrange a time.</small></div>
@@ -464,11 +566,15 @@ footer .fine{margin-top:var(--s3);font-size:12px;max-width:70ch}
   </div>
 </section>
 
-<footer class="dark">
+<footer class="dark" id="colophon">
   <div class="w">
     <svg class="wordmark" viewBox="0 0 616 310" role="img" aria-label="Cayman Rituals, West Indies"><use href="#wm"/></svg>
-    <div class="meta"><span>caymanrituals@gmail.com</span><span>+1 345 928 1570</span><span>Instagram @caymanrituals</span></div>
-    <p class="fine">Pieces shown are in development and pictured as studies, not product photographs. Made in the Cayman Islands.</p>
+    <div class="cols">
+      <div class="col"><p class="eyebrow">Visit</p><p>Cayman Islands · West Indies</p></div>
+      <div class="col"><p class="eyebrow">Contact</p><p><a class="ul" href="mailto:caymanrituals@gmail.com">caymanrituals@gmail.com</a></p><p><a class="ul" href="tel:+13459281570">+1 345 928 1570</a></p><p><a class="ul" href="https://www.instagram.com/caymanrituals/" rel="noopener">Instagram @caymanrituals</a></p></div>
+      <div class="col"><p class="eyebrow">Letters</p><p><a class="ul" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=first-pour">Join the queue</a></p><p><a class="ul" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=private-section">Request a consultation</a></p></div>
+    </div>
+    <p class="fine">© 2026 Cayman Rituals. Pieces shown are in development and pictured as studies. Hero photograph: EvaZL, CC BY 4.0, edited.</p>
   </div>
 </footer>
 </main>
@@ -642,7 +748,7 @@ window.addEventListener('DOMContentLoaded',function(){
     gsap.ticker.lagSmoothing(0);
   }
   function scrollToEl(el){if(lenis)lenis.scrollTo(el,{offset:0,duration:1.4});else el.scrollIntoView();}
-  [].forEach.call(doc.querySelectorAll('a[href^="#"]:not(.card-a):not(.sample-x)'),function(a){a.addEventListener('click',function(e){var t=doc.querySelector(a.getAttribute('href'));if(t&&lenis){e.preventDefault();scrollToEl(t);}});});
+  [].forEach.call(doc.querySelectorAll('a[href^="#"]:not(.card-a):not(.sample-x):not(.idx-a)'),function(a){a.addEventListener('click',function(e){var t=doc.querySelector(a.getAttribute('href'));if(t&&lenis){e.preventDefault();scrollToEl(t);}});});
 
   /* ── preloader: once per session, ≤2.2 s, skippable ── */
   var pre=doc.getElementById('pre'),preD=doc.getElementById('pre-d'),seen=false;
@@ -651,12 +757,12 @@ window.addEventListener('DOMContentLoaded',function(){
   var heroStarted=false;
   function startHero(){if(heroStarted)return;heroStarted=true;root.classList.add('loaded');
     if(motion)gsap.fromTo('.hero-zoom',{scale:1.08},{scale:1,duration:8,ease:'power2.out'});}
-  function endPre(){if(!pre||pre.classList.contains('is-off'))return;pre.classList.add('is-off');try{sessionStorage.setItem('cr-pre','1');}catch(e){}
+  function endPre(){if(!pre||pre.classList.contains('is-off'))return;pre.classList.add('is-off');root.classList.remove('pre-on');try{sessionStorage.setItem('cr-pre','1');}catch(e){}
     startHero();if(lenis)lenis.start();setTimeout(function(){if(pre.parentNode)pre.parentNode.removeChild(pre);},1000);}
   if(!pre||seen||rm||!motion){if(pre&&pre.parentNode)pre.parentNode.removeChild(pre);startHero();}
   else{
     if(lenis)lenis.stop();
-    pre.classList.add('is-run');
+    pre.classList.add('is-run');root.classList.add('pre-on');
     var t0=null;(function tickD(ts){if(t0===null)t0=ts;var p=Math.min(1,(ts-t0)/1500);p=1-Math.pow(1-p,3);preD.textContent=fmt(43*(1-p));if(p<1&&!pre.classList.contains('is-off'))raf(tickD);})(performance.now());
     setTimeout(endPre,2100);
     pre.addEventListener('click',endPre);
@@ -667,13 +773,16 @@ window.addEventListener('DOMContentLoaded',function(){
   /* ── line masks: split headings into lines (measured), each line in an overflow mask ── */
   function split(el){
     if(el.dataset.split||!motion)return;
-    var text=el.textContent.trim(),words=text.split(/\s+/);
-    el.textContent='';
-    var spans=words.map(function(w,i){var s=doc.createElement('span');s.textContent=w;el.appendChild(s);if(i<words.length-1)el.appendChild(doc.createTextNode(' '));return s;});
+    var toks=[],prevEl=false;[].forEach.call(el.childNodes,function(n){
+      if(n.nodeType===3){var txt=n.textContent,ws=txt.trim().split(/\s+/).filter(Boolean);if(prevEl&&ws.length&&!/^\s/.test(txt)){toks[toks.length-1]+=ws.shift();}ws.forEach(function(w){toks.push(w);});prevEl=false;}
+      else if(n.nodeType===1){toks.push(n.outerHTML);prevEl=true;}
+    });
+    el.innerHTML='';
+    var spans=toks.map(function(t,i){var sp=doc.createElement('span');sp.innerHTML=t;el.appendChild(sp);if(i<toks.length-1)el.appendChild(doc.createTextNode(' '));return sp;});
     var lines=[],cur=null,top=null;
-    spans.forEach(function(s){var t=s.offsetTop;if(t!==top){top=t;cur=[];lines.push(cur);}cur.push(s.textContent);});
-    el.textContent='';
-    lines.forEach(function(ws,i){var m=doc.createElement('span');m.className='lmk';var n=doc.createElement('span');n.className='lmi';n.textContent=ws.join(' ');m.appendChild(n);el.appendChild(m);if(i<lines.length-1)el.appendChild(doc.createTextNode(' '));});
+    spans.forEach(function(sp,i){var t=sp.offsetTop;if(t!==top){top=t;cur=[];lines.push(cur);}cur.push(toks[i]);});
+    el.innerHTML='';
+    lines.forEach(function(ws,i){var m=doc.createElement('span');m.className='lmk';var n=doc.createElement('span');n.className='lmi';n.innerHTML=ws.join(' ');m.appendChild(n);el.appendChild(m);if(i<lines.length-1)el.appendChild(doc.createTextNode(' '));});
     el.dataset.split='1';
   }
   var lms=[].slice.call(doc.querySelectorAll('.lm'));
@@ -709,9 +818,13 @@ window.addEventListener('DOMContentLoaded',function(){
   var seax=doc.getElementById('sealevel'),seaC=doc.getElementById('seax-c'),seaOK=false,seaP=0,three=null,seaGL=false,seaVis=false;
   if(motion){
     ScrollTrigger.create({trigger:'#intro',start:'top 75%',once:true,onEnter:function(){reveal(doc.getElementById('intro'));}});
+    ScrollTrigger.create({trigger:'#house',start:'top 70%',once:true,onEnter:function(){reveal(doc.getElementById('house'));}});
     /* pins are created strictly in document order so every pin-spacer is known to the ones below it */
-    [].forEach.call(doc.querySelectorAll('.chap,.seax'),function(sec){
-      if(sec.classList.contains('chap')){
+    [].forEach.call(doc.querySelectorAll('.chap,.seax,.mani'),function(sec){
+      if(sec.classList.contains('mani')){
+        if(wide)ScrollTrigger.create({trigger:sec,start:'top top',end:'+=45%',pin:true,pinSpacing:true,anticipatePin:1});
+        ScrollTrigger.create({trigger:sec,start:'top 60%',once:true,onEnter:function(){reveal(sec);}});
+      }else if(sec.classList.contains('chap')){
         if(wide)ScrollTrigger.create({trigger:sec,start:'top top',end:'+=90%',pin:true,pinSpacing:true,anticipatePin:1});
         ScrollTrigger.create({trigger:sec,start:'top 55%',once:true,onEnter:function(){reveal(sec);}});
       }else{
@@ -726,7 +839,7 @@ window.addEventListener('DOMContentLoaded',function(){
     });
     /* ground transmutes between chapters, scrubbed */
     if(tokensOK){
-      var seq=[['#intro',C.limestone],['#bluff',C.limestone],['#caymanite',C.clay],['#thatch',C.thatch],['#sealevel',C.ironshore],['#ironshore',C.ironshore],['#trench',C.trench],['#pieces',C.trench]];
+      var seq=[['#intro',C.limestone],['#house',C.limestone],['#mani-1',C.limestone],['#bluff',C.limestone],['#caymanite',C.clay],['#thatch',C.thatch],['#sealevel',C.ironshore],['#ironshore',C.ironshore],['#trench',C.trench],['#pieces',C.trench]];
       body.style.backgroundColor=str(C.limestone);
       for(var i=1;i<seq.length;i++)(function(prev,cur,sel){
         if(prev.join()===cur.join())return;
@@ -734,13 +847,14 @@ window.addEventListener('DOMContentLoaded',function(){
       })(seq[i-1][1],seq[i][1],seq[i][0]);
     }
   }else{
-    reveal(doc.getElementById('intro'));chaps.forEach(function(c){c.classList.add('is-in');});
+    reveal(doc.getElementById('intro'));reveal(doc.getElementById('house'));chaps.forEach(function(c){c.classList.add('is-in');});[].forEach.call(doc.querySelectorAll('.mani'),function(m){m.classList.add('is-in');});
   }
 
   /* ── gauge (v3 behaviour), driven by the same scroll ── */
   var g=doc.getElementById('gauge'),gv=doc.getElementById('gv'),gl=doc.getElementById('gl'),mk=g&&g.querySelector('.mk'),track=g&&g.querySelector('.track');
   var secs=[].slice.call(doc.querySelectorAll('[data-elev]'));
-  var order=['hero','bluff','caymanite','thatch','sealevel','ironshore','trench','pieces','floor'];
+  var order=['hero','house','bluff','caymanite','thatch','sealevel','ironshore','trench','pieces','floor'];
+  var idxBtn=doc.getElementById('idx-btn');
   function tick(){
     var vh=window.innerHeight,mid=vh*0.5,cur=0;
     for(var i=0;i<secs.length;i++){if(secs[i].getBoundingClientRect().top<=mid)cur=i;}
@@ -752,7 +866,7 @@ window.addEventListener('DOMContentLoaded',function(){
     var dark=a.classList.contains('dark');
     if(g){g.classList.toggle('is-dark',dark);g.classList.toggle('is-on',cur>0&&a.id!=='pieces');}
     mast.classList.toggle('is-off',a.id==='pieces');
-    mast.classList.toggle('is-dark',dark);mast.classList.toggle('is-on',a.id!=='hero');
+    mast.classList.toggle('is-dark',dark);idxBtn.classList.toggle('is-dark',dark||a.id==='hero');mast.classList.toggle('is-on',a.id!=='hero');
     if(mk&&track){var th_=track.clientHeight;if(th_){var idx=order.indexOf(a.id),pos=idx<=0?0:idx>=order.length-2?1:Math.min(1,(idx-1+t)/6);mk.style.transform='translateY('+(pos*(th_-2)).toFixed(1)+'px)';}}
   }
   var pending=0;function onScroll(){if(!pending)pending=raf(function(){pending=0;tick();});}
@@ -884,7 +998,27 @@ window.addEventListener('DOMContentLoaded',function(){
     btn.addEventListener('click',function(){if(core.classList.contains('is-open')&&core._pin){core._pin=false;setOpen(core,false);}else{core._pin=true;setOpen(core,true);}});
     btn.addEventListener('focus',function(){if(!core.classList.contains('is-open'))setOpen(core,true);});
   });
-  doc.addEventListener('keydown',function(e){if(e.key==='Escape'){if(openS)closeSample();}});
+  /* ── the house index: full-screen section of the island ── */
+  var idx=doc.getElementById('idx'),idxOpen=false,idxLast=null;
+  var idxLinks=[].slice.call(idx.querySelectorAll('.idx-a'));
+  function openIdx(){if(idxOpen)return;idxOpen=true;idxLast=doc.activeElement;idx.hidden=false;
+    void idx.offsetWidth;idx.classList.add('is-on');idxBtn.setAttribute('aria-expanded','true');if(lenis)lenis.stop();
+    setTimeout(function(){idxLinks[0].focus({preventScroll:true});},rm?0:120);}
+  function closeIdx(){if(!idxOpen)return;idxOpen=false;idx.classList.remove('is-on');idxBtn.setAttribute('aria-expanded','false');if(lenis&&!openS)lenis.start();
+    setTimeout(function(){if(!idxOpen)idx.hidden=true;},rm?0:520);(idxLast||idxBtn).focus({preventScroll:true});}
+  idxBtn.addEventListener('click',function(){idxOpen?closeIdx():openIdx();});
+  idxLinks.forEach(function(a){a.addEventListener('click',function(e){var t=doc.querySelector(a.getAttribute('href'));if(!t)return;e.preventDefault();closeIdx();
+    setTimeout(function(){if(lenis){lenis.start();lenis.scrollTo(t,{offset:0,duration:1.6});}else t.scrollIntoView();},rm?0:80);});});
+  idx.addEventListener('keydown',function(e){
+    var i=idxLinks.indexOf(doc.activeElement);
+    if(e.key==='Tab'){var f=[idxBtn].concat(idxLinks);var j=f.indexOf(doc.activeElement);if(j<0)j=0;e.preventDefault();f[(j+(e.shiftKey?-1:1)+f.length)%f.length].focus({preventScroll:true});}
+    else if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();idxLinks[(i+1)%idxLinks.length].focus({preventScroll:true});}
+    else if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();idxLinks[(i-1+idxLinks.length)%idxLinks.length].focus({preventScroll:true});}
+    else if(e.key==='Home'){e.preventDefault();idxLinks[0].focus({preventScroll:true});}
+    else if(e.key==='End'){e.preventDefault();idxLinks[idxLinks.length-1].focus({preventScroll:true});}
+  });
+  idxBtn.addEventListener('keydown',function(e){if(idxOpen&&e.key==='Tab'&&!e.shiftKey){e.preventDefault();idxLinks[0].focus({preventScroll:true});}});
+  doc.addEventListener('keydown',function(e){if(e.key==='Escape'){if(idxOpen)closeIdx();else if(openS)closeSample();}});
   window.addEventListener('resize',function(){cores.forEach(function(c){if(c.classList.contains('is-open'))leads(c);});});
 
   /* ── custom cursor + magnetic buttons (fine pointers only) ── */
@@ -899,7 +1033,7 @@ window.addEventListener('DOMContentLoaded',function(){
       el.addEventListener('pointerleave',function(){gsap.to(el,{x:0,y:0,duration:.7,ease:'power3.out'});});
     });
   }
-  if(motion)setTimeout(function(){ScrollTrigger.refresh();},200);
+  if(motion){ScrollTrigger.sort();setTimeout(function(){ScrollTrigger.refresh();},200);}
 })();
 });
 </script>
