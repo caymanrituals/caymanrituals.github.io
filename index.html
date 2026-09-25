@@ -19,6 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" as="image" href="img/bluff-statement-portrait.jpg" media="(max-aspect-ratio: 3/4)">
 <link rel="preload" as="image" href="img/bluff-statement.jpg" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -423,6 +424,15 @@ footer .ul{padding-bottom:1px}
 .chap--pieces .chap-in .elev{grid-column:1/3}
 .chap--pieces .ch-pieces{grid-column:3;grid-row:1/span 6;align-self:center;grid-template-columns:minmax(0,1fr);margin-top:0}
 }
+
+/* cursor: colour-inverting ring, readable on limestone AND trench */
+:root{--cur-ink:#fff}
+:root.js.fine .cur{mix-blend-mode:difference}
+.cur-r{border:1.5px solid var(--cur-ink)}
+.cur.is-big .cur-r{background:transparent}
+.cur-l{color:var(--cur-ink)}
+/* phones: the gallery breathes off the left edge */
+@media(max-width:899px){.rail{padding-inline:20px;scroll-padding-inline:20px}}
 </style>
 </head>
 <body>
@@ -459,7 +469,7 @@ footer .ul{padding-bottom:1px}
 
 <main id="top">
 <section class="hero" id="hero" data-elev="43" data-label="Above the Bluff">
-  <div class="hero-zoom"><img class="hero-img" src="img/bluff-statement.jpg" alt="Looking out from the top of the Bluff on Cayman Brac: grey ironshore and low scrub in the foreground, a rock islet in white water directly below, and open blue sea to the horizon under a sky of small clouds." width="1600" height="1200" fetchpriority="high" decoding="sync"></div>
+  <div class="hero-zoom"><picture><source media="(max-aspect-ratio: 3/4)" srcset="img/bluff-statement-portrait.jpg" width="1080" height="2340"><img class="hero-img" src="img/bluff-statement.jpg" alt="Looking out from the top of the Bluff on Cayman Brac: grey ironshore and low scrub in the foreground, a rock islet in white water directly below, and open blue sea to the horizon under a sky of small clouds." width="1600" height="1200" fetchpriority="high" decoding="sync"></picture></div>
   <div class="hero-veil" aria-hidden="true"></div>
   <p class="hero-kick">Cayman Islands · West Indies</p>
   <p class="hero-cap">From the top of the Bluff, Cayman Brac, looking out to Little Cayman Brac.<span class="credit">Photo: EvaZL, CC BY 4.0, via Wikimedia Commons. Edited.</span></p>
