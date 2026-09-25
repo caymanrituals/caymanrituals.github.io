@@ -440,6 +440,19 @@ footer .ul{padding-bottom:1px}
 .cur-l{color:var(--cur-ink)}
 /* phones: the gallery breathes off the left edge */
 @media(max-width:899px){.rail{padding-inline:20px;scroll-padding-inline:20px}}
+/* ── what we take: one rule per material, on the floor, after the pieces ── */
+.take{background:var(--trench);color:var(--bone);padding-block:var(--s7) var(--s8);border-top:1px solid var(--rule-dark)}
+.take-in{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5)}
+@media(min-width:900px){.take{padding-block:var(--s8)}.take-in{grid-template-columns:minmax(0,5fr) minmax(0,6fr);column-gap:var(--s7);align-items:start}.take-reg{grid-column:1/-1}}
+.take h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.04;letter-spacing:-.01em;max-width:14ch;margin-bottom:var(--s4)}
+.take .lead{font-family:var(--display);font-size:clamp(1.2rem,1.8vw,1.5rem);line-height:1.3;color:var(--bone-soft);max-width:32ch;margin:0}
+.take-list{margin:0}
+.take-it{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;padding-block:var(--s2);border-top:1px solid var(--rule-dark)}
+.take-it:last-child{border-bottom:1px solid var(--rule-dark)}
+@media(min-width:600px){.take-it{grid-template-columns:13ch minmax(0,1fr);column-gap:var(--s3);align-items:baseline}}
+.take-it dt{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--brass)}
+.take-it dd{margin:0;font-size:16px;line-height:1.55;color:var(--bone-soft);max-width:50ch}
+.take-reg{margin:0;max-width:52ch;font-family:var(--display);font-size:clamp(1.1rem,1.6vw,1.35rem);line-height:1.35;color:var(--bone);border-top:1px dashed var(--brass);padding-top:var(--s3)}
 </style>
 </head>
 <body>
@@ -459,8 +472,9 @@ footer .ul{padding-bottom:1px}
         <li class="idx-it" style="--d:1"><a class="idx-a" href="#bluff"><span class="idx-e">+43 m</span><span class="idx-n">The layers</span></a></li>
         <li class="idx-it" style="--d:2"><a class="idx-a" href="#sealevel"><span class="idx-e">0 m</span><span class="idx-n">Sea level</span></a></li>
         <li class="idx-it" style="--d:3"><a class="idx-a" href="#pieces"><span class="idx-e">−7,686 m</span><span class="idx-n">The pieces</span></a></li>
-        <li class="idx-it" style="--d:4"><a class="idx-a" href="#trade"><span class="idx-e">−7,686 m</span><span class="idx-n">Private Section</span></a></li>
-        <li class="idx-it" style="--d:5"><a class="idx-a" href="#queue"><span class="idx-e">−7,686 m</span><span class="idx-n">The queue</span></a></li>
+        <li class="idx-it" style="--d:4"><a class="idx-a" href="#take"><span class="idx-e">−7,686 m</span><span class="idx-n">What we take</span></a></li>
+        <li class="idx-it" style="--d:5"><a class="idx-a" href="#trade"><span class="idx-e">−7,686 m</span><span class="idx-n">Private Section</span></a></li>
+        <li class="idx-it" style="--d:6"><a class="idx-a" href="#queue"><span class="idx-e">−7,686 m</span><span class="idx-n">The queue</span></a></li>
       </ol>
     </nav>
     <p class="idx-foot">Cayman Islands · West Indies</p>
@@ -550,7 +564,7 @@ footer .ul{padding-bottom:1px}
     <span class="elev"><span class="sg"></span><span class="n">0</span><span class="u"> m</span></span>
     <span class="name fu"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M2.5 3H21.5L12 21.5Z"/></svg>Ironshore · Water</span>
     <h2 class="lm">The fossil limestone where the island meets the sea. Sharp enough to open your hand.</h2>
-    <div class="notes fu"><b>The scent</b>The cut itself. Sea salt, seaweed, wet rock, driftwood, clean ambergris.</div>
+    <div class="notes fu"><b>The scent</b>The cut itself. Sea salt, seaweed, wet rock, driftwood, a clean ambergris accord.</div>
     <span class="status fu">One of the first three</span>
     <div class="ch-pieces fu"><a class="card-a ch-a" href="#sample-candle" data-cur="Open"><span class="card-f"><img src="img/g-candle.jpg" alt="" width="1200" height="900" decoding="async"></span><span class="ch-cap">The Section Candle<span class="ch-open">Open the layers</span></span></a></div>
   </div>
@@ -570,12 +584,31 @@ footer .ul{padding-bottom:1px}
 <section class="gal dark" id="pieces" data-elev="-7686" data-label="The pieces">
   <div class="gal-lead"><p>Everything we make starts somewhere on this line, between the Bluff and the Trench. Nothing on it can be made anywhere else.</p></div>
   <ul class="rail" id="rail">
-    <li class="card"><a class="card-a" href="#sample-keeper" data-cur="Open"><span class="card-f"><img src="img/g-keeper.jpg" alt="A polished disc of banded caymanite engraved with CAY over RIT, held at a lapidary bench." width="1200" height="900"></span><span class="card-t"><span class="card-n">The Keeper</span><span class="card-l">A lid turned from caymanite. You buy it once, and it moves onto every candle refill after that.</span></span></a></li>
-    <li class="card"><a class="card-a" href="#sample-slab" data-cur="Open"><span class="card-f"><img src="img/g-slab.jpg" alt="A rectangular pendant of banded red and cream stone in a thin gold frame on a fine chain." width="1200" height="900"></span><span class="card-t"><span class="card-n">The Slab</span><span class="card-l">A slice of the stone, cut so its bands run level, set in a plain gold frame. A section you can wear.</span></span></a></li>
+    <li class="card"><a class="card-a" href="#sample-keeper" data-cur="Open"><span class="card-f"><img src="img/g-keeper.jpg" alt="A polished disc of banded caymanite engraved with CAY over RIT, held at a lapidary bench." width="1200" height="900"></span><span class="card-t"><span class="card-n">The Keeper</span><span class="card-l">A lid you buy once. It moves onto every candle refill after that. Turned from caymanite in numbered editions, as the stone allows, or poured in bands by hand, like the candle.</span></span></a></li>
+    <li class="card"><a class="card-a" href="#sample-slab" data-cur="Open"><span class="card-f"><img src="img/g-slab.jpg" alt="A rectangular pendant of banded red and cream stone in a thin gold frame on a fine chain." width="1200" height="900"></span><span class="card-t"><span class="card-n">The Slab</span><span class="card-l">A slice of the stone, cut so its bands run level, set in a plain gold frame. A section you can wear, in numbered editions, as the stone allows.</span></span></a></li>
     <li class="card"><a class="card-a" href="#sample-rope" data-cur="Open"><span class="card-f"><img src="img/f-bracelet.jpg" alt="A hand-plaited pale palm-fibre rope bracelet with brass end caps." width="1200" height="900"></span><span class="card-t"><span class="card-n">The Rope</span><span class="card-l">Silver thatch rope was a Caymanian export within living memory, and very few people still plait it. Ours carries the old plait into new work, by hand, and every piece is numbered. Rope No. 001 is being made now.</span></span></a></li>
     <li class="card"><a class="card-a" href="#sample-edp" data-cur="Open"><span class="card-f"><img src="img/g-edp.jpg" alt="A heavy square glass perfume bottle, its cap wrapped in plaited pale palm cord, standing on wet black rock." width="1200" height="900"></span><span class="card-t"><span class="card-n">Eau de parfum</span><span class="card-l">Plain heavy glass, with the cap wrapped by hand in the same plaited thatch.</span></span></a></li>
     <li class="card"><a class="card-a" href="#sample-candle" data-cur="Open"><span class="card-f"><img src="img/g-candle.jpg" alt="A heavy glass tumbler candle poured in three horizontal bands of cream, oxblood and umber wax." width="1200" height="900"></span><span class="card-t"><span class="card-n">The Section Candle</span><span class="card-l">Poured in three bands, like the stone. As it burns, it melts down through its own layers.</span></span></a></li>
   </ul>
+</section>
+
+<section class="take dark" id="take" data-elev="-7686" data-label="What we take">
+  <div class="w take-in">
+    <div class="take-l">
+      <p class="eyebrow fu">What we take</p>
+      <h2 class="lm">Take only what the island can spare.</h2>
+      <p class="lead fu">Caymanite was laid down inside the Bluff millions of years ago, and very little of it is left to find. It will not be dug out for us. Every material we use has a rule like that.</p>
+    </div>
+    <dl class="take-list">
+      <div class="take-it fu"><dt>Caymanite</dt><dd>Only from documented sources, recorded piece by piece, and kept for numbered editions. The everyday Keeper is poured in bands instead.</dd></div>
+      <div class="take-it fu"><dt>Silver thatch</dt><dd>Fronds cut by hand, the old way. Never the palm.</dd></div>
+      <div class="take-it fu"><dt>Coconut</dt><dd>Fifty shells a year, cleaned and prepared by hand. No more.</dd></div>
+      <div class="take-it fu"><dt>Glass</dt><dd>Heavy and plain, made to be refilled. The Keeper moves to every refill.</dd></div>
+      <div class="take-it fu"><dt>Brass</dt><dd>When the Rope's cord wears, it is replaced. The ends are kept.</dd></div>
+      <div class="take-it fu"><dt>Never</dt><dd>Black coral. Turtle shell. Some of the island belongs to the sea.</dd></div>
+    </dl>
+    <p class="take-reg fu">Every numbered piece goes into the register: what it is made of, where that came from, and whose hands made it. The register opens with Rope No. 001.</p>
+  </div>
 </section>
 
 <section class="mani dark" id="mani-3" aria-label="Made here. Nowhere else."><p class="mani-l lm">Made here. Nowhere else.</p></section>
@@ -593,7 +626,7 @@ footer .ul{padding-bottom:1px}
       <p class="eyebrow">For villas, hotels and spas</p>
       <h2>A scent that belongs to your property alone.</h2>
       <p>We cut a layer for your site: its height, its exposure, what grows on it. It arrives as diffusers, room spray and candles, refilled on a schedule, with a caymanite tablet for your door.</p>
-      <div class="slip"><a class="btn" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=private-section">Request a consultation</a><small class="embed-note">Leave your email and Bianca will write to arrange a time.</small></div>
+      <div class="slip"><a class="btn" href="mailto:caymanrituals@gmail.com?subject=Private%20Section%20consultation&amp;body=Property%3A%0D%0AIsland%3A%0D%0ARooms%20or%20spaces%20to%20scent%3A%0D%0AWhat%20you%20have%20in%20mind%20%28diffusers%2C%20room%20spray%2C%20candles%29%3A%0D%0ATimeline%3A%0D%0A">Request a consultation</a><small class="embed-note">Opens an email to Bianca. Tell her about the property and she will write back to arrange a time. Or write to caymanrituals@gmail.com.</small></div>
     </div>
   </div>
 </section>
@@ -604,7 +637,7 @@ footer .ul{padding-bottom:1px}
     <div class="cols">
       <div class="col"><p class="eyebrow">Visit</p><p>Cayman Islands · West Indies</p></div>
       <div class="col"><p class="eyebrow">Contact</p><p><a class="ul" href="mailto:caymanrituals@gmail.com">caymanrituals@gmail.com</a></p><p><a class="ul" href="tel:+13459281570">+1 345 928 1570</a></p><p><a class="ul" href="https://www.instagram.com/caymanrituals/" rel="noopener">Instagram @caymanrituals</a></p></div>
-      <div class="col"><p class="eyebrow">Letters</p><p><a class="ul" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=first-pour">Join the queue</a></p><p><a class="ul" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=private-section">Request a consultation</a></p></div>
+      <div class="col"><p class="eyebrow">Letters</p><p><a class="ul" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=first-pour">Join the queue</a></p><p><a class="ul" href="mailto:caymanrituals@gmail.com?subject=Private%20Section%20consultation&amp;body=Property%3A%0D%0AIsland%3A%0D%0ARooms%20or%20spaces%20to%20scent%3A%0D%0AWhat%20you%20have%20in%20mind%20%28diffusers%2C%20room%20spray%2C%20candles%29%3A%0D%0ATimeline%3A%0D%0A">Request a consultation</a></p></div>
     </div>
     <p class="fine">© 2026 Cayman Rituals. Pieces shown are in development and pictured as studies. Hero photograph: EvaZL, CC BY 4.0, edited.</p>
   </div>
@@ -614,7 +647,7 @@ footer .ul{padding-bottom:1px}
 <section class="sample" id="sample-keeper" aria-labelledby="n-keeper" data-lenis-prevent>
   <div class="sample-in">
     <a class="sample-x mag" href="#pieces" data-cur="Close">Close</a>
-    <div class="sample-txt"><span class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M2.5 3H21.5L12 21.5Z"/><path class="d b" d="M4.5 13H19.5"/></svg>Caymanite · Earth</span><h3 id="n-keeper">The Keeper</h3><p>A lid turned from caymanite. You buy it once, and it moves onto every candle refill after that.</p></div>
+    <div class="sample-txt"><span class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M2.5 3H21.5L12 21.5Z"/><path class="d b" d="M4.5 13H19.5"/></svg>Caymanite · Earth</span><h3 id="n-keeper">The Keeper</h3><p>A lid you buy once. It moves onto every candle refill after that. Turned from caymanite in numbered editions, as the stone allows, or poured in bands by hand, like the candle.</p></div>
     <div class="sample-core">
         <div class="core" id="core-keeper">
           <div class="stack">
@@ -640,7 +673,7 @@ footer .ul{padding-bottom:1px}
 <section class="sample" id="sample-slab" aria-labelledby="n-slab" data-lenis-prevent>
   <div class="sample-in">
     <a class="sample-x mag" href="#pieces" data-cur="Close">Close</a>
-    <div class="sample-txt"><span class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M2.5 3H21.5L12 21.5Z"/><path class="d b" d="M4.5 13H19.5"/></svg>Caymanite · Earth</span><h3 id="n-slab">The Slab</h3><p>A slice of the stone, cut so its bands run level, set in a plain gold frame. A section you can wear.</p></div>
+    <div class="sample-txt"><span class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M2.5 3H21.5L12 21.5Z"/><path class="d b" d="M4.5 13H19.5"/></svg>Caymanite · Earth</span><h3 id="n-slab">The Slab</h3><p>A slice of the stone, cut so its bands run level, set in a plain gold frame. A section you can wear, in numbered editions, as the stone allows.</p></div>
     <div class="sample-core">
         <div class="core" id="core-slab">
           <div class="stack">
@@ -653,7 +686,7 @@ footer .ul{padding-bottom:1px}
             <div class="strata" id="strata-slab">
               <div class="lab l1"><svg class="sigil mk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 3H21.5L12 21.5Z"/><path d="M4.5 13H19.5"/></svg><b class="lt">The cut</b><span class="ll">Sliced so the bands run level. A section you can wear.</span></div>
               <div class="lab l2"><i class="mt"></i><b class="lt">The stone</b><span class="ll">Caymanite, from documented sources only.</span></div>
-              <div class="lab l3"><i class="mt"></i><b class="lt">The frame</b><span class="ll">Plain gold, closed around the edge. Caymanite is soft; the frame keeps it.</span></div>
+              <div class="lab l3"><i class="mt"></i><b class="lt">The frame</b><span class="ll">Plain gold, closed around the edge to guard the stone.</span></div>
               <div class="lab l4"><i class="mt"></i><b class="lt">The back</b><span class="ll">CAY RIT stamped where only you will see it.</span></div>
             </div>
             <svg class="leads" aria-hidden="true" focusable="false"><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><circle class="lp" r="2"/><circle class="lp" r="2"/><circle class="lp" r="2"/><circle class="lp" r="2"/></svg>
@@ -850,6 +883,7 @@ window.addEventListener('DOMContentLoaded',function(){
   if(motion){
     ScrollTrigger.create({trigger:'#intro',start:'top 75%',once:true,onEnter:function(){reveal(doc.getElementById('intro'));}});
     ScrollTrigger.create({trigger:'#house',start:'top 70%',once:true,onEnter:function(){reveal(doc.getElementById('house'));}});
+    ScrollTrigger.create({trigger:'#take',start:'top 70%',once:true,onEnter:function(){reveal(doc.getElementById('take'));}});
     /* pins are created strictly in document order so every pin-spacer is known to the ones below it */
     [].forEach.call(doc.querySelectorAll('.chap,.seax,.mani'),function(sec){
       if(sec.classList.contains('mani')){
@@ -878,13 +912,13 @@ window.addEventListener('DOMContentLoaded',function(){
       })(seq[i-1][1],seq[i][1],seq[i][0]);
     }
   }else{
-    reveal(doc.getElementById('intro'));reveal(doc.getElementById('house'));chaps.forEach(function(c){c.classList.add('is-in');});[].forEach.call(doc.querySelectorAll('.mani'),function(m){m.classList.add('is-in');});
+    reveal(doc.getElementById('intro'));reveal(doc.getElementById('house'));reveal(doc.getElementById('take'));chaps.forEach(function(c){c.classList.add('is-in');});[].forEach.call(doc.querySelectorAll('.mani'),function(m){m.classList.add('is-in');});
   }
 
   /* ── gauge (v3 behaviour), driven by the same scroll ── */
   var g=doc.getElementById('gauge'),gv=doc.getElementById('gv'),gl=doc.getElementById('gl'),mk=g&&g.querySelector('.mk'),track=g&&g.querySelector('.track');
   var secs=[].slice.call(doc.querySelectorAll('[data-elev]'));
-  var order=['hero','house','bluff','caymanite','thatch','sealevel','ironshore','trench','pieces','floor'];
+  var order=['hero','house','bluff','caymanite','thatch','sealevel','ironshore','trench','pieces','take','floor'];
   var idxBtn=doc.getElementById('idx-btn');
   function tick(){
     var vh=window.innerHeight,mid=vh*0.5,cur=0;
