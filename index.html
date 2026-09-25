@@ -3,30 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.documentElement.classList.add('js');</script>
 <title>Cayman Rituals — West Indies</title>
 <meta name="description" content="A scent house from the Cayman Islands. One scent for each layer of the island, from the top of the Bluff to the floor of the Trench.">
 <meta name="theme-color" content="#0A1416">
+<link rel="canonical" href="https://caymanrituals.github.io/">
 <link rel="icon" href="brand/cay-rit-stamp-800.png" type="image/png">
 <link rel="apple-touch-icon" href="brand/cay-rit-stamp-800.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Cayman Rituals">
+<meta property="og:url" content="https://caymanrituals.github.io/">
 <meta property="og:title" content="Cayman Rituals — West Indies">
 <meta property="og:description" content="One scent for each layer of the island, from the top of the Bluff to the floor of the Trench.">
 <meta property="og:image" content="https://caymanrituals.github.io/brand/cayman-rituals-share-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cayman Rituals, West Indies: the wordmark in black on a pale limestone ground.">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="brand/cay-rit-stamp-800.png" type="image/png">
-<link rel="apple-touch-icon" href="brand/cay-rit-stamp-800.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Cayman Rituals","url":"https://caymanrituals.github.io/","logo":"https://caymanrituals.github.io/brand/cay-rit-stamp-800.png","description":"A scent house from the Cayman Islands. One scent for each layer of the island, from the top of the Bluff to the floor of the Trench.","email":"caymanrituals@gmail.com","telephone":"+1-345-928-1570","address":{"@type":"PostalAddress","addressCountry":"KY"},"sameAs":["https://www.instagram.com/caymanrituals/"]}
+</script>
 <link rel="preload" as="image" href="img/bluff-statement-portrait.jpg" media="(max-aspect-ratio: 3/4)">
 <link rel="preload" as="image" href="img/bluff-statement.jpg" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/bodoni-moda-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
 /* Hallmark · pre-emit critique: P5 H5 E4 S5 R4 V5 */
 /* Hallmark · macrostructure: depth-descent · knobs: preloader=wordmark-draw, hero=cinematic-pinned(descend-through-horizon), chapters=pinned+giant-numeral+line-mask, ground=transmutes(scrolltrigger), pivot=sea-level(webgl-refraction, css-line fallback), pieces=horizontal-rail→core-sample(exploded strata), cursor=ring+magnetic, cta=two-doors, nav=index-overlay(section-axis), story=two-column-editorial, interstitials=manifesto×3, footer=flagship-3col */
 /* Hallmark · v5 2026-09-24 · + story chapter (The house), three manifesto lines, house index overlay (section of the island), flagship footer, polish · landing locked as v4
-/* Hallmark · v4 2026-09-24 · standalone site · libs: gsap 3.12.5 + ScrollTrigger, lenis 1.1.18, three 0.158.0 (lazy, sea level only), all pinned on jsdelivr · motion: transform/opacity/stroke-dashoffset/background-color (+ one clip-path curtain, + WebGL) · reduced motion: native scroll, no pins, no WebGL, everything visible · JS off: static readable page, samples open by :target */
+/* Hallmark · v4 2026-09-24 · standalone site · libs: gsap 3.12.5 + ScrollTrigger, lenis 1.1.18, three 0.158.0 (lazy, sea level only), all self-hosted in /vendor, fonts in /fonts · motion: transform/opacity/stroke-dashoffset/background-color (+ one clip-path curtain, + WebGL) · reduced motion: native scroll, no pins, no WebGL, everything visible · JS off: static readable page, samples open by :target */
 :root{
   color-scheme:light;
   --limestone:#EEEDE8; --clay:#E6D6CB; --thatch:#D5D6C6; --ironshore:#22201F; --trench:#0A1416;
@@ -201,6 +207,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;o
 .sample:target{display:block}
 :root.js .sample{display:block;position:fixed;inset:0;z-index:50;overflow:auto;opacity:0;visibility:hidden;transform:translateY(24px);transition:opacity 500ms var(--ease-out),transform 500ms var(--ease-out),visibility 0s linear 500ms}
 :root.js .sample.is-on{opacity:1;visibility:visible;transform:none;transition-delay:0s,0s,0s}
+.sample,.idx{overscroll-behavior:contain}
 .sample-in{max-width:1180px;margin:0 auto;padding:var(--s7) 20px var(--s8);display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5);min-height:100vh;align-content:center}
 @media(min-width:1000px){.sample-in{grid-template-columns:minmax(0,4fr) minmax(0,7fr);column-gap:var(--s7);padding-inline:var(--s6)}}
 .sample-x{justify-self:start;grid-column:1/-1;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;text-decoration:none;padding:12px 0}
@@ -436,13 +443,13 @@ footer .ul{padding-bottom:1px}
 </style>
 </head>
 <body>
-<div class="pre" id="pre" aria-hidden="true"><svg class="pre-wm" viewBox="0 0 616 310" focusable="false">
+<div class="pre" id="pre"><svg class="pre-wm" viewBox="0 0 616 310" aria-hidden="true" focusable="false">
 <g fill="currentColor"><g transform="translate(44.00 119.00)"><path pathLength="1" d="M38.15 1.00Q28.00 1.00 20.35 -3.98Q12.70 -8.95 8.43 -17.65Q4.15 -26.35 4.15 -37.50Q4.15 -48.65 8.43 -57.35Q12.70 -66.05 20.35 -71.03Q28.00 -76.00 38.15 -76.00Q43.20 -76.00 47.68 -74.20Q52.15 -72.40 55.40 -69.20L61.45 -75.00H61.65V-54.50H61.45Q61.45 -60.60 58.25 -65.35Q55.05 -70.10 49.95 -72.80Q44.85 -75.50 39.15 -75.50Q32.65 -75.50 28.12 -72.18Q23.60 -68.85 20.88 -63.33Q18.15 -57.80 16.90 -51.08Q15.65 -44.35 15.65 -37.50Q15.65 -30.70 16.90 -23.95Q18.15 -17.20 20.88 -11.68Q23.60 -6.15 28.12 -2.83Q32.65 0.50 39.15 0.50Q44.35 0.50 48.62 -1.18Q52.90 -2.85 56.00 -5.80Q59.10 -8.75 60.78 -12.53Q62.45 -16.30 62.45 -20.50H62.65V0.00H62.45L56.90 -6.25Q53.65 -2.90 48.83 -0.95Q44.00 1.00 38.15 1.00Z"/></g><g transform="translate(129.08 119.00)"><path pathLength="1" d="M20.05 -24.30V-24.50H51.85V-24.30ZM38.30 -76.50 64.75 -0.20H71.85V0.00H42.85V-0.20H53.80L33.60 -62.80L11.70 -0.20H23.85V0.00H1.85V-0.20H11.50L38.10 -76.50Z"/></g><g transform="translate(217.56 119.00)"><path pathLength="1" d="M22.45 0.00V-0.20H31.45V-35.98L8.05 -74.80H1.00V-75.00H30.00V-74.80H19.05L40.75 -38.50L60.25 -74.80H48.50V-75.00H69.50V-74.80H60.55L40.95 -38.30V-0.20H51.00V0.00Z"/></g><g transform="translate(305.34 119.00)"><path pathLength="1" d="M37.45 1.00 9.65 -75.00H19.19L42.20 -12.90L64.25 -75.00H64.45L37.60 1.00ZM9.75 -75.00V-0.20H17.50V0.00H2.30V-0.20H9.55V-74.80H1.85V-75.00ZM80.85 -75.00V-74.80H73.85V-0.20H80.85V0.00H56.30V-0.20H64.35V-75.00Z"/></g><g transform="translate(406.72 119.00)"><path pathLength="1" d="M20.05 -24.30V-24.50H51.85V-24.30ZM38.30 -76.50 64.75 -0.20H71.85V0.00H42.85V-0.20H53.80L33.60 -62.80L11.70 -0.20H23.85V0.00H1.85V-0.20H11.50L38.10 -76.50Z"/></g><g transform="translate(498.90 119.00)"><path pathLength="1" d="M11.95 -75.00V-0.20H24.05V0.00H1.85V-0.20H11.75V-74.80H1.85V-75.00ZM71.30 -75.00V-74.80H60.80V1.00H60.60L11.85 -75.00H23.30L60.60 -15.20V-74.80H48.60V-75.00Z"/></g><g transform="translate(44.00 206.00)"><path pathLength="1" d="M19.85 -38.40V-38.60H34.85Q39.65 -38.60 43.00 -40.80Q46.35 -43.00 48.10 -47.03Q49.85 -51.05 49.85 -56.50Q49.85 -61.95 48.10 -66.08Q46.35 -70.20 42.99 -72.50Q39.63 -74.80 34.85 -74.80H1.85V-75.00H34.85Q42.40 -75.00 48.03 -73.08Q53.65 -71.15 56.75 -67.08Q59.85 -63.00 59.85 -56.50Q59.85 -50.00 56.95 -46.02Q54.05 -42.03 48.48 -40.22Q42.90 -38.40 34.85 -38.40ZM1.85 0.00V-0.20H33.35V0.00ZM12.80 -0.10V-74.90H22.35V-0.10ZM59.35 0.50Q55.00 0.50 52.58 -1.14Q50.15 -2.78 49.05 -5.56Q47.95 -8.34 47.68 -11.80Q47.40 -15.25 47.35 -18.94Q47.30 -22.64 46.95 -26.09Q46.60 -29.55 45.40 -32.34Q44.20 -35.12 41.58 -36.76Q38.95 -38.40 34.35 -38.40H19.85V-38.60H36.35Q43.70 -38.60 48.03 -36.50Q52.35 -34.40 54.48 -30.98Q56.60 -27.55 57.30 -23.43Q58.00 -19.30 58.03 -15.18Q58.05 -11.05 58.15 -7.62Q58.25 -4.20 59.20 -2.10Q60.15 0.00 62.80 0.00Q64.40 0.00 65.80 -0.35Q67.20 -0.70 68.25 -1.20L68.35 -1.10Q67.15 -0.45 64.90 0.02Q62.65 0.50 59.35 0.50Z"/></g><g transform="translate(131.39 206.00)"><path pathLength="1" d="M1.85 0.00V-0.20H12.80V-74.80H1.85V-75.00H34.35V-74.80H22.35V-0.20H34.35V0.00Z"/></g><g transform="translate(185.48 206.00)"><path pathLength="1" d="M15.85 0.00V-0.20H26.85V-74.80H16.82Q12.40 -74.80 9.55 -73.12Q6.70 -71.45 5.05 -68.43Q3.40 -65.40 2.73 -61.33Q2.05 -57.25 2.05 -52.50H1.85V-75.00H61.35V-52.50H61.10Q61.10 -57.25 60.42 -61.33Q59.75 -65.40 58.10 -68.43Q56.45 -71.45 53.58 -73.12Q50.70 -74.80 46.32 -74.80H36.35V-0.20H47.35V0.00Z"/></g><g transform="translate(266.17 206.00)"><path pathLength="1" d="M67.85 -75.00V-74.80H57.95V-23.00Q57.95 -10.65 52.80 -4.58Q47.65 1.50 35.80 1.50Q22.85 1.50 16.83 -4.28Q10.80 -10.05 10.80 -23.00V-74.80H1.85V-75.00H30.35V-74.80H20.35V-24.00Q20.35 -19.05 21.08 -14.55Q21.80 -10.05 23.68 -6.55Q25.55 -3.05 28.98 -1.03Q32.40 1.00 37.80 1.00Q44.50 1.00 48.92 -1.62Q53.35 -4.25 55.55 -9.57Q57.75 -14.90 57.75 -23.00V-74.80H48.30V-75.00Z"/></g><g transform="translate(353.57 206.00)"><path pathLength="1" d="M20.05 -24.30V-24.50H51.85V-24.30ZM38.30 -76.50 64.75 -0.20H71.85V0.00H42.85V-0.20H53.80L33.60 -62.80L11.70 -0.20H23.85V0.00H1.85V-0.20H11.50L38.10 -76.50Z"/></g><g transform="translate(444.06 206.00)"><path pathLength="1" d="M1.85 0.00V-0.20H10.80V-74.80H1.85V-75.00H29.30V-74.80H20.35V-0.20H35.80Q41.70 -0.20 45.40 -1.88Q49.10 -3.55 51.10 -6.58Q53.10 -9.60 53.85 -13.68Q54.60 -17.75 54.60 -22.50H54.80V0.00Z"/></g><g transform="translate(516.20 206.00)"><path pathLength="1" d="M28.90 1.50Q22.15 1.50 17.58 -0.60Q13.00 -2.70 10.05 -6.30L4.60 1.00H4.40V-19.50H4.60Q5.45 -15.05 7.20 -11.28Q8.95 -7.50 11.78 -4.70Q14.60 -1.90 18.62 -0.35Q22.65 1.20 28.10 1.20Q33.40 1.20 37.40 -0.70Q41.40 -2.60 43.65 -6.33Q45.90 -10.05 45.90 -15.50Q45.90 -19.90 43.70 -22.95Q41.50 -26.00 37.90 -28.25Q34.30 -30.50 29.98 -32.45Q25.65 -34.40 21.33 -36.50Q17.00 -38.60 13.40 -41.38Q9.80 -44.15 7.60 -48.05Q5.40 -51.95 5.40 -57.50Q5.40 -63.00 8.28 -67.18Q11.15 -71.35 15.85 -73.68Q20.55 -76.00 26.10 -76.00Q31.20 -76.00 35.30 -74.40Q39.40 -72.80 42.30 -69.40L47.70 -76.00H47.90V-55.50H47.70Q46.70 -62.45 43.88 -66.90Q41.05 -71.35 36.75 -73.48Q32.45 -75.60 27.10 -75.60Q19.90 -75.60 16.15 -72.03Q12.40 -68.45 12.40 -62.50Q12.40 -58.55 14.55 -55.78Q16.70 -53.00 20.20 -50.88Q23.70 -48.75 27.93 -46.83Q32.15 -44.90 36.38 -42.68Q40.60 -40.45 44.10 -37.45Q47.60 -34.45 49.75 -30.23Q51.90 -26.00 51.90 -20.00Q51.90 -13.50 49.10 -8.68Q46.30 -3.85 41.12 -1.18Q35.95 1.50 28.90 1.50Z"/></g></g>
 <g fill="currentColor"><g transform="translate(44.00 266.38)"><path pathLength="1" d="M6.19 0.18 1.83 -13.84H0.18V-13.88H13.13V-13.84H8.51L12.00 -2.57L16.09 -13.84H14.06V-13.88H17.75V-13.84H16.15L11.05 0.18H11.02L6.67 -13.84H3.68L7.21 -2.57L9.05 -7.43L9.07 -7.34L6.23 0.18ZM10.00 -8.79 9.96 -8.84 11.65 -13.86H11.71Z"/></g><g transform="translate(103.11 266.38)"><path pathLength="1" d="M0.34 0.00V-0.04H2.00V-13.84H0.34V-13.88H10.05V-10.08H10.02Q10.02 -11.07 9.69 -11.93Q9.37 -12.78 8.68 -13.31Q7.99 -13.84 6.91 -13.84H3.76V-0.04H6.72Q7.99 -0.04 8.76 -0.58Q9.52 -1.12 9.86 -2.05Q10.20 -2.99 10.20 -4.16H10.24V0.00ZM6.87 -5.14Q6.87 -5.76 6.60 -6.22Q6.32 -6.67 5.86 -6.91Q5.40 -7.16 4.87 -7.16H3.02V-7.20H4.87Q5.40 -7.20 5.86 -7.42Q6.32 -7.64 6.60 -8.07Q6.87 -8.50 6.87 -9.12H6.91V-5.14Z"/></g><g transform="translate(155.06 266.38)"><path pathLength="1" d="M5.35 0.28Q4.10 0.28 3.25 -0.11Q2.40 -0.50 1.86 -1.17L0.85 0.18H0.81V-3.61H0.85Q1.01 -2.78 1.33 -2.09Q1.66 -1.39 2.18 -0.87Q2.70 -0.35 3.45 -0.06Q4.19 0.22 5.20 0.22Q6.18 0.22 6.92 -0.13Q7.66 -0.48 8.08 -1.17Q8.49 -1.86 8.49 -2.87Q8.49 -3.68 8.08 -4.25Q7.68 -4.81 7.01 -5.23Q6.35 -5.64 5.55 -6.00Q4.75 -6.36 3.95 -6.75Q3.15 -7.14 2.48 -7.65Q1.81 -8.17 1.41 -8.89Q1.00 -9.61 1.00 -10.64Q1.00 -11.65 1.53 -12.43Q2.06 -13.20 2.93 -13.63Q3.80 -14.06 4.83 -14.06Q5.77 -14.06 6.53 -13.76Q7.29 -13.47 7.83 -12.84L8.82 -14.06H8.86V-10.27H8.82Q8.64 -11.55 8.12 -12.38Q7.59 -13.20 6.80 -13.59Q6.00 -13.99 5.01 -13.99Q3.68 -13.99 2.99 -13.32Q2.29 -12.66 2.29 -11.56Q2.29 -10.83 2.69 -10.32Q3.09 -9.80 3.74 -9.41Q4.38 -9.02 5.17 -8.66Q5.95 -8.31 6.73 -7.89Q7.51 -7.48 8.16 -6.93Q8.81 -6.37 9.20 -5.59Q9.60 -4.81 9.60 -3.70Q9.60 -2.50 9.08 -1.60Q8.57 -0.71 7.61 -0.22Q6.65 0.28 5.35 0.28Z"/></g><g transform="translate(206.57 266.38)"><path pathLength="1" d="M2.93 0.00V-0.04H4.97V-13.84H3.11Q2.29 -13.84 1.77 -13.53Q1.24 -13.22 0.93 -12.66Q0.63 -12.10 0.50 -11.35Q0.38 -10.59 0.38 -9.71H0.34V-13.88H11.35V-9.71H11.30Q11.30 -10.59 11.18 -11.35Q11.05 -12.10 10.75 -12.66Q10.44 -13.22 9.91 -13.53Q9.38 -13.84 8.57 -13.84H6.72V-0.04H8.76V0.00Z"/></g><g transform="translate(305.23 266.38)"><path pathLength="1" d="M0.34 0.00V-0.04H2.37V-13.84H0.34V-13.88H6.35V-13.84H4.13V-0.04H6.35V0.00Z"/></g><g transform="translate(353.10 266.38)"><path pathLength="1" d="M2.21 -13.88V-0.04H4.45V0.00H0.34V-0.04H2.17V-13.84H0.34V-13.88ZM13.19 -13.88V-13.84H11.25V0.18H11.21L2.19 -13.88H4.31L11.21 -2.81V-13.84H8.99V-13.88Z"/></g><g transform="translate(407.73 266.38)"><path pathLength="1" d="M5.52 -13.88Q7.58 -13.88 9.07 -12.96Q10.56 -12.05 11.37 -10.48Q12.18 -8.91 12.18 -6.94Q12.18 -5.46 11.70 -4.19Q11.21 -2.93 10.32 -1.99Q9.43 -1.05 8.21 -0.52Q6.99 0.00 5.51 0.00H0.34V-0.04H2.00V-13.84H0.34V-13.88ZM3.76 -0.04H5.51Q6.79 -0.04 7.66 -0.63Q8.53 -1.23 9.06 -2.22Q9.58 -3.22 9.81 -4.45Q10.05 -5.68 10.05 -6.94Q10.05 -8.20 9.79 -9.43Q9.53 -10.66 8.99 -11.65Q8.45 -12.64 7.58 -13.24Q6.72 -13.84 5.51 -13.84H3.76Z"/></g><g transform="translate(461.85 266.38)"><path pathLength="1" d="M0.34 0.00V-0.04H2.37V-13.84H0.34V-13.88H6.35V-13.84H4.13V-0.04H6.35V0.00Z"/></g><g transform="translate(509.72 266.38)"><path pathLength="1" d="M0.34 0.00V-0.04H2.00V-13.84H0.34V-13.88H10.05V-10.08H10.02Q10.02 -11.07 9.69 -11.93Q9.37 -12.78 8.68 -13.31Q7.99 -13.84 6.91 -13.84H3.76V-0.04H6.72Q7.99 -0.04 8.76 -0.58Q9.52 -1.12 9.86 -2.05Q10.20 -2.99 10.20 -4.16H10.24V0.00ZM6.87 -5.14Q6.87 -5.76 6.60 -6.22Q6.32 -6.67 5.86 -6.91Q5.40 -7.16 4.87 -7.16H3.02V-7.20H4.87Q5.40 -7.20 5.86 -7.42Q6.32 -7.64 6.60 -8.07Q6.87 -8.50 6.87 -9.12H6.91V-5.14Z"/></g><g transform="translate(561.68 266.38)"><path pathLength="1" d="M5.35 0.28Q4.10 0.28 3.25 -0.11Q2.40 -0.50 1.86 -1.17L0.85 0.18H0.81V-3.61H0.85Q1.01 -2.78 1.33 -2.09Q1.66 -1.39 2.18 -0.87Q2.70 -0.35 3.45 -0.06Q4.19 0.22 5.20 0.22Q6.18 0.22 6.92 -0.13Q7.66 -0.48 8.08 -1.17Q8.49 -1.86 8.49 -2.87Q8.49 -3.68 8.08 -4.25Q7.68 -4.81 7.01 -5.23Q6.35 -5.64 5.55 -6.00Q4.75 -6.36 3.95 -6.75Q3.15 -7.14 2.48 -7.65Q1.81 -8.17 1.41 -8.89Q1.00 -9.61 1.00 -10.64Q1.00 -11.65 1.53 -12.43Q2.06 -13.20 2.93 -13.63Q3.80 -14.06 4.83 -14.06Q5.77 -14.06 6.53 -13.76Q7.29 -13.47 7.83 -12.84L8.82 -14.06H8.86V-10.27H8.82Q8.64 -11.55 8.12 -12.38Q7.59 -13.20 6.80 -13.59Q6.00 -13.99 5.01 -13.99Q3.68 -13.99 2.99 -13.32Q2.29 -12.66 2.29 -11.56Q2.29 -10.83 2.69 -10.32Q3.09 -9.80 3.74 -9.41Q4.38 -9.02 5.17 -8.66Q5.95 -8.31 6.73 -7.89Q7.51 -7.48 8.16 -6.93Q8.81 -6.37 9.20 -5.59Q9.60 -4.81 9.60 -3.70Q9.60 -2.50 9.08 -1.60Q8.57 -0.71 7.61 -0.22Q6.65 0.28 5.35 0.28Z"/></g></g>
-</svg><span class="pre-d" id="pre-d">+43 m</span><button class="pre-skip" type="button" id="pre-skip">Skip</button></div>
+</svg><span class="pre-d" id="pre-d" aria-hidden="true">+43 m</span><button class="pre-skip" type="button" id="pre-skip" aria-label="Skip intro">Skip</button></div>
 <div class="cur" id="cur" aria-hidden="true"><i class="cur-r"></i><span class="cur-l" id="cur-l">Open</span></div>
 <button class="idx-btn" id="idx-btn" type="button" aria-expanded="false" aria-controls="idx" data-cur="Index"><span class="idx-w">Index</span><span class="idx-x">Close</span></button>
-<div class="idx" id="idx" role="dialog" aria-modal="true" aria-label="House index" hidden>
+<div class="idx" id="idx" role="dialog" aria-modal="true" aria-label="House index" data-lenis-prevent hidden>
   <div class="idx-in">
     <svg class="idx-wm" viewBox="0 0 616 310" aria-hidden="true" focusable="false"><use href="#wm"/></svg>
     <nav class="idx-nav" aria-label="Sections">
@@ -604,7 +611,7 @@ footer .ul{padding-bottom:1px}
 </footer>
 </main>
 
-<section class="sample" id="sample-keeper" aria-labelledby="n-keeper">
+<section class="sample" id="sample-keeper" aria-labelledby="n-keeper" data-lenis-prevent>
   <div class="sample-in">
     <a class="sample-x mag" href="#pieces" data-cur="Close">Close</a>
     <div class="sample-txt"><span class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M2.5 3H21.5L12 21.5Z"/><path class="d b" d="M4.5 13H19.5"/></svg>Caymanite · Earth</span><h3 id="n-keeper">The Keeper</h3><p>A lid turned from caymanite. You buy it once, and it moves onto every candle refill after that.</p></div>
@@ -630,7 +637,7 @@ footer .ul{padding-bottom:1px}
     </div>
   </div>
 </section>
-<section class="sample" id="sample-slab" aria-labelledby="n-slab">
+<section class="sample" id="sample-slab" aria-labelledby="n-slab" data-lenis-prevent>
   <div class="sample-in">
     <a class="sample-x mag" href="#pieces" data-cur="Close">Close</a>
     <div class="sample-txt"><span class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M2.5 3H21.5L12 21.5Z"/><path class="d b" d="M4.5 13H19.5"/></svg>Caymanite · Earth</span><h3 id="n-slab">The Slab</h3><p>A slice of the stone, cut so its bands run level, set in a plain gold frame. A section you can wear.</p></div>
@@ -656,7 +663,7 @@ footer .ul{padding-bottom:1px}
     </div>
   </div>
 </section>
-<section class="sample" id="sample-rope" aria-labelledby="n-rope">
+<section class="sample" id="sample-rope" aria-labelledby="n-rope" data-lenis-prevent>
   <div class="sample-in">
     <a class="sample-x mag" href="#pieces" data-cur="Close">Close</a>
     <div class="sample-txt"><span class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M12 2.5L21.5 21H2.5Z"/></svg>Thatch · Fire</span><h3 id="n-rope">The Rope</h3><p>Silver thatch rope was a Caymanian export within living memory, and very few people still plait it. Ours carries the old plait into new work, by hand, and every piece is numbered. Rope No. 001 is being made now.</p></div>
@@ -682,7 +689,7 @@ footer .ul{padding-bottom:1px}
     </div>
   </div>
 </section>
-<section class="sample" id="sample-edp" aria-labelledby="n-edp">
+<section class="sample" id="sample-edp" aria-labelledby="n-edp" data-lenis-prevent>
   <div class="sample-in">
     <a class="sample-x mag" href="#pieces" data-cur="Close">Close</a>
     <div class="sample-txt"><span class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M12 2.5L21.5 21H2.5Z"/></svg>Thatch · Fire</span><h3 id="n-edp">Eau de parfum</h3><p>Plain heavy glass, with the cap wrapped by hand in the same plaited thatch.</p></div>
@@ -708,7 +715,7 @@ footer .ul{padding-bottom:1px}
     </div>
   </div>
 </section>
-<section class="sample dark" id="sample-candle" aria-labelledby="n-candle">
+<section class="sample dark" id="sample-candle" aria-labelledby="n-candle" data-lenis-prevent>
   <div class="sample-in">
     <a class="sample-x mag" href="#pieces" data-cur="Close">Close</a>
     <div class="sample-txt"><span class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M2.5 3H21.5L12 21.5Z"/></svg>Ironshore · Water</span><h3 id="n-candle">The Section Candle</h3><p>Poured in three bands, like the stone. As it burns, it melts down through its own layers.</p></div>
@@ -737,10 +744,9 @@ footer .ul{padding-bottom:1px}
 
 <div class="gauge" id="gauge" aria-hidden="true"><span class="track"><i class="tk"></i><i class="tk"></i><i class="tk"></i><i class="tk"></i><i class="tk"></i><i class="tk"></i><i class="mk"></i></span><span class="v" id="gv">+43 m</span><span class="l" id="gl">Above the Bluff</span></div>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
-<script>document.documentElement.classList.add('js');</script>
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="vendor/lenis.min.js" defer></script>
 <script defer>
 window.addEventListener('DOMContentLoaded',function(){
 (function(){
@@ -902,7 +908,7 @@ window.addEventListener('DOMContentLoaded',function(){
   /* ── the signature moment: crossing sea level. WebGL refraction (three, lazy), CSS line fallback ── */
   function webglOK(){try{var c=doc.createElement('canvas');return !!(window.WebGLRenderingContext&&(c.getContext('webgl')||c.getContext('experimental-webgl')));}catch(e){return false;}}
   function lowPowerQ(){return !!(navigator.connection&&navigator.connection.saveData)||!!(navigator.deviceMemory&&navigator.deviceMemory<2);}
-  function loadThree(cb){if(window.THREE)return cb();var s=doc.createElement('script');s.src='https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js';s.onload=cb;s.onerror=function(){};doc.head.appendChild(s);}
+  function loadThree(cb){if(window.THREE)return cb();var s=doc.createElement('script');s.src='vendor/three.min.js';s.onload=cb;s.onerror=function(){};doc.head.appendChild(s);}
   function seaInit(){
     if(!window.THREE||!tokensOK)return;
     var T=window.THREE,W=seaC.clientWidth||1,H=seaC.clientHeight||1;
@@ -910,6 +916,7 @@ window.addEventListener('DOMContentLoaded',function(){
     renderer.setPixelRatio(Math.min(1.5,window.devicePixelRatio||1));renderer.setSize(W,H,false);
     var scene=new T.Scene(),cam=new T.OrthographicCamera(-1,1,1,-1,0,1);
     var u={t:{value:0},p:{value:0},res:{value:new T.Vector2(W,H)},top:{value:new T.Color(C.thatch[0]/255,C.thatch[1]/255,C.thatch[2]/255)},bot:{value:new T.Color(C.ironshore[0]/255,C.ironshore[1]/255,C.ironshore[2]/255)},line:{value:new T.Color(C.brass[0]/255,C.brass[1]/255,C.brass[2]/255)},bone:{value:new T.Color(C.bone[0]/255,C.bone[1]/255,C.bone[2]/255)}};
+    renderer.getDrawingBufferSize(u.res.value); /* gl_FragCoord counts device pixels, so res must too, or the surface drew low on retina screens */
     var mat=new T.ShaderMaterial({uniforms:u,vertexShader:'void main(){gl_Position=vec4(position,1.0);}',
       fragmentShader:[
       'precision highp float;uniform float t,p;uniform vec2 res;uniform vec3 top,bot,line,bone;',
@@ -931,7 +938,7 @@ window.addEventListener('DOMContentLoaded',function(){
     scene.add(new T.Mesh(new T.PlaneGeometry(2,2),mat));
     var run=false,clock=0;
     function frame(ts){if(!run)return;u.t.value=ts/1000;u.p.value=seaP;renderer.render(scene,cam);raf(frame);}
-    three={start:function(){if(run)return;run=true;raf(frame);},stop:function(){run=false;},size:function(){W=seaC.clientWidth||1;H=seaC.clientHeight||1;renderer.setSize(W,H,false);u.res.value.set(W,H);}};
+    three={start:function(){if(run)return;run=true;raf(frame);},stop:function(){run=false;},size:function(){W=seaC.clientWidth||1;H=seaC.clientHeight||1;renderer.setSize(W,H,false);renderer.getDrawingBufferSize(u.res.value);}};
     window.addEventListener('resize',three.size);
     seaC.classList.add('is-on');seax.classList.add('has-gl');seaOK=true;if(seaVis)three.start();
   }
@@ -964,16 +971,20 @@ window.addEventListener('DOMContentLoaded',function(){
 
   /* ── the core sample opens in a focused panel ── */
   var samples=[].slice.call(doc.querySelectorAll('.sample')),openS=null,lastFocus=null;
+  /* with JS the samples are modal panels: announce them as dialogs, and put the page behind out of reach while one is open */
+  samples.forEach(function(s){s.setAttribute('role','dialog');s.setAttribute('aria-modal','true');});
+  var behind=[doc.getElementById('top'),mast,idxBtn];
+  function setBehind(off){behind.forEach(function(el){if(el)el.inert=off;});}
   function openSample(s,trigger){
     if(openS)closeSample(true);openS=s;lastFocus=trigger||null;s.scrollTop=0;
-    s.classList.add('is-on');if(lenis)lenis.stop();root.classList.add('sample-open');
+    s.classList.add('is-on');setBehind(true);if(lenis)lenis.stop();root.classList.add('sample-open');
     var core=s.querySelector('.core');
     setTimeout(function(){setOpen(core,true);core._pin=true;var x=s.querySelector('.sample-x');if(x)x.focus({preventScroll:true});},motion?420:0);
   }
   function closeSample(silent){
     if(!openS)return;var s=openS;openS=null;
     var core=s.querySelector('.core');core._pin=false;setOpen(core,false);
-    s.classList.remove('is-on');root.classList.remove('sample-open');if(lenis)lenis.start();
+    s.classList.remove('is-on');setBehind(false);root.classList.remove('sample-open');if(lenis)lenis.start();
     if(!silent&&lastFocus)lastFocus.focus({preventScroll:true});
   }
   [].forEach.call(doc.querySelectorAll('.card-a'),function(a){a.addEventListener('click',function(e){var s=doc.querySelector(a.getAttribute('href'));if(!s)return;e.preventDefault();openSample(s,a);});});
