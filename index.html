@@ -3,13 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <script>document.documentElement.classList.add('js');</script>
-<title>Cayman Rituals — West Indies</title>
-<meta name="description" content="A scent house from the Cayman Islands. One scent for each layer of the island, from the top of the Bluff to the floor of the Trench.">
+<title>Cayman Rituals — candles and scent from the Cayman Islands</title>
+<meta name="description" content="A scent house from the Cayman Islands. Candles, eaux de parfum and objects, each named for one layer of the island and its real height, from the top of the Bluff to the floor of the Cayman Trench.">
 <meta name="theme-color" content="#0A1416">
 <link rel="canonical" href="https://caymanrituals.github.io/">
-<link rel="icon" href="brand/cay-rit-stamp-800.png" type="image/png">
-<link rel="apple-touch-icon" href="brand/cay-rit-stamp-800.png">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="brand/favicon-48.png" type="image/png" sizes="48x48">
+<link rel="apple-touch-icon" href="brand/apple-touch-icon-180.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Cayman Rituals">
 <meta property="og:url" content="https://caymanrituals.github.io/">
@@ -23,12 +26,43 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Cayman Rituals","url":"https://caymanrituals.github.io/","logo":"https://caymanrituals.github.io/brand/cay-rit-stamp-800.png","description":"A scent house from the Cayman Islands. One scent for each layer of the island, from the top of the Bluff to the floor of the Trench.","email":"caymanrituals@gmail.com","telephone":"+1-345-928-1570","address":{"@type":"PostalAddress","addressCountry":"KY"},"sameAs":["https://www.instagram.com/caymanrituals/"]}
 </script>
-<link rel="preload" as="image" href="img/bluff-statement-portrait.jpg" media="(max-aspect-ratio: 3/4)">
-<link rel="preload" as="image" href="img/bluff-statement.jpg" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" href="img/bluff-statement-portrait.avif" media="(max-aspect-ratio: 3/4)" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" imagesrcset="img/bluff-statement-2400.avif 2400w, img/bluff-statement-4032.avif 4032w" imagesizes="100vw" media="not all and (max-aspect-ratio: 3/4)" fetchpriority="high">
 <link rel="preload" href="fonts/bodoni-moda-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="fonts/fonts.css">
 <style>
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/bodoni-moda-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/bodoni-moda-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/manrope-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/manrope-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 /* Hallmark · pre-emit critique: P5 H5 E4 S5 R4 V5 */
 /* Hallmark · macrostructure: depth-descent · knobs: preloader=wordmark-draw, hero=cinematic-pinned(descend-through-horizon), chapters=pinned+giant-numeral+line-mask, ground=transmutes(scrolltrigger), pivot=sea-level(webgl-refraction, css-line fallback), pieces=horizontal-rail→core-sample(exploded strata), cursor=ring+magnetic, cta=two-doors, nav=index-overlay(section-axis), story=two-column-editorial, interstitials=manifesto×3, footer=flagship-3col */
 /* Hallmark · v5 2026-09-24 · + story chapter (The house), three manifesto lines, house index overlay (section of the island), flagship footer, polish · landing locked as v4
@@ -39,7 +73,7 @@
   --ink:#1D191C; --ink-soft:#4A4247; --bone:#EDE9E2; --bone-soft:#B9B3AA;
   --oxblood:#6E2436; --brass:#C4A36B;
   --rule-light:rgba(29,25,28,.18); --rule-dark:rgba(237,233,226,.18);
-  --veil:rgba(10,20,22,.92); --cap-shadow:rgba(10,20,22,.6);
+  --veil:rgba(10,20,22,.92); --cap-shadow:rgba(10,20,22,.6); --scrim:rgba(10,20,22,.55);
   --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
   --text:"Manrope","Helvetica Neue",Arial,sans-serif;
   --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px; --s7:96px; --s8:128px; --num:clamp(5.5rem,16vw,14rem);
@@ -79,9 +113,10 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;o
 .hero-img{object-fit:cover;object-position:50% 34%;transform-origin:50% 34%;display:block}
 .hero-zoom{transform-origin:50% 34%}
 .hero-veil{position:absolute;inset:0;background:var(--veil);opacity:0;pointer-events:none}
+.hero-scrim{position:absolute;left:0;bottom:0;width:min(100%,720px);height:42%;background:linear-gradient(to top right,var(--scrim),transparent 70%);pointer-events:none}
 .hero-kick{position:absolute;left:var(--s3);top:var(--s3);margin:0;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--bone)}
 .hero-cap{position:absolute;left:var(--s3);bottom:var(--s3);margin:0;font-size:12px;color:var(--bone);max-width:44ch;line-height:1.5;text-shadow:0 1px 12px var(--cap-shadow)}
-.hero-cap .credit{display:block;font-size:11px;opacity:.85;margin-top:2px}
+.hero-cap .credit{display:block;font-size:12px;opacity:1;margin-top:2px}
 .hero-cue{position:absolute;right:var(--s3);bottom:var(--s3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--bone);text-decoration:none;white-space:nowrap;padding:12px 4px}
 @media(min-width:900px){.mast{display:block;width:120px}.hero-kick{left:var(--s6);top:var(--s5)}.hero-cap{left:var(--s6);bottom:var(--s5)}.hero-cue{right:var(--s6);bottom:var(--s5)}}
 :root.js .hero-cue,:root.js .hero-cap,:root.js .hero-kick{opacity:0}
@@ -89,7 +124,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;o
 
 /* ── intro: the statement, set huge, revealed by line masks ── */
 .intro{padding-block:var(--s8) var(--s7)}
-.intro h1{font-size:clamp(3.4rem,11vw,10rem);line-height:.94;letter-spacing:-.015em;margin-bottom:var(--s5);max-width:9ch}
+.intro .intro-h{font-size:clamp(3.4rem,11vw,10rem);line-height:.94;letter-spacing:-.015em;margin-bottom:var(--s5);max-width:9ch}
 .intro .lede{font-size:clamp(1.1rem,1.6vw,1.35rem);color:var(--ink-soft);max-width:52ch}
 .intro .begin{display:inline-block;margin-top:var(--s3);font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;white-space:nowrap;padding:8px 0}
 
@@ -166,6 +201,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;o
 .card-a{display:block;text-decoration:none;color:inherit}
 .card-f{display:block;overflow:hidden;aspect-ratio:4/3;background:var(--ironshore)}
 .card-f img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.02);transition:transform 900ms var(--ease-out)}
+.card-f picture,.stratum picture{display:contents}
 .card-a:hover .card-f img,.card-a:focus-visible .card-f img{transform:scale(1.08)}
 .card-t{display:block;padding-top:var(--s3)}
 .card-n{display:block;font-family:var(--display);font-size:1.6rem;line-height:1.1;margin-bottom:var(--s1)}
@@ -457,9 +493,16 @@ footer .ul{padding-bottom:1px}
 <a class="mast" id="mast" href="#top" aria-label="Cayman Rituals, back to the top"><svg viewBox="0 0 616 310" aria-hidden="true" focusable="false"><use href="#wm"/></svg></a>
 
 <main id="top">
-<section class="hero" id="hero" data-elev="43" data-label="Above the Bluff">
-  <div class="hero-zoom"><picture><source media="(max-aspect-ratio: 3/4)" srcset="img/bluff-statement-portrait.jpg" width="1080" height="2340"><img class="hero-img" src="img/bluff-statement.jpg" alt="Looking out from the top of the Bluff on Cayman Brac: grey ironshore and low scrub in the foreground, a rock islet in white water directly below, and open blue sea to the horizon under a sky of small clouds." width="1600" height="1200" fetchpriority="high" decoding="sync"></picture></div>
+<section class="hero dark" id="hero" data-elev="43" data-label="Above the Bluff">
+  <h1 class="sr-only">Cayman Rituals — candles and scent from the Cayman Islands</h1>
+  <div class="hero-zoom"><picture>
+    <source type="image/avif" media="(max-aspect-ratio: 3/4)" srcset="img/bluff-statement-portrait.avif">
+    <source media="(max-aspect-ratio: 3/4)" srcset="img/bluff-statement-portrait.jpg" width="1080" height="2340">
+    <source type="image/avif" srcset="img/bluff-statement-2400.avif 2400w, img/bluff-statement-4032.avif 4032w" sizes="100vw">
+    <img class="hero-img" src="img/bluff-statement.jpg" alt="Cayman Rituals, West Indies: the wordmark over the view from the top of the Bluff on Cayman Brac, with the horizon between the two lines. Grey ironshore and low scrub in the foreground, a rock islet in white water below, and open blue sea to the horizon under a sky of small clouds." width="1600" height="1200" fetchpriority="high" decoding="sync">
+  </picture></div>
   <div class="hero-veil" aria-hidden="true"></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
   <p class="hero-kick">Cayman Islands · West Indies</p>
   <p class="hero-cap">From the top of the Bluff, Cayman Brac, looking out to Little Cayman Brac.<span class="credit">Photo: EvaZL, CC BY 4.0, via Wikimedia Commons. Edited.</span></p>
   <a class="hero-cue" href="#intro">Begin at the top ↓</a>
@@ -467,7 +510,7 @@ footer .ul{padding-bottom:1px}
 
 <section class="intro" id="intro">
   <div class="w">
-    <h1 class="lm">Keep the island.</h1>
+    <h2 class="intro-h">Keep the island.</h2>
     <p class="lede fu">Cayman is not a beach. From the floor of the Cayman Trench to the top of the Bluff is almost eight vertical kilometres, and every road and house on these islands sits in the top fifty metres of it.</p>
     <p class="lede fu">We make one thing from each layer. Four elements, and the fifth at the bottom of the sea.</p>
   </div>
@@ -482,7 +525,7 @@ footer .ul{padding-bottom:1px}
     <div class="story-r">
       <p class="fu">It was wax poured into shells cleaned by hand, for the people around the table. The island was in every one of them: the salt, the thatch, the rock.</p>
       <p class="fu">Cayman Rituals is that habit, held to a higher standard. Made slowly, in small numbers, from the only place on earth these layers exist.</p>
-      <p class="sig fu"><img class="seal" src="brand/cay-rit-stamp-800.png" alt="" width="800" height="800">Cayman Rituals · Cayman Islands</p>
+      <p class="sig fu"><img class="seal" src="brand/cay-rit-stamp-128.png" alt="" width="128" height="128" loading="lazy" decoding="async">Cayman Rituals · Cayman Islands</p>
       <p class="story-q"><a class="btn btn--line" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=first-pour&amp;utm_content=story">Join the First Pour queue</a></p>
     </div>
   </div>
@@ -506,7 +549,7 @@ footer .ul{padding-bottom:1px}
     <h2 class="lm">A banded stone laid down in the fissures of the Bluff.</h2>
     <div class="notes fu"><b>The scent</b>Warm mineral. Red clay, labdanum, saffron, dry cedar, a trace of hot iron.</div>
     <span class="status fu">Coming later</span>
-    <div class="ch-pieces fu"><a class="card-a ch-a" href="#sample-keeper"><span class="card-f"><img src="img/g-keeper.jpg" alt="" width="1200" height="900" decoding="async"></span><span class="ch-cap">The Keeper<span class="ch-open">Open the layers</span></span></a><a class="card-a ch-a" href="#sample-slab"><span class="card-f"><img src="img/g-slab.jpg" alt="" width="1200" height="900" decoding="async"></span><span class="ch-cap">The Slab<span class="ch-open">Open the layers</span></span></a></div>
+    <div class="ch-pieces fu"><a class="card-a ch-a" href="#sample-keeper"><span class="card-f"><picture><source type="image/avif" srcset="img/g-keeper.avif"><img src="img/g-keeper.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture></span><span class="ch-cap">The Keeper<span class="ch-open">Open the layers</span></span></a><a class="card-a ch-a" href="#sample-slab"><span class="card-f"><picture><source type="image/avif" srcset="img/g-slab.avif"><img src="img/g-slab.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture></span><span class="ch-cap">The Slab<span class="ch-open">Open the layers</span></span></a></div>
   </div>
 </section>
 
@@ -517,7 +560,7 @@ footer .ul{padding-bottom:1px}
     <h2 class="lm">The canopy of the silver thatch palm.</h2>
     <div class="notes fu"><b>The scent</b>Green and fibrous. Fresh palm, dry plaited frond, coconut water, vetiver, hay. Cured by sun.</div>
     <span class="status fu">One of the first three</span>
-    <div class="ch-pieces fu"><a class="card-a ch-a" href="#sample-rope"><span class="card-f"><img src="img/f-bracelet.jpg" alt="" width="1200" height="900" decoding="async"></span><span class="ch-cap">The Rope<span class="ch-open">Open the layers</span></span></a><a class="card-a ch-a" href="#sample-edp"><span class="card-f"><img src="img/g-edp.jpg" alt="" width="1200" height="900" decoding="async"></span><span class="ch-cap">Eau de parfum<span class="ch-open">Open the layers</span></span></a></div>
+    <div class="ch-pieces fu"><a class="card-a ch-a" href="#sample-rope"><span class="card-f"><picture><source type="image/avif" srcset="img/f-bracelet.avif"><img src="img/f-bracelet.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture></span><span class="ch-cap">The Rope<span class="ch-open">Open the layers</span></span></a><a class="card-a ch-a" href="#sample-edp"><span class="card-f"><picture><source type="image/avif" srcset="img/g-edp.avif"><img src="img/g-edp.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture></span><span class="ch-cap">Eau de parfum<span class="ch-open">Open the layers</span></span></a></div>
   </div>
 </section>
 
@@ -532,7 +575,7 @@ footer .ul{padding-bottom:1px}
     <h2 class="lm">The fossil limestone where the island meets the sea. Sharp enough to open your hand.</h2>
     <div class="notes fu"><b>The scent</b>The cut itself. Sea salt, seaweed, wet rock, driftwood, a clean ambergris accord.</div>
     <span class="status fu">One of the first three</span>
-    <div class="ch-pieces fu"><a class="card-a ch-a" href="#sample-candle"><span class="card-f"><img src="img/g-candle.jpg" alt="" width="1200" height="900" decoding="async"></span><span class="ch-cap">The Section Candle<span class="ch-open">Open the layers</span></span></a></div>
+    <div class="ch-pieces fu"><a class="card-a ch-a" href="#sample-candle"><span class="card-f"><picture><source type="image/avif" srcset="img/g-candle.avif"><img src="img/g-candle.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture></span><span class="ch-cap">The Section Candle<span class="ch-open">Open the layers</span></span></a></div>
   </div>
 </section>
 
@@ -550,11 +593,11 @@ footer .ul{padding-bottom:1px}
 <section class="gal dark" id="pieces" data-elev="-7686" data-label="The pieces">
   <div class="gal-lead"><h2 class="sr-only">The pieces</h2><p>Everything we make starts somewhere on this line, between the Bluff and the Trench. Nothing on it can be made anywhere else.</p></div>
   <ul class="rail" id="rail">
-    <li class="card"><a class="card-a" href="#sample-keeper"><span class="card-f"><img src="img/g-keeper.jpg" alt="A polished disc of banded caymanite engraved with CAY over RIT, held at a lapidary bench." width="1200" height="900"></span><span class="card-t"><span class="card-n">The Keeper</span><span class="card-l">A lid you buy once. It moves onto every candle refill after that. Turned from caymanite in numbered editions, as the stone allows, or poured in bands by hand, like the candle.</span></span></a></li>
-    <li class="card"><a class="card-a" href="#sample-slab"><span class="card-f"><img src="img/g-slab.jpg" alt="A rectangular pendant of banded red and cream stone in a thin gold frame on a fine chain." width="1200" height="900"></span><span class="card-t"><span class="card-n">The Slab</span><span class="card-l">A slice of the stone, cut so its bands run level, set in a plain gold frame. A section you can wear, in numbered editions, as the stone allows.</span></span></a></li>
-    <li class="card"><a class="card-a" href="#sample-rope"><span class="card-f"><img src="img/f-bracelet.jpg" alt="A hand-plaited pale palm-fibre rope bracelet with brass end caps." width="1200" height="900"></span><span class="card-t"><span class="card-n">The Rope</span><span class="card-l">Silver thatch rope was a Caymanian export within living memory. Ours is a bracelet, plaited by hand from the same palm, and every piece is numbered from No. 001.</span></span></a></li>
-    <li class="card"><a class="card-a" href="#sample-edp"><span class="card-f"><img src="img/g-edp.jpg" alt="A heavy square glass perfume bottle, its cap wrapped in plaited pale palm cord, standing on wet black rock." width="1200" height="900"></span><span class="card-t"><span class="card-n">Eau de parfum</span><span class="card-l">Plain heavy glass, with the cap wrapped by hand in the same plaited thatch.</span></span></a></li>
-    <li class="card"><a class="card-a" href="#sample-candle"><span class="card-f"><img src="img/g-candle.jpg" alt="A heavy glass tumbler candle poured in three horizontal bands of cream, oxblood and umber wax." width="1200" height="900"></span><span class="card-t"><span class="card-n">The Section Candle</span><span class="card-l">Poured in three bands, like the stone. As it burns, it melts down through its own layers.</span></span></a></li>
+    <li class="card"><a class="card-a" href="#sample-keeper"><span class="card-f"><picture><source type="image/avif" srcset="img/g-keeper.avif"><img src="img/g-keeper.jpg" alt="A polished disc of banded caymanite engraved with CAY over RIT, held at a lapidary bench." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">The Keeper</span><span class="card-l">A lid you buy once. It moves onto every candle refill after that. Turned from caymanite in numbered editions, as the stone allows, or poured in bands by hand, like the candle.</span></span></a></li>
+    <li class="card"><a class="card-a" href="#sample-slab"><span class="card-f"><picture><source type="image/avif" srcset="img/g-slab.avif"><img src="img/g-slab.jpg" alt="A rectangular pendant of banded red and cream stone in a thin gold frame on a fine chain." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">The Slab</span><span class="card-l">A slice of the stone, cut so its bands run level, set in a plain gold frame. A section you can wear, in numbered editions, as the stone allows.</span></span></a></li>
+    <li class="card"><a class="card-a" href="#sample-rope"><span class="card-f"><picture><source type="image/avif" srcset="img/f-bracelet.avif"><img src="img/f-bracelet.jpg" alt="A hand-plaited pale palm-fibre rope bracelet with brass end caps." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">The Rope</span><span class="card-l">Silver thatch rope was a Caymanian export within living memory. Ours is a bracelet, plaited by hand from the same palm, and every piece is numbered from No. 001.</span></span></a></li>
+    <li class="card"><a class="card-a" href="#sample-edp"><span class="card-f"><picture><source type="image/avif" srcset="img/g-edp.avif"><img src="img/g-edp.jpg" alt="A heavy square glass perfume bottle, its cap wrapped in plaited pale palm cord, standing on wet black rock." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">Eau de parfum</span><span class="card-l">Plain heavy glass, with the cap wrapped by hand in the same plaited thatch.</span></span></a></li>
+    <li class="card"><a class="card-a" href="#sample-candle"><span class="card-f"><picture><source type="image/avif" srcset="img/g-candle.avif"><img src="img/g-candle.jpg" alt="A heavy glass tumbler candle poured in three horizontal bands of cream, oxblood and umber wax." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">The Section Candle</span><span class="card-l">Poured in three bands, like the stone. As it burns, it melts down through its own layers.</span></span></a></li>
   </ul>
 </section>
 
@@ -617,10 +660,10 @@ footer .ul{padding-bottom:1px}
         <div class="core" id="core-keeper">
           <div class="stack">
             <button class="spec" type="button" aria-expanded="false" aria-controls="strata-keeper" aria-labelledby="n-keeper">
-              <span class="stratum s1"><img src="img/g-keeper.jpg" alt="A polished disc of banded caymanite engraved with CAY over RIT, held at a lapidary bench." width="1200" height="900"><i class="pt"></i></span>
-              <span class="stratum s2"><img src="img/g-keeper.jpg" alt="" width="1200" height="900"><i class="pt"></i></span>
-              <span class="stratum s3"><img src="img/g-keeper.jpg" alt="" width="1200" height="900"><i class="pt"></i></span>
-              <span class="stratum s4"><img src="img/g-keeper.jpg" alt="" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s1"><picture><source type="image/avif" srcset="img/g-keeper.avif"><img src="img/g-keeper.jpg" alt="A polished disc of banded caymanite engraved with CAY over RIT, held at a lapidary bench." width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
+              <span class="stratum s2"><picture><source type="image/avif" srcset="img/g-keeper.avif"><img src="img/g-keeper.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
+              <span class="stratum s3"><picture><source type="image/avif" srcset="img/g-keeper.avif"><img src="img/g-keeper.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
+              <span class="stratum s4"><picture><source type="image/avif" srcset="img/g-keeper.avif"><img src="img/g-keeper.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
             </button>
             <div class="strata" id="strata-keeper">
               <div class="lab l1"><svg class="sigil mk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 3H21.5L12 21.5Z"/><path d="M4.5 13H19.5"/></svg><b class="lt">The stamp</b><span class="ll">CAY RIT cut into the face. Never printed.</span></div>
@@ -643,10 +686,10 @@ footer .ul{padding-bottom:1px}
         <div class="core" id="core-slab">
           <div class="stack">
             <button class="spec" type="button" aria-expanded="false" aria-controls="strata-slab" aria-labelledby="n-slab">
-              <span class="stratum s1"><img src="img/g-slab.jpg" alt="A rectangular pendant of banded red and cream stone in a thin gold frame on a fine chain." width="1200" height="900"><i class="pt"></i></span>
-              <span class="stratum s2"><img src="img/g-slab.jpg" alt="" width="1200" height="900"><i class="pt"></i></span>
-              <span class="stratum s3"><img src="img/g-slab.jpg" alt="" width="1200" height="900"><i class="pt"></i></span>
-              <span class="stratum s4"><img src="img/g-slab.jpg" alt="" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s1"><picture><source type="image/avif" srcset="img/g-slab.avif"><img src="img/g-slab.jpg" alt="A rectangular pendant of banded red and cream stone in a thin gold frame on a fine chain." width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
+              <span class="stratum s2"><picture><source type="image/avif" srcset="img/g-slab.avif"><img src="img/g-slab.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
+              <span class="stratum s3"><picture><source type="image/avif" srcset="img/g-slab.avif"><img src="img/g-slab.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
+              <span class="stratum s4"><picture><source type="image/avif" srcset="img/g-slab.avif"><img src="img/g-slab.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
             </button>
             <div class="strata" id="strata-slab">
               <div class="lab l1"><svg class="sigil mk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 3H21.5L12 21.5Z"/><path d="M4.5 13H19.5"/></svg><b class="lt">The cut</b><span class="ll">Sliced so the bands run level. A section you can wear.</span></div>
@@ -669,10 +712,10 @@ footer .ul{padding-bottom:1px}
         <div class="core" id="core-rope">
           <div class="stack">
             <button class="spec" type="button" aria-expanded="false" aria-controls="strata-rope" aria-labelledby="n-rope">
-              <span class="stratum s1"><img src="img/f-bracelet.jpg" alt="A hand-plaited pale palm-fibre rope bracelet with brass end caps." width="1200" height="900"><i class="pt"></i></span>
-              <span class="stratum s2"><img src="img/f-bracelet.jpg" alt="" width="1200" height="900"><i class="pt"></i></span>
-              <span class="stratum s3"><img src="img/f-bracelet.jpg" alt="" width="1200" height="900"><i class="pt"></i></span>
-              <span class="stratum s4"><img src="img/f-bracelet.jpg" alt="" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s1"><picture><source type="image/avif" srcset="img/f-bracelet.avif"><img src="img/f-bracelet.jpg" alt="A hand-plaited pale palm-fibre rope bracelet with brass end caps." width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
+              <span class="stratum s2"><picture><source type="image/avif" srcset="img/f-bracelet.avif"><img src="img/f-bracelet.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
+              <span class="stratum s3"><picture><source type="image/avif" srcset="img/f-bracelet.avif"><img src="img/f-bracelet.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
+              <span class="stratum s4"><picture><source type="image/avif" srcset="img/f-bracelet.avif"><img src="img/f-bracelet.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
             </button>
             <div class="strata" id="strata-rope">
               <div class="lab l1"><svg class="sigil mk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5L21.5 21H2.5Z"/></svg><b class="lt">The plait</b><span class="ll">Silver thatch, plaited by hand in Cayman.</span></div>
@@ -695,10 +738,10 @@ footer .ul{padding-bottom:1px}
         <div class="core" id="core-edp">
           <div class="stack">
             <button class="spec" type="button" aria-expanded="false" aria-controls="strata-edp" aria-labelledby="n-edp">
-              <span class="stratum s1"><img src="img/g-edp.jpg" alt="A heavy square glass perfume bottle, its cap wrapped in plaited pale palm cord, standing on wet black rock." width="1200" height="900"><i class="pt"></i></span>
-              <span class="stratum s2"><img src="img/g-edp.jpg" alt="" width="1200" height="900"><i class="pt"></i></span>
-              <span class="stratum s3"><img src="img/g-edp.jpg" alt="" width="1200" height="900"><i class="pt"></i></span>
-              <span class="stratum s4"><img src="img/g-edp.jpg" alt="" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s1"><picture><source type="image/avif" srcset="img/g-edp.avif"><img src="img/g-edp.jpg" alt="A heavy square glass perfume bottle, its cap wrapped in plaited pale palm cord, standing on wet black rock." width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
+              <span class="stratum s2"><picture><source type="image/avif" srcset="img/g-edp.avif"><img src="img/g-edp.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
+              <span class="stratum s3"><picture><source type="image/avif" srcset="img/g-edp.avif"><img src="img/g-edp.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
+              <span class="stratum s4"><picture><source type="image/avif" srcset="img/g-edp.avif"><img src="img/g-edp.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
             </button>
             <div class="strata" id="strata-edp">
               <div class="lab l1"><svg class="sigil mk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5L21.5 21H2.5Z"/></svg><b class="lt">The cap</b><span class="ll">Wrapped by hand in plaited silver thatch. The one part no catalogue sells.</span></div>
@@ -721,10 +764,10 @@ footer .ul{padding-bottom:1px}
         <div class="core" id="core-candle">
           <div class="stack">
             <button class="spec" type="button" aria-expanded="false" aria-controls="strata-candle" aria-labelledby="n-candle">
-              <span class="stratum s1"><img src="img/g-candle.jpg" alt="A heavy glass tumbler candle poured in three horizontal bands of cream, oxblood and umber wax." width="1200" height="900"><i class="pt"></i></span>
-              <span class="stratum s2"><img src="img/g-candle.jpg" alt="" width="1200" height="900"><i class="pt"></i></span>
-              <span class="stratum s3"><img src="img/g-candle.jpg" alt="" width="1200" height="900"><i class="pt"></i></span>
-              <span class="stratum s4"><img src="img/g-candle.jpg" alt="" width="1200" height="900"><i class="pt"></i></span>
+              <span class="stratum s1"><picture><source type="image/avif" srcset="img/g-candle.avif"><img src="img/g-candle.jpg" alt="A heavy glass tumbler candle poured in three horizontal bands of cream, oxblood and umber wax." width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
+              <span class="stratum s2"><picture><source type="image/avif" srcset="img/g-candle.avif"><img src="img/g-candle.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
+              <span class="stratum s3"><picture><source type="image/avif" srcset="img/g-candle.avif"><img src="img/g-candle.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
+              <span class="stratum s4"><picture><source type="image/avif" srcset="img/g-candle.avif"><img src="img/g-candle.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></picture><i class="pt"></i></span>
             </button>
             <div class="strata" id="strata-candle">
               <div class="lab l1"><svg class="sigil mk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 3H21.5L12 21.5Z"/></svg><b class="lt">The mark</b><span class="ll">Letterpress on torn cotton paper, glued on by hand.</span></div>
@@ -985,6 +1028,7 @@ window.addEventListener('DOMContentLoaded',function(){
   function setBehind(off){behind.forEach(function(el){if(el)el.inert=off;});}
   function openSample(s,trigger){
     if(openS)closeSample(true);openS=s;lastFocus=trigger||null;s.scrollTop=0;
+    [].forEach.call(s.querySelectorAll('img'),function(i){i.loading='eager';});
     s.classList.add('is-on');setBehind(true);if(lenis)lenis.stop();root.classList.add('sample-open');
     var core=s.querySelector('.core');
     setTimeout(function(){setOpen(core,true);core._pin=true;var x=s.querySelector('.sample-x');if(x)x.focus({preventScroll:true});},motion?420:0);
