@@ -50,35 +50,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ---
 
-## Three.js
+## three.js — removed 2026-09-26
 
-**Version:** 0.158.0  
-**NPM Package:** three@0.158.0  
-**File:** three.min.js  
-**Original CDN URL:** https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js
-
-**License:** MIT
-
-```
-The MIT License
-
-Copyright © 2010-2023 three.js authors
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-```
+The sea-level shader previously ran on three.js r158 (`vendor/three.min.js`). It has been replaced with
+about 50 lines of raw WebGL (same fragment shader, no library) to cut 636 KB of unused surface area. There
+is nothing to licence here any more; this note exists so the history isn't silently lost.

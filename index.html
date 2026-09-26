@@ -66,7 +66,7 @@
 /* Hallmark · pre-emit critique: P5 H5 E4 S5 R4 V5 */
 /* Hallmark · macrostructure: depth-descent · knobs: preloader=wordmark-draw, hero=cinematic-pinned(descend-through-horizon), chapters=pinned+giant-numeral+line-mask, ground=transmutes(scrolltrigger), pivot=sea-level(webgl-refraction, css-line fallback), pieces=horizontal-rail→core-sample(exploded strata), cursor=ring+magnetic, cta=two-doors, nav=index-overlay(section-axis), story=two-column-editorial, interstitials=manifesto×3, footer=flagship-3col */
 /* Hallmark · v5 2026-09-24 · + story chapter (The house), three manifesto lines, house index overlay (section of the island), flagship footer, polish · landing locked as v4
-/* Hallmark · v4 2026-09-24 · standalone site · libs: gsap 3.12.5 + ScrollTrigger, lenis 1.1.18, three 0.158.0 (lazy, sea level only), all self-hosted in /vendor, fonts in /fonts · motion: transform/opacity/stroke-dashoffset/background-color (+ one clip-path curtain, + WebGL) · reduced motion: native scroll, no pins, no WebGL, everything visible · JS off: static readable page, samples open by :target */
+/* Hallmark · v4 2026-09-24 · standalone site · libs: gsap 3.12.5 + ScrollTrigger, lenis 1.1.18, all self-hosted in /vendor, fonts in /fonts · sea-level shader: raw WebGL, no three.js · motion: transform/opacity/stroke-dashoffset/background-color (+ one clip-path curtain, + WebGL) · reduced motion: native scroll, no pins, no WebGL, everything visible · JS off: static readable page, samples open by :target */
 :root{
   color-scheme:light;
   --limestone:#EEEDE8; --clay:#E6D6CB; --thatch:#D5D6C6; --ironshore:#22201F; --trench:#0A1416;
@@ -890,7 +890,7 @@ window.addEventListener('DOMContentLoaded',function(){
         }else{
           seaGL=webglOK()&&!lowPowerQ();
           if(seaGL){
-            ScrollTrigger.create({trigger:sec,start:'top 250%',once:true,onEnter:function(){loadThree(seaInit);}});
+            seaInit();
             if(wide)ScrollTrigger.create({trigger:sec,start:'top top',end:'+=60%',pin:true,pinSpacing:true,anticipatePin:1});
             ScrollTrigger.create({trigger:sec,start:'top bottom',end:'bottom top',onUpdate:function(st){seaP=st.progress;},onToggle:function(st){seaVis=st.isActive;if(three){if(seaVis)three.start();else three.stop();}}});
           }
@@ -945,41 +945,49 @@ window.addEventListener('DOMContentLoaded',function(){
   window.addEventListener('resize',function(){onScroll();for(var i=0;i<snows.length;i++)snows[i].size();});
   tick();
 
-  /* ── the signature moment: crossing sea level. WebGL refraction (three, lazy), CSS line fallback ── */
+  /* ── the signature moment: crossing sea level. raw WebGL refraction (no three.js), CSS line fallback ── */
   function webglOK(){try{var c=doc.createElement('canvas');return !!(window.WebGLRenderingContext&&(c.getContext('webgl')||c.getContext('experimental-webgl')));}catch(e){return false;}}
   function lowPowerQ(){return !!(navigator.connection&&navigator.connection.saveData)||!!(navigator.deviceMemory&&navigator.deviceMemory<2);}
-  function loadThree(cb){if(window.THREE)return cb();var s=doc.createElement('script');s.src='vendor/three.min.js';s.onload=cb;s.onerror=function(){};doc.head.appendChild(s);}
   function seaInit(){
-    if(!window.THREE||!tokensOK)return;
-    var T=window.THREE,W=seaC.clientWidth||1,H=seaC.clientHeight||1;
-    var renderer;try{renderer=new T.WebGLRenderer({canvas:seaC,antialias:false,alpha:false,powerPreference:'low-power'});}catch(e){return;}
-    renderer.setPixelRatio(Math.min(1.5,window.devicePixelRatio||1));renderer.setSize(W,H,false);
-    var scene=new T.Scene(),cam=new T.OrthographicCamera(-1,1,1,-1,0,1);
-    var u={t:{value:0},p:{value:0},res:{value:new T.Vector2(W,H)},top:{value:new T.Color(C.thatch[0]/255,C.thatch[1]/255,C.thatch[2]/255)},bot:{value:new T.Color(C.ironshore[0]/255,C.ironshore[1]/255,C.ironshore[2]/255)},line:{value:new T.Color(C.brass[0]/255,C.brass[1]/255,C.brass[2]/255)},bone:{value:new T.Color(C.bone[0]/255,C.bone[1]/255,C.bone[2]/255)}};
-    renderer.getDrawingBufferSize(u.res.value); /* gl_FragCoord counts device pixels, so res must too, or the surface drew low on retina screens */
-    var mat=new T.ShaderMaterial({uniforms:u,vertexShader:'void main(){gl_Position=vec4(position,1.0);}',
-      fragmentShader:[
-      'precision highp float;uniform float t,p;uniform vec2 res;uniform vec3 top,bot,line,bone;',
+    var gl=seaC.getContext('webgl',{antialias:false,alpha:false,powerPreference:'low-power'});if(!gl||!tokensOK)return;
+    function compile(type,src){var sh=gl.createShader(type);gl.shaderSource(sh,src);gl.compileShader(sh);if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS)){gl.deleteShader(sh);return null;}return sh;}
+    var vs=compile(gl.VERTEX_SHADER,'attribute vec2 a;void main(){gl_Position=vec4(a,0.0,1.0);}');
+    var fs=compile(gl.FRAGMENT_SHADER,[
+      '#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif','uniform float t,p;uniform vec2 res;uniform vec3 top,bot,line,bone;',
       'float hash(vec2 q){return fract(sin(dot(q,vec2(127.1,311.7)))*43758.5453);}',
       'float noise(vec2 q){vec2 i=floor(q),f=fract(q);f=f*f*(3.0-2.0*f);return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x),f.y);}',
       'void main(){vec2 uv=gl_FragCoord.xy/res;float asp=res.x/res.y;',
-      ' float env=sin(clamp(p,0.0,1.0)*3.14159);',                       // rises and settles with scroll
+      ' float env=sin(clamp(p,0.0,1.0)*3.14159);',
       ' float d=env*0.009*(sin(uv.y*14.0-t*1.1+sin(uv.x*asp*3.0+t*0.4)*1.2)+0.5*sin(uv.x*asp*8.0+t*0.8));',
       ' vec2 q=uv+vec2(d*0.35,d);',
       ' float surf=0.5+env*0.004*sin(uv.x*asp*6.0+t*0.9);',
       ' float below=smoothstep(surf+0.0015,surf-0.0015,q.y);',
       ' vec3 col=mix(top,bot,below);',
       ' float ca=0.5+0.5*sin(q.x*asp*2.6+t*0.35+noise(q*vec2(asp,1.0)*1.8+t*0.05)*2.4)*sin(q.y*3.2-t*0.28);',
-      ' col+=below*env*0.08*ca*line;',                                    // caustic shimmer, below the surface only
+      ' col+=below*env*0.08*ca*line;',
       ' col+=vec3(0.0);',
       ' float ln=1.0-smoothstep(0.0,1.6/res.y,abs(q.y-surf));',
       ' col=mix(col,line,ln*0.95);',
-      ' gl_FragColor=vec4(col,1.0);}'].join('\n')});
-    scene.add(new T.Mesh(new T.PlaneGeometry(2,2),mat));
-    var run=false,clock=0;
-    function frame(ts){if(!run)return;u.t.value=ts/1000;u.p.value=seaP;renderer.render(scene,cam);raf(frame);}
-    three={start:function(){if(run)return;run=true;raf(frame);},stop:function(){run=false;},size:function(){W=seaC.clientWidth||1;H=seaC.clientHeight||1;renderer.setSize(W,H,false);renderer.getDrawingBufferSize(u.res.value);}};
+      ' gl_FragColor=vec4(col,1.0);}'].join('\n'));
+    if(!vs||!fs)return;
+    var prog=gl.createProgram();gl.attachShader(prog,vs);gl.attachShader(prog,fs);gl.linkProgram(prog);
+    if(!gl.getProgramParameter(prog,gl.LINK_STATUS))return;
+    gl.useProgram(prog);
+    var buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);
+    var loc=gl.getAttribLocation(prog,'a');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+    var u={t:gl.getUniformLocation(prog,'t'),p:gl.getUniformLocation(prog,'p'),res:gl.getUniformLocation(prog,'res'),top:gl.getUniformLocation(prog,'top'),bot:gl.getUniformLocation(prog,'bot'),line:gl.getUniformLocation(prog,'line'),bone:gl.getUniformLocation(prog,'bone')};
+    gl.uniform3f(u.top,C.thatch[0]/255,C.thatch[1]/255,C.thatch[2]/255);
+    gl.uniform3f(u.bot,C.ironshore[0]/255,C.ironshore[1]/255,C.ironshore[2]/255);
+    gl.uniform3f(u.line,C.brass[0]/255,C.brass[1]/255,C.brass[2]/255);
+    gl.uniform3f(u.bone,C.bone[0]/255,C.bone[1]/255,C.bone[2]/255);
+    function size(){var dpr=Math.min(1.5,window.devicePixelRatio||1);var W=seaC.clientWidth||1,H=seaC.clientHeight||1;seaC.width=W*dpr;seaC.height=H*dpr;gl.viewport(0,0,gl.drawingBufferWidth,gl.drawingBufferHeight);gl.uniform2f(u.res,gl.drawingBufferWidth,gl.drawingBufferHeight);}
+    size();
+    var run=false;
+    function frame(ts){if(!run)return;gl.uniform1f(u.t,ts/1000);gl.uniform1f(u.p,seaP);gl.drawArrays(gl.TRIANGLES,0,6);raf(frame);}
+    three={start:function(){if(run)return;run=true;raf(frame);},stop:function(){run=false;},size:size};
     window.addEventListener('resize',three.size);
+    seaC.addEventListener('webglcontextlost',function(e){e.preventDefault();three.stop();seaC.classList.remove('is-on');seax.classList.remove('has-gl');},false);
     seaC.classList.add('is-on');seax.classList.add('has-gl');seaOK=true;if(seaVis)three.start();
   }
   if(!motion)seax.classList.add('is-in');

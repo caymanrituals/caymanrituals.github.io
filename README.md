@@ -8,7 +8,7 @@ The Cayman Rituals website: one static page, `index.html`, served by GitHub Page
 - `img/`: product studies and the hero photograph (credits in `CREDITS.txt`).
 - `brand/`: the stamp (favicon) and the social share image.
 - `fonts/`: Bodoni Moda and Manrope, self-hosted copies of the Google Fonts files, with `fonts.css` and the SIL Open Font Licence for each.
-- `vendor/`: GSAP 3.12.5 with ScrollTrigger, Lenis 1.1.18 and three.js r158, self-hosted. Versions and licences in `vendor/LICENSES.md`.
+- `vendor/`: GSAP 3.12.5 with ScrollTrigger and Lenis 1.1.18, self-hosted. Versions and licences in `vendor/LICENSES.md`. The sea-level shader runs on raw WebGL written by hand; no three.js or other 3D library is loaded.
 - `404.html`, `robots.txt`, `sitemap.xml`.
 - `_headers`: security headers for Netlify or Cloudflare Pages. GitHub Pages ignores this file; it only takes effect if the site moves to one of those hosts.
 
