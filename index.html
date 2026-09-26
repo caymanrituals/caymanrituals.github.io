@@ -16,15 +16,20 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Cayman Rituals">
 <meta property="og:url" content="https://caymanrituals.github.io/">
-<meta property="og:title" content="Cayman Rituals — West Indies">
-<meta property="og:description" content="One scent for each layer of the island, from the top of the Bluff to the floor of the Trench.">
-<meta property="og:image" content="https://caymanrituals.github.io/brand/cayman-rituals-share-1200x630.png">
+<meta property="og:title" content="Cayman is a section, not a scene.">
+<meta property="og:description" content="Cayman Rituals, West Indies. One scent for each layer of the island, from the top of the Bluff to the floor of the Trench.">
+<meta property="og:image" content="https://caymanrituals.github.io/brand/cayman-rituals-share-bluff-1200x630.jpg?v=2">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Cayman Rituals, West Indies: the wordmark in black on a pale limestone ground.">
+<meta property="og:image:alt" content="The view from the top of the Bluff on Cayman Brac, with the Cayman Rituals, West Indies wordmark in the sky. Photo: EvaZL, CC BY 4.0.">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cayman is a section, not a scene.">
+<meta name="twitter:description" content="Cayman Rituals, West Indies. One scent for each layer of the island, from the top of the Bluff to the floor of the Trench.">
+<meta name="twitter:image:alt" content="The view from the top of the Bluff on Cayman Brac, with the Cayman Rituals, West Indies wordmark in the sky. Photo: EvaZL, CC BY 4.0.">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Cayman Rituals","url":"https://caymanrituals.github.io/","logo":"https://caymanrituals.github.io/brand/cay-rit-stamp-800.png","description":"A scent house from the Cayman Islands. One scent for each layer of the island, from the top of the Bluff to the floor of the Trench.","email":"caymanrituals@gmail.com","telephone":"+1-345-928-1570","address":{"@type":"PostalAddress","addressCountry":"KY"},"sameAs":["https://www.instagram.com/caymanrituals/"]}
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://caymanrituals.github.io/#org","name":"Cayman Rituals","url":"https://caymanrituals.github.io/","logo":"https://caymanrituals.github.io/brand/cayman-rituals-logo-1200.png","description":"A scent house from the Cayman Islands. One scent for each layer of the island, from the top of the Bluff to the floor of the Trench.","email":"caymanrituals@gmail.com","telephone":"+1-345-928-1570","address":{"@type":"PostalAddress","addressCountry":"KY"},"sameAs":["https://www.instagram.com/caymanrituals/"]},{"@type":"WebSite","@id":"https://caymanrituals.github.io/#site","name":"Cayman Rituals","alternateName":"Cayman Rituals, West Indies","url":"https://caymanrituals.github.io/","publisher":{"@id":"https://caymanrituals.github.io/#org"}}]}
 </script>
 <link rel="preload" as="image" type="image/avif" href="img/bluff-statement-portrait.avif" media="(max-aspect-ratio: 3/4)" fetchpriority="high">
 <link rel="preload" as="image" type="image/avif" imagesrcset="img/bluff-statement-2400.avif 2400w, img/bluff-statement-4032.avif 4032w" imagesizes="100vw" media="not all and (max-aspect-ratio: 3/4)" fetchpriority="high">
@@ -63,10 +68,9 @@
   src: url(fonts/manrope-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-/* Hallmark · pre-emit critique: P5 H5 E4 S5 R4 V5 */
-/* Hallmark · macrostructure: depth-descent · knobs: preloader=wordmark-draw, hero=cinematic-pinned(descend-through-horizon), chapters=pinned+giant-numeral+line-mask, ground=transmutes(scrolltrigger), pivot=sea-level(webgl-refraction, css-line fallback), pieces=horizontal-rail→core-sample(exploded strata), cursor=ring+magnetic, cta=two-doors, nav=index-overlay(section-axis), story=two-column-editorial, interstitials=manifesto×3, footer=flagship-3col */
-/* Hallmark · v5 2026-09-24 · + story chapter (The house), three manifesto lines, house index overlay (section of the island), flagship footer, polish · landing locked as v4
-/* Hallmark · v4 2026-09-24 · standalone site · libs: gsap 3.12.5 + ScrollTrigger, lenis 1.1.18, all self-hosted in /vendor, fonts in /fonts · sea-level shader: raw WebGL, no three.js · motion: transform/opacity/stroke-dashoffset/background-color (+ one clip-path curtain, + WebGL) · reduced motion: native scroll, no pins, no WebGL, everything visible · JS off: static readable page, samples open by :target */
+
+
+
 :root{
   color-scheme:light;
   --limestone:#EEEDE8; --clay:#E6D6CB; --thatch:#D5D6C6; --ironshore:#22201F; --trench:#0A1416;
@@ -95,19 +99,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oxblood);outline-of
 p{margin:0 0 var(--s2);max-width:62ch}
 h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;overflow-wrap:anywhere;min-width:0}
 .dark{color:var(--bone)}
-/* links draw their underline */
+
 .ul{text-decoration:none;background-image:linear-gradient(currentColor,currentColor);background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size 420ms var(--ease-out)}
 .ul:hover,.ul:focus-visible{background-size:100% 1px}
 
-/* ── masthead: a small wordmark that appears once the hero has been passed ── */
+
 .mast{position:fixed;left:var(--s3);top:var(--s3);z-index:30;display:none;width:96px;color:var(--ink);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity 400ms var(--ease-out),transform 400ms var(--ease-out),color 300ms var(--ease-out),visibility 0s linear 400ms;pointer-events:none}
 .mast.is-on{opacity:1;visibility:visible;transform:none;pointer-events:auto;transition-delay:0s}
 .mast.is-dark{color:var(--bone)}
+.mast.is-dark:focus-visible{outline-color:var(--brass)}
 .mast.is-on.is-off{opacity:0;visibility:hidden;transform:translateY(-6px);pointer-events:none}
 .mast svg{display:block;width:100%;height:auto}
 :root:not(.js) .mast{display:none}
 
-/* ── hero: full-viewport, the real Bluff statement image; you descend through the horizon ── */
+
 .hero{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;background:var(--trench);color:var(--bone)}
 .hero-zoom{position:absolute;inset:0;width:100%;height:100%}
 .hero-img{position:absolute;left:0;top:0;width:100%;height:100%;max-width:none}
@@ -120,16 +125,17 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;o
 .hero-cap .credit{display:block;font-size:var(--t1);opacity:1;margin-top:2px}
 .hero-cue{position:absolute;right:var(--s3);bottom:var(--s3);font-size:var(--t1);letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--bone);text-decoration:none;white-space:nowrap;padding:var(--s2) var(--s1);min-height:44px;display:inline-flex;align-items:center}
 @media(min-width:900px){.mast{display:block;width:120px}.hero-kick{left:var(--s6);top:var(--s5)}.hero-cap{left:var(--s6);bottom:var(--s5)}.hero-cue{right:var(--s6);bottom:var(--s5)}}
+@media(max-width:479px){.hero-kick{max-width:calc(100% - 92px)}.hero-cue{right:auto;left:var(--s3);bottom:calc(var(--s3) + 6.2em)}}
 :root.js .hero-cue,:root.js .hero-cap,:root.js .hero-kick{opacity:0}
 :root.js.loaded .hero-cue,:root.js.loaded .hero-cap,:root.js.loaded .hero-kick{opacity:1;transition:opacity 900ms var(--ease-out) 300ms}
 
-/* ── intro: the statement, set huge, revealed by line masks ── */
+
 .intro{padding-block:var(--s8) var(--s7)}
 .intro .intro-h{font-size:var(--t6);line-height:.94;letter-spacing:-.015em;margin-bottom:var(--s5);max-width:9ch}
 .intro .lede{font-size:var(--t4);color:var(--ink-soft);max-width:52ch}
 .intro .begin{display:inline-block;margin-top:var(--s3);font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;white-space:nowrap;padding:8px 0}
 
-/* ── line masks + fade-ups (JS-only; the resting state is fully visible) ── */
+
 .lmk{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.06em;margin-bottom:-.06em}
 .lmi{display:inline-block;will-change:transform}
 :root.mo .lmk .lmi{transform:translateY(112%)}
@@ -137,11 +143,12 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;o
 :root.mo .is-in .lmk .lmi,:root.js.static .lmk .lmi{transform:none}
 :root.mo .is-in .fu,:root.js.static .fu{opacity:1}
 
-/* ── the layers as chapters: giant numeral, sigil, name, headline, notes ── */
+
 .layer{position:relative;border-top:1px solid var(--rule-light)}
 .dark.layer{border-top-color:var(--rule-dark)}
 .chap{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding-block:var(--s8) var(--s7)}
 @media(min-width:900px){.chap{padding-block:var(--s7)}}
+@media(max-width:899px){.chap{min-height:auto;padding-block:var(--s7)}}
 .chap-in{width:100%;max-width:1180px;margin:0 auto;padding-inline:20px;display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s3)}
 @media(min-width:900px){.chap-in{padding-inline:var(--s6) calc(var(--s6) + 120px);grid-template-columns:minmax(0,7fr) minmax(0,5fr);column-gap:var(--s6);align-items:end}
   .chap-in .elev{grid-column:1/-1}
@@ -168,13 +175,13 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;o
 :root.js:not(.static) .layer,:root.js:not(.static) .gal,:root.js:not(.static) .floor,:root.js:not(.static) footer{background:transparent}
 :root.js:not(.static) .intro{background:transparent}
 
-/* the sigils — one classical element per layer, hairline, stroke only */
+
 .sigil{display:block;width:24px;height:24px;flex:none;color:var(--oxblood);overflow:visible}
 .sigil path,.sigil circle{fill:none;stroke:currentColor;stroke-width:1.1;vector-effect:non-scaling-stroke;stroke-linejoin:miter;stroke-linecap:butt}
 .dark .sigil{color:var(--brass)}
 
 
-/* ── sea level: the signature crossing. static split ground + brass line; with WebGL the surface refracts ── */
+
 .seax{position:relative;height:100vh;height:100svh;min-height:480px;display:flex;align-items:center;overflow:hidden;color:var(--bone);background:linear-gradient(var(--thatch) 0 50%,var(--ironshore) 50% 100%)}
 .seax-c{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;pointer-events:none}
 .seax-c.is-on{opacity:1}
@@ -190,13 +197,13 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;o
 @keyframes ripple{0%{transform:scaleX(0) translateY(0);opacity:0}30%{opacity:.55}100%{transform:scaleX(1) translateY(6px);opacity:0}}
 .seax-l{position:relative;z-index:1}
 
-/* ── the deep: marine snow lives only in the trench and on the floor ── */
+
 .layer--trench,.floor{position:relative}
 .layer--trench>.chap-in,.floor>.w{position:relative}
 .snow{display:none}
 :root.js .snow{display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 
-/* ── the pieces: a horizontal rail, scroll-driven on desktop, native swipe with snap on touch/narrow ── */
+
 .gal{position:relative;color:var(--bone);background:var(--trench);padding-block:var(--s7)}
 .gal-lead{max-width:1180px;margin:0 auto var(--s6);padding-inline:20px}
 @media(min-width:900px){.gal-lead{padding-inline:var(--s6) calc(var(--s6) + 120px)}}
@@ -220,7 +227,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;o
   :root.js:not(.static) .card:last-child{margin-right:var(--s6)}
 }
 
-/* ── the core sample opens in a focused panel ── */
+
 .sample{display:none;color:var(--ink);background:var(--limestone)}
 .sample.dark{background:var(--ironshore);color:var(--bone)}
 .sample:target{display:block}
@@ -235,7 +242,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;o
 .dark .sample-txt p{color:var(--bone-soft)}
 .sample-core{max-width:640px;width:100%}
 .piece h3{font-size:1.5rem}
-/* the core sample — each piece opens as a geological section: four strata of one image, pulled apart */
+
 .core{position:relative;--g:96px}
 @media(min-width:600px){.core{--g:76px}}
 .stack{position:relative;width:100%;aspect-ratio:4/3}
@@ -263,12 +270,12 @@ button.spec:disabled{opacity:.55;cursor:not-allowed}
 .leads{display:none;position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;color:var(--brass);opacity:0;transition:opacity 160ms var(--ease-out)}
 .ld{fill:none;stroke:currentColor;stroke-width:1;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1}
 .lp{fill:none;stroke:currentColor;stroke-width:1}
-/* open — flat: strata separate down the section, each label directly under its stratum. the column grows once on open (no height animation) */
+
 .core.is-open .stack{margin-bottom:calc(4*var(--g))}
 .core.is-open .stratum{transform:translateY(calc(var(--i)*var(--g)));transition-delay:calc(var(--i)*70ms)}
 .core.is-open .lab{opacity:1;transform:translateY(calc(var(--i)*var(--g)));transition-delay:calc(180ms + var(--i)*70ms)}
 .core.is-open .strata{pointer-events:auto}
-/* open — desktop flourish: the stack tilts into perspective and floats apart; labels in a column beside it, joined by brass leader lines */
+
 @media (hover:hover) and (pointer:fine) and (min-width:1180px){
   button.spec{perspective:1100px;perspective-origin:50% 50%}
   .core.is-open .stack{margin-bottom:0}
@@ -285,13 +292,13 @@ button.spec:disabled{opacity:.55;cursor:not-allowed}
 
 .layer:not(.dark) .leads,.sample:not(.dark) .leads{color:var(--oxblood)}
 @media(max-width:399px){.core{--g:118px}}
-/* JS off: the sample is a static section; the strata show separated so the four lines read */
+
 :root:not(.js) .sample .stack{margin-bottom:calc(4*var(--g))}
 :root:not(.js) .sample .stratum{transform:translateY(calc(var(--i)*var(--g)))}
 :root:not(.js) .sample .lab{opacity:1;transform:translateY(calc(var(--i)*var(--g)))}
 :root:not(.js) .sample .strata{pointer-events:auto}
 
-/* the floor */
+
 .floor{background:var(--trench);color:var(--bone);padding-block:var(--s7) var(--s8);border-top:1px solid var(--rule-dark)}
 .doors{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s6)}
 @media(min-width:900px){.doors{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}}
@@ -323,6 +330,7 @@ button:disabled{opacity:.55;cursor:not-allowed}
 .story-q{margin-top:var(--s4)}
 .btn--line{background:transparent;color:var(--ink);border-color:var(--ink)}
 .btn--line:hover{background:var(--ink);color:var(--limestone)}
+.btn--line:focus-visible{outline-color:var(--oxblood)}
 .slip{justify-items:start}
 
 footer{background:var(--trench);color:var(--bone-soft);padding-block:var(--s8) var(--s6);border-top:1px solid var(--rule-dark);font-size:var(--t2)}
@@ -330,7 +338,7 @@ footer .wordmark{width:min(720px,88vw);height:auto;display:block;color:var(--bon
 footer .meta{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4)}
 footer .fine{margin-top:var(--s3);font-size:var(--t1);max-width:70ch}
 
-/* ── the gauge — elevation readout, fixed; desktop adds a segment track (JS only) ── */
+
 .gauge{display:none;position:fixed;z-index:20;font-family:var(--display);font-variant-numeric:lining-nums tabular-nums;color:var(--ink);background:var(--limestone);border:1px solid var(--rule-light);transition:color 300ms var(--ease-out),background-color 300ms var(--ease-out),border-color 300ms var(--ease-out),opacity 400ms var(--ease-out);
   left:16px;right:16px;bottom:calc(12px + env(safe-area-inset-bottom,0px));align-items:baseline;justify-content:space-between;gap:var(--s2);padding:var(--s1) var(--s2);opacity:0}
 .gauge.is-on{opacity:1}
@@ -347,7 +355,7 @@ footer .fine{margin-top:var(--s3);font-size:var(--t1);max-width:70ch}
   .track .tk:nth-of-type(1){top:0}.track .tk:nth-of-type(2){top:20%}.track .tk:nth-of-type(3){top:40%}.track .tk:nth-of-type(4){top:60%}.track .tk:nth-of-type(5){top:80%}.track .tk:nth-of-type(6){top:auto;bottom:0}
   .track .mk{position:absolute;right:0;top:0;width:12px;height:2px;background:currentColor;transition:transform 120ms linear}}
 
-/* sigils draw themselves, once, when the chapter enters */
+
 :root.mo .chap .sigil .d{stroke-dasharray:64;stroke-dashoffset:64}
 :root.mo .chap .sigil .d.b{stroke-dasharray:16;stroke-dashoffset:16}
 :root.mo .chap .sigil .d.c{stroke-dasharray:58;stroke-dashoffset:58}
@@ -356,7 +364,7 @@ footer .fine{margin-top:var(--s3);font-size:var(--t1);max-width:70ch}
 :root.mo .chap.is-in .sigil .d.b,:root.mo .chap.is-in .sigil .d.p{transition-duration:500ms;transition-delay:520ms}
 
 
-/* ── v5 · the house: story chapter, manifesto lines, index, flagship footer ── */
+
 .eyebrow{margin:0 0 var(--s3);font-size:var(--t1);letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--oxblood)}
 .dark .eyebrow{color:var(--brass)}
 .story{padding-block:var(--s7) var(--s8);border-top:1px solid var(--rule-light)}
@@ -372,20 +380,21 @@ footer .fine{margin-top:var(--s3);font-size:var(--t1);max-width:70ch}
 .story-r p{font-size:var(--t4);color:var(--ink-soft);max-width:44ch}
 .story-r p.sig{display:flex;align-items:center;gap:var(--s2);margin-top:var(--s5);font-size:var(--t1);letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--ink)}
 .seal{width:40px;height:40px;display:block;flex:none;opacity:.9}
-.mani{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding-block:var(--s7)}
+.mani{min-height:80vh;min-height:80svh;display:flex;align-items:center;padding-block:var(--s7)}
 .mani--light{color:var(--ink);background:var(--limestone)}
 .mani.dark{background:var(--trench)}
 .mani-l{margin:0 auto;max-width:1180px;padding-inline:20px;width:100%;font-family:var(--display);font-size:var(--t6);line-height:1;letter-spacing:-.015em;text-wrap:balance;overflow-wrap:anywhere}
 @media(min-width:900px){.mani-l{padding-inline:var(--s6) calc(var(--s6) + 120px)}.mani{padding-block:0}}
 @media(max-width:899px){.mani{min-height:0;padding-block:var(--s8)}}
 :root.mo .mani:not(.is-in) .mani-l .lmi{transform:translateY(112%)}
-/* index */
+
 .idx-btn{position:fixed;right:var(--s3);top:var(--s3);z-index:45;font:inherit;font-size:var(--t1);letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--ink);background:transparent;border:0;padding:var(--s2) var(--s1);cursor:pointer;line-height:1;transition:color 300ms var(--ease-out),opacity 400ms var(--ease-out)}
 .idx-btn.is-dark{color:var(--bone)}
 .idx-btn .idx-x{display:none}
 .idx-btn[aria-expanded="true"]{color:var(--bone)}
 .idx-btn[aria-expanded="true"] .idx-w{display:none}.idx-btn[aria-expanded="true"] .idx-x{display:inline}
 .idx-btn:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.idx-btn:not(.is-dark):focus-visible{outline-color:var(--oxblood)}
 .idx-btn:active{opacity:.7}
 :root:not(.js) .idx-btn{display:none}
 @media(min-width:900px){.idx-btn{right:var(--s6);top:var(--s5)}}
@@ -412,7 +421,7 @@ footer .fine{margin-top:var(--s3);font-size:var(--t1);max-width:70ch}
 .idx-a:active .idx-n{opacity:.7}
 .idx-foot{margin:0;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--bone-soft)}
 @media(min-width:900px){.idx-foot{grid-column:1/-1}}
-/* flagship footer */
+
 footer .cols{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5);margin-bottom:var(--s7)}
 @media(min-width:700px){footer .cols{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s6)}}
 footer .col p{margin:0 0 var(--s1);font-size:var(--t2);color:var(--bone)}
@@ -443,7 +452,7 @@ footer .ul{display:inline-block;padding-block:11px}
 
 .ch-pieces{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:var(--s3);margin-top:var(--s3)}
 .ch-a .card-f{aspect-ratio:4/3}
-.ch-cap{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s2);margin-top:var(--s1);font-family:var(--display);font-size:var(--t4)}
+.ch-cap{display:flex;flex-direction:column;align-items:flex-start;gap:2px;margin-top:var(--s1);font-family:var(--display);font-size:var(--t4);white-space:nowrap}
 .ch-open{font-family:var(--text);font-size:var(--t1);letter-spacing:.2em;text-transform:uppercase;opacity:1;white-space:nowrap}
 .ch-a:hover .ch-open,.ch-a:focus-visible .ch-open{opacity:1}
 @supports not (aspect-ratio:1/1){.card-f,.ch-a .card-f{position:relative;height:0;padding-top:75%}.card-f img{position:absolute;top:0;left:0}.stack{height:0;padding-top:75%}}
@@ -453,9 +462,9 @@ footer .ul{display:inline-block;padding-block:11px}
 .chap--pieces .ch-pieces{grid-column:3;grid-row:1/span 6;align-self:center;grid-template-columns:minmax(0,1fr);margin-top:0}
 }
 
-/* phones: the gallery breathes off the left edge */
+
 @media(max-width:899px){.rail{padding-inline:20px;scroll-padding-inline:20px}}
-/* ── what we take: one rule per material, on the floor, after the pieces ── */
+
 .take{background:var(--trench);color:var(--bone);padding-block:var(--s7) var(--s8);border-top:1px solid var(--rule-dark)}
 .take-in{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5)}
 @media(min-width:900px){.take{padding-block:var(--s8)}.take-in{grid-template-columns:minmax(0,5fr) minmax(0,6fr);column-gap:var(--s7);align-items:start}.take-reg{grid-column:1/-1}}
@@ -493,6 +502,8 @@ footer .ul{display:inline-block;padding-block:11px}
 </div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="wm" viewBox="0 0 616 310">
+<g fill="currentColor"><g transform="translate(44.00 119.00)"><path d="M38.15 1.00Q28.00 1.00 20.35 -3.98Q12.70 -8.95 8.43 -17.65Q4.15 -26.35 4.15 -37.50Q4.15 -48.65 8.43 -57.35Q12.70 -66.05 20.35 -71.03Q28.00 -76.00 38.15 -76.00Q43.20 -76.00 47.68 -74.20Q52.15 -72.40 55.40 -69.20L61.45 -75.00H61.65V-54.50H61.45Q61.45 -60.60 58.25 -65.35Q55.05 -70.10 49.95 -72.80Q44.85 -75.50 39.15 -75.50Q32.65 -75.50 28.12 -72.18Q23.60 -68.85 20.88 -63.33Q18.15 -57.80 16.90 -51.08Q15.65 -44.35 15.65 -37.50Q15.65 -30.70 16.90 -23.95Q18.15 -17.20 20.88 -11.68Q23.60 -6.15 28.12 -2.83Q32.65 0.50 39.15 0.50Q44.35 0.50 48.62 -1.18Q52.90 -2.85 56.00 -5.80Q59.10 -8.75 60.78 -12.53Q62.45 -16.30 62.45 -20.50H62.65V0.00H62.45L56.90 -6.25Q53.65 -2.90 48.83 -0.95Q44.00 1.00 38.15 1.00Z"/></g><g transform="translate(129.08 119.00)"><path d="M20.05 -24.30V-24.50H51.85V-24.30ZM38.30 -76.50 64.75 -0.20H71.85V0.00H42.85V-0.20H53.80L33.60 -62.80L11.70 -0.20H23.85V0.00H1.85V-0.20H11.50L38.10 -76.50Z"/></g><g transform="translate(217.56 119.00)"><path d="M22.45 0.00V-0.20H31.45V-35.98L8.05 -74.80H1.00V-75.00H30.00V-74.80H19.05L40.75 -38.50L60.25 -74.80H48.50V-75.00H69.50V-74.80H60.55L40.95 -38.30V-0.20H51.00V0.00Z"/></g><g transform="translate(305.34 119.00)"><path d="M37.45 1.00 9.65 -75.00H19.19L42.20 -12.90L64.25 -75.00H64.45L37.60 1.00ZM9.75 -75.00V-0.20H17.50V0.00H2.30V-0.20H9.55V-74.80H1.85V-75.00ZM80.85 -75.00V-74.80H73.85V-0.20H80.85V0.00H56.30V-0.20H64.35V-75.00Z"/></g><g transform="translate(406.72 119.00)"><path d="M20.05 -24.30V-24.50H51.85V-24.30ZM38.30 -76.50 64.75 -0.20H71.85V0.00H42.85V-0.20H53.80L33.60 -62.80L11.70 -0.20H23.85V0.00H1.85V-0.20H11.50L38.10 -76.50Z"/></g><g transform="translate(498.90 119.00)"><path d="M11.95 -75.00V-0.20H24.05V0.00H1.85V-0.20H11.75V-74.80H1.85V-75.00ZM71.30 -75.00V-74.80H60.80V1.00H60.60L11.85 -75.00H23.30L60.60 -15.20V-74.80H48.60V-75.00Z"/></g><g transform="translate(44.00 206.00)"><path d="M19.85 -38.40V-38.60H34.85Q39.65 -38.60 43.00 -40.80Q46.35 -43.00 48.10 -47.03Q49.85 -51.05 49.85 -56.50Q49.85 -61.95 48.10 -66.08Q46.35 -70.20 42.99 -72.50Q39.63 -74.80 34.85 -74.80H1.85V-75.00H34.85Q42.40 -75.00 48.03 -73.08Q53.65 -71.15 56.75 -67.08Q59.85 -63.00 59.85 -56.50Q59.85 -50.00 56.95 -46.02Q54.05 -42.03 48.48 -40.22Q42.90 -38.40 34.85 -38.40ZM1.85 0.00V-0.20H33.35V0.00ZM12.80 -0.10V-74.90H22.35V-0.10ZM59.35 0.50Q55.00 0.50 52.58 -1.14Q50.15 -2.78 49.05 -5.56Q47.95 -8.34 47.68 -11.80Q47.40 -15.25 47.35 -18.94Q47.30 -22.64 46.95 -26.09Q46.60 -29.55 45.40 -32.34Q44.20 -35.12 41.58 -36.76Q38.95 -38.40 34.35 -38.40H19.85V-38.60H36.35Q43.70 -38.60 48.03 -36.50Q52.35 -34.40 54.48 -30.98Q56.60 -27.55 57.30 -23.43Q58.00 -19.30 58.03 -15.18Q58.05 -11.05 58.15 -7.62Q58.25 -4.20 59.20 -2.10Q60.15 0.00 62.80 0.00Q64.40 0.00 65.80 -0.35Q67.20 -0.70 68.25 -1.20L68.35 -1.10Q67.15 -0.45 64.90 0.02Q62.65 0.50 59.35 0.50Z"/></g><g transform="translate(131.39 206.00)"><path d="M1.85 0.00V-0.20H12.80V-74.80H1.85V-75.00H34.35V-74.80H22.35V-0.20H34.35V0.00Z"/></g><g transform="translate(185.48 206.00)"><path d="M15.85 0.00V-0.20H26.85V-74.80H16.82Q12.40 -74.80 9.55 -73.12Q6.70 -71.45 5.05 -68.43Q3.40 -65.40 2.73 -61.33Q2.05 -57.25 2.05 -52.50H1.85V-75.00H61.35V-52.50H61.10Q61.10 -57.25 60.42 -61.33Q59.75 -65.40 58.10 -68.43Q56.45 -71.45 53.58 -73.12Q50.70 -74.80 46.32 -74.80H36.35V-0.20H47.35V0.00Z"/></g><g transform="translate(266.17 206.00)"><path d="M67.85 -75.00V-74.80H57.95V-23.00Q57.95 -10.65 52.80 -4.58Q47.65 1.50 35.80 1.50Q22.85 1.50 16.83 -4.28Q10.80 -10.05 10.80 -23.00V-74.80H1.85V-75.00H30.35V-74.80H20.35V-24.00Q20.35 -19.05 21.08 -14.55Q21.80 -10.05 23.68 -6.55Q25.55 -3.05 28.98 -1.03Q32.40 1.00 37.80 1.00Q44.50 1.00 48.92 -1.62Q53.35 -4.25 55.55 -9.57Q57.75 -14.90 57.75 -23.00V-74.80H48.30V-75.00Z"/></g><g transform="translate(353.57 206.00)"><path d="M20.05 -24.30V-24.50H51.85V-24.30ZM38.30 -76.50 64.75 -0.20H71.85V0.00H42.85V-0.20H53.80L33.60 -62.80L11.70 -0.20H23.85V0.00H1.85V-0.20H11.50L38.10 -76.50Z"/></g><g transform="translate(444.06 206.00)"><path d="M1.85 0.00V-0.20H10.80V-74.80H1.85V-75.00H29.30V-74.80H20.35V-0.20H35.80Q41.70 -0.20 45.40 -1.88Q49.10 -3.55 51.10 -6.58Q53.10 -9.60 53.85 -13.68Q54.60 -17.75 54.60 -22.50H54.80V0.00Z"/></g><g transform="translate(516.20 206.00)"><path d="M28.90 1.50Q22.15 1.50 17.58 -0.60Q13.00 -2.70 10.05 -6.30L4.60 1.00H4.40V-19.50H4.60Q5.45 -15.05 7.20 -11.28Q8.95 -7.50 11.78 -4.70Q14.60 -1.90 18.62 -0.35Q22.65 1.20 28.10 1.20Q33.40 1.20 37.40 -0.70Q41.40 -2.60 43.65 -6.33Q45.90 -10.05 45.90 -15.50Q45.90 -19.90 43.70 -22.95Q41.50 -26.00 37.90 -28.25Q34.30 -30.50 29.98 -32.45Q25.65 -34.40 21.33 -36.50Q17.00 -38.60 13.40 -41.38Q9.80 -44.15 7.60 -48.05Q5.40 -51.95 5.40 -57.50Q5.40 -63.00 8.28 -67.18Q11.15 -71.35 15.85 -73.68Q20.55 -76.00 26.10 -76.00Q31.20 -76.00 35.30 -74.40Q39.40 -72.80 42.30 -69.40L47.70 -76.00H47.90V-55.50H47.70Q46.70 -62.45 43.88 -66.90Q41.05 -71.35 36.75 -73.48Q32.45 -75.60 27.10 -75.60Q19.90 -75.60 16.15 -72.03Q12.40 -68.45 12.40 -62.50Q12.40 -58.55 14.55 -55.78Q16.70 -53.00 20.20 -50.88Q23.70 -48.75 27.93 -46.83Q32.15 -44.90 36.38 -42.68Q40.60 -40.45 44.10 -37.45Q47.60 -34.45 49.75 -30.23Q51.90 -26.00 51.90 -20.00Q51.90 -13.50 49.10 -8.68Q46.30 -3.85 41.12 -1.18Q35.95 1.50 28.90 1.50Z"/></g></g>
+<g fill="currentColor"><g transform="translate(44.00 266.38)"><path d="M6.19 0.18 1.83 -13.84H0.18V-13.88H13.13V-13.84H8.51L12.00 -2.57L16.09 -13.84H14.06V-13.88H17.75V-13.84H16.15L11.05 0.18H11.02L6.67 -13.84H3.68L7.21 -2.57L9.05 -7.43L9.07 -7.34L6.23 0.18ZM10.00 -8.79 9.96 -8.84 11.65 -13.86H11.71Z"/></g><g transform="translate(103.11 266.38)"><path d="M0.34 0.00V-0.04H2.00V-13.84H0.34V-13.88H10.05V-10.08H10.02Q10.02 -11.07 9.69 -11.93Q9.37 -12.78 8.68 -13.31Q7.99 -13.84 6.91 -13.84H3.76V-0.04H6.72Q7.99 -0.04 8.76 -0.58Q9.52 -1.12 9.86 -2.05Q10.20 -2.99 10.20 -4.16H10.24V0.00ZM6.87 -5.14Q6.87 -5.76 6.60 -6.22Q6.32 -6.67 5.86 -6.91Q5.40 -7.16 4.87 -7.16H3.02V-7.20H4.87Q5.40 -7.20 5.86 -7.42Q6.32 -7.64 6.60 -8.07Q6.87 -8.50 6.87 -9.12H6.91V-5.14Z"/></g><g transform="translate(155.06 266.38)"><path d="M5.35 0.28Q4.10 0.28 3.25 -0.11Q2.40 -0.50 1.86 -1.17L0.85 0.18H0.81V-3.61H0.85Q1.01 -2.78 1.33 -2.09Q1.66 -1.39 2.18 -0.87Q2.70 -0.35 3.45 -0.06Q4.19 0.22 5.20 0.22Q6.18 0.22 6.92 -0.13Q7.66 -0.48 8.08 -1.17Q8.49 -1.86 8.49 -2.87Q8.49 -3.68 8.08 -4.25Q7.68 -4.81 7.01 -5.23Q6.35 -5.64 5.55 -6.00Q4.75 -6.36 3.95 -6.75Q3.15 -7.14 2.48 -7.65Q1.81 -8.17 1.41 -8.89Q1.00 -9.61 1.00 -10.64Q1.00 -11.65 1.53 -12.43Q2.06 -13.20 2.93 -13.63Q3.80 -14.06 4.83 -14.06Q5.77 -14.06 6.53 -13.76Q7.29 -13.47 7.83 -12.84L8.82 -14.06H8.86V-10.27H8.82Q8.64 -11.55 8.12 -12.38Q7.59 -13.20 6.80 -13.59Q6.00 -13.99 5.01 -13.99Q3.68 -13.99 2.99 -13.32Q2.29 -12.66 2.29 -11.56Q2.29 -10.83 2.69 -10.32Q3.09 -9.80 3.74 -9.41Q4.38 -9.02 5.17 -8.66Q5.95 -8.31 6.73 -7.89Q7.51 -7.48 8.16 -6.93Q8.81 -6.37 9.20 -5.59Q9.60 -4.81 9.60 -3.70Q9.60 -2.50 9.08 -1.60Q8.57 -0.71 7.61 -0.22Q6.65 0.28 5.35 0.28Z"/></g><g transform="translate(206.57 266.38)"><path d="M2.93 0.00V-0.04H4.97V-13.84H3.11Q2.29 -13.84 1.77 -13.53Q1.24 -13.22 0.93 -12.66Q0.63 -12.10 0.50 -11.35Q0.38 -10.59 0.38 -9.71H0.34V-13.88H11.35V-9.71H11.30Q11.30 -10.59 11.18 -11.35Q11.05 -12.10 10.75 -12.66Q10.44 -13.22 9.91 -13.53Q9.38 -13.84 8.57 -13.84H6.72V-0.04H8.76V0.00Z"/></g><g transform="translate(305.23 266.38)"><path d="M0.34 0.00V-0.04H2.37V-13.84H0.34V-13.88H6.35V-13.84H4.13V-0.04H6.35V0.00Z"/></g><g transform="translate(353.10 266.38)"><path d="M2.21 -13.88V-0.04H4.45V0.00H0.34V-0.04H2.17V-13.84H0.34V-13.88ZM13.19 -13.88V-13.84H11.25V0.18H11.21L2.19 -13.88H4.31L11.21 -2.81V-13.84H8.99V-13.88Z"/></g><g transform="translate(407.73 266.38)"><path d="M5.52 -13.88Q7.58 -13.88 9.07 -12.96Q10.56 -12.05 11.37 -10.48Q12.18 -8.91 12.18 -6.94Q12.18 -5.46 11.70 -4.19Q11.21 -2.93 10.32 -1.99Q9.43 -1.05 8.21 -0.52Q6.99 0.00 5.51 0.00H0.34V-0.04H2.00V-13.84H0.34V-13.88ZM3.76 -0.04H5.51Q6.79 -0.04 7.66 -0.63Q8.53 -1.23 9.06 -2.22Q9.58 -3.22 9.81 -4.45Q10.05 -5.68 10.05 -6.94Q10.05 -8.20 9.79 -9.43Q9.53 -10.66 8.99 -11.65Q8.45 -12.64 7.58 -13.24Q6.72 -13.84 5.51 -13.84H3.76Z"/></g><g transform="translate(461.85 266.38)"><path d="M0.34 0.00V-0.04H2.37V-13.84H0.34V-13.88H6.35V-13.84H4.13V-0.04H6.35V0.00Z"/></g><g transform="translate(509.72 266.38)"><path d="M0.34 0.00V-0.04H2.00V-13.84H0.34V-13.88H10.05V-10.08H10.02Q10.02 -11.07 9.69 -11.93Q9.37 -12.78 8.68 -13.31Q7.99 -13.84 6.91 -13.84H3.76V-0.04H6.72Q7.99 -0.04 8.76 -0.58Q9.52 -1.12 9.86 -2.05Q10.20 -2.99 10.20 -4.16H10.24V0.00ZM6.87 -5.14Q6.87 -5.76 6.60 -6.22Q6.32 -6.67 5.86 -6.91Q5.40 -7.16 4.87 -7.16H3.02V-7.20H4.87Q5.40 -7.20 5.86 -7.42Q6.32 -7.64 6.60 -8.07Q6.87 -8.50 6.87 -9.12H6.91V-5.14Z"/></g><g transform="translate(561.68 266.38)"><path d="M5.35 0.28Q4.10 0.28 3.25 -0.11Q2.40 -0.50 1.86 -1.17L0.85 0.18H0.81V-3.61H0.85Q1.01 -2.78 1.33 -2.09Q1.66 -1.39 2.18 -0.87Q2.70 -0.35 3.45 -0.06Q4.19 0.22 5.20 0.22Q6.18 0.22 6.92 -0.13Q7.66 -0.48 8.08 -1.17Q8.49 -1.86 8.49 -2.87Q8.49 -3.68 8.08 -4.25Q7.68 -4.81 7.01 -5.23Q6.35 -5.64 5.55 -6.00Q4.75 -6.36 3.95 -6.75Q3.15 -7.14 2.48 -7.65Q1.81 -8.17 1.41 -8.89Q1.00 -9.61 1.00 -10.64Q1.00 -11.65 1.53 -12.43Q2.06 -13.20 2.93 -13.63Q3.80 -14.06 4.83 -14.06Q5.77 -14.06 6.53 -13.76Q7.29 -13.47 7.83 -12.84L8.82 -14.06H8.86V-10.27H8.82Q8.64 -11.55 8.12 -12.38Q7.59 -13.20 6.80 -13.59Q6.00 -13.99 5.01 -13.99Q3.68 -13.99 2.99 -13.32Q2.29 -12.66 2.29 -11.56Q2.29 -10.83 2.69 -10.32Q3.09 -9.80 3.74 -9.41Q4.38 -9.02 5.17 -8.66Q5.95 -8.31 6.73 -7.89Q7.51 -7.48 8.16 -6.93Q8.81 -6.37 9.20 -5.59Q9.60 -4.81 9.60 -3.70Q9.60 -2.50 9.08 -1.60Q8.57 -0.71 7.61 -0.22Q6.65 0.28 5.35 0.28Z"/></g></g>
 </symbol></svg>
 
 <a class="mast" id="mast" href="#top" aria-label="Cayman Rituals, back to the top"><svg viewBox="0 0 616 310" aria-hidden="true" focusable="false"><use href="#wm"/></svg></a>
@@ -598,11 +609,11 @@ footer .ul{display:inline-block;padding-block:11px}
 <section class="gal dark" id="pieces" data-elev="-7686" data-label="The pieces">
   <div class="gal-lead"><h2 class="sr-only">The pieces</h2><p>Everything we make starts somewhere on this line, between the Bluff and the Trench. Nothing on it can be made anywhere else.</p></div>
   <ul class="rail" id="rail">
-    <li class="card"><a class="card-a" href="#sample-keeper"><span class="card-f"><picture><source type="image/avif" srcset="img/g-keeper.avif"><img src="img/g-keeper.jpg" alt="A polished disc of banded caymanite engraved with CAY over RIT, held at a lapidary bench." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">The Keeper</span><span class="card-l">A lid you buy once. It moves onto every candle refill after that. Turned from caymanite in numbered editions, as the stone allows, or poured in bands by hand, like the candle.</span></span></a></li>
-    <li class="card"><a class="card-a" href="#sample-slab"><span class="card-f"><picture><source type="image/avif" srcset="img/g-slab.avif"><img src="img/g-slab.jpg" alt="A rectangular pendant of banded red and cream stone in a thin gold frame on a fine chain." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">The Slab</span><span class="card-l">A slice of the stone, cut so its bands run level, set in a plain gold frame. A section you can wear, in numbered editions, as the stone allows.</span></span></a></li>
-    <li class="card"><a class="card-a" href="#sample-rope"><span class="card-f"><picture><source type="image/avif" srcset="img/f-bracelet.avif"><img src="img/f-bracelet.jpg" alt="A hand-plaited pale palm-fibre rope bracelet with brass end caps." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">The Rope</span><span class="card-l">Silver thatch rope was a Caymanian export within living memory. Ours is a bracelet, plaited by hand from the same palm, and every piece is numbered from No. 001.</span></span></a></li>
-    <li class="card"><a class="card-a" href="#sample-edp"><span class="card-f"><picture><source type="image/avif" srcset="img/g-edp.avif"><img src="img/g-edp.jpg" alt="A heavy square glass perfume bottle, its cap wrapped in plaited pale palm cord, standing on wet black rock." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">Eau de parfum</span><span class="card-l">Plain heavy glass, with the cap wrapped by hand in the same plaited thatch.</span></span></a></li>
-    <li class="card"><a class="card-a" href="#sample-candle"><span class="card-f"><picture><source type="image/avif" srcset="img/g-candle.avif"><img src="img/g-candle.jpg" alt="A heavy glass tumbler candle poured in three horizontal bands of cream, oxblood and umber wax." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">The Section Candle</span><span class="card-l">Poured in three bands, like the stone. As it burns, it melts down through its own layers.</span></span></a></li>
+    <li class="card"><a class="card-a" href="#sample-keeper"><span class="card-f"><picture><source type="image/avif" srcset="img/g-keeper-600.avif 600w" sizes="(min-width:900px) 37vw, 80vw" data-srcset="img/g-keeper-600.avif 600w, img/g-keeper-900.avif 900w, img/g-keeper.avif 1200w"><img src="img/g-keeper.jpg" alt="A polished disc of banded caymanite engraved with CAY over RIT, held at a lapidary bench." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">The Keeper</span><span class="card-l">A lid you buy once. It moves onto every candle refill after that. Turned from caymanite in numbered editions, as the stone allows, or poured in bands by hand, like the candle.</span></span></a></li>
+    <li class="card"><a class="card-a" href="#sample-slab"><span class="card-f"><picture><source type="image/avif" srcset="img/g-slab-600.avif 600w" sizes="(min-width:900px) 37vw, 80vw" data-srcset="img/g-slab-600.avif 600w, img/g-slab-900.avif 900w, img/g-slab.avif 1200w"><img src="img/g-slab.jpg" alt="A rectangular pendant of banded red and cream stone in a thin gold frame on a fine chain." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">The Slab</span><span class="card-l">A slice of the stone, cut so its bands run level, set in a plain gold frame. A section you can wear, in numbered editions, as the stone allows.</span></span></a></li>
+    <li class="card"><a class="card-a" href="#sample-rope"><span class="card-f"><picture><source type="image/avif" srcset="img/f-bracelet-600.avif 600w" sizes="(min-width:900px) 37vw, 80vw" data-srcset="img/f-bracelet-600.avif 600w, img/f-bracelet-900.avif 900w, img/f-bracelet.avif 1200w"><img src="img/f-bracelet.jpg" alt="A hand-plaited pale palm-fibre rope bracelet with brass end caps." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">The Rope</span><span class="card-l">Silver thatch rope was a Caymanian export within living memory. Ours is a bracelet, plaited by hand from the same palm, and every piece is numbered from No. 001.</span></span></a></li>
+    <li class="card"><a class="card-a" href="#sample-edp"><span class="card-f"><picture><source type="image/avif" srcset="img/g-edp-600.avif 600w" sizes="(min-width:900px) 37vw, 80vw" data-srcset="img/g-edp-600.avif 600w, img/g-edp-900.avif 900w, img/g-edp.avif 1200w"><img src="img/g-edp.jpg" alt="A heavy square glass perfume bottle, its cap wrapped in plaited pale palm cord, standing on wet black rock." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">Eau de parfum</span><span class="card-l">Plain heavy glass, with the cap wrapped by hand in the same plaited thatch.</span></span></a></li>
+    <li class="card"><a class="card-a" href="#sample-candle"><span class="card-f"><picture><source type="image/avif" srcset="img/g-candle-600.avif 600w" sizes="(min-width:900px) 37vw, 80vw" data-srcset="img/g-candle-600.avif 600w, img/g-candle-900.avif 900w, img/g-candle.avif 1200w"><img src="img/g-candle.jpg" alt="A heavy glass tumbler candle poured in three horizontal bands of cream, oxblood and umber wax." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">The Section Candle</span><span class="card-l">Poured in three bands, like the stone. As it burns, it melts down through its own layers.</span></span></a></li>
   </ul>
 </section>
 
@@ -805,7 +816,7 @@ window.addEventListener('DOMContentLoaded',function(){
   var raf=window.requestAnimationFrame||function(f){return setTimeout(f,16)};
   if(hasGsap)gsap.registerPlugin(ScrollTrigger);
 
-  /* ── tokens: colours are read from :root, never repeated here ── */
+  
   var cs=window.getComputedStyle(root);
   function rgb(name){var h=(cs.getPropertyValue(name)||'').trim().replace('#','');if(h.length===3)h=h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
     var v=[parseInt(h.substr(0,2),16),parseInt(h.substr(2,2),16),parseInt(h.substr(4,2),16)];return isNaN(v[0]+v[1]+v[2])?null:v}
@@ -814,7 +825,7 @@ window.addEventListener('DOMContentLoaded',function(){
   function str(a){return 'rgb('+a[0]+','+a[1]+','+a[2]+')'}
   function fmt(n){n=Math.round(n);var s=Math.abs(n).toLocaleString('en-US');return (n>0?'+':n<0?'−':'')+s+' m';}
 
-  /* ── smooth scroll ── */
+  
   var lenis=null;
   if(motion&&window.Lenis){
     lenis=new Lenis({lerp:.085,wheelMultiplier:1,smoothWheel:true});
@@ -825,12 +836,12 @@ window.addEventListener('DOMContentLoaded',function(){
   function scrollToEl(el){if(lenis)lenis.scrollTo(el,{offset:0,duration:1.4});else el.scrollIntoView();}
   [].forEach.call(doc.querySelectorAll('a[href^="#"]:not(.card-a):not(.sample-x):not(.idx-a)'),function(a){a.addEventListener('click',function(e){var t=doc.querySelector(a.getAttribute('href'));if(t&&lenis){e.preventDefault();scrollToEl(t);}});});
 
-  /* ── hero paints at first frame; a gentle settle zoom follows, once, motion only ── */
+  
   var heroImg=doc.querySelector('.hero-img');if(heroImg&&heroImg.decode)heroImg.decode().catch(function(){});
   function startHero(){root.classList.add('loaded');if(motion)gsap.fromTo('.hero-zoom',{scale:1.08},{scale:1,duration:8,ease:'power2.out'});}
   startHero();
 
-  /* ── line masks: split headings into lines (measured), each line in an overflow mask ── */
+  
   function split(el){
     if(el.dataset.split||!motion)return;
     var toks=[],prevEl=false;[].forEach.call(el.childNodes,function(n){
@@ -848,13 +859,12 @@ window.addEventListener('DOMContentLoaded',function(){
   var lms=[].slice.call(doc.querySelectorAll('.lm'));
   if(motion){doc.fonts&&doc.fonts.ready?doc.fonts.ready.then(function(){lms.forEach(split);ScrollTrigger.refresh();}):lms.forEach(split);}
 
-  /* ── hero: pinned; scrolling scales toward the horizon and darkens — descending through it ── */
+  
   var mast=doc.getElementById('mast');
   var chaps=[].slice.call(doc.querySelectorAll('.chap'));
   var layers=chaps;
   var seax=doc.getElementById('sealevel'),seaC=doc.getElementById('seax-c'),seaOK=false,seaP=0,three=null,seaGL=false,seaVis=false;
-  /* ── reveals: intro + chapters. hidden state lives under :root.mo, added only once this whole
-     setup succeeds, so a thrown error (or gsap/ScrollTrigger missing) never leaves text invisible ── */
+  
   function reveal(sec){
     if(sec.classList.contains('is-in'))return;sec.classList.add('is-in');
     if(!motion)return;
@@ -878,7 +888,7 @@ window.addEventListener('DOMContentLoaded',function(){
   if(motion){
     root.classList.add('mo');
     try{
-      gsap.timeline({scrollTrigger:{trigger:'#hero',start:'top top',end:'+=100%',pin:true,scrub:true}})
+      gsap.timeline({scrollTrigger:{trigger:'#hero',start:'top top',end:(wide?'+=100%':'+=50%'),pin:true,scrub:true}})
         .to('.hero-img',{scale:1.08,ease:'none',duration:1},0)
         .to('.hero-veil',{opacity:1,ease:'power1.in',duration:1},0)
         .to('.hero-cap,.hero-kick,.hero-cue',{autoAlpha:0,ease:'none',duration:.3},0);
@@ -886,7 +896,7 @@ window.addEventListener('DOMContentLoaded',function(){
       ScrollTrigger.create({trigger:'#intro',start:'top 75%',once:true,onEnter:function(){reveal(doc.getElementById('intro'));}});
       ScrollTrigger.create({trigger:'#house',start:'top 70%',once:true,onEnter:function(){reveal(doc.getElementById('house'));}});
       ScrollTrigger.create({trigger:'#take',start:'top 70%',once:true,onEnter:function(){reveal(doc.getElementById('take'));}});
-      /* chapter and manifesto pins removed (the scroll tax); their reveal triggers stay */
+      
       [].forEach.call(doc.querySelectorAll('.chap,.seax,.mani'),function(sec){
         if(sec.classList.contains('mani')){
           ScrollTrigger.create({trigger:sec,start:'top 60%',once:true,onEnter:function(){reveal(sec);}});
@@ -896,23 +906,23 @@ window.addEventListener('DOMContentLoaded',function(){
           seaGL=webglOK()&&!lowPowerQ();
           if(seaGL){
             seaInit();
-            if(wide)ScrollTrigger.create({trigger:sec,start:'top top',end:'+=60%',pin:true,pinSpacing:true,anticipatePin:1});
+            if(wide)ScrollTrigger.create({trigger:sec,start:'top top',end:'+=60%',pin:true,pinType:'transform',pinSpacing:true,anticipatePin:1});
             ScrollTrigger.create({trigger:sec,start:'top bottom',end:'bottom top',onUpdate:function(st){seaP=st.progress;},onToggle:function(st){seaVis=st.isActive;if(three){if(seaVis)three.start();else three.stop();}}});
           }
           ScrollTrigger.create({trigger:sec,start:'top 60%',once:true,onEnter:function(){sec.classList.add('is-in');}});
         }
       });
-      /* ground transmutes between chapters, scrubbed */
+      
       if(tokensOK){
         var seq=[['#intro',C.limestone],['#house',C.limestone],['#mani-1',C.limestone],['#bluff',C.limestone],['#caymanite',C.clay],['#thatch',C.thatch],['#sealevel',C.ironshore],['#ironshore',C.ironshore],['#trench',C.trench],['#pieces',C.trench]];
         body.style.backgroundColor=str(C.limestone);
         for(var i=1;i<seq.length;i++)(function(prev,cur,sel){
           if(prev.join()===cur.join())return;
-          gsap.fromTo(body,{backgroundColor:str(prev)},{backgroundColor:str(cur),ease:'none',immediateRender:false,scrollTrigger:{trigger:sel,start:'top 90%',end:'top 10%',scrub:true}});
+          gsap.fromTo(body,{backgroundColor:str(prev)},{backgroundColor:str(cur),ease:'none',immediateRender:false,scrollTrigger:{trigger:sel,start:(sel==='#sealevel'?'top 20%':'top 90%'),end:'top 10%',scrub:true}});
         })(seq[i-1][1],seq[i][1],seq[i][0]);
       }
     }catch(err){
-      /* fail-safe: anything above throwing must never leave text hidden */
+      
       root.classList.remove('mo');
       revealAll();
     }
@@ -920,13 +930,13 @@ window.addEventListener('DOMContentLoaded',function(){
     revealAll();
   }
 
-  /* ── gauge (v3 behaviour), driven by the same scroll ── */
+  
   var g=doc.getElementById('gauge'),gv=doc.getElementById('gv'),gl=doc.getElementById('gl'),mk=g&&g.querySelector('.mk'),track=g&&g.querySelector('.track');
   var secs=[].slice.call(doc.querySelectorAll('[data-elev]'));
   var order=['hero','house','bluff','caymanite','thatch','sealevel','ironshore','trench','pieces','take','floor'];
   var idxBtn=doc.getElementById('idx-btn');
-  /* chrome colour is read from the ground actually under each fixed element, not from the tracked active section */
-  var grounds=[].slice.call(doc.querySelectorAll('main>section,main>footer'));
+  
+  var grounds=[].slice.call(doc.querySelectorAll('main section,main footer'));
   function darkAt(y){for(var i=grounds.length-1;i>=0;i--){var r=grounds[i].getBoundingClientRect();if(r.top<=y&&r.bottom>y){var s=grounds[i];if(s.id==='sealevel')return y>=r.top+r.height/2;return s.id==='hero'||s.classList.contains('dark');}}return false;}
   function tick(){
     var vh=window.innerHeight,mid=vh*0.5,cur=0;
@@ -950,7 +960,7 @@ window.addEventListener('DOMContentLoaded',function(){
   window.addEventListener('resize',function(){onScroll();for(var i=0;i<snows.length;i++)snows[i].size();});
   tick();
 
-  /* ── the signature moment: crossing sea level. raw WebGL refraction (no three.js), CSS line fallback ── */
+  
   function webglOK(){try{var c=doc.createElement('canvas');return !!(window.WebGLRenderingContext&&(c.getContext('webgl')||c.getContext('experimental-webgl')));}catch(e){return false;}}
   function lowPowerQ(){return !!(navigator.connection&&navigator.connection.saveData)||!!(navigator.deviceMemory&&navigator.deviceMemory<2);}
   function seaInit(){
@@ -997,7 +1007,7 @@ window.addEventListener('DOMContentLoaded',function(){
   }
   if(!motion)seax.classList.add('is-in');
 
-  /* ── the deep: sparse marine snow, ≤60 motes, runs only while visible ── */
+  
   var snows=[];
   function Snow(canvas,n){
     var ctx=canvas.getContext&&canvas.getContext('2d');if(!ctx)return null;
@@ -1016,12 +1026,23 @@ window.addEventListener('DOMContentLoaded',function(){
     for(var q=0;q<cvs.length&&q<2;q++){var s=Snow(cvs[q],share[q]);if(s){cvs[q].__snow=s;snows.push(s);sio.observe(cvs[q]);}}
   }
 
-  /* ── the pieces: horizontal rail driven by vertical scroll on desktop; phones keep the native scroller ── */
+  
+  var piecesSec=doc.getElementById('pieces');
+  if(piecesSec&&'IntersectionObserver' in window){
+    var railIO=new IntersectionObserver(function(es){for(var j=0;j<es.length;j++){if(!es[j].isIntersecting)continue;
+      [].forEach.call(piecesSec.querySelectorAll('source[data-srcset]'),function(s){s.setAttribute('srcset',s.getAttribute('data-srcset'));s.removeAttribute('data-srcset');});
+      railIO.disconnect();}},{rootMargin:'600px 0px'});
+    railIO.observe(piecesSec);
+  }else if(piecesSec){
+    [].forEach.call(piecesSec.querySelectorAll('source[data-srcset]'),function(s){s.setAttribute('srcset',s.getAttribute('data-srcset'));s.removeAttribute('data-srcset');});
+  }
+
+  
   var gal=doc.getElementById('pieces'),rail=doc.getElementById('rail');
   if(motion&&window.matchMedia('(min-width:900px)').matches){
     var railTween=gsap.to(rail,{x:function(){return -(rail.scrollWidth-window.innerWidth);},ease:'none',scrollTrigger:{trigger:gal,start:'top top',end:function(){return '+='+(rail.scrollWidth-window.innerWidth+200);},pin:true,scrub:.4,invalidateOnRefresh:true,anticipatePin:1}});
     var railST=railTween.scrollTrigger;
-    /* keyboard focus inside the pinned rail must scroll the page, not just the (invisible) card */
+    
     rail.addEventListener('focusin',function(e){
       var card=e.target.closest?e.target.closest('.card'):null;
       if(!card||!railST)return;
@@ -1033,9 +1054,9 @@ window.addEventListener('DOMContentLoaded',function(){
     });
   }
 
-  /* ── the core sample opens in a focused panel ── */
+  
   var samples=[].slice.call(doc.querySelectorAll('.sample')),openS=null,lastFocus=null;
-  /* with JS the samples are modal panels: announce them as dialogs, and put the page behind out of reach while one is open */
+  
   samples.forEach(function(s){s.setAttribute('role','dialog');s.setAttribute('aria-modal','true');});
   var behind=[doc.getElementById('top'),mast,idxBtn];
   function setBehind(off){behind.forEach(function(el){if(el)el.inert=off;});}
@@ -1056,7 +1077,7 @@ window.addEventListener('DOMContentLoaded',function(){
   samples.forEach(function(s){s.querySelector('.sample-x').addEventListener('click',function(e){e.preventDefault();closeSample();});});
   if(location.hash&&/^#sample-/.test(location.hash)){var s0=doc.querySelector(location.hash);if(s0)openSample(s0,null);}
 
-  /* ── core sample (v3): hover/focus opens, click pins, leader lines on desktop ── */
+  
   var cores=[].slice.call(doc.querySelectorAll('.core'));
   var flQ=window.matchMedia?window.matchMedia('(hover:hover) and (pointer:fine) and (min-width:1180px)'):{matches:false};
   function isFl(){return flQ.matches&&!rm}
@@ -1072,7 +1093,7 @@ window.addEventListener('DOMContentLoaded',function(){
     }
     core.classList.add('leads-on');
   }
-  /* wait until the strata have actually tilted (a 3d matrix) and stopped moving, then draw — never trust a timer */
+  
   function leads(core){
     core.classList.remove('leads-on');if(core._lr)cancelAnimationFrame(core._lr);
     if(!isFl()||!core.classList.contains('is-open'))return;
@@ -1099,7 +1120,7 @@ window.addEventListener('DOMContentLoaded',function(){
     btn.addEventListener('click',function(){if(core.classList.contains('is-open')&&core._pin){core._pin=false;setOpen(core,false);}else{core._pin=true;setOpen(core,true);}});
     btn.addEventListener('focus',function(){if(!core.classList.contains('is-open'))setOpen(core,true);});
   });
-  /* ── the house index: full-screen section of the island ── */
+  
   var idx=doc.getElementById('idx'),idxOpen=false,idxLast=null;
   var idxLinks=[].slice.call(idx.querySelectorAll('.idx-a'));
   function openIdx(){if(idxOpen)return;idxOpen=true;idxLast=doc.activeElement;idx.hidden=false;
@@ -1109,7 +1130,8 @@ window.addEventListener('DOMContentLoaded',function(){
     setTimeout(function(){if(!idxOpen)idx.hidden=true;},rm?0:520);(idxLast||idxBtn).focus({preventScroll:true});}
   idxBtn.addEventListener('click',function(){idxOpen?closeIdx():openIdx();});
   idxLinks.forEach(function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h.charAt(0)!=='#')return;var t=doc.querySelector(h);if(!t)return;e.preventDefault();closeIdx();
-    setTimeout(function(){if(lenis){lenis.start();lenis.scrollTo(t,{offset:0,duration:1.6});}else t.scrollIntoView();},rm?0:80);});});
+    if(!t.hasAttribute('tabindex'))t.setAttribute('tabindex','-1');
+    setTimeout(function(){if(lenis){lenis.start();lenis.scrollTo(t,{offset:0,duration:1.6,onComplete:function(){t.focus({preventScroll:true});}});}else{t.scrollIntoView();t.focus({preventScroll:true});}},rm?0:80);});});
   idx.addEventListener('keydown',function(e){
     var i=idxLinks.indexOf(doc.activeElement);
     if(e.key==='Tab'){var f=[idxBtn].concat(idxLinks);var j=f.indexOf(doc.activeElement);if(j<0)j=0;e.preventDefault();f[(j+(e.shiftKey?-1:1)+f.length)%f.length].focus({preventScroll:true});}
