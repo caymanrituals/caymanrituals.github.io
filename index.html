@@ -52,6 +52,7 @@ html:not(.js){scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--limestone);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
 .w{max-width:1180px;margin:0 auto;padding-inline:20px}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 @media(min-width:900px){.w{padding-inline:var(--s6) calc(var(--s6) + 120px)}}
 a{color:inherit;text-underline-offset:4px;text-decoration-thickness:1px}
 a:focus-visible,button:focus-visible{outline:2px solid var(--oxblood);outline-offset:3px}
@@ -301,6 +302,9 @@ button:disabled{opacity:.55;cursor:not-allowed}
 .btn:hover{background:var(--brass);border-color:var(--brass)}
 .btn:active{background:var(--bone-soft)}
 .btn:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.story-q{margin-top:var(--s4)}
+.btn--line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn--line:hover{background:var(--ink);color:var(--limestone)}
 .slip{justify-items:start}
 
 footer{background:var(--trench);color:var(--bone-soft);padding-block:var(--s8) var(--s6);border-top:1px solid var(--rule-dark);font-size:13px}
@@ -474,7 +478,8 @@ footer .ul{padding-bottom:1px}
         <li class="idx-it" style="--d:3"><a class="idx-a" href="#pieces"><span class="idx-e">−7,686 m</span><span class="idx-n">The pieces</span></a></li>
         <li class="idx-it" style="--d:4"><a class="idx-a" href="#take"><span class="idx-e">−7,686 m</span><span class="idx-n">What we take</span></a></li>
         <li class="idx-it" style="--d:5"><a class="idx-a" href="#trade"><span class="idx-e">−7,686 m</span><span class="idx-n">Private Section</span></a></li>
-        <li class="idx-it" style="--d:6"><a class="idx-a" href="#queue"><span class="idx-e">−7,686 m</span><span class="idx-n">The queue</span></a></li>
+        <li class="idx-it" style="--d:6"><a class="idx-a" href="#queue"><span class="idx-e">−7,686 m</span><span class="idx-n">First Pour</span></a></li>
+        <li class="idx-it" style="--d:7"><a class="idx-a" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=first-pour&amp;utm_content=index"><span class="idx-e">Letters</span><span class="idx-n">Join the queue</span></a></li>
       </ol>
     </nav>
     <p class="idx-foot">Cayman Islands · West Indies</p>
@@ -500,27 +505,26 @@ footer .ul{padding-bottom:1px}
 <section class="intro" id="intro">
   <div class="w">
     <h1 class="lm">Keep the island.</h1>
-    <p class="lede fu">Cayman is not a beach. It is the top of an underwater mountain. From the floor of the Cayman Trench to the top of the Bluff is almost eight vertical kilometres, and all of life here happens in the top forty metres.</p>
+    <p class="lede fu">Cayman is not a beach. From the floor of the Cayman Trench to the top of the Bluff is almost eight vertical kilometres, and every road and house on these islands sits in the top fifty metres of it.</p>
     <p class="lede fu">We make one thing from each layer. Four elements, and the fifth at the bottom of the sea.</p>
-    <a class="begin ul fu" href="#bluff">Begin at the top ↓</a>
   </div>
 </section>
 
 <section class="story" id="house" data-elev="43" data-label="The house">
   <div class="w story-in">
     <div class="story-l">
-      <p class="eyebrow fu">The house</p>
       <p class="lead fu">It began at a kitchen table, with a saucepan and a coconut shell.</p>
       <h2 class="lm">Before there was a brand, there was a <strong class="ritual">ritual</strong>.</h2>
     </div>
     <div class="story-r">
-      <p class="fu">Before there was a brand, there was a <strong class="ritual">ritual</strong>: pouring wax into shells cleaned by hand, for the people around the table. The island was in every one of them — the salt, the thatch, the rock.</p>
+      <p class="fu">It was wax poured into shells cleaned by hand, for the people around the table. The island was in every one of them: the salt, the thatch, the rock.</p>
       <p class="fu">Cayman Rituals is that habit, held to a higher standard. Made slowly, in small numbers, from the only place on earth these layers exist.</p>
       <p class="sig fu"><img class="seal" src="brand/cay-rit-stamp-800.png" alt="" width="800" height="800">Cayman Rituals · Cayman Islands</p>
+      <p class="story-q"><a class="btn btn--line" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=first-pour&amp;utm_content=story">Join the First Pour queue</a></p>
     </div>
   </div>
 </section>
-<section class="mani mani--light" id="mani-1" aria-label="Everyone sells the view. We carry the culture."><p class="mani-l lm">Everyone sells the view. We carry the culture.</p></section>
+<section class="mani mani--light" id="mani-1"><p class="mani-l lm">Everyone sells the view. We carry the culture.</p></section>
 <section class="layer layer--bluff chap" id="bluff" data-elev="43" data-label="Bluff">
   <div class="chap-in">
     <span class="elev"><span class="sg">+</span><span class="n">43</span><span class="u"> m</span></span>
@@ -554,7 +558,6 @@ footer .ul{padding-bottom:1px}
   </div>
 </section>
 
-<section class="mani mani--light" id="mani-2" aria-label="Every scent carries the height of the place it comes from."><p class="mani-l lm">Every scent carries the height of the place it comes from.</p></section>
 <section class="seax dark is-static" id="sealevel" data-elev="0" data-label="Sea level">
   <canvas class="seax-c" id="seax-c" aria-hidden="true"></canvas>
   <div class="seax-w"><span class="seax-l">Sea level · 0 m</span><span class="sea" aria-hidden="true"></span></div>
@@ -575,18 +578,18 @@ footer .ul{padding-bottom:1px}
   <div class="chap-in">
     <span class="elev"><span class="sg">−</span><span class="n">7,686</span><span class="u"> m</span></span>
     <span class="name fu"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle class="d c" cx="12" cy="12" r="9"/><circle class="d p" cx="12" cy="12" r=".9"/></svg>Trench · The fifth</span>
-    <h2 class="lm">The deepest water in the Caribbean, just off our north coast.</h2>
+    <h2 class="lm">The deepest water in the Caribbean, between us and Jamaica.</h2>
     <div class="notes fu"><b>The scent</b>Cold depth. Black pepper, ink, ambrette, cold musk, a far-off smoke.</div>
     <span class="status fu">One of the first three</span>
   </div>
 </section>
 
 <section class="gal dark" id="pieces" data-elev="-7686" data-label="The pieces">
-  <div class="gal-lead"><p>Everything we make starts somewhere on this line, between the Bluff and the Trench. Nothing on it can be made anywhere else.</p></div>
+  <div class="gal-lead"><h2 class="sr-only">The pieces</h2><p>Everything we make starts somewhere on this line, between the Bluff and the Trench. Nothing on it can be made anywhere else.</p></div>
   <ul class="rail" id="rail">
     <li class="card"><a class="card-a" href="#sample-keeper" data-cur="Open"><span class="card-f"><img src="img/g-keeper.jpg" alt="A polished disc of banded caymanite engraved with CAY over RIT, held at a lapidary bench." width="1200" height="900"></span><span class="card-t"><span class="card-n">The Keeper</span><span class="card-l">A lid you buy once. It moves onto every candle refill after that. Turned from caymanite in numbered editions, as the stone allows, or poured in bands by hand, like the candle.</span></span></a></li>
     <li class="card"><a class="card-a" href="#sample-slab" data-cur="Open"><span class="card-f"><img src="img/g-slab.jpg" alt="A rectangular pendant of banded red and cream stone in a thin gold frame on a fine chain." width="1200" height="900"></span><span class="card-t"><span class="card-n">The Slab</span><span class="card-l">A slice of the stone, cut so its bands run level, set in a plain gold frame. A section you can wear, in numbered editions, as the stone allows.</span></span></a></li>
-    <li class="card"><a class="card-a" href="#sample-rope" data-cur="Open"><span class="card-f"><img src="img/f-bracelet.jpg" alt="A hand-plaited pale palm-fibre rope bracelet with brass end caps." width="1200" height="900"></span><span class="card-t"><span class="card-n">The Rope</span><span class="card-l">Silver thatch rope was a Caymanian export within living memory, and very few people still plait it. Ours carries the old plait into new work, by hand, and every piece is numbered. Rope No. 001 is being made now.</span></span></a></li>
+    <li class="card"><a class="card-a" href="#sample-rope" data-cur="Open"><span class="card-f"><img src="img/f-bracelet.jpg" alt="A hand-plaited pale palm-fibre rope bracelet with brass end caps." width="1200" height="900"></span><span class="card-t"><span class="card-n">The Rope</span><span class="card-l">Silver thatch rope was a Caymanian export within living memory. Ours is a bracelet, plaited by hand from the same palm, and every piece is numbered from No. 001.</span></span></a></li>
     <li class="card"><a class="card-a" href="#sample-edp" data-cur="Open"><span class="card-f"><img src="img/g-edp.jpg" alt="A heavy square glass perfume bottle, its cap wrapped in plaited pale palm cord, standing on wet black rock." width="1200" height="900"></span><span class="card-t"><span class="card-n">Eau de parfum</span><span class="card-l">Plain heavy glass, with the cap wrapped by hand in the same plaited thatch.</span></span></a></li>
     <li class="card"><a class="card-a" href="#sample-candle" data-cur="Open"><span class="card-f"><img src="img/g-candle.jpg" alt="A heavy glass tumbler candle poured in three horizontal bands of cream, oxblood and umber wax." width="1200" height="900"></span><span class="card-t"><span class="card-n">The Section Candle</span><span class="card-l">Poured in three bands, like the stone. As it burns, it melts down through its own layers.</span></span></a></li>
   </ul>
@@ -595,9 +598,8 @@ footer .ul{padding-bottom:1px}
 <section class="take dark" id="take" data-elev="-7686" data-label="What we take">
   <div class="w take-in">
     <div class="take-l">
-      <p class="eyebrow fu">What we take</p>
       <h2 class="lm">Take only what the island can spare.</h2>
-      <p class="lead fu">Caymanite was laid down inside the Bluff millions of years ago, and very little of it is left to find. It will not be dug out for us. Every material we use has a rule like that.</p>
+      <p class="lead fu">Caymanite was laid down inside the Bluff over millions of years. It will not be dug out for us. Every material we use has a rule like that.</p>
     </div>
     <dl class="take-list">
       <div class="take-it fu"><dt>Caymanite</dt><dd>Only from documented sources, recorded piece by piece, and kept for numbered editions. The everyday Keeper is poured in bands instead.</dd></div>
@@ -607,11 +609,11 @@ footer .ul{padding-bottom:1px}
       <div class="take-it fu"><dt>Brass</dt><dd>When the Rope's cord wears, it is replaced. The ends are kept.</dd></div>
       <div class="take-it fu"><dt>Never</dt><dd>Black coral. Some of the island belongs to the sea.</dd></div>
     </dl>
-    <p class="take-reg fu">Every numbered piece goes into the register: what it is made of, where that came from, and whose hands made it. The register opens with Rope No. 001.</p>
+    <p class="take-reg fu">Every numbered piece goes into the register: what it is made of, where that came from, and how it was made. The register opens with Rope No. 001.</p>
   </div>
 </section>
 
-<section class="mani dark" id="mani-3" aria-label="Made here. Nowhere else."><p class="mani-l lm">Made here. Nowhere else.</p></section>
+<section class="mani dark" id="mani-3"><p class="mani-l lm">Made here. Nowhere else.</p></section>
 <section class="floor dark" id="floor" data-elev="-7686" data-label="The floor">
   <canvas class="snow" aria-hidden="true"></canvas>
   <div class="w doors">
@@ -625,7 +627,7 @@ footer .ul{padding-bottom:1px}
     <div class="trade" id="trade">
       <p class="eyebrow">For villas, hotels and spas</p>
       <h2>A scent that belongs to your property alone.</h2>
-      <p>We cut a layer for your site: its height, its exposure, what grows on it. It arrives as diffusers, room spray and candles, refilled on a schedule, with a caymanite tablet for your door.</p>
+      <p>We cut a layer for your site: its height, its exposure, what grows on it. It arrives as diffusers, room spray and candles, refilled on a schedule, with a tablet for your door, cut from caymanite or poured in bands.</p>
       <div class="slip"><a class="btn" href="mailto:caymanrituals@gmail.com?subject=Private%20Section%20consultation&amp;body=Property%3A%0D%0AIsland%3A%0D%0ARooms%20or%20spaces%20to%20scent%3A%0D%0AWhat%20you%20have%20in%20mind%20%28diffusers%2C%20room%20spray%2C%20candles%29%3A%0D%0ATimeline%3A%0D%0A">Request a consultation</a><small class="embed-note">Opens an email to Bianca. Tell her about the property and she will write back to arrange a time. Or write to caymanrituals@gmail.com.</small></div>
     </div>
   </div>
@@ -699,7 +701,7 @@ footer .ul{padding-bottom:1px}
 <section class="sample" id="sample-rope" aria-labelledby="n-rope" data-lenis-prevent>
   <div class="sample-in">
     <a class="sample-x mag" href="#pieces" data-cur="Close">Close</a>
-    <div class="sample-txt"><span class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M12 2.5L21.5 21H2.5Z"/></svg>Thatch · Fire</span><h3 id="n-rope">The Rope</h3><p>Silver thatch rope was a Caymanian export within living memory, and very few people still plait it. Ours carries the old plait into new work, by hand, and every piece is numbered. Rope No. 001 is being made now.</p></div>
+    <div class="sample-txt"><span class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M12 2.5L21.5 21H2.5Z"/></svg>Thatch · Fire</span><h3 id="n-rope">The Rope</h3><p>Silver thatch rope was a Caymanian export within living memory. Ours is a bracelet, plaited by hand from the same palm, and every piece is numbered from No. 001.</p></div>
     <div class="sample-core">
         <div class="core" id="core-rope">
           <div class="stack">
@@ -711,8 +713,8 @@ footer .ul{padding-bottom:1px}
             </button>
             <div class="strata" id="strata-rope">
               <div class="lab l1"><svg class="sigil mk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5L21.5 21H2.5Z"/></svg><b class="lt">The plait</b><span class="ll">Silver thatch, plaited by hand in Cayman.</span></div>
-              <div class="lab l2"><i class="mt"></i><b class="lt">The craft</b><span class="ll">An island craft, kept alive in new hands.</span></div>
-              <div class="lab l3"><i class="mt"></i><b class="lt">The number</b><span class="ll">Every piece numbered, and filmed from frond to wrist.</span></div>
+              <div class="lab l2"><i class="mt"></i><b class="lt">The craft</b><span class="ll">Plaited from the palm the old rope trade was made from.</span></div>
+              <div class="lab l3"><i class="mt"></i><b class="lt">The number</b><span class="ll">Every piece numbered by hand, starting at No. 001.</span></div>
               <div class="lab l4"><i class="mt"></i><b class="lt">The ends</b><span class="ll">Brass ends. When the cord wears, it is replaced, not thrown away.</span></div>
             </div>
             <svg class="leads" aria-hidden="true" focusable="false"><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><line class="ld" pathLength="1"/><circle class="lp" r="2"/><circle class="lp" r="2"/><circle class="lp" r="2"/><circle class="lp" r="2"/></svg>
@@ -1077,7 +1079,7 @@ window.addEventListener('DOMContentLoaded',function(){
   function closeIdx(){if(!idxOpen)return;idxOpen=false;idx.classList.remove('is-on');idxBtn.setAttribute('aria-expanded','false');if(lenis&&!openS)lenis.start();
     setTimeout(function(){if(!idxOpen)idx.hidden=true;},rm?0:520);(idxLast||idxBtn).focus({preventScroll:true});}
   idxBtn.addEventListener('click',function(){idxOpen?closeIdx():openIdx();});
-  idxLinks.forEach(function(a){a.addEventListener('click',function(e){var t=doc.querySelector(a.getAttribute('href'));if(!t)return;e.preventDefault();closeIdx();
+  idxLinks.forEach(function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h.charAt(0)!=='#')return;var t=doc.querySelector(h);if(!t)return;e.preventDefault();closeIdx();
     setTimeout(function(){if(lenis){lenis.start();lenis.scrollTo(t,{offset:0,duration:1.6});}else t.scrollIntoView();},rm?0:80);});});
   idx.addEventListener('keydown',function(e){
     var i=idxLinks.indexOf(doc.activeElement);
