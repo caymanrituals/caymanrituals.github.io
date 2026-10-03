@@ -321,6 +321,32 @@ button:disabled{opacity:.55;cursor:not-allowed}
 .trade h2{font-size:var(--t5)}
 
 
+.batch{background:var(--limestone);color:var(--ink);padding-block:var(--s8);border-top:1px solid var(--rule-light)}
+.batch-head{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s4)}
+.batch-head h2{font-size:var(--t6);line-height:1.04;letter-spacing:-.01em;max-width:13ch}
+.batch-lead{font-family:var(--display);font-size:var(--t4);line-height:1.3;color:var(--ink-soft);max-width:34ch;margin:0}
+.sb-f figcaption{margin-top:var(--s1);font-size:var(--t1);letter-spacing:.06em;color:var(--ink-soft)}
+.sb{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s4);margin-top:var(--s7);padding-top:var(--s5);border-top:1px solid var(--rule-light)}
+.sb-f{margin:0;max-width:520px}
+.sb-f img{display:block;width:100%;height:auto;aspect-ratio:2/3;background:var(--clay)}
+.sb-d{margin:0 0 var(--s2);font-size:var(--t1);letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--oxblood);font-variant-numeric:lining-nums}
+.sb h3{font-size:var(--t5);line-height:1.08;margin-bottom:var(--s3)}
+.sb-t p{max-width:40ch;color:var(--ink-soft);margin:0 0 var(--s2)}
+.sb-t .sb-d{color:var(--oxblood);margin:0 0 var(--s2)}
+.sb-p{margin:var(--s4) 0 0;border-top:1px solid var(--rule-light);max-width:420px}
+.sb-p div{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s3);padding-block:var(--s2);border-bottom:1px solid var(--rule-light)}
+.sb-p dt{font-size:var(--t2);color:var(--ink-soft)}
+.sb-p dd{margin:0;font-family:var(--display);font-size:var(--t4);font-variant-numeric:lining-nums tabular-nums;color:var(--ink)}
+.sb-cta{margin:var(--s4) 0 0}
+.batch-note{margin:var(--s7) 0 0;font-size:var(--t1);letter-spacing:.06em;color:var(--ink-soft);max-width:62ch}
+@media(min-width:900px){
+  .batch-head{grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:end;gap:var(--s6)}
+  .sb{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--s6);align-items:end}
+  .sb--r .sb-f{order:2;justify-self:end}
+  .sb--r{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+}
+
+
 .floor{padding-block:var(--s8) var(--s8)}
 .slip--embed{display:grid;gap:var(--s1);margin-top:var(--s4);max-width:460px;width:100%;min-width:0}
 .doors>*{min-width:0}
@@ -493,10 +519,11 @@ footer .ul{display:inline-block;padding-block:11px}
         <li class="idx-it" style="--d:1"><a class="idx-a" href="#bluff"><span class="idx-e">+43 m</span><span class="idx-n">The layers</span></a></li>
         <li class="idx-it" style="--d:2"><a class="idx-a" href="#sealevel"><span class="idx-e">0 m</span><span class="idx-n">Sea level</span></a></li>
         <li class="idx-it" style="--d:3"><a class="idx-a" href="#pieces"><span class="idx-e">−7,686 m</span><span class="idx-n">The pieces</span></a></li>
-        <li class="idx-it" style="--d:4"><a class="idx-a" href="#take"><span class="idx-e">−7,686 m</span><span class="idx-n">What we take</span></a></li>
-        <li class="idx-it" style="--d:5"><a class="idx-a" href="#trade"><span class="idx-e">−7,686 m</span><span class="idx-n">Private Section</span></a></li>
-        <li class="idx-it" style="--d:6"><a class="idx-a" href="#queue"><span class="idx-e">−7,686 m</span><span class="idx-n">First Pour</span></a></li>
-        <li class="idx-it" style="--d:7"><a class="idx-a" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=first-pour&amp;utm_content=index"><span class="idx-e">Letters</span><span class="idx-n">Join the queue</span></a></li>
+        <li class="idx-it" style="--d:4"><a class="idx-a" href="#special"><span class="idx-e">−7,686 m</span><span class="idx-n">Special batch</span></a></li>
+        <li class="idx-it" style="--d:5"><a class="idx-a" href="#take"><span class="idx-e">−7,686 m</span><span class="idx-n">What we take</span></a></li>
+        <li class="idx-it" style="--d:6"><a class="idx-a" href="#trade"><span class="idx-e">−7,686 m</span><span class="idx-n">Private Section</span></a></li>
+        <li class="idx-it" style="--d:7"><a class="idx-a" href="#queue"><span class="idx-e">−7,686 m</span><span class="idx-n">First Pour</span></a></li>
+        <li class="idx-it" style="--d:8"><a class="idx-a" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=first-pour&amp;utm_content=index"><span class="idx-e">Letters</span><span class="idx-n">Join the queue</span></a></li>
       </ol>
     </nav>
     <p class="idx-foot">Cayman Islands · West Indies</p>
@@ -617,6 +644,56 @@ footer .ul{display:inline-block;padding-block:11px}
     <li class="card"><a class="card-a" href="#sample-edp"><span class="card-f"><picture><source type="image/avif" srcset="img/g-edp-600.avif 600w" sizes="(min-width:900px) 37vw, 80vw" data-srcset="img/g-edp-600.avif 600w, img/g-edp-900.avif 900w, img/g-edp.avif 1200w"><img src="img/g-edp.jpg" alt="A heavy square glass perfume bottle, its cap wrapped in plaited pale palm cord, standing on wet black rock." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">Eau de parfum</span><span class="card-l">Plain heavy glass, with the cap wrapped by hand in the same plaited thatch.</span></span></a></li>
     <li class="card"><a class="card-a" href="#sample-candle"><span class="card-f"><picture><source type="image/avif" srcset="img/g-candle-600.avif 600w" sizes="(min-width:900px) 37vw, 80vw" data-srcset="img/g-candle-600.avif 600w, img/g-candle-900.avif 900w, img/g-candle.avif 1200w"><img src="img/g-candle.jpg" alt="A heavy glass tumbler candle poured in three horizontal bands of cream, oxblood and umber wax." width="1200" height="900"></picture></span><span class="card-t"><span class="card-n">The Section Candle</span><span class="card-l">Poured in three bands, like the stone. As it burns, it melts down through its own layers.</span></span></a></li>
   </ul>
+</section>
+
+<section class="batch" id="special" data-elev="-7686" data-label="Special batch">
+  <div class="w">
+    <header class="batch-head">
+      <div>
+        <p class="eyebrow">Special batch</p>
+        <h2>Poured in small runs. Numbered by hand.</h2>
+      </div>
+      <p class="batch-lead">Three pieces in glass, brass and shell, poured in the Cayman Islands. Reserve one by letter; we write to confirm before anything is charged.</p>
+    </header>
+
+    <article class="sb" aria-labelledby="sb-trench-n">
+      <figure class="sb-f"><picture><source type="image/avif" srcset="img/sb-trench-bluff-480.avif 480w, img/sb-trench-bluff-683.avif 683w" sizes="(min-width:900px) 520px, 100vw"><img src="img/sb-trench-bluff-683.jpg" srcset="img/sb-trench-bluff-480.jpg 480w, img/sb-trench-bluff-683.jpg 683w"width="683" height="1024" loading="lazy" decoding="async"></picture><figcaption>The Bluff, Cayman Brac.</figcaption></figure>
+      <div class="sb-t">
+        <p class="sb-d">Trench · −7,686 m</p>
+        <h3 id="sb-trench-n">Trench, under glass</h3>
+        <p>Garnet glass beneath a clear dome, five satin rings cut into its shoulder, and a brass finial stamped CAY RIT.</p>
+        <p>Keep the dome. When the candle is spent, the refill goes in beneath it.</p>
+        <dl class="sb-p"><div><dt>Dome and candle</dt><dd>US$185</dd></div><div><dt>Refill</dt><dd>US$85</dd></div></dl>
+        <p class="sb-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20Trench&amp;body=Piece%3A%20Trench%20%28dome%20and%20candle%2C%20or%20a%20refill%29%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve Trench</a></p>
+      </div>
+    </article>
+
+    <article class="sb sb--r" aria-labelledby="sb-first-n">
+      <figure class="sb-f"><picture><source type="image/avif" srcset="img/sb-first-pour-bluff-480.avif 480w, img/sb-first-pour-bluff-683.avif 683w" sizes="(min-width:900px) 520px, 100vw"><img src="img/sb-first-pour-bluff-683.jpg" srcset="img/sb-first-pour-bluff-480.jpg 480w, img/sb-first-pour-bluff-683.jpg 683w"width="683" height="1024" loading="lazy" decoding="async"></picture><figcaption>The Bluff, Cayman Brac.</figcaption></figure>
+      <div class="sb-t">
+        <p class="sb-d">First Pour · fifty a year</p>
+        <h3 id="sb-first-n">First Pour, in shell</h3>
+        <p>A coconut shell bound in a fine brass rim, with a glass insert that holds the candle and an inset maker's seal.</p>
+        <p>Fifty are poured each year, each one numbered and dated.</p>
+        <dl class="sb-p"><div><dt>Numbered shell</dt><dd>US$135</dd></div></dl>
+        <p class="sb-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20First%20Pour&amp;body=Piece%3A%20First%20Pour%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve First Pour</a></p>
+      </div>
+    </article>
+
+    <article class="sb" aria-labelledby="sb-house-n">
+      <figure class="sb-f"><picture><source type="image/avif" srcset="img/sb-house-bluff-480.avif 480w, img/sb-house-bluff-600.avif 600w" sizes="(min-width:900px) 520px, 100vw"><img src="img/sb-house-bluff-600.jpg" srcset="img/sb-house-bluff-480.jpg 480w, img/sb-house-bluff-600.jpg 600w"width="600" height="900" loading="lazy" decoding="async"></picture><figcaption>The Bluff, Cayman Brac.</figcaption></figure>
+      <div class="sb-t">
+        <p class="sb-d">House · for your own house</p>
+        <h3 id="sb-house-n">House, in glass</h3>
+        <p>Clear glass and a cork ball stopper. A brushed brass cuff carries the full signature, and a brass signet is set into the cork.</p>
+        <p>The same glass, poured with a scent made for one property, is how a Private Section begins.</p>
+        <dl class="sb-p"><div><dt>Glass and cork</dt><dd>US$110</dd></div></dl>
+        <p class="sb-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20House&amp;body=Piece%3A%20House%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve House</a></p>
+      </div>
+    </article>
+
+    <p class="batch-note">The pieces are product renders, placed in a real photograph of the top of the Bluff, Cayman Brac, until the batch is poured. Photo: EvaZL, CC BY 4.0, via Wikimedia Commons. Edited. Prices in US dollars.</p>
+  </div>
 </section>
 
 <section class="take dark" id="take" data-elev="-7686" data-label="What we take">
@@ -938,7 +1015,7 @@ window.addEventListener('DOMContentLoaded',function(){
   
   var g=doc.getElementById('gauge'),gv=doc.getElementById('gv'),gl=doc.getElementById('gl'),mk=g&&g.querySelector('.mk'),track=g&&g.querySelector('.track');
   var secs=[].slice.call(doc.querySelectorAll('[data-elev]'));
-  var order=['hero','house','bluff','caymanite','thatch','sealevel','ironshore','trench','pieces','take','floor'];
+  var order=['hero','house','bluff','caymanite','thatch','sealevel','ironshore','trench','pieces','special','take','floor'];
   var idxBtn=doc.getElementById('idx-btn');
   
   var grounds=[].slice.call(doc.querySelectorAll('main section,main footer'));
