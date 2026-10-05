@@ -653,6 +653,26 @@ footer .ul{display:inline-block;padding-block:11px}
 .bench-ind{position:absolute;left:0;top:0;width:100px;height:2px;background:var(--brass);transform-origin:0 50%;transform:translateX(0) scaleX(0);transition:transform 400ms var(--ease-out);pointer-events:none}
 
 :root.js footer{padding-bottom:calc(var(--s6) + env(safe-area-inset-bottom,0px))}
+#carry .carry-campaign{margin:0}
+#carry .carry-campaign img{display:block;width:100%;height:auto}
+#carry .carry-caption{padding-block:var(--s2);font-family:var(--text);font-size:var(--t2);color:var(--ink-soft)}
+#carry .carry-notes{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5);padding-block:var(--s6) var(--s7)}
+#carry .carry-note{min-width:0}
+#carry .carry-note .sb-p{margin-top:var(--s3)}
+#carry .carry-note .sb-p div{gap:var(--s2)}
+#carry .carry-note .sb-p dd{white-space:nowrap}
+@media(min-width:600px){
+  #carry .carry-notes{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s6) var(--s4)}
+}
+@media(min-width:1100px){
+  #carry .carry-notes{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s4)}
+  #carry .carry-note:nth-child(2){margin-top:var(--s4)}
+  #carry .carry-note:nth-child(3){margin-top:var(--s6)}
+  #carry .carry-note:nth-child(4){margin-top:var(--s7)}
+}
+@media(prefers-reduced-motion:reduce){.table,.sample{transition:none}}
+:root{--t-bench-compact:11px}
+@media(max-width:599px){.bench-tabs{width:100%;justify-content:space-between;gap:0}.bench-t{gap:4px;padding-inline:4px;font-size:var(--t-bench-compact);letter-spacing:.08em}.bench .sigil{width:18px;height:18px}.bench-c{display:none}}
 </style>
 </head>
 <body>
@@ -666,7 +686,7 @@ footer .ul{display:inline-block;padding-block:11px}
         <li class="idx-it" style="--d:0"><a class="idx-a" href="#house"><span class="idx-e">+43 m</span><span class="idx-n">The house</span></a></li>
         <li class="idx-it" style="--d:1"><a class="idx-a" href="#bluff"><span class="idx-e">+43 m</span><span class="idx-n">The layers</span></a></li>
         <li class="idx-it" style="--d:2"><a class="idx-a" href="#sealevel"><span class="idx-e">0 m</span><span class="idx-n">Sea level</span></a></li>
-        <li class="idx-it" style="--d:3"><a class="idx-a" href="#fall"><span class="idx-e">−7,686 m</span><span class="idx-n">Fall edition</span></a></li>
+        <li class="idx-it" style="--d:3"><a class="idx-a" href="#fall"><span class="idx-e">−7,686 m</span><span class="idx-n">The collection</span></a></li>
         <li class="idx-it" style="--d:4"><a class="idx-a" href="#wardrobe"><span class="idx-e">−7,686 m</span><span class="idx-n">Wardrobe</span></a></li>
         <li class="idx-it" style="--d:5"><a class="idx-a" href="#pieces"><span class="idx-e">−7,686 m</span><span class="idx-n">Coming soon</span></a></li>
         <li class="idx-it" style="--d:6"><a class="idx-a" href="#take"><span class="idx-e">−7,686 m</span><span class="idx-n">What we take</span></a></li>
@@ -784,7 +804,7 @@ footer .ul{display:inline-block;padding-block:11px}
   </div>
 </section>
 
-<section class="fall dark" id="fall" data-elev="-7686" data-label="Fall edition" aria-labelledby="fall-h">
+<section class="fall dark" id="fall" data-elev="-7686" data-label="The collection" aria-labelledby="fall-h">
   <div class="fall-in">
     <figure class="fall-fig">
       <div class="fall-frame">
@@ -798,9 +818,9 @@ footer .ul{display:inline-block;padding-block:11px}
       <figcaption class="fall-cred fu">Little Cayman Brac, from the top of the Bluff. Photo: EvaZL, CC BY 4.0, via Wikimedia Commons. Edited.</figcaption>
     </figure>
     <div class="w fall-txt">
-      <p class="eyebrow fu">The Fall Edition · 2026</p>
+      <p class="eyebrow fu">The Hand Collection · 2026</p>
       <h2 class="lm" id="fall-h">Named for the drop.</h2>
-      <p class="fall-lede fu">From the top of the Bluff, Cayman Brac falls straight into the sea. Three pieces poured for the season, six shirts, and the rest still being made.</p>
+      <p class="fall-lede fu">From the top of the Bluff, Cayman Brac falls straight into the sea. Six shirts, two ways to carry, and the rest still being made.</p>
       <p class="fall-cue fu"><a class="ul" href="#table">To the table ↓</a></p>
     </div>
   </div>
@@ -809,70 +829,11 @@ footer .ul{display:inline-block;padding-block:11px}
 <section class="table" id="table" data-elev="-7686" data-label="The table" aria-labelledby="table-h">
   <h2 class="sr-only" id="table-h">The table</h2>
 
-  <div class="tb-panel dark" id="fall-pieces" data-tab="fall" data-ground="trench">
-    <div class="w tb-head">
-      <p class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle class="d c" cx="12" cy="12" r="9"/><circle class="d p" cx="12" cy="12" r=".9"/></svg>Fall Edition · The fifth</p>
-      <h3 class="tb-h lm">Poured for the season.</h3>
-    </div>
-    <article class="fall-plate dark" id="fall-trench" aria-labelledby="fall-trench-n">
-      <div class="w fall-pl">
-        <div class="fall-hd">
-          <p class="eyebrow fall-no fu"><span class="sr-only">Piece </span>01<span aria-hidden="true"> / </span><span class="sr-only"> of </span>03</p>
-          <h4 class="fall-n" id="fall-trench-n"><span class="lm">Trench</span><span class="sr-only">, </span><span class="fall-sub fu">under glass</span></h4>
-        </div>
-        <figure class="fall-f"><picture><source type="image/avif" srcset="img/sb-trench-640.avif 640w, img/sb-trench-1024.avif 1024w" sizes="(min-width:900px) 520px, 100vw"><img src="img/sb-trench-1024.jpg" srcset="img/sb-trench-640.jpg 640w, img/sb-trench-1024.jpg 1024w" sizes="(min-width:900px) 520px, 100vw" alt="Trench: a garnet glass candle wrapped in a brushed brass band reading Cayman Rituals, West Indies, under a clear glass dome with satin rings and a brass finial stamped CAY RIT." width="1024" height="1536" loading="lazy" decoding="async"></picture></figure>
-        <div class="fall-t">
-          <p class="fall-d fu">Trench · −7,686 <span class="unit">m</span></p>
-          <p class="fu">Garnet glass beneath a clear dome, five satin rings cut into its shoulder, and a brass finial stamped CAY RIT.</p>
-          <p class="fu">Keep the dome. Refills are coming soon.</p>
-          <dl class="sb-p fu"><div><dt>Dome and candle</dt><dd>CI$100</dd></div></dl>
-          <p class="fall-cta fu"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20Trench&amp;body=Piece%3A%20Trench%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve Trench</a></p>
-        </div>
-      </div>
-    </article>
-
-    <article class="fall-plate fall-plate--clay fall-plate--r" id="fall-first" aria-labelledby="fall-first-n">
-      <div class="w fall-pl">
-        <div class="fall-hd">
-          <p class="eyebrow fall-no fu"><span class="sr-only">Piece </span>02<span aria-hidden="true"> / </span><span class="sr-only"> of </span>03</p>
-          <h4 class="fall-n" id="fall-first-n"><span class="lm">First Pour</span><span class="sr-only">, </span><span class="fall-sub fu">in shell</span></h4>
-        </div>
-        <figure class="fall-f"><picture><source type="image/avif" srcset="img/sb-first-pour-640.avif 640w, img/sb-first-pour-1024.avif 1024w" sizes="(min-width:900px) 520px, 100vw"><img src="img/sb-first-pour-1024.jpg" srcset="img/sb-first-pour-640.jpg 640w, img/sb-first-pour-1024.jpg 1024w" sizes="(min-width:900px) 520px, 100vw" alt="First Pour: a dark coconut shell candle with a fine brass rim, a glass insert and an oval brass seal stamped CAY RIT." width="1024" height="1536" loading="lazy" decoding="async"></picture></figure>
-        <div class="fall-t">
-          <p class="fall-d fu">First Pour · fifty a year</p>
-          <p class="fu">A coconut shell bound in a fine brass rim, with a glass insert that holds the candle and an inset maker's seal.</p>
-          <p class="fu">Fifty are poured each year, each one numbered and dated.</p>
-          <dl class="sb-p fu"><div><dt>Numbered shell</dt><dd>CI$40</dd></div></dl>
-          <p class="fall-cta fu"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20First%20Pour&amp;body=Piece%3A%20First%20Pour%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve First Pour</a></p>
-        </div>
-      </div>
-    </article>
-
-    <article class="fall-plate fall-plate--lime" id="fall-house" aria-labelledby="fall-house-n">
-      <div class="w fall-pl">
-        <div class="fall-hd">
-          <p class="eyebrow fall-no fu"><span class="sr-only">Piece </span>03<span aria-hidden="true"> / </span><span class="sr-only"> of </span>03</p>
-          <h4 class="fall-n" id="fall-house-n"><span class="lm">House</span><span class="sr-only">, </span><span class="fall-sub fu">in glass</span></h4>
-        </div>
-        <figure class="fall-f"><picture><source type="image/avif" srcset="img/sb-house-640.avif 640w, img/sb-house-1024.avif 1024w" sizes="(min-width:900px) 520px, 100vw"><img src="img/sb-house-1024.jpg" srcset="img/sb-house-640.jpg 640w, img/sb-house-1024.jpg 1024w" sizes="(min-width:900px) 520px, 100vw" alt="House: a clear glass candle with a cork ball stopper set with a brass CAY RIT signet, and a brushed brass cuff reading Cayman Rituals, West Indies." width="1024" height="1536" loading="lazy" decoding="async"></picture></figure>
-        <div class="fall-t">
-          <p class="fall-d fu">House · for your own house</p>
-          <p class="fu">Clear glass and a cork ball stopper. A brushed brass cuff carries the full signature, and a brass signet is set into the cork.</p>
-          <p class="fu">The same glass, poured with a scent made for one property, is how a Private Section begins.</p>
-          <dl class="sb-p fu"><div><dt>Glass and cork</dt><dd>CI$75</dd></div></dl>
-          <p class="fall-cta fu"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20House&amp;body=Piece%3A%20House%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve House</a></p>
-        </div>
-      </div>
-    </article>
-
-    <div class="fall-end"><div class="w"><p class="fall-note">Shown in studio renders until the edition is poured. Prices in Cayman Islands dollars. Reserve by letter: Bianca writes back to confirm before anything is charged.</p></div></div>
-  </div>
-
   <div class="tb-panel" id="wardrobe" data-tab="wardrobe" data-ground="limestone">
     <div class="w tb-head">
       <p class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M12 2.5L21.5 21H2.5Z"/><path class="d b" d="M4.5 11.5H19.5"/></svg>Wardrobe · Air</p>
       <h3 class="tb-h lm">Worn in the open.</h3>
-      <p class="tb-lede fu">Six shirts for the season. CI$75 each.</p>
+      <p class="tb-lede fu">Six shirts for the season. CI$75 each. Made to order: allow 2–3 days after confirmation.</p>
     </div>
     <div class="w tees">
       <article class="tee tb-it" id="tee-ironshore" aria-labelledby="tee-ironshore-n">
@@ -881,7 +842,7 @@ footer .ul{display:inline-block;padding-block:11px}
         <h4 class="tee-n" id="tee-ironshore-n">Ironshore Social Club</h4>
         <p class="tee-l">House rules on the back. Rule three is about the starfish.</p>
         <dl class="sb-p"><div><dt>Bone, oxblood print</dt><dd>CI$75</dd></div></dl>
-        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20Ironshore%20Social%20Club&amp;body=Piece%3A%20Ironshore%20Social%20Club%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve<span class="sr-only"> Ironshore Social Club</span></a></p>
+        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Order%3A%20Ironshore%20Social%20Club&amp;body=Piece%3A%20Ironshore%20Social%20Club%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Order by email<span class="sr-only"> Ironshore Social Club</span></a></p>
       </article>
       <article class="tee tb-it" id="tee-invitation" aria-labelledby="tee-invitation-n">
         <figure class="tee-f"><picture><source type="image/avif" srcset="img/tee-invitation-front-480.avif 480w, img/tee-invitation-front-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-invitation-front-764.jpg" srcset="img/tee-invitation-front-480.jpg 480w, img/tee-invitation-front-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: a woman in a bone T-shirt with a small crest on the chest." width="764" height="1024" loading="lazy" decoding="async"></picture><picture><source type="image/avif" srcset="img/tee-invitation-back-480.avif 480w, img/tee-invitation-back-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-invitation-back-764.jpg" srcset="img/tee-invitation-back-480.jpg 480w, img/tee-invitation-back-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: the back of the shirt, reading Make yourself at home. Don't act like you own it." width="764" height="1024" loading="lazy" decoding="async"></picture></figure>
@@ -889,7 +850,7 @@ footer .ul{display:inline-block;padding-block:11px}
         <h4 class="tee-n" id="tee-invitation-n">Open Invitation</h4>
         <p class="tee-l">Make yourself at home. Don't act like you own it.</p>
         <dl class="sb-p"><div><dt>Bone, oxblood print</dt><dd>CI$75</dd></div></dl>
-        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20Open%20Invitation&amp;body=Piece%3A%20Open%20Invitation%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve<span class="sr-only"> Open Invitation</span></a></p>
+        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Order%3A%20Open%20Invitation&amp;body=Piece%3A%20Open%20Invitation%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Order by email<span class="sr-only"> Open Invitation</span></a></p>
       </article>
       <article class="tee tb-it" id="tee-expensive" aria-labelledby="tee-expensive-n">
         <figure class="tee-f"><picture><source type="image/avif" srcset="img/tee-expensive-front-480.avif 480w, img/tee-expensive-front-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-expensive-front-764.jpg" srcset="img/tee-expensive-front-480.jpg 480w, img/tee-expensive-front-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: a woman in a bone T-shirt reading You smell expensive." width="764" height="1024" loading="lazy" decoding="async"></picture><picture><source type="image/avif" srcset="img/tee-expensive-back-480.avif 480w, img/tee-expensive-back-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-expensive-back-764.jpg" srcset="img/tee-expensive-back-480.jpg 480w, img/tee-expensive-back-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: the back of the shirt, with the Cayman Rituals signature below the collar." width="764" height="1024" loading="lazy" decoding="async"></picture></figure>
@@ -897,7 +858,7 @@ footer .ul{display:inline-block;padding-block:11px}
         <h4 class="tee-n" id="tee-expensive-n">You Smell Expensive</h4>
         <p class="tee-l">Said on the front. Signed at the hem.</p>
         <dl class="sb-p"><div><dt>Bone, oxblood print</dt><dd>CI$75</dd></div></dl>
-        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20You%20Smell%20Expensive&amp;body=Piece%3A%20You%20Smell%20Expensive%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve<span class="sr-only"> You Smell Expensive</span></a></p>
+        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Order%3A%20You%20Smell%20Expensive&amp;body=Piece%3A%20You%20Smell%20Expensive%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Order by email<span class="sr-only"> You Smell Expensive</span></a></p>
       </article>
       <article class="tee tb-it" id="tee-panel" aria-labelledby="tee-panel-n">
         <figure class="tee-f"><picture><source type="image/avif" srcset="img/tee-panel-front-480.avif 480w, img/tee-panel-front-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-panel-front-764.jpg" srcset="img/tee-panel-front-480.jpg 480w, img/tee-panel-front-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: a man in a bone T-shirt with a vertical oxblood panel and collar, the Cayman Rituals signature on the panel." width="764" height="1024" loading="lazy" decoding="async"></picture><picture><source type="image/avif" srcset="img/tee-panel-back-480.avif 480w, img/tee-panel-back-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-panel-back-764.jpg" srcset="img/tee-panel-back-480.jpg 480w, img/tee-panel-back-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: the back of the shirt, the oxblood panel running from collar to hem." width="764" height="1024" loading="lazy" decoding="async"></picture></figure>
@@ -905,7 +866,7 @@ footer .ul{display:inline-block;padding-block:11px}
         <h4 class="tee-n" id="tee-panel-n">Oxblood Panel</h4>
         <p class="tee-l">One sewn panel of oxblood, shoulder to hem. The signature rides on it.</p>
         <dl class="sb-p"><div><dt>Bone with a sewn oxblood panel</dt><dd>CI$75</dd></div></dl>
-        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20Oxblood%20Panel&amp;body=Piece%3A%20Oxblood%20Panel%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve<span class="sr-only"> Oxblood Panel</span></a></p>
+        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Order%3A%20Oxblood%20Panel&amp;body=Piece%3A%20Oxblood%20Panel%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Order by email<span class="sr-only"> Oxblood Panel</span></a></p>
       </article>
       <article class="tee tb-it" id="tee-domino" aria-labelledby="tee-domino-n">
         <figure class="tee-f"><picture><source type="image/avif" srcset="img/tee-domino-front-480.avif 480w, img/tee-domino-front-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-domino-front-764.jpg" srcset="img/tee-domino-front-480.jpg 480w, img/tee-domino-front-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: a man in a washed charcoal T-shirt with the words Good company. Bad loser. on the chest." width="764" height="1024" loading="lazy" decoding="async"></picture><picture><source type="image/avif" srcset="img/tee-domino-back-480.avif 480w, img/tee-domino-back-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-domino-back-764.jpg" srcset="img/tee-domino-back-480.jpg 480w, img/tee-domino-back-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: the back of the shirt, printed with a large three-six domino carrying the Cayman Rituals signature." width="764" height="1024" loading="lazy" decoding="async"></picture></figure>
@@ -913,7 +874,7 @@ footer .ul{display:inline-block;padding-block:11px}
         <h4 class="tee-n" id="tee-domino-n">Good Company. Bad Loser.</h4>
         <p class="tee-l">A three-six domino down the back.</p>
         <dl class="sb-p"><div><dt>Washed charcoal, bone print</dt><dd>CI$75</dd></div></dl>
-        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20Good%20Company.%20Bad%20Loser.&amp;body=Piece%3A%20Good%20Company.%20Bad%20Loser.%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve<span class="sr-only"> Good Company. Bad Loser.</span></a></p>
+        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Order%3A%20Good%20Company.%20Bad%20Loser.&amp;body=Piece%3A%20Good%20Company.%20Bad%20Loser.%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Order by email<span class="sr-only"> Good Company. Bad Loser.</span></a></p>
       </article>
       <article class="tee tb-it" id="tee-bite" aria-labelledby="tee-bite-n">
         <figure class="tee-f"><picture><source type="image/avif" srcset="img/tee-bite-front-480.avif 480w, img/tee-bite-front-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-bite-front-764.jpg" srcset="img/tee-bite-front-480.jpg 480w, img/tee-bite-front-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: a woman in a washed charcoal T-shirt printed with an engraved mosquito and the words Bite me." width="764" height="1024" loading="lazy" decoding="async"></picture><picture><source type="image/avif" srcset="img/tee-bite-back-480.avif 480w, img/tee-bite-back-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-bite-back-764.jpg" srcset="img/tee-bite-back-480.jpg 480w, img/tee-bite-back-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: the back of the shirt, with the Cayman Rituals signature below the collar." width="764" height="1024" loading="lazy" decoding="async"></picture></figure>
@@ -921,7 +882,7 @@ footer .ul{display:inline-block;padding-block:11px}
         <h4 class="tee-n" id="tee-bite-n">Bite Me</h4>
         <p class="tee-l">A mosquito, engraved. It lives here too.</p>
         <dl class="sb-p"><div><dt>Washed charcoal, bone print</dt><dd>CI$75</dd></div></dl>
-        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20Bite%20Me&amp;body=Piece%3A%20Bite%20Me%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve<span class="sr-only"> Bite Me</span></a></p>
+        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Order%3A%20Bite%20Me&amp;body=Piece%3A%20Bite%20Me%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Order by email<span class="sr-only"> Bite Me</span></a></p>
       </article>
     </div>
     <div class="tb-end"><div class="w"><p class="fall-note">Shirts and models are shown in studio renders: no shirt has been pressed yet. Tell Bianca your size when you reserve. Prices in Cayman Islands dollars. Reserve by letter: Bianca writes back to confirm before anything is charged.</p></div></div>
@@ -943,6 +904,46 @@ footer .ul{display:inline-block;padding-block:11px}
       </ul>
     </div>
   </div>
+<div class="tb-panel" id="carry" data-tab="carry" data-ground="thatch">
+  <div class="w tb-head">
+    <p class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M12 2.5L21.5 21H2.5Z"/></svg>Carry · Fire</p>
+    <h3 class="tb-h lm">The Hand Collection</h3>
+    <p class="tb-lede fu">Crochet and leather directions. Shirts CI$75, made to order in 2–3 days after confirmation. Bag samples pending.</p>
+  </div>
+
+  <figure class="carry-campaign tb-it">
+    <img src="carry/renders/03-house-fitting-v2-1536.webp" srcset="carry/renders/03-house-fitting-v2-640.webp 640w, carry/renders/03-house-fitting-v2-1024.webp 1024w, carry/renders/03-house-fitting-v2-1536.webp 1536w" sizes="100vw" alt="Generated house styling concept: two women with Hand Collection bags and a man wearing the original leather backpack, paired with Cayman Rituals tees." width="1536" height="1024" loading="lazy" decoding="async">
+    <figcaption class="w carry-caption">Generated concept imagery, not product photography.</figcaption>
+  </figure>
+
+  <div class="w carry-notes">
+    <article class="carry-note tb-it" aria-labelledby="carry-sound">
+      <h4 class="tee-n" id="carry-sound">The Sound</h4>
+      <p class="tee-l">The basket silhouette.</p>
+      <dl class="sb-p"><div><dt>Price target</dt><dd>CI$75</dd></div></dl>
+    </article>
+    <article class="carry-note tb-it" aria-labelledby="carry-ledge">
+      <h4 class="tee-n" id="carry-ledge">The Ledge</h4>
+      <p class="tee-l">An oxblood body and a folded bone flap.</p>
+      <dl class="sb-p"><div><dt>Price target</dt><dd>CI$150</dd></div></dl>
+    </article>
+    <article class="carry-note tb-it" aria-labelledby="carry-undertow">
+      <h4 class="tee-n" id="carry-undertow">The Undertow</h4>
+      <p class="tee-l">The open mesh form.</p>
+      <dl class="sb-p"><div><dt>Price target</dt><dd>CI$100</dd></div></dl>
+    </article>
+    <article class="carry-note tb-it" aria-labelledby="carry-passage">
+      <h4 class="tee-n" id="carry-passage">The Passage</h4>
+      <p class="tee-l">An original leather backpack. An asymmetric bone fold and woven leather front.</p>
+      <dl class="sb-p"><div><dt>Price target</dt><dd>CI$200</dd></div></dl>
+    </article>
+  </div>
+
+  <div class="w tb-end">
+    <p class="fall-note">Prices are targets in Cayman Islands dollars. Final materials, price and delivery are confirmed after samples. No payment is taken.</p>
+    <p class="tee-cta"><a class="btn btn--line" href="carry/">Explore the collection</a></p>
+  </div>
+</div>
 </section>
 
 <section class="take dark" id="take" data-elev="-7686" data-label="What we take">
@@ -963,7 +964,7 @@ footer .ul{display:inline-block;padding-block:11px}
   </div>
 </section>
 
-<section class="mani dark" id="mani-3"><p class="mani-l lm">Made here. Nowhere else.</p></section>
+<section class="mani dark" id="mani-3"><p class="mani-l lm">Rooted here. Carried everywhere.</p></section>
 <section class="floor dark" id="floor" data-elev="-7686" data-label="The floor">
   <canvas class="snow" aria-hidden="true"></canvas>
   <div class="w doors">
@@ -971,15 +972,13 @@ footer .ul{display:inline-block;padding-block:11px}
       <p class="eyebrow">First Pour</p>
       <h2>Fifty candles, poured into coconut shells, once a year.</h2>
       <p>The first Cayman Rituals candles were poured into coconut shells at a kitchen table. Every year Bianca pours fifty more the same way, cleaned and prepared by hand, each one numbered and dated. When they are gone, that year is gone.</p>
-      <p>This year's fifty are in the Fall Edition, at CI$40. <a class="ul" href="#fall-first">Reserve First Pour</a></p>
-      <p>Join the queue for next year's. We write rarely.</p>
+      <p>Join the queue for the next edition. We write rarely.</p>
       <div class="slip"><a class="btn" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=first-pour">Join the queue</a><small class="embed-note">Opens our sign-up page. One email to confirm; we write rarely.</small></div>
     </div>
     <div class="trade" id="trade">
       <p class="eyebrow">For villas, hotels and spas</p>
       <h2>A scent that belongs to your property alone.</h2>
       <p>We cut a layer for your site: its height, its exposure, what grows on it. It arrives as diffusers, room spray and candles, refilled on a schedule, with a tablet for your door, cut from caymanite or poured in bands.</p>
-      <p>It begins with <a class="ul" href="#fall-house">House, in glass</a>, from the Fall Edition.</p>
       <div class="slip"><a class="btn" href="mailto:caymanrituals@gmail.com?subject=Private%20Section%20consultation&amp;body=Property%3A%0D%0AIsland%3A%0D%0ARooms%20or%20spaces%20to%20scent%3A%0D%0AWhat%20you%20have%20in%20mind%20%28diffusers%2C%20room%20spray%2C%20candles%29%3A%0D%0ATimeline%3A%0D%0A">Request a consultation</a><small class="embed-note">Opens an email to Bianca. Tell her about the property and she will write back to arrange a time. Or write to caymanrituals@gmail.com.</small></div>
     </div>
   </div>
@@ -1001,10 +1000,13 @@ footer .ul{display:inline-block;padding-block:11px}
 <nav class="bench" id="bench" aria-label="The table">
   <span class="bench-l" aria-hidden="true">On the table</span>
   <div class="bench-tabs" role="tablist" aria-label="On the table">
-    <a class="bench-t" role="tab" id="bt-fall" href="#fall-pieces" data-tab="fall" aria-controls="fall-pieces" aria-selected="true"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle class="d c" cx="12" cy="12" r="9"/><circle class="d p" cx="12" cy="12" r=".9"/></svg><span class="bench-n">Fall Edition</span><span class="bench-c">3</span></a>
     <a class="bench-t" role="tab" id="bt-wardrobe" href="#wardrobe" data-tab="wardrobe" aria-controls="wardrobe" aria-selected="false"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M12 2.5L21.5 21H2.5Z"/><path class="d b" d="M4.5 11.5H19.5"/></svg><span class="bench-n">Wardrobe</span><span class="bench-c">6</span></a>
     <a class="bench-t" role="tab" id="bt-pieces" href="#pieces" data-tab="pieces" aria-controls="pieces" aria-selected="false"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle class="d" cx="12" cy="12" r="9" stroke-dasharray="2 3.2"/></svg><span class="bench-n">Coming soon</span><span class="bench-c">5</span></a>
-    <span class="bench-ind" aria-hidden="true"></span>
+    <a class="bench-t" role="tab" id="bt-carry" href="#carry" data-tab="carry" aria-controls="carry" aria-selected="false">
+  <svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M12 2.5L21.5 21H2.5Z"/></svg>
+  <span class="bench-n">Carry</span><span class="bench-c">4</span>
+</a>
+  <span class="bench-ind" aria-hidden="true"></span>
   </div>
 </nav>
 </main>
@@ -1353,6 +1355,7 @@ window.addEventListener('DOMContentLoaded',function(){
   var grounds=[].slice.call(doc.querySelectorAll('main section,main footer,main .tb-panel,main .fall-plate,main .fall-end'));
   
   var fallBox=doc.querySelector('.fall-in');
+  function overCarry(y){var f=doc.querySelector('#carry .carry-campaign');if(!f)return false;var r=f.getBoundingClientRect();return r.height>0&&r.top<=y&&r.bottom>y;}
   function overFall(y){if(!fallBox)return false;var r=fallBox.getBoundingClientRect();return r.top<=y&&r.bottom>y;}
   
   var mani1=doc.getElementById('mani-1');
@@ -1376,12 +1379,12 @@ window.addEventListener('DOMContentLoaded',function(){
     var ea=+a.dataset.elev;
     if(gv)gv.textContent=fmt(ea);
     if(gl)gl.textContent=a.dataset.label;
-    if(g){var gr=g.getBoundingClientRect(),gm=gr.top+gr.height/2;g.classList.toggle('is-dark',darkAt(gm));g.classList.toggle('is-on',cur>0&&!overFall(gm));}
+    if(g){var gr=g.getBoundingClientRect(),gm=gr.top+gr.height/2;g.classList.toggle('is-dark',darkAt(gm));g.classList.toggle('is-on',cur>0&&!overFall(gm)&&!overCarry(gm));}
     var ib=idxBtn.getBoundingClientRect(),mb=mast.getBoundingClientRect();
     
     mast.classList.toggle('is-off',overFall(mb.top+mb.height/2)||overTable(mb.top+mb.height/2));
     idxBtn.classList.toggle('is-dark',darkAt(ib.top+ib.height/2));
-    idxBtn.classList.toggle('is-plate',overFall(ib.top+ib.height/2));
+    idxBtn.classList.toggle('is-plate',overFall(ib.top+ib.height/2)||overCarry(ib.top+ib.height/2));
     mast.classList.toggle('is-dark',darkAt(mb.top+mb.height/2));
     mast.classList.toggle('is-on',a.id!=='hero');
     if(bench){var bw=benchWanted(vh);if(bw!==bench._on){bench._on=bw;bench.classList.toggle('is-on',bw);bench.inert=!bw;}}
@@ -1557,7 +1560,7 @@ window.addEventListener('DOMContentLoaded',function(){
   function closeSample(silent){
     if(!openS)return;var s=openS;openS=null;
     var core=s.querySelector('.core');core._pin=false;setOpen(core,false);
-    s.classList.remove('is-on');setBehind(false);root.classList.remove('sample-open');if(lenis)lenis.start();
+    s.classList.remove('is-on');setBehind(false);root.classList.remove('sample-open');if(lenis)lenis.start();onScroll();
     if(!silent&&lastFocus)lastFocus.focus({preventScroll:true});
   }
   [].forEach.call(doc.querySelectorAll('.card-a'),function(a){a.addEventListener('click',function(e){var s=doc.querySelector(a.getAttribute('href'));if(!s)return;
