@@ -72,6 +72,7 @@
 
 
 
+
 :root{
   color-scheme:light;
   --limestone:#EEEDE8; --clay:#E6D6CB; --thatch:#D5D6C6; --ironshore:#22201F; --trench:#0A1416;
@@ -84,7 +85,9 @@
   --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px; --s7:96px; --s8:128px;
   --t1:12px; --t2:15px; --t3:17px; --t4:clamp(1.2rem,1.8vw,1.5rem); --t5:clamp(1.8rem,3.6vw,2.8rem); --t6:clamp(2.6rem,6vw,5.5rem); --num:clamp(5.5rem,16vw,14rem);
   --ease-out:cubic-bezier(.2,.7,.2,1); --ease-draw:cubic-bezier(.16,1,.3,1);
+  --bench:56px;
 }
+@media(max-width:599px){:root{--bench:52px}}
 *,*::before,*::after{box-sizing:border-box}
 html,body{overflow-x:clip}
 html{background:var(--trench)}
@@ -98,7 +101,7 @@ a{color:inherit;text-underline-offset:4px;text-decoration-thickness:1px}
 a:focus-visible,button:focus-visible{outline:2px solid var(--oxblood);outline-offset:3px}
 .dark a:focus-visible,.dark button:focus-visible{outline-color:var(--brass)}
 p{margin:0 0 var(--s2);max-width:62ch}
-h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;overflow-wrap:anywhere;min-width:0}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;overflow-wrap:anywhere;min-width:0}
 .dark{color:var(--bone)}
 
 .ul{text-decoration:none;background-image:linear-gradient(currentColor,currentColor);background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size 420ms var(--ease-out)}
@@ -175,7 +178,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;o
 .aside{font-size:var(--t2);color:var(--ink-soft);max-width:38ch}
 .dark .aside{color:var(--bone-soft)}
 .layer--bluff{background:var(--limestone)}.layer--caymanite{background:var(--clay)}.layer--thatch{background:var(--thatch)}.layer--ironshore{background:var(--ironshore)}.layer--trench{background:var(--trench)}
-:root.js:not(.static) .layer,:root.js:not(.static) .gal,:root.js:not(.static) .floor,:root.js:not(.static) footer{background:transparent}
+:root.js:not(.static) .layer,:root.js:not(.static) .floor,:root.js:not(.static) footer{background:transparent}
 :root.js:not(.static) .intro{background:transparent}
 
 
@@ -207,13 +210,10 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;o
 :root.js .snow{display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 
 
-.gal{position:relative;color:var(--bone);background:var(--trench);padding-block:var(--s7)}
-.gal-lead{max-width:1180px;margin:0 auto var(--s6);padding-inline:20px}
-@media(min-width:900px){.gal-lead{padding-inline:var(--s6) calc(var(--s6) + 120px)}}
-.gal-lead p{font-size:var(--t4);font-family:var(--display);line-height:1.3;max-width:34ch;color:var(--bone)}
-.rail{list-style:none;margin:0;padding:0 20px;display:flex;gap:var(--s4);overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.rail::-webkit-scrollbar{display:none}
-.card{flex:0 0 min(78vw,520px);scroll-snap-align:start}
+.rail{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s6) var(--s4)}
+@media(min-width:600px){.rail{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:900px){.rail{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.card{min-width:0}
 .card-a{display:block;text-decoration:none;color:inherit}
 .card-f{display:block;overflow:hidden;aspect-ratio:4/3;background:var(--ironshore)}
 .card-f img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.02);transition:transform 900ms var(--ease-out)}
@@ -222,13 +222,6 @@ h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;o
 .card-t{display:block;padding-top:var(--s3)}
 .card-n{display:block;font-family:var(--display);font-size:var(--t4);line-height:1.1;margin-bottom:var(--s1)}
 .card-l{display:block;font-size:var(--t2);color:var(--bone-soft);max-width:40ch}
-@media(min-width:900px){
-  :root.js:not(.static) .gal{height:100vh;height:100svh;padding-block:0;display:flex;flex-direction:column;justify-content:center}
-  :root.js:not(.static) .gal-lead{margin:0 0 var(--s5);width:100%;padding-top:var(--s5)}
-  :root.js:not(.static) .rail{overflow:visible;padding-left:var(--s6);scroll-snap-type:none;will-change:transform}
-  :root.js:not(.static) .card{flex-basis:min(36vw,540px)}
-  :root.js:not(.static) .card:last-child{margin-right:var(--s6)}
-}
 
 
 .sample{display:none;color:var(--ink);background:var(--limestone)}
@@ -549,11 +542,14 @@ footer .ul{display:inline-block;padding-block:11px}
   .core .strata,.core.is-open .strata{position:absolute;inset:0;display:block;padding:0;left:0;pointer-events:auto}
   .core .lab,.core.is-open .lab{position:absolute;opacity:1;transform:translateY(calc(var(--i)*var(--g)))}
   .leads{display:none}
+  .table,.bench,.bench-ind,.bench-t,.bench .sigil{transition:none}
+  :root.js .tb-panel .tb-it{opacity:1;transform:none;transition:none}
+  :root.js .tb-head .sigil .d,:root.js .bench-t .sigil .d{stroke-dashoffset:0;transition:none}
+  :root.js .tb-head .sigil .d[stroke-dasharray],:root.js .bench-t .sigil .d[stroke-dasharray]{opacity:1;transition:none}
 }
 
 .ch-pieces{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:var(--s3);margin-top:var(--s3)}
 .ch-a .card-f{aspect-ratio:4/3}
-.card-f img.ch-dome{object-position:50% 45%}
 .ch-cap{display:flex;flex-direction:column;align-items:flex-start;gap:2px;margin-top:var(--s1);font-family:var(--display);font-size:var(--t4);white-space:nowrap}
 .ch-open{font-family:var(--text);font-size:var(--t1);letter-spacing:.2em;text-transform:uppercase;opacity:1;white-space:nowrap}
 .ch-a:hover .ch-open,.ch-a:focus-visible .ch-open{opacity:1}
@@ -564,8 +560,6 @@ footer .ul{display:inline-block;padding-block:11px}
 .chap--pieces .ch-pieces{grid-column:3;grid-row:1/span 6;align-self:center;grid-template-columns:minmax(0,1fr);margin-top:0}
 }
 
-
-@media(max-width:899px){.rail{padding-inline:20px;scroll-padding-inline:20px}}
 
 .take{background:var(--trench);color:var(--bone);padding-block:var(--s7) var(--s8);border-top:1px solid var(--rule-dark)}
 .take-in{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5)}
@@ -580,6 +574,85 @@ footer .ul{display:inline-block;padding-block:11px}
 .take-it dd{margin:0;font-size:var(--t2);line-height:1.55;color:var(--bone-soft);max-width:50ch}
 .take-reg{margin:0;max-width:52ch;font-family:var(--display);font-size:var(--t4);line-height:1.35;color:var(--bone);border-top:1px dashed var(--brass);padding-top:var(--s3)}
 .fall-d .unit{text-transform:none}
+
+
+.table{position:relative;background:var(--trench);color:var(--bone);transition:background-color 700ms var(--ease-out),color 700ms var(--ease-out)}
+.table[data-ground="trench"]{background:var(--trench);color:var(--bone)}
+.table[data-ground="limestone"]{background:var(--limestone);color:var(--ink)}
+.table[data-ground="ironshore"]{background:var(--ironshore);color:var(--bone)}
+.table[data-ground="thatch"]{background:var(--thatch);color:var(--ink)}
+.tb-panel{position:relative}
+.tb-panel[hidden]{display:none}
+:root:not(.js) .tb-panel[data-ground="trench"]{background:var(--trench);color:var(--bone)}
+:root:not(.js) .tb-panel[data-ground="limestone"]{background:var(--limestone);color:var(--ink)}
+:root:not(.js) .tb-panel[data-ground="ironshore"]{background:var(--ironshore);color:var(--bone)}
+:root:not(.js) .tb-panel[data-ground="thatch"]{background:var(--thatch);color:var(--ink)}
+.tb-head{padding-block:var(--s7) var(--s6)}
+.tb-head .name{margin:0 0 var(--s3)}
+.tb-h{font-size:var(--t5);line-height:1.12;max-width:20ch}
+.tb-lede{margin:var(--s3) 0 0;font-size:var(--t3);color:var(--ink-soft);max-width:52ch;text-wrap:pretty}
+.dark .tb-lede{color:var(--bone-soft)}
+
+.tees{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s7) var(--s6);padding-bottom:var(--s7)}
+@media(min-width:900px){.tees{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tee{min-width:0}
+.tee-f{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--clay)}
+.tee-f picture{display:contents}
+.tee-f img{display:block;width:100%;height:auto;aspect-ratio:764/1024;object-fit:cover}
+.tee-no{margin:var(--s3) 0 var(--s1);font-variant-numeric:lining-nums tabular-nums}
+.tee-n{font-size:var(--t5);line-height:1.1;margin:0 0 var(--s2)}
+.tee-l{margin:0;color:var(--ink-soft);max-width:46ch}
+.tee .sb-p{margin-top:var(--s3)}
+.tee-cta{margin:var(--s3) 0 0}
+.tb-end{padding-block:0 var(--s7)}
+
+.pcs{padding-bottom:var(--s8)}
+
+:root.mo .tb-panel.is-rise .tb-it{opacity:0;transform:translateY(16px)}
+:root.mo .tb-panel.is-rise.is-go .tb-it{opacity:1;transform:none;transition:opacity 500ms var(--ease-out) calc(var(--i,0)*60ms),transform 500ms var(--ease-out) calc(var(--i,0)*60ms)}
+
+.tb-head .sigil .d,.bench-t .sigil .d{--dl:64}
+.tb-head .sigil .d.b,.bench-t .sigil .d.b{--dl:16}
+.tb-head .sigil .d.c,.bench-t .sigil .d.c{--dl:58}
+.tb-head .sigil .d.p,.bench-t .sigil .d.p{--dl:6}
+:root.mo .tb-head .sigil .d:not([stroke-dasharray]){stroke-dasharray:var(--dl);stroke-dashoffset:var(--dl)}
+:root.mo .tb-head.is-in .sigil .d:not([stroke-dasharray]){stroke-dashoffset:0;transition:stroke-dashoffset 900ms var(--ease-out)}
+:root.mo .tb-head.is-in .sigil .d.b,:root.mo .tb-head.is-in .sigil .d.p{transition-duration:500ms;transition-delay:520ms}
+:root.mo .tb-head .sigil .d[stroke-dasharray]{opacity:0}
+:root.mo .tb-head.is-in .sigil .d[stroke-dasharray]{opacity:1;transition:opacity 700ms var(--ease-out)}
+:root.mo .bench-t .sigil .d:not([stroke-dasharray]){stroke-dasharray:var(--dl);stroke-dashoffset:0;transition:stroke-dashoffset 900ms var(--ease-out)}
+:root.mo .bench-t .sigil .d.b,:root.mo .bench-t .sigil .d.p{transition-duration:500ms;transition-delay:520ms}
+:root.mo .bench-t.is-undraw .sigil .d:not([stroke-dasharray]){stroke-dashoffset:var(--dl);transition:none}
+:root.mo .bench-t .sigil .d[stroke-dasharray]{transition:opacity 700ms var(--ease-out)}
+:root.mo .bench-t.is-undraw .sigil .d[stroke-dasharray]{opacity:0;transition:none}
+
+
+.bench{position:fixed;left:0;right:0;bottom:0;z-index:25;display:flex;align-items:stretch;
+  height:calc(var(--bench) + env(safe-area-inset-bottom,0px));padding-bottom:env(safe-area-inset-bottom,0px);
+  padding-inline:calc(max(0px,(100% - 1180px)/2) + 20px);
+  background:var(--ironshore);color:var(--bone-soft);border-top:1px solid var(--brass);
+  opacity:0;visibility:hidden;transform:translateY(100%);
+  transition:transform 400ms var(--ease-out),opacity 400ms var(--ease-out),visibility 0s linear 400ms}
+.bench.is-on{opacity:1;visibility:visible;transform:none;transition-delay:0s,0s,0s}
+:root.sample-open .bench,:root.idx-open .bench{opacity:0;visibility:hidden;transform:translateY(100%)}
+:root:not(.js) .bench{display:none}
+@media(min-width:900px){.bench{padding-inline:calc(max(0px,(100% - 1180px)/2) + var(--s6)) calc(max(0px,(100% - 1180px)/2) + var(--s6) + 120px)}}
+.bench-l{display:none}
+@media(min-width:900px){.bench-l{display:flex;align-items:center;flex:none;margin-right:var(--s4);font-size:var(--t1);letter-spacing:.24em;text-transform:uppercase;font-weight:600;white-space:nowrap;color:var(--bone-soft)}}
+.bench-tabs{position:relative;display:flex;align-items:stretch;gap:var(--s1);min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.bench-tabs::-webkit-scrollbar{display:none}
+.bench-t{display:inline-flex;align-items:center;gap:var(--s1);flex:none;min-height:44px;padding:0 var(--s2);color:var(--bone-soft);text-decoration:none;white-space:nowrap;font-size:var(--t1);letter-spacing:.16em;text-transform:uppercase;font-weight:600;line-height:1;-webkit-tap-highlight-color:transparent;transition:color 200ms var(--ease-out),background-color 200ms var(--ease-out)}
+.bench-t:hover{color:var(--bone)}
+.bench-t:active{background-color:var(--rule-dark)}
+.bench-t:focus-visible{outline:2px solid var(--brass);outline-offset:-4px}
+.bench-t[aria-selected="true"]{color:var(--bone)}
+.bench .sigil{color:inherit;transition:color 200ms var(--ease-out)}
+.bench-t[aria-selected="true"] .sigil{color:var(--brass)}
+.bench-c{font-variant-numeric:lining-nums tabular-nums;letter-spacing:.04em;color:var(--bone-soft)}
+@media(max-width:419px){.bench-c{display:none}}
+.bench-ind{position:absolute;left:0;top:0;width:100px;height:2px;background:var(--brass);transform-origin:0 50%;transform:translateX(0) scaleX(0);transition:transform 400ms var(--ease-out);pointer-events:none}
+
+:root.js footer{padding-bottom:calc(var(--s6) + env(safe-area-inset-bottom,0px))}
 </style>
 </head>
 <body>
@@ -594,11 +667,12 @@ footer .ul{display:inline-block;padding-block:11px}
         <li class="idx-it" style="--d:1"><a class="idx-a" href="#bluff"><span class="idx-e">+43 m</span><span class="idx-n">The layers</span></a></li>
         <li class="idx-it" style="--d:2"><a class="idx-a" href="#sealevel"><span class="idx-e">0 m</span><span class="idx-n">Sea level</span></a></li>
         <li class="idx-it" style="--d:3"><a class="idx-a" href="#fall"><span class="idx-e">−7,686 m</span><span class="idx-n">Fall edition</span></a></li>
-        <li class="idx-it" style="--d:4"><a class="idx-a" href="#pieces"><span class="idx-e">−7,686 m</span><span class="idx-n">The pieces</span></a></li>
-        <li class="idx-it" style="--d:5"><a class="idx-a" href="#take"><span class="idx-e">−7,686 m</span><span class="idx-n">What we take</span></a></li>
-        <li class="idx-it" style="--d:6"><a class="idx-a" href="#trade"><span class="idx-e">−7,686 m</span><span class="idx-n">Private Section</span></a></li>
-        <li class="idx-it" style="--d:7"><a class="idx-a" href="#queue"><span class="idx-e">−7,686 m</span><span class="idx-n">First Pour</span></a></li>
-        <li class="idx-it" style="--d:8"><a class="idx-a" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=first-pour&amp;utm_content=index"><span class="idx-e">Letters</span><span class="idx-n">Join the queue</span></a></li>
+        <li class="idx-it" style="--d:4"><a class="idx-a" href="#wardrobe"><span class="idx-e">−7,686 m</span><span class="idx-n">Wardrobe</span></a></li>
+        <li class="idx-it" style="--d:5"><a class="idx-a" href="#pieces"><span class="idx-e">−7,686 m</span><span class="idx-n">Coming soon</span></a></li>
+        <li class="idx-it" style="--d:6"><a class="idx-a" href="#take"><span class="idx-e">−7,686 m</span><span class="idx-n">What we take</span></a></li>
+        <li class="idx-it" style="--d:7"><a class="idx-a" href="#trade"><span class="idx-e">−7,686 m</span><span class="idx-n">Private Section</span></a></li>
+        <li class="idx-it" style="--d:8"><a class="idx-a" href="#queue"><span class="idx-e">−7,686 m</span><span class="idx-n">First Pour</span></a></li>
+        <li class="idx-it" style="--d:9"><a class="idx-a" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=first-pour&amp;utm_content=index"><span class="idx-e">Letters</span><span class="idx-n">Join the queue</span></a></li>
       </ol>
     </nav>
     <p class="idx-foot">Cayman Islands · West Indies</p>
@@ -646,7 +720,7 @@ footer .ul{display:inline-block;padding-block:11px}
       <p class="fu">It was wax poured into shells cleaned by hand, for the people around the table. The island was in every one of them: the salt, the thatch, the rock.</p>
       <p class="fu">Cayman Rituals is that habit, held to a higher standard. Made slowly, in small numbers, from the only place on earth these layers exist.</p>
       <p class="sig fu"><img class="seal" src="brand/cay-rit-stamp-128.png" alt="" width="128" height="128" loading="lazy" decoding="async">Cayman Rituals · Cayman Islands</p>
-      <p class="story-q"><a class="btn btn--line" href="#fall">See the Fall Edition</a></p>
+      <p class="story-q"><a class="btn btn--line" href="https://cayrit.beehiiv.com/subscribe?utm_source=caymanrituals-site&amp;utm_medium=website&amp;utm_campaign=first-pour&amp;utm_content=story">Join the First Pour queue</a></p>
     </div>
   </div>
 </section>
@@ -699,7 +773,7 @@ footer .ul{display:inline-block;padding-block:11px}
   </div>
 </section>
 
-<section class="layer layer--trench chap chap--pieces dark" id="trench" data-elev="-7686" data-label="Trench">
+<section class="layer layer--trench chap dark" id="trench" data-elev="-7686" data-label="Trench">
   <canvas class="snow" aria-hidden="true"></canvas>
   <div class="chap-in">
     <span class="elev"><span class="sg">−</span><span class="n">7,686</span><span class="u"> m</span></span>
@@ -707,7 +781,6 @@ footer .ul{display:inline-block;padding-block:11px}
     <h2 class="lm">The deepest water in the Caribbean, between us and Jamaica.</h2>
     <div class="notes fu"><b>The scent</b>Cold depth. Black pepper, ink, ambrette, cold musk, a far-off smoke.</div>
     <span class="status fu">One of the first three</span>
-    <div class="ch-pieces fu"><a class="card-a ch-a" href="#fall-trench"><span class="card-f"><picture><source type="image/avif" srcset="img/sb-trench-640.avif"><img class="ch-dome" src="img/sb-trench-640.jpg" alt="" width="640" height="960" loading="lazy" decoding="async"></picture></span><span class="ch-cap">Trench, under glass<span class="ch-open">Fall Edition · CI$100</span></span></a></div>
   </div>
 </section>
 
@@ -727,74 +800,149 @@ footer .ul{display:inline-block;padding-block:11px}
     <div class="w fall-txt">
       <p class="eyebrow fu">The Fall Edition · 2026</p>
       <h2 class="lm" id="fall-h">Named for the drop.</h2>
-      <p class="fall-lede fu">From the top of the Bluff, Cayman Brac falls straight into the sea. Three pieces, poured for the season and numbered by hand.</p>
-      <p class="fall-cue fu"><a class="ul" href="#fall-trench">Three pieces ↓</a></p>
+      <p class="fall-lede fu">From the top of the Bluff, Cayman Brac falls straight into the sea. Three pieces poured for the season, six shirts, and the rest still being made.</p>
+      <p class="fall-cue fu"><a class="ul" href="#table">To the table ↓</a></p>
     </div>
   </div>
-
-  <article class="fall-plate dark" id="fall-trench" aria-labelledby="fall-trench-n">
-    <div class="w fall-pl">
-      <div class="fall-hd">
-        <p class="eyebrow fall-no fu"><span class="sr-only">Piece </span>01<span aria-hidden="true"> / </span><span class="sr-only"> of </span>03</p>
-        <h3 class="fall-n" id="fall-trench-n"><span class="lm">Trench</span><span class="sr-only">, </span><span class="fall-sub fu">under glass</span></h3>
-      </div>
-      <figure class="fall-f"><picture><source type="image/avif" srcset="img/sb-trench-640.avif 640w, img/sb-trench-1024.avif 1024w" sizes="(min-width:900px) 520px, 100vw"><img src="img/sb-trench-1024.jpg" srcset="img/sb-trench-640.jpg 640w, img/sb-trench-1024.jpg 1024w" sizes="(min-width:900px) 520px, 100vw" alt="Trench: a garnet glass candle wrapped in a brushed brass band reading Cayman Rituals, West Indies, under a clear glass dome with satin rings and a brass finial stamped CAY RIT." width="1024" height="1536" loading="lazy" decoding="async"></picture></figure>
-      <div class="fall-t">
-        <p class="fall-d fu">Trench · −7,686 <span class="unit">m</span></p>
-        <p class="fu">Garnet glass beneath a clear dome, five satin rings cut into its shoulder, and a brass finial stamped CAY RIT.</p>
-        <p class="fu">Keep the dome. Refills are coming soon.</p>
-        <dl class="sb-p fu"><div><dt>Dome and candle</dt><dd>CI$100</dd></div></dl>
-        <p class="fall-cta fu"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20Trench&amp;body=Piece%3A%20Trench%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve Trench</a></p>
-      </div>
-    </div>
-  </article>
-
-  <article class="fall-plate fall-plate--clay fall-plate--r" id="fall-first" aria-labelledby="fall-first-n">
-    <div class="w fall-pl">
-      <div class="fall-hd">
-        <p class="eyebrow fall-no fu"><span class="sr-only">Piece </span>02<span aria-hidden="true"> / </span><span class="sr-only"> of </span>03</p>
-        <h3 class="fall-n" id="fall-first-n"><span class="lm">First Pour</span><span class="sr-only">, </span><span class="fall-sub fu">in shell</span></h3>
-      </div>
-      <figure class="fall-f"><picture><source type="image/avif" srcset="img/sb-first-pour-640.avif 640w, img/sb-first-pour-1024.avif 1024w" sizes="(min-width:900px) 520px, 100vw"><img src="img/sb-first-pour-1024.jpg" srcset="img/sb-first-pour-640.jpg 640w, img/sb-first-pour-1024.jpg 1024w" sizes="(min-width:900px) 520px, 100vw" alt="First Pour: a dark coconut shell candle with a fine brass rim, a glass insert and an oval brass seal stamped CAY RIT." width="1024" height="1536" loading="lazy" decoding="async"></picture></figure>
-      <div class="fall-t">
-        <p class="fall-d fu">First Pour · fifty a year</p>
-        <p class="fu">A coconut shell bound in a fine brass rim, with a glass insert that holds the candle and an inset maker's seal.</p>
-        <p class="fu">Fifty are poured each year, each one numbered and dated.</p>
-        <dl class="sb-p fu"><div><dt>Numbered shell</dt><dd>CI$40</dd></div></dl>
-        <p class="fall-cta fu"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20First%20Pour&amp;body=Piece%3A%20First%20Pour%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve First Pour</a></p>
-      </div>
-    </div>
-  </article>
-
-  <article class="fall-plate fall-plate--lime" id="fall-house" aria-labelledby="fall-house-n">
-    <div class="w fall-pl">
-      <div class="fall-hd">
-        <p class="eyebrow fall-no fu"><span class="sr-only">Piece </span>03<span aria-hidden="true"> / </span><span class="sr-only"> of </span>03</p>
-        <h3 class="fall-n" id="fall-house-n"><span class="lm">House</span><span class="sr-only">, </span><span class="fall-sub fu">in glass</span></h3>
-      </div>
-      <figure class="fall-f"><picture><source type="image/avif" srcset="img/sb-house-640.avif 640w, img/sb-house-1024.avif 1024w" sizes="(min-width:900px) 520px, 100vw"><img src="img/sb-house-1024.jpg" srcset="img/sb-house-640.jpg 640w, img/sb-house-1024.jpg 1024w" sizes="(min-width:900px) 520px, 100vw" alt="House: a clear glass candle with a cork ball stopper set with a brass CAY RIT signet, and a brushed brass cuff reading Cayman Rituals, West Indies." width="1024" height="1536" loading="lazy" decoding="async"></picture></figure>
-      <div class="fall-t">
-        <p class="fall-d fu">House · for your own house</p>
-        <p class="fu">Clear glass and a cork ball stopper. A brushed brass cuff carries the full signature, and a brass signet is set into the cork.</p>
-        <p class="fu">The same glass, poured with a scent made for one property, is how a Private Section begins.</p>
-        <dl class="sb-p fu"><div><dt>Glass and cork</dt><dd>CI$75</dd></div></dl>
-        <p class="fall-cta fu"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20House&amp;body=Piece%3A%20House%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve House</a></p>
-      </div>
-    </div>
-  </article>
-
-  <div class="fall-end"><div class="w"><p class="fall-note">Shown in studio renders until the edition is poured. Prices in Cayman Islands dollars. Reserve by letter: Bianca writes back to confirm before anything is charged.</p></div></div>
 </section>
 
-<section class="gal dark" id="pieces" data-elev="-7686" data-label="The pieces">
-  <div class="gal-lead"><h2 class="sr-only">The pieces</h2><p>The rest of the house is coming soon. Everything we make starts somewhere on this line, between the Bluff and the Trench.</p></div>
-  <ul class="rail" id="rail">
-    <li class="card"><a class="card-a" href="#sample-keeper"><span class="card-f"><picture><source type="image/avif" srcset="img/g-keeper-600.avif 600w" sizes="(min-width:900px) 37vw, 80vw" data-srcset="img/g-keeper-600.avif 600w, img/g-keeper-900.avif 900w, img/g-keeper.avif 1200w"><img src="img/g-keeper.jpg" alt="A polished disc of banded caymanite engraved with CAY over RIT, held at a lapidary bench." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">The Keeper</span><span class="card-l">A lid you buy once. It moves onto every candle refill after that. Turned from caymanite in numbered editions, as the stone allows, or poured in bands by hand, like the candle.</span></span></a></li>
-    <li class="card"><a class="card-a" href="#sample-slab"><span class="card-f"><picture><source type="image/avif" srcset="img/g-slab-600.avif 600w" sizes="(min-width:900px) 37vw, 80vw" data-srcset="img/g-slab-600.avif 600w, img/g-slab-900.avif 900w, img/g-slab.avif 1200w"><img src="img/g-slab.jpg" alt="A rectangular pendant of banded red and cream stone in a thin gold frame on a fine chain." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">The Slab</span><span class="card-l">A slice of the stone, cut so its bands run level, set in a plain gold frame. A section you can wear, in numbered editions, as the stone allows.</span></span></a></li>
-    <li class="card"><a class="card-a" href="#sample-rope"><span class="card-f"><picture><source type="image/avif" srcset="img/f-bracelet-600.avif 600w" sizes="(min-width:900px) 37vw, 80vw" data-srcset="img/f-bracelet-600.avif 600w, img/f-bracelet-900.avif 900w, img/f-bracelet.avif 1200w"><img src="img/f-bracelet.jpg" alt="A hand-plaited pale palm-fibre rope bracelet with brass end caps." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">The Rope</span><span class="card-l">Silver thatch rope was a Caymanian export within living memory. Ours is a bracelet, plaited by hand from the same palm, and every piece is numbered from No. 001.</span></span></a></li>
-    <li class="card"><a class="card-a" href="#sample-edp"><span class="card-f"><picture><source type="image/avif" srcset="img/g-edp-600.avif 600w" sizes="(min-width:900px) 37vw, 80vw" data-srcset="img/g-edp-600.avif 600w, img/g-edp-900.avif 900w, img/g-edp.avif 1200w"><img src="img/g-edp.jpg" alt="A heavy square glass perfume bottle, its cap wrapped in plaited pale palm cord, standing on wet black rock." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">Eau de parfum</span><span class="card-l">Plain heavy glass, with the cap wrapped by hand in the same plaited thatch.</span></span></a></li>
-    <li class="card"><a class="card-a" href="#sample-candle"><span class="card-f"><picture><source type="image/avif" srcset="img/g-candle-600.avif 600w" sizes="(min-width:900px) 37vw, 80vw" data-srcset="img/g-candle-600.avif 600w, img/g-candle-900.avif 900w, img/g-candle.avif 1200w"><img src="img/g-candle.jpg" alt="A heavy glass tumbler candle poured in three horizontal bands of cream, oxblood and umber wax." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">The Section Candle</span><span class="card-l">Poured in three bands, like the stone. As it burns, it melts down through its own layers.</span></span></a></li>
-  </ul>
+<section class="table" id="table" data-elev="-7686" data-label="The table" aria-labelledby="table-h">
+  <h2 class="sr-only" id="table-h">The table</h2>
+
+  <div class="tb-panel dark" id="fall-pieces" data-tab="fall" data-ground="trench">
+    <div class="w tb-head">
+      <p class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle class="d c" cx="12" cy="12" r="9"/><circle class="d p" cx="12" cy="12" r=".9"/></svg>Fall Edition · The fifth</p>
+      <h3 class="tb-h lm">Poured for the season.</h3>
+    </div>
+    <article class="fall-plate dark" id="fall-trench" aria-labelledby="fall-trench-n">
+      <div class="w fall-pl">
+        <div class="fall-hd">
+          <p class="eyebrow fall-no fu"><span class="sr-only">Piece </span>01<span aria-hidden="true"> / </span><span class="sr-only"> of </span>03</p>
+          <h4 class="fall-n" id="fall-trench-n"><span class="lm">Trench</span><span class="sr-only">, </span><span class="fall-sub fu">under glass</span></h4>
+        </div>
+        <figure class="fall-f"><picture><source type="image/avif" srcset="img/sb-trench-640.avif 640w, img/sb-trench-1024.avif 1024w" sizes="(min-width:900px) 520px, 100vw"><img src="img/sb-trench-1024.jpg" srcset="img/sb-trench-640.jpg 640w, img/sb-trench-1024.jpg 1024w" sizes="(min-width:900px) 520px, 100vw" alt="Trench: a garnet glass candle wrapped in a brushed brass band reading Cayman Rituals, West Indies, under a clear glass dome with satin rings and a brass finial stamped CAY RIT." width="1024" height="1536" loading="lazy" decoding="async"></picture></figure>
+        <div class="fall-t">
+          <p class="fall-d fu">Trench · −7,686 <span class="unit">m</span></p>
+          <p class="fu">Garnet glass beneath a clear dome, five satin rings cut into its shoulder, and a brass finial stamped CAY RIT.</p>
+          <p class="fu">Keep the dome. Refills are coming soon.</p>
+          <dl class="sb-p fu"><div><dt>Dome and candle</dt><dd>CI$100</dd></div></dl>
+          <p class="fall-cta fu"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20Trench&amp;body=Piece%3A%20Trench%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve Trench</a></p>
+        </div>
+      </div>
+    </article>
+
+    <article class="fall-plate fall-plate--clay fall-plate--r" id="fall-first" aria-labelledby="fall-first-n">
+      <div class="w fall-pl">
+        <div class="fall-hd">
+          <p class="eyebrow fall-no fu"><span class="sr-only">Piece </span>02<span aria-hidden="true"> / </span><span class="sr-only"> of </span>03</p>
+          <h4 class="fall-n" id="fall-first-n"><span class="lm">First Pour</span><span class="sr-only">, </span><span class="fall-sub fu">in shell</span></h4>
+        </div>
+        <figure class="fall-f"><picture><source type="image/avif" srcset="img/sb-first-pour-640.avif 640w, img/sb-first-pour-1024.avif 1024w" sizes="(min-width:900px) 520px, 100vw"><img src="img/sb-first-pour-1024.jpg" srcset="img/sb-first-pour-640.jpg 640w, img/sb-first-pour-1024.jpg 1024w" sizes="(min-width:900px) 520px, 100vw" alt="First Pour: a dark coconut shell candle with a fine brass rim, a glass insert and an oval brass seal stamped CAY RIT." width="1024" height="1536" loading="lazy" decoding="async"></picture></figure>
+        <div class="fall-t">
+          <p class="fall-d fu">First Pour · fifty a year</p>
+          <p class="fu">A coconut shell bound in a fine brass rim, with a glass insert that holds the candle and an inset maker's seal.</p>
+          <p class="fu">Fifty are poured each year, each one numbered and dated.</p>
+          <dl class="sb-p fu"><div><dt>Numbered shell</dt><dd>CI$40</dd></div></dl>
+          <p class="fall-cta fu"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20First%20Pour&amp;body=Piece%3A%20First%20Pour%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve First Pour</a></p>
+        </div>
+      </div>
+    </article>
+
+    <article class="fall-plate fall-plate--lime" id="fall-house" aria-labelledby="fall-house-n">
+      <div class="w fall-pl">
+        <div class="fall-hd">
+          <p class="eyebrow fall-no fu"><span class="sr-only">Piece </span>03<span aria-hidden="true"> / </span><span class="sr-only"> of </span>03</p>
+          <h4 class="fall-n" id="fall-house-n"><span class="lm">House</span><span class="sr-only">, </span><span class="fall-sub fu">in glass</span></h4>
+        </div>
+        <figure class="fall-f"><picture><source type="image/avif" srcset="img/sb-house-640.avif 640w, img/sb-house-1024.avif 1024w" sizes="(min-width:900px) 520px, 100vw"><img src="img/sb-house-1024.jpg" srcset="img/sb-house-640.jpg 640w, img/sb-house-1024.jpg 1024w" sizes="(min-width:900px) 520px, 100vw" alt="House: a clear glass candle with a cork ball stopper set with a brass CAY RIT signet, and a brushed brass cuff reading Cayman Rituals, West Indies." width="1024" height="1536" loading="lazy" decoding="async"></picture></figure>
+        <div class="fall-t">
+          <p class="fall-d fu">House · for your own house</p>
+          <p class="fu">Clear glass and a cork ball stopper. A brushed brass cuff carries the full signature, and a brass signet is set into the cork.</p>
+          <p class="fu">The same glass, poured with a scent made for one property, is how a Private Section begins.</p>
+          <dl class="sb-p fu"><div><dt>Glass and cork</dt><dd>CI$75</dd></div></dl>
+          <p class="fall-cta fu"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20House&amp;body=Piece%3A%20House%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve House</a></p>
+        </div>
+      </div>
+    </article>
+
+    <div class="fall-end"><div class="w"><p class="fall-note">Shown in studio renders until the edition is poured. Prices in Cayman Islands dollars. Reserve by letter: Bianca writes back to confirm before anything is charged.</p></div></div>
+  </div>
+
+  <div class="tb-panel" id="wardrobe" data-tab="wardrobe" data-ground="limestone">
+    <div class="w tb-head">
+      <p class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M12 2.5L21.5 21H2.5Z"/><path class="d b" d="M4.5 11.5H19.5"/></svg>Wardrobe · Air</p>
+      <h3 class="tb-h lm">Worn in the open.</h3>
+      <p class="tb-lede fu">Six shirts for the season. CI$75 each.</p>
+    </div>
+    <div class="w tees">
+      <article class="tee tb-it" id="tee-ironshore" aria-labelledby="tee-ironshore-n">
+        <figure class="tee-f"><picture><source type="image/avif" srcset="img/tee-ironshore-front-480.avif 480w, img/tee-ironshore-front-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-ironshore-front-764.jpg" srcset="img/tee-ironshore-front-480.jpg 480w, img/tee-ironshore-front-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: a man in a bone T-shirt with a small Ironshore Social Club crest on the chest." width="764" height="1024" loading="lazy" decoding="async"></picture><picture><source type="image/avif" srcset="img/tee-ironshore-back-480.avif 480w, img/tee-ironshore-back-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-ironshore-back-764.jpg" srcset="img/tee-ironshore-back-480.jpg 480w, img/tee-ironshore-back-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: the back of the shirt, printed with the Ironshore Social Club house rules and the Cayman Rituals signature." width="764" height="1024" loading="lazy" decoding="async"></picture></figure>
+        <p class="eyebrow tee-no"><span class="sr-only">Piece </span>01<span aria-hidden="true"> / </span><span class="sr-only"> of </span>06</p>
+        <h4 class="tee-n" id="tee-ironshore-n">Ironshore Social Club</h4>
+        <p class="tee-l">House rules on the back. Rule three is about the starfish.</p>
+        <dl class="sb-p"><div><dt>Bone, oxblood print</dt><dd>CI$75</dd></div></dl>
+        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20Ironshore%20Social%20Club&amp;body=Piece%3A%20Ironshore%20Social%20Club%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve<span class="sr-only"> Ironshore Social Club</span></a></p>
+      </article>
+      <article class="tee tb-it" id="tee-invitation" aria-labelledby="tee-invitation-n">
+        <figure class="tee-f"><picture><source type="image/avif" srcset="img/tee-invitation-front-480.avif 480w, img/tee-invitation-front-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-invitation-front-764.jpg" srcset="img/tee-invitation-front-480.jpg 480w, img/tee-invitation-front-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: a woman in a bone T-shirt with a small crest on the chest." width="764" height="1024" loading="lazy" decoding="async"></picture><picture><source type="image/avif" srcset="img/tee-invitation-back-480.avif 480w, img/tee-invitation-back-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-invitation-back-764.jpg" srcset="img/tee-invitation-back-480.jpg 480w, img/tee-invitation-back-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: the back of the shirt, reading Make yourself at home. Don't act like you own it." width="764" height="1024" loading="lazy" decoding="async"></picture></figure>
+        <p class="eyebrow tee-no"><span class="sr-only">Piece </span>02<span aria-hidden="true"> / </span><span class="sr-only"> of </span>06</p>
+        <h4 class="tee-n" id="tee-invitation-n">Open Invitation</h4>
+        <p class="tee-l">Make yourself at home. Don't act like you own it.</p>
+        <dl class="sb-p"><div><dt>Bone, oxblood print</dt><dd>CI$75</dd></div></dl>
+        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20Open%20Invitation&amp;body=Piece%3A%20Open%20Invitation%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve<span class="sr-only"> Open Invitation</span></a></p>
+      </article>
+      <article class="tee tb-it" id="tee-expensive" aria-labelledby="tee-expensive-n">
+        <figure class="tee-f"><picture><source type="image/avif" srcset="img/tee-expensive-front-480.avif 480w, img/tee-expensive-front-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-expensive-front-764.jpg" srcset="img/tee-expensive-front-480.jpg 480w, img/tee-expensive-front-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: a woman in a bone T-shirt reading You smell expensive." width="764" height="1024" loading="lazy" decoding="async"></picture><picture><source type="image/avif" srcset="img/tee-expensive-back-480.avif 480w, img/tee-expensive-back-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-expensive-back-764.jpg" srcset="img/tee-expensive-back-480.jpg 480w, img/tee-expensive-back-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: the back of the shirt, with the Cayman Rituals signature below the collar." width="764" height="1024" loading="lazy" decoding="async"></picture></figure>
+        <p class="eyebrow tee-no"><span class="sr-only">Piece </span>03<span aria-hidden="true"> / </span><span class="sr-only"> of </span>06</p>
+        <h4 class="tee-n" id="tee-expensive-n">You Smell Expensive</h4>
+        <p class="tee-l">Said on the front. Signed at the hem.</p>
+        <dl class="sb-p"><div><dt>Bone, oxblood print</dt><dd>CI$75</dd></div></dl>
+        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20You%20Smell%20Expensive&amp;body=Piece%3A%20You%20Smell%20Expensive%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve<span class="sr-only"> You Smell Expensive</span></a></p>
+      </article>
+      <article class="tee tb-it" id="tee-panel" aria-labelledby="tee-panel-n">
+        <figure class="tee-f"><picture><source type="image/avif" srcset="img/tee-panel-front-480.avif 480w, img/tee-panel-front-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-panel-front-764.jpg" srcset="img/tee-panel-front-480.jpg 480w, img/tee-panel-front-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: a man in a bone T-shirt with a vertical oxblood panel and collar, the Cayman Rituals signature on the panel." width="764" height="1024" loading="lazy" decoding="async"></picture><picture><source type="image/avif" srcset="img/tee-panel-back-480.avif 480w, img/tee-panel-back-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-panel-back-764.jpg" srcset="img/tee-panel-back-480.jpg 480w, img/tee-panel-back-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: the back of the shirt, the oxblood panel running from collar to hem." width="764" height="1024" loading="lazy" decoding="async"></picture></figure>
+        <p class="eyebrow tee-no"><span class="sr-only">Piece </span>04<span aria-hidden="true"> / </span><span class="sr-only"> of </span>06</p>
+        <h4 class="tee-n" id="tee-panel-n">Oxblood Panel</h4>
+        <p class="tee-l">One sewn panel of oxblood, shoulder to hem. The signature rides on it.</p>
+        <dl class="sb-p"><div><dt>Bone with a sewn oxblood panel</dt><dd>CI$75</dd></div></dl>
+        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20Oxblood%20Panel&amp;body=Piece%3A%20Oxblood%20Panel%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve<span class="sr-only"> Oxblood Panel</span></a></p>
+      </article>
+      <article class="tee tb-it" id="tee-domino" aria-labelledby="tee-domino-n">
+        <figure class="tee-f"><picture><source type="image/avif" srcset="img/tee-domino-front-480.avif 480w, img/tee-domino-front-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-domino-front-764.jpg" srcset="img/tee-domino-front-480.jpg 480w, img/tee-domino-front-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: a man in a washed charcoal T-shirt with the words Good company. Bad loser. on the chest." width="764" height="1024" loading="lazy" decoding="async"></picture><picture><source type="image/avif" srcset="img/tee-domino-back-480.avif 480w, img/tee-domino-back-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-domino-back-764.jpg" srcset="img/tee-domino-back-480.jpg 480w, img/tee-domino-back-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: the back of the shirt, printed with a large three-six domino carrying the Cayman Rituals signature." width="764" height="1024" loading="lazy" decoding="async"></picture></figure>
+        <p class="eyebrow tee-no"><span class="sr-only">Piece </span>05<span aria-hidden="true"> / </span><span class="sr-only"> of </span>06</p>
+        <h4 class="tee-n" id="tee-domino-n">Good Company. Bad Loser.</h4>
+        <p class="tee-l">A three-six domino down the back.</p>
+        <dl class="sb-p"><div><dt>Washed charcoal, bone print</dt><dd>CI$75</dd></div></dl>
+        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20Good%20Company.%20Bad%20Loser.&amp;body=Piece%3A%20Good%20Company.%20Bad%20Loser.%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve<span class="sr-only"> Good Company. Bad Loser.</span></a></p>
+      </article>
+      <article class="tee tb-it" id="tee-bite" aria-labelledby="tee-bite-n">
+        <figure class="tee-f"><picture><source type="image/avif" srcset="img/tee-bite-front-480.avif 480w, img/tee-bite-front-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-bite-front-764.jpg" srcset="img/tee-bite-front-480.jpg 480w, img/tee-bite-front-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: a woman in a washed charcoal T-shirt printed with an engraved mosquito and the words Bite me." width="764" height="1024" loading="lazy" decoding="async"></picture><picture><source type="image/avif" srcset="img/tee-bite-back-480.avif 480w, img/tee-bite-back-764.avif 764w" sizes="(min-width:900px) 280px, 50vw"><img src="img/tee-bite-back-764.jpg" srcset="img/tee-bite-back-480.jpg 480w, img/tee-bite-back-764.jpg 764w" sizes="(min-width:900px) 280px, 50vw" alt="Studio render: the back of the shirt, with the Cayman Rituals signature below the collar." width="764" height="1024" loading="lazy" decoding="async"></picture></figure>
+        <p class="eyebrow tee-no"><span class="sr-only">Piece </span>06<span aria-hidden="true"> / </span><span class="sr-only"> of </span>06</p>
+        <h4 class="tee-n" id="tee-bite-n">Bite Me</h4>
+        <p class="tee-l">A mosquito, engraved. It lives here too.</p>
+        <dl class="sb-p"><div><dt>Washed charcoal, bone print</dt><dd>CI$75</dd></div></dl>
+        <p class="tee-cta"><a class="btn btn--line" href="mailto:caymanrituals@gmail.com?subject=Reserve%3A%20Bite%20Me&amp;body=Piece%3A%20Bite%20Me%0D%0ASize%3A%0D%0AHow%20many%3A%0D%0AName%3A%0D%0AIsland%20or%20country%3A%0D%0A">Reserve<span class="sr-only"> Bite Me</span></a></p>
+      </article>
+    </div>
+    <div class="tb-end"><div class="w"><p class="fall-note">Shirts and models are shown in studio renders: no shirt has been pressed yet. Tell Bianca your size when you reserve. Prices in Cayman Islands dollars. Reserve by letter: Bianca writes back to confirm before anything is charged.</p></div></div>
+  </div>
+
+  <div class="tb-panel dark" id="pieces" data-tab="pieces" data-ground="ironshore">
+    <div class="w tb-head">
+      <p class="name"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle class="d" cx="12" cy="12" r="9" stroke-dasharray="2 3.2"/></svg>Coming soon</p>
+      <h3 class="tb-h lm">The rest of the house.</h3>
+      <p class="tb-lede fu">Everything we make starts somewhere on this line, between the Bluff and the Trench.</p>
+    </div>
+    <div class="w pcs">
+      <ul class="rail" id="rail">
+        <li class="card tb-it"><a class="card-a" href="#sample-keeper"><span class="card-f"><picture><source type="image/avif" srcset="img/g-keeper-600.avif 600w" sizes="(min-width:1180px) 290px, (min-width:900px) 24vw, (min-width:600px) 44vw, 90vw" data-srcset="img/g-keeper-600.avif 600w, img/g-keeper-900.avif 900w, img/g-keeper.avif 1200w"><img src="img/g-keeper.jpg" alt="A polished disc of banded caymanite engraved with CAY over RIT, held at a lapidary bench." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">The Keeper</span><span class="card-l">A lid you buy once. It moves onto every candle refill after that. Turned from caymanite in numbered editions, as the stone allows, or poured in bands by hand, like the candle.</span></span></a></li>
+        <li class="card tb-it"><a class="card-a" href="#sample-slab"><span class="card-f"><picture><source type="image/avif" srcset="img/g-slab-600.avif 600w" sizes="(min-width:1180px) 290px, (min-width:900px) 24vw, (min-width:600px) 44vw, 90vw" data-srcset="img/g-slab-600.avif 600w, img/g-slab-900.avif 900w, img/g-slab.avif 1200w"><img src="img/g-slab.jpg" alt="A rectangular pendant of banded red and cream stone in a thin gold frame on a fine chain." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">The Slab</span><span class="card-l">A slice of the stone, cut so its bands run level, set in a plain gold frame. A section you can wear, in numbered editions, as the stone allows.</span></span></a></li>
+        <li class="card tb-it"><a class="card-a" href="#sample-rope"><span class="card-f"><picture><source type="image/avif" srcset="img/f-bracelet-600.avif 600w" sizes="(min-width:1180px) 290px, (min-width:900px) 24vw, (min-width:600px) 44vw, 90vw" data-srcset="img/f-bracelet-600.avif 600w, img/f-bracelet-900.avif 900w, img/f-bracelet.avif 1200w"><img src="img/f-bracelet.jpg" alt="A hand-plaited pale palm-fibre rope bracelet with brass end caps." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">The Rope</span><span class="card-l">Silver thatch rope was a Caymanian export within living memory. Ours is a bracelet, plaited by hand from the same palm, and every piece is numbered from No. 001.</span></span></a></li>
+        <li class="card tb-it"><a class="card-a" href="#sample-edp"><span class="card-f"><picture><source type="image/avif" srcset="img/g-edp-600.avif 600w" sizes="(min-width:1180px) 290px, (min-width:900px) 24vw, (min-width:600px) 44vw, 90vw" data-srcset="img/g-edp-600.avif 600w, img/g-edp-900.avif 900w, img/g-edp.avif 1200w"><img src="img/g-edp.jpg" alt="A heavy square glass perfume bottle, its cap wrapped in plaited pale palm cord, standing on wet black rock." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">Eau de parfum</span><span class="card-l">Plain heavy glass, with the cap wrapped by hand in the same plaited thatch.</span></span></a></li>
+        <li class="card tb-it"><a class="card-a" href="#sample-candle"><span class="card-f"><picture><source type="image/avif" srcset="img/g-candle-600.avif 600w" sizes="(min-width:1180px) 290px, (min-width:900px) 24vw, (min-width:600px) 44vw, 90vw" data-srcset="img/g-candle-600.avif 600w, img/g-candle-900.avif 900w, img/g-candle.avif 1200w"><img src="img/g-candle.jpg" alt="A heavy glass tumbler candle poured in three horizontal bands of cream, oxblood and umber wax." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">The Section Candle</span><span class="card-l">Poured in three bands, like the stone. As it burns, it melts down through its own layers.</span></span></a></li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <section class="take dark" id="take" data-elev="-7686" data-label="What we take">
@@ -848,6 +996,17 @@ footer .ul{display:inline-block;padding-block:11px}
     <p class="fine">© 2026 Cayman Rituals. Pieces shown are in development and pictured as studies. Hero photograph: EvaZL, CC BY 4.0, edited.</p>
   </div>
 </footer>
+
+
+<nav class="bench" id="bench" aria-label="The table">
+  <span class="bench-l" aria-hidden="true">On the table</span>
+  <div class="bench-tabs" role="tablist" aria-label="On the table">
+    <a class="bench-t" role="tab" id="bt-fall" href="#fall-pieces" data-tab="fall" aria-controls="fall-pieces" aria-selected="true"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle class="d c" cx="12" cy="12" r="9"/><circle class="d p" cx="12" cy="12" r=".9"/></svg><span class="bench-n">Fall Edition</span><span class="bench-c">3</span></a>
+    <a class="bench-t" role="tab" id="bt-wardrobe" href="#wardrobe" data-tab="wardrobe" aria-controls="wardrobe" aria-selected="false"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="d" d="M12 2.5L21.5 21H2.5Z"/><path class="d b" d="M4.5 11.5H19.5"/></svg><span class="bench-n">Wardrobe</span><span class="bench-c">6</span></a>
+    <a class="bench-t" role="tab" id="bt-pieces" href="#pieces" data-tab="pieces" aria-controls="pieces" aria-selected="false"><svg class="sigil" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle class="d" cx="12" cy="12" r="9" stroke-dasharray="2 3.2"/></svg><span class="bench-n">Coming soon</span><span class="bench-c">5</span></a>
+    <span class="bench-ind" aria-hidden="true"></span>
+  </div>
+</nav>
 </main>
 
 <section class="sample" id="sample-keeper" aria-labelledby="n-keeper" data-lenis-prevent>
@@ -1018,7 +1177,9 @@ window.addEventListener('DOMContentLoaded',function(){
   
   function landAt(el){var st=fallTl&&fallTl.scrollTrigger;return (st&&el&&(el.id==='fall'||el.classList.contains('fall-in')))?st.end:el;}
   function scrollToEl(el){if(lenis)lenis.scrollTo(landAt(el),{offset:0,duration:1.4});else el.scrollIntoView();}
-  [].forEach.call(doc.querySelectorAll('a[href^="#"]:not(.card-a):not(.sample-x):not(.idx-a)'),function(a){a.addEventListener('click',function(e){var t=doc.querySelector(a.getAttribute('href'));if(t&&lenis){e.preventDefault();scrollToEl(t);}});});
+  
+  function goTo(t){tbShow(t);if(lenis&&lenis.resize)lenis.resize();scrollToEl(tbGoal(t));}
+  [].forEach.call(doc.querySelectorAll('a[href^="#"]:not(.card-a):not(.sample-x):not(.idx-a):not(.bench-t)'),function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h.length<2)return;var t=doc.querySelector(h);if(t&&(lenis||tbPanelOf(t))){e.preventDefault();goTo(t);}});});
 
   
   var heroImg=doc.querySelector('.hero-img');if(heroImg&&heroImg.decode)heroImg.decode().catch(function(){});
@@ -1043,7 +1204,30 @@ window.addEventListener('DOMContentLoaded',function(){
     lines.forEach(function(ws,i){var m=doc.createElement('span');m.className='lmk';var n=doc.createElement('span');n.className='lmi';n.innerHTML=ws.join(' ');m.appendChild(n);el.appendChild(m);if(i<lines.length-1)el.appendChild(doc.createTextNode(' '));});
     el.dataset.split='1';
   }
-  var lms=[].slice.call(doc.querySelectorAll('.lm'));
+  
+  var table=doc.getElementById('table'),bench=doc.getElementById('bench');
+  var tbTabs=bench?[].slice.call(bench.querySelectorAll('.bench-t')):[];
+  var tbTabsEl=bench&&bench.querySelector('.bench-tabs'),tbInd=bench&&bench.querySelector('.bench-ind');
+  var tbCur=null;
+  function tbPanelOf(el){return el&&el.closest?el.closest('.tb-panel'):null;}
+  function tbPanelFor(tab){return tab?doc.getElementById(tab.getAttribute('aria-controls')):null;}
+  function tbTabFor(panel){for(var i=0;i<tbTabs.length;i++)if(panel&&tbPanelFor(tbTabs[i])===panel)return tbTabs[i];return null;}
+  function tbGoal(el){return (table&&el&&el.classList&&el.classList.contains('tb-panel'))?table:el;}
+  function tbHashTarget(){if(!location.hash||location.hash.length<2)return null;try{return doc.getElementById(decodeURIComponent(location.hash.slice(1)));}catch(e){return null;}}
+  
+  function tbSet(tab){
+    tbTabs.forEach(function(t){var on=t===tab,p=tbPanelFor(t);t.setAttribute('aria-selected',on?'true':'false');t.setAttribute('tabindex',on?'0':'-1');if(p)p.hidden=!on;});
+    var pa=tbPanelFor(tab);
+    if(pa&&table){table.setAttribute('data-ground',pa.getAttribute('data-ground')||'trench');table.classList.toggle('dark',pa.classList.contains('dark'));}
+    tbCur=tab;
+  }
+  if(table&&bench&&tbTabs.length){
+    tbTabs.forEach(function(t){var p=tbPanelFor(t);if(!p)return;p.setAttribute('role','tabpanel');p.setAttribute('aria-labelledby',t.id);
+      [].forEach.call(p.querySelectorAll('.tb-it'),function(it,i){it.style.setProperty('--i',Math.min(i,5));});});
+    tbSet(tbTabFor(tbPanelOf(tbHashTarget()))||tbTabs[0]);
+    bench.inert=true;
+  }
+  var lms=[].slice.call(doc.querySelectorAll('.lm')).filter(function(el){return !el.closest('[hidden]');});
   if(motion){doc.fonts&&doc.fonts.ready?doc.fonts.ready.then(function(){lms.forEach(split);fallH2();ScrollTrigger.refresh();}):lms.forEach(split);}
 
   
@@ -1082,7 +1266,7 @@ window.addEventListener('DOMContentLoaded',function(){
   }
   function fallUndo(){
     try{if(fallTl){if(fallTl.scrollTrigger)fallTl.scrollTrigger.kill(true);fallTl.kill();fallTl=null;}
-      gsap.set(doc.querySelectorAll('.fall-win,.fall-img,.fall-line,.fall-veil,.fall-in .fu,.fall-in .lmi,.fall-f,.fall-f img,.fall-plate .fu,.fall-plate .lmi'),{clearProps:'all'});}catch(e){}
+      gsap.set(doc.querySelectorAll('.fall-win,.fall-img,.fall-line,.fall-veil,.fall-in .fu,.fall-in .lmi,.fall-f,.fall-f img,.fall-plate .fu,.fall-plate .lmi,.tb-head .fu,.tb-head .lmi'),{clearProps:'all'});}catch(e){}
   }
   if(motion){
     root.classList.add('mo');
@@ -1113,7 +1297,7 @@ window.addEventListener('DOMContentLoaded',function(){
       });
       
       if(tokensOK){
-        var seq=[['#intro',C.limestone],['#house',C.limestone],['#mani-1',C.limestone],['#bluff',C.limestone],['#caymanite',C.clay],['#thatch',C.thatch],['#sealevel',C.ironshore],['#ironshore',C.ironshore],['#trench',C.trench],['#pieces',C.trench]];
+        var seq=[['#intro',C.limestone],['#house',C.limestone],['#mani-1',C.limestone],['#bluff',C.limestone],['#caymanite',C.clay],['#thatch',C.thatch],['#sealevel',C.ironshore],['#ironshore',C.ironshore],['#trench',C.trench]];
         body.style.backgroundColor=str(C.limestone);
         for(var i=1;i<seq.length;i++)(function(prev,cur,sel){
           if(prev.join()===cur.join())return;
@@ -1148,11 +1332,6 @@ window.addEventListener('DOMContentLoaded',function(){
         [].forEach.call(doc.querySelectorAll('.fall-plate'),function(pl){
           var f=pl.querySelector('.fall-f'),im=f&&f.querySelector('img');
           if(f)gsap.set(f,{clipPath:'inset(100% 0% 0% 0%)'});if(im)gsap.set(im,{scale:1.08});
-          var rise=function(){if(!f||f._in)return;f._in=1;gsap.fromTo(f,{clipPath:'inset(100% 0% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:1.1,ease:'power2.out'});if(im)gsap.to(im,{scale:1,duration:1.1,ease:'power2.out'});};
-          var words=function(){reveal(pl);};
-          
-          if(f)ScrollTrigger.create({trigger:f,start:'top 65%',once:true,onEnter:rise,onLeave:rise});
-          ScrollTrigger.create({trigger:pl,start:'top 70%',once:true,onEnter:words,onLeave:words});
         });
       }
     }catch(err){
@@ -1168,13 +1347,21 @@ window.addEventListener('DOMContentLoaded',function(){
   
   var g=doc.getElementById('gauge'),gv=doc.getElementById('gv'),gl=doc.getElementById('gl'),mk=g&&g.querySelector('.mk'),track=g&&g.querySelector('.track');
   var secs=[].slice.call(doc.querySelectorAll('[data-elev]'));
-  var order=['hero','house','bluff','caymanite','thatch','sealevel','ironshore','trench','fall','pieces','take','floor'];
+  var order=['hero','house','bluff','caymanite','thatch','sealevel','ironshore','trench','fall','table','take','floor'];
   var idxBtn=doc.getElementById('idx-btn');
   
-  var grounds=[].slice.call(doc.querySelectorAll('main section,main footer,main .fall-plate,main .fall-end'));
+  var grounds=[].slice.call(doc.querySelectorAll('main section,main footer,main .tb-panel,main .fall-plate,main .fall-end'));
   
   var fallBox=doc.querySelector('.fall-in');
   function overFall(y){if(!fallBox)return false;var r=fallBox.getBoundingClientRect();return r.top<=y&&r.bottom>y;}
+  
+  var mani1=doc.getElementById('mani-1');
+  function benchWanted(vh){
+    if(!bench||!mani1||openS||idxOpen)return false;
+    if(mani1.getBoundingClientRect().top>vh*0.5)return false;
+    if(seax){var sr=seax.getBoundingClientRect();if(sr.top<vh&&sr.bottom>0)return false;}
+    return true;
+  }
   function darkAt(y){for(var i=grounds.length-1;i>=0;i--){var r=grounds[i].getBoundingClientRect();if(r.top<=y&&r.bottom>y){var s=grounds[i];if(s.id==='sealevel')return y>=r.top+r.height/2;return s.id==='hero'||s.classList.contains('dark');}}return false;}
   function tick(){
     var vh=window.innerHeight,mid=vh*0.5,cur=0;
@@ -1184,14 +1371,15 @@ window.addEventListener('DOMContentLoaded',function(){
     var ea=+a.dataset.elev;
     if(gv)gv.textContent=fmt(ea);
     if(gl)gl.textContent=a.dataset.label;
-    if(g){var gr=g.getBoundingClientRect(),gm=gr.top+gr.height/2;g.classList.toggle('is-dark',darkAt(gm));g.classList.toggle('is-on',cur>0&&a.id!=='pieces'&&!overFall(gm));}
+    if(g){var gr=g.getBoundingClientRect(),gm=gr.top+gr.height/2;g.classList.toggle('is-dark',darkAt(gm));g.classList.toggle('is-on',cur>0&&!overFall(gm));}
     var ib=idxBtn.getBoundingClientRect(),mb=mast.getBoundingClientRect();
     
-    mast.classList.toggle('is-off',a.id==='pieces'||overFall(mb.top+mb.height/2));
+    mast.classList.toggle('is-off',overFall(mb.top+mb.height/2));
     idxBtn.classList.toggle('is-dark',darkAt(ib.top+ib.height/2));
     idxBtn.classList.toggle('is-plate',overFall(ib.top+ib.height/2));
     mast.classList.toggle('is-dark',darkAt(mb.top+mb.height/2));
     mast.classList.toggle('is-on',a.id!=='hero');
+    if(bench){var bw=benchWanted(vh);if(bw!==bench._on){bench._on=bw;bench.classList.toggle('is-on',bw);bench.inert=!bw;}}
     if(mk&&track){var th_=track.clientHeight;if(th_){var idx=order.indexOf(a.id),pos=idx<=0?0:idx>=order.length-2?1:Math.min(1,(idx-1+t)/6);mk.style.transform='translateY('+(pos*(th_-2)).toFixed(1)+'px)';}}
   }
   var pending=0;function onScroll(){if(!pending)pending=raf(function(){pending=0;tick();});}
@@ -1277,20 +1465,75 @@ window.addEventListener('DOMContentLoaded',function(){
   }
 
   
-  var gal=doc.getElementById('pieces'),rail=doc.getElementById('rail');
-  if(motion&&window.matchMedia('(min-width:900px)').matches){
-    var railTween=gsap.to(rail,{x:function(){return -(rail.scrollWidth-window.innerWidth);},ease:'none',scrollTrigger:{trigger:gal,start:'top top',end:function(){return '+='+(rail.scrollWidth-window.innerWidth+200);},pin:true,scrub:.4,invalidateOnRefresh:true,anticipatePin:1}});
-    var railST=railTween.scrollTrigger;
-    
-    rail.addEventListener('focusin',function(e){
-      var card=e.target.closest?e.target.closest('.card'):null;
-      if(!card||!railST)return;
-      var pad=parseFloat(getComputedStyle(rail).paddingLeft)||0;
-      var denom=rail.scrollWidth-window.innerWidth;
-      var frac=denom>0?Math.min(1,Math.max(0,(card.offsetLeft-pad)/denom)):0;
-      var target=railST.start+frac*(railST.end-railST.start);
-      if(lenis)lenis.scrollTo(target,{immediate:true});else window.scrollTo(0,target);
+  function tbReflow(){if(lenis&&lenis.resize)lenis.resize();if(motion)ScrollTrigger.refresh();onScroll();}
+  function tbMoveInd(tab){if(tbInd&&tab)tbInd.style.transform='translateX('+tab.offsetLeft+'px) scaleX('+(tab.offsetWidth/100).toFixed(4)+')';}
+  function tbInView(tab){var el=tbTabsEl;if(!el||!tab)return;var l=tab.offsetLeft,r=l+tab.offsetWidth;
+    if(l<el.scrollLeft)el.scrollLeft=Math.max(0,l-8);else if(r>el.scrollLeft+el.clientWidth)el.scrollLeft=r-el.clientWidth+8;}
+  
+  function tbDraw(tab){if(!motion||!tab)return;tab.classList.add('is-undraw');void tab.offsetWidth;tab.classList.remove('is-undraw');}
+  
+  function tbRise(panel){
+    var head=panel.querySelector('.tb-head');
+    if(!motion){if(head)head.classList.add('is-in');return;}
+    [].forEach.call(panel.querySelectorAll('.lm'),split);
+    if(head){
+      head.classList.remove('is-in');void head.offsetWidth;head.classList.add('is-in');
+      var ls=head.querySelectorAll('.lmi'),fu=head.querySelectorAll('.fu');
+      if(ls.length)gsap.fromTo(ls,{y:0,yPercent:112},{yPercent:0,duration:1,ease:'power3.out',stagger:.09,overwrite:true});
+      if(fu.length)gsap.fromTo(fu,{opacity:0},{opacity:1,duration:.8,ease:'power2.out',stagger:.09,delay:.25,overwrite:true});
+    }
+    panel.classList.add('is-rise');panel.classList.remove('is-go');void panel.offsetWidth;panel.classList.add('is-go');
+  }
+  
+  function tbDisarm(p){if(!p)return;if(p._armT){clearTimeout(p._armT);p._armT=0;}if(p._sts){p._sts.forEach(function(st){st.kill();});p._sts=null;}}
+  function tbArm(p){
+    if(!motion||!p)return;tbDisarm(p);p._sts=[];var vh=window.innerHeight;
+    var head=p.querySelector('.tb-head');
+    if(head&&!head.classList.contains('is-in')){
+      var hr=function(){reveal(head);};
+      if(head.getBoundingClientRect().top<vh*.85)hr();else p._sts.push(ScrollTrigger.create({trigger:head,start:'top 85%',once:true,onEnter:hr,onLeave:hr}));
+    }
+    [].forEach.call(p.querySelectorAll('.fall-plate'),function(pl){
+      var f=pl.querySelector('.fall-f'),im=f&&f.querySelector('img');
+      var rise=function(){if(!f||f._in)return;f._in=1;gsap.fromTo(f,{clipPath:'inset(100% 0% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:1.1,ease:'power2.out'});if(im)gsap.to(im,{scale:1,duration:1.1,ease:'power2.out'});};
+      var words=function(){reveal(pl);};
+      
+      if(f&&!f._in){if(f.getBoundingClientRect().top<vh*.65)rise();else p._sts.push(ScrollTrigger.create({trigger:f,start:'top 65%',once:true,onEnter:rise,onLeave:rise}));}
+      if(!pl.classList.contains('is-in')){if(pl.getBoundingClientRect().top<vh*.7)words();else p._sts.push(ScrollTrigger.create({trigger:pl,start:'top 70%',once:true,onEnter:words,onLeave:words}));}
     });
+  }
+  
+  function tbArmSoon(p){if(!motion||!p)return;if(p._armT)clearTimeout(p._armT);p._armT=setTimeout(function(){p._armT=0;if(tbPanelFor(tbCur)===p)tbArm(p);},lenis?1500:60);}
+  
+  function tbActivate(tab){
+    if(!tab||tab===tbCur)return false;
+    tbDisarm(tbPanelFor(tbCur));
+    tbSet(tab);
+    var p=tbPanelFor(tab);
+    tbMoveInd(tab);tbInView(tab);tbDraw(tab);
+    if(p){tbRise(p);tbArmSoon(p);}
+    tbReflow();
+    return true;
+  }
+  
+  function tbShow(t){var p=tbPanelOf(t);if(!p)return false;var tab=tbTabFor(p);if(tab)tbActivate(tab);return true;}
+  
+  function tbPick(tab){tbActivate(tab);if(lenis&&lenis.resize)lenis.resize();scrollToEl(table);}
+  if(table&&bench&&tbTabs.length){
+    tbTabs.forEach(function(t){t.addEventListener('click',function(e){e.preventDefault();tbPick(t);});});
+    tbTabsEl.addEventListener('keydown',function(e){
+      var i=tbTabs.indexOf(doc.activeElement);if(i<0)return;
+      var n=tbTabs.length,k=e.key,j=-1;
+      if(k==='ArrowRight')j=(i+1)%n;else if(k==='ArrowLeft')j=(i-1+n)%n;else if(k==='Home')j=0;else if(k==='End')j=n-1;
+      else if(k===' '||k==='Spacebar'){e.preventDefault();tbPick(tbTabs[i]);return;}
+      else return;
+      e.preventDefault();tbTabs[j].focus({preventScroll:true});tbPick(tbTabs[j]);
+    });
+    window.addEventListener('resize',function(){tbMoveInd(tbCur);});
+    if(doc.fonts&&doc.fonts.ready)doc.fonts.ready.then(function(){tbMoveInd(tbCur);});
+    window.addEventListener('hashchange',function(){var t=tbHashTarget();if(t&&tbPanelOf(t))goTo(t);});
+    tbMoveInd(tbCur);
+    tbArm(tbPanelFor(tbCur));
   }
 
   
@@ -1314,7 +1557,7 @@ window.addEventListener('DOMContentLoaded',function(){
   }
   [].forEach.call(doc.querySelectorAll('.card-a'),function(a){a.addEventListener('click',function(e){var s=doc.querySelector(a.getAttribute('href'));if(!s)return;
     
-    if(!s.classList.contains('sample')){if(lenis){e.preventDefault();scrollToEl(s);}return;}
+    if(!s.classList.contains('sample')){if(lenis||tbPanelOf(s)){e.preventDefault();goTo(s);}return;}
     e.preventDefault();openSample(s,a);});});
   samples.forEach(function(s){s.querySelector('.sample-x').addEventListener('click',function(e){e.preventDefault();closeSample();});});
   if(location.hash&&/^#sample-/.test(location.hash)){var s0=doc.querySelector(location.hash);if(s0)openSample(s0,null);}
@@ -1365,15 +1608,16 @@ window.addEventListener('DOMContentLoaded',function(){
   
   var idx=doc.getElementById('idx'),idxOpen=false,idxLast=null;
   var idxLinks=[].slice.call(idx.querySelectorAll('.idx-a'));
-  function openIdx(){if(idxOpen)return;idxOpen=true;idxLast=doc.activeElement;idx.hidden=false;
+  function openIdx(){if(idxOpen)return;idxOpen=true;root.classList.add('idx-open');idxLast=doc.activeElement;idx.hidden=false;
     void idx.offsetWidth;idx.classList.add('is-on');idxBtn.setAttribute('aria-expanded','true');if(lenis)lenis.stop();
     setTimeout(function(){idxLinks[0].focus({preventScroll:true});},rm?0:120);}
-  function closeIdx(){if(!idxOpen)return;idxOpen=false;idx.classList.remove('is-on');idxBtn.setAttribute('aria-expanded','false');if(lenis&&!openS)lenis.start();
+  function closeIdx(){if(!idxOpen)return;idxOpen=false;root.classList.remove('idx-open');idx.classList.remove('is-on');idxBtn.setAttribute('aria-expanded','false');if(lenis&&!openS)lenis.start();
     setTimeout(function(){if(!idxOpen)idx.hidden=true;},rm?0:520);(idxLast||idxBtn).focus({preventScroll:true});}
   idxBtn.addEventListener('click',function(){idxOpen?closeIdx():openIdx();});
   idxLinks.forEach(function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h.charAt(0)!=='#')return;var t=doc.querySelector(h);if(!t)return;e.preventDefault();closeIdx();
     if(!t.hasAttribute('tabindex'))t.setAttribute('tabindex','-1');
-    setTimeout(function(){if(lenis){lenis.start();lenis.scrollTo(landAt(t),{offset:0,duration:1.6,onComplete:function(){t.focus({preventScroll:true});}});}else{t.scrollIntoView();t.focus({preventScroll:true});}},rm?0:80);});});
+    
+    setTimeout(function(){tbShow(t);var g=tbGoal(t);if(lenis){lenis.start();if(lenis.resize)lenis.resize();lenis.scrollTo(landAt(g),{offset:0,duration:1.6,onComplete:function(){t.focus({preventScroll:true});}});}else{g.scrollIntoView();t.focus({preventScroll:true});}},rm?0:80);});});
   idx.addEventListener('keydown',function(e){
     var i=idxLinks.indexOf(doc.activeElement);
     if(e.key==='Tab'){var f=[idxBtn].concat(idxLinks);var j=f.indexOf(doc.activeElement);if(j<0)j=0;e.preventDefault();f[(j+(e.shiftKey?-1:1)+f.length)%f.length].focus({preventScroll:true});}
@@ -1387,6 +1631,8 @@ window.addEventListener('DOMContentLoaded',function(){
   window.addEventListener('resize',function(){cores.forEach(function(c){if(c.classList.contains('is-open'))leads(c);});});
 
   if(motion){ScrollTrigger.sort();setTimeout(function(){ScrollTrigger.refresh();},200);}
+  var tbLoadT=tbHashTarget();
+  if(tbLoadT&&tbPanelOf(tbLoadT)){setTimeout(function(){if(lenis&&lenis.resize)lenis.resize();var g=tbGoal(tbLoadT);if(lenis)lenis.scrollTo(landAt(g),{offset:0,immediate:true});else g.scrollIntoView();},320);}
 })();
 });
 </script>
