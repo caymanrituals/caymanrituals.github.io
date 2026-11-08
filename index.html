@@ -1373,14 +1373,16 @@ window.addEventListener('DOMContentLoaded',function(){
     [].forEach.call(doc.querySelectorAll('.fall-fig,.fall-txt,.fall-plate'),function(f){f.classList.add('is-in');});
   }
   
-  var fallTl=null;
+  var fallTl=null,fallH2ST=null;
   
   function fallH2(){
     if(!fallTl||fallTl._h2)return;var hl=doc.querySelectorAll('#fall-h .lmi');if(!hl.length)return;fallTl._h2=1;
-    fallTl.fromTo(hl,{y:0,yPercent:112},{yPercent:0,ease:'power2.out',duration:.28,stagger:.05},.4);
+    var open=function(){gsap.fromTo(hl,{y:0,yPercent:112},{yPercent:0,ease:'power2.out',duration:.55,stagger:.06,overwrite:true});};
+    if(fallIn&&fallIn.getBoundingClientRect().top<window.innerHeight*.8)open();
+    else fallH2ST=ScrollTrigger.create({trigger:fallIn,start:'top 80%',once:true,onEnter:open,onLeave:open});
   }
   function fallUndo(){
-    try{if(fallTl){if(fallTl.scrollTrigger)fallTl.scrollTrigger.kill(true);fallTl.kill();fallTl=null;}
+    try{if(fallH2ST){fallH2ST.kill(true);fallH2ST=null;}if(fallTl){if(fallTl.scrollTrigger)fallTl.scrollTrigger.kill(true);fallTl.kill();fallTl=null;}
       gsap.set(doc.querySelectorAll('.fall-win,.fall-img,.fall-line,.fall-veil,.fall-in .fu,.fall-in .lmi,.fall-f,.fall-f img,.fall-plate .fu,.fall-plate .lmi,.tb-head .fu,.tb-head .lmi'),{clearProps:'all'});}catch(e){}
   }
   if(motion){
