@@ -58,10 +58,10 @@ const FIELDS = {
 
 /* ---- the presets ---- */
 const PRESETS = {
-  bluff: { field: 'cloud', n: [26, 44], size: [1.8, 5.0], alpha: [0.18, 0.42], dir: 1, speed: 0.006, sway: 0.05, par: 0.55, add: false, c1: [0.30, 0.27, 0.24], c2: [0.55, 0.42, 0.30], fc1: null, fc2: null },
-  caymanite: { field: 'strata', n: [28, 48], size: [1.8, 5.2], alpha: [0.18, 0.42], dir: 1, speed: 0.007, sway: 0.04, par: 0.6, add: false, c1: 'oxblood', c2: [0.78, 0.52, 0.28], fc1: 'oxblood', fc2: [0.80, 0.56, 0.30] },
-  thatch: { field: 'dapple', n: [30, 50], size: [1.6, 4.6], alpha: [0.2, 0.42], dir: 1, speed: 0.009, sway: 0.09, par: 0.7, add: false, c1: [0.30, 0.37, 0.20], c2: [0.62, 0.55, 0.28], fc1: [0.14, 0.19, 0.09], fc2: [1.0, 0.97, 0.84] },
-  ironshore: { field: 'caustic', n: [34, 60], size: [1.4, 4.2], alpha: [0.25, 0.7], dir: 1, speed: 0.011, sway: 0.05, par: 0.8, add: true, c1: 'bone', c2: 'brass', fc1: 'brass', fc2: 'bone' },
+  bluff: { field: 'cloud', gain: 2.6, n: [26, 44], size: [1.8, 5.0], alpha: [0.18, 0.42], dir: 1, speed: 0.006, sway: 0.05, par: 0.55, add: false, c1: [0.30, 0.27, 0.24], c2: [0.55, 0.42, 0.30], fc1: null, fc2: null },
+  caymanite: { field: 'strata', gain: 1.7, n: [28, 48], size: [1.8, 5.2], alpha: [0.18, 0.42], dir: 1, speed: 0.007, sway: 0.04, par: 0.6, add: false, c1: 'oxblood', c2: [0.78, 0.52, 0.28], fc1: 'oxblood', fc2: [0.80, 0.56, 0.30] },
+  thatch: { field: 'dapple', gain: 1.4, n: [30, 50], size: [1.6, 4.6], alpha: [0.2, 0.42], dir: 1, speed: 0.009, sway: 0.09, par: 0.7, add: false, c1: [0.30, 0.37, 0.20], c2: [0.62, 0.55, 0.28], fc1: [0.14, 0.19, 0.09], fc2: [1.0, 0.97, 0.84] },
+  ironshore: { field: 'caustic', gain: 1.7, n: [34, 60], size: [1.4, 4.2], alpha: [0.25, 0.7], dir: 1, speed: 0.011, sway: 0.05, par: 0.8, add: true, c1: 'bone', c2: 'brass', fc1: 'brass', fc2: 'bone' },
   carry: { field: 'shafts', n: [40, 72], size: [1.5, 4.2], alpha: [0.3, 0.75], dir: 1, speed: 0.006, sway: 0.05, par: 0.5, add: true, c1: [1.0, 0.86, 0.66], c2: [1.0, 0.72, 0.5], fc1: [1.0, 0.86, 0.66], fc2: [1.0, 0.7, 0.5] },
   trench: { field: 'none', n: [200, 460], size: [1.5, 5.0], alpha: [0.2, 0.85], dir: -1, speed: 0.011, sway: 0.03, par: 1.0, add: true, c1: 'bone', c2: 'brass', bio: 0.03 },
   take: { field: 'none', n: [40, 80], size: [1.4, 4.0], alpha: [0.22, 0.6], dir: -1, speed: 0.006, sway: 0.04, par: 0.7, add: true, c1: 'brass', c2: 'bone' },
@@ -105,10 +105,10 @@ void main(){
 
 function fieldFrag(kind) {
   return `precision highp float;
-uniform float uTime, uScroll, uAsp; uniform vec3 uC1, uC2; varying vec2 vUv;
+uniform float uTime, uScroll, uAsp, uGain; uniform vec3 uC1, uC2; varying vec2 vUv;
 ${GLSL_NOISE}
 vec4 field(vec2 uv, float t, float asp){ ${FIELDS[kind]} }
-void main(){ vec4 f = field(vUv, uTime, uAsp); gl_FragColor = vec4(f.rgb, f.a); }`;
+void main(){ vec4 f = field(vUv, uTime, uAsp); gl_FragColor = vec4(f.rgb, clamp(f.a * uGain, 0.0, 1.0)); }`;
 }
 
 export async function create(ctx) {
@@ -127,7 +127,7 @@ export async function create(ctx) {
   // the light field
   let quad = null;
   const FU = {
-    uTime: { value: 0 }, uScroll: { value: 0 }, uAsp: { value: 1 },
+    uTime: { value: 0 }, uScroll: { value: 0 }, uAsp: { value: 1 }, uGain: { value: P.gain || 1 },
     uC1: { value: col(P.fc1 || P.c1) }, uC2: { value: col(P.fc2 || P.c2) },
   };
   if (P.field !== 'none') {

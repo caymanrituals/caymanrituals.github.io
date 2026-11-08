@@ -721,19 +721,34 @@ footer .ul{display:inline-block;padding-block:11px}
 .layer-register-grid #sealevel .seax-c{display:none}
 .layer-register-grid #sealevel.has-gl .sea{opacity:1}
 .layer-register-grid #trench .snow{display:none}
+/* The page makes every .layer transparent so its ground can colour-shift while it scrolls; inside the register the
+   grid's hairline colour showed through and flattened three panels to one grey. Each panel keeps its own ground. */
+.layer-register-grid>#bluff{background:var(--limestone)}
+.layer-register-grid>#caymanite{background:var(--clay)}
+.layer-register-grid>#thatch{background:var(--thatch)}
+/* Five panels in a two-column grid: Thatch takes the whole row, so no cell is ever empty (Bluff | Caymanite, Thatch,
+   the waterline, Ironshore | Trench). */
+.layer-register-grid>#thatch{grid-column:1/-1}
+/* Safe zone for the fixed chrome (wordmark, INDEX): the register's targets land below it, so a numeral or the
+   waterline is never printed under the wordmark or the INDEX button when you jump to it. */
+:root{--chrome-safe:80px}
+#layers,.layer-register-grid>*{scroll-margin-top:var(--chrome-safe)}
 #mani-1{min-height:0;padding-block:var(--s3);display:block}
 #mani-1 .mani-l{margin:0}
 @media(min-width:900px){
  .layer-register-head{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end;column-gap:var(--s6);padding-block:var(--s6)}
 
- .layer-register-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
- .layer-register-grid #trench{grid-column:span 2}
+ :root{--chrome-safe:112px}
+ /* the wordmark is fixed against the left edge and the elevation gauge against the right: the panels that reach either edge keep their text clear of it, as the rest of the page does */
+ .layer-register-grid>#bluff,.layer-register-grid>#thatch,.layer-register-grid>#ironshore{padding-left:max(clamp(16px,2.4vw,34px),160px)}
+ .layer-register-grid>#caymanite,.layer-register-grid>#thatch,.layer-register-grid>#trench{padding-right:max(clamp(16px,2.4vw,34px),160px)}
  .fall-in{height:auto;min-height:0;overflow:visible;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:center;gap:var(--s6);padding:clamp(24px,5vw,72px)}
  .fall-fig,.fall-frame,.fall-win{position:relative;inset:auto}
  .fall-win{aspect-ratio:4/3}
  .fall-cred{position:static;inset:auto;display:block;margin:var(--s2) 0 0;max-width:52ch;text-align:left;color:var(--bone-soft)}
   .fall-txt{position:relative;left:auto;right:auto;bottom:auto;padding:0}
 }
+@media(min-width:700px){.layer-register-grid>#thatch .chap-in{columns:2;column-gap:var(--s6)}.layer-register-grid>#thatch .notes{break-before:column}.layer-register-grid>#thatch .elev,.layer-register-grid>#thatch .name,.layer-register-grid>#thatch h3,.layer-register-grid>#thatch .status,.layer-register-grid>#thatch .ch-studies{break-inside:avoid}}
 @media(max-width:359px){.layer-register-grid{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:899px){.fall-in{height:auto;min-height:0}.fall-win{aspect-ratio:4/3}}
 @media(prefers-reduced-motion:reduce){.layer-register *{scroll-behavior:auto!important;transition:none!important}}
@@ -1274,10 +1289,12 @@ window.addEventListener('DOMContentLoaded',function(){
   }
   
   function landAt(el){var st=fallTl&&fallTl.scrollTrigger;return (st&&el&&(el.id==='fall'||el.classList.contains('fall-in')))?st.end:el;}
-  function scrollToEl(el){if(lenis)lenis.scrollTo(landAt(el),{offset:0,duration:1.4});else el.scrollIntoView();}
+  /* a target may ask to land below the fixed chrome (CSS scroll-margin-top); Lenis does not read it, the native path does */
+  function landOff(el){var m=0;try{m=parseFloat(getComputedStyle(el).scrollMarginTop)||0;}catch(e){}return -m;}
+  function scrollToEl(el){if(lenis)lenis.scrollTo(landAt(el),{offset:landOff(el),duration:1.4});else el.scrollIntoView();}
   
   function goTo(t){tbShow(t);if(lenis&&lenis.resize)lenis.resize();scrollToEl(tbGoal(t));}
-  [].forEach.call(doc.querySelectorAll('a[href^="#"]:not(.card-a):not(.sample-x):not(.idx-a):not(.bench-t)'),function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h.length<2)return;var t=doc.querySelector(h);if(t&&(lenis||tbPanelOf(t))){e.preventDefault();goTo(t);}});});
+  [].forEach.call(doc.querySelectorAll('a[href^="#"]:not(.card-a):not(.sample-x):not(.idx-a):not(.bench-t):not([href^="#sample-"])'),function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h.length<2)return;var t=doc.querySelector(h);if(t&&(lenis||tbPanelOf(t))){e.preventDefault();goTo(t);}});});
 
   
   var heroImg=doc.querySelector('.hero-img');if(heroImg&&heroImg.decode)heroImg.decode().catch(function(){});
@@ -1465,6 +1482,12 @@ window.addEventListener('DOMContentLoaded',function(){
   
   var tableBox=doc.getElementById('table');
   function overTable(y){if(!tableBox)return false;var r=tableBox.getBoundingClientRect();return r.top<=y&&r.bottom>y;}
+  /* fixed chrome never prints over register text or the waterline: the wordmark steps aside while any of it is beneath, the gauge while the waterline crosses it, and INDEX takes its plate */
+  var regGrid=doc.getElementById('layers'),regText=regGrid?[].slice.call(regGrid.querySelectorAll('.layer-register-head .eyebrow,.layer-register-head h2,.elev .n,.name,.layer h3,.seax-l,.status,.aside,summary,.notes p,.ch-study-title,.ch-study-status')):[];
+  function hits(a,b,pad){return a.width>0&&b.width>0&&a.bottom>b.top-pad&&a.top<b.bottom+pad&&a.right>b.left-pad&&a.left<b.right+pad;}
+  function overSea(r){return !!seax&&hits(seax.getBoundingClientRect(),r,0);}
+  function overRegText(r){if(!regGrid)return false;var g=regGrid.getBoundingClientRect();if(g.bottom<r.top||g.top>r.bottom)return false;
+    for(var i=0;i<regText.length;i++){if(hits(regText[i].getBoundingClientRect(),r,8))return true;}return false;}
   function darkAt(y){for(var i=grounds.length-1;i>=0;i--){var r=grounds[i].getBoundingClientRect();if(r.top<=y&&r.bottom>y){var s=grounds[i];if(s.id==='sealevel')return y>=r.top+r.height/2;return s.id==='hero'||s.classList.contains('dark');}}return false;}
   function tick(){
     var vh=window.innerHeight,mid=vh*0.5,cur=0;
@@ -1474,12 +1497,12 @@ window.addEventListener('DOMContentLoaded',function(){
     var ea=+a.dataset.elev;
     if(gv)gv.textContent=fmt(ea);
     if(gl)gl.textContent=a.dataset.label;
-    if(g){var gr=g.getBoundingClientRect(),gm=gr.top+gr.height/2;g.classList.toggle('is-dark',darkAt(gm));g.classList.toggle('is-on',cur>0&&!overFall(gm)&&!overCarry(gm));}
+    if(g){var gr=g.getBoundingClientRect(),gm=gr.top+gr.height/2;g.classList.toggle('is-dark',darkAt(gm));g.classList.toggle('is-on',cur>0&&!overFall(gm)&&!overCarry(gm)&&!overSea(gr));}
     var ib=idxBtn.getBoundingClientRect(),mb=mast.getBoundingClientRect();
     
-    mast.classList.toggle('is-off',overFall(mb.top+mb.height/2)||overTable(mb.top+mb.height/2));
-    idxBtn.classList.toggle('is-dark',darkAt(ib.top+ib.height/2));
-    idxBtn.classList.toggle('is-plate',overFall(ib.top+ib.height/2)||overCarry(ib.top+ib.height/2));
+    mast.classList.toggle('is-off',overFall(mb.top+mb.height/2)||overTable(mb.top+mb.height/2)||overRegText(mb));
+    idxBtn.classList.toggle('is-dark',darkAt(ib.top+ib.height/2)||overSea(ib));
+    idxBtn.classList.toggle('is-plate',overFall(ib.top+ib.height/2)||overCarry(ib.top+ib.height/2)||overSea(ib));
     mast.classList.toggle('is-dark',darkAt(mb.top+mb.height/2));
     mast.classList.toggle('is-on',a.id!=='hero');
     if(bench){var bw=benchWanted(vh);if(bw!==bench._on){bench._on=bw;bench.classList.toggle('is-on',bw);bench.inert=!bw;}}
@@ -1658,7 +1681,7 @@ window.addEventListener('DOMContentLoaded',function(){
     s.classList.remove('is-on');setBehind(false);root.classList.remove('sample-open');if(lenis)lenis.start();onScroll();
     if(!silent&&lastFocus)lastFocus.focus({preventScroll:true});
   }
-  [].forEach.call(doc.querySelectorAll('.card-a'),function(a){a.addEventListener('click',function(e){var s=doc.querySelector(a.getAttribute('href'));if(!s)return;
+  [].forEach.call(doc.querySelectorAll('.card-a,a[href^="#sample-"]'),function(a){a.addEventListener('click',function(e){var s=doc.querySelector(a.getAttribute('href'));if(!s)return;
     
     if(!s.classList.contains('sample')){if(lenis||tbPanelOf(s)){e.preventDefault();goTo(s);}return;}
     e.preventDefault();openSample(s,a);});});
@@ -1720,7 +1743,7 @@ window.addEventListener('DOMContentLoaded',function(){
   idxLinks.forEach(function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h.charAt(0)!=='#')return;var t=doc.querySelector(h);if(!t)return;e.preventDefault();closeIdx();
     if(!t.hasAttribute('tabindex'))t.setAttribute('tabindex','-1');
     
-    setTimeout(function(){tbShow(t);var g=tbGoal(t);if(lenis){lenis.start();if(lenis.resize)lenis.resize();lenis.scrollTo(landAt(g),{offset:0,duration:1.6,onComplete:function(){t.focus({preventScroll:true});}});}else{g.scrollIntoView();t.focus({preventScroll:true});}},rm?0:80);});});
+    setTimeout(function(){tbShow(t);var g=tbGoal(t);if(lenis){lenis.start();if(lenis.resize)lenis.resize();lenis.scrollTo(landAt(g),{offset:landOff(g),duration:1.6,onComplete:function(){t.focus({preventScroll:true});}});}else{g.scrollIntoView();t.focus({preventScroll:true});}},rm?0:80);});});
   idx.addEventListener('keydown',function(e){
     var i=idxLinks.indexOf(doc.activeElement);
     if(e.key==='Tab'){var f=[idxBtn].concat(idxLinks);var j=f.indexOf(doc.activeElement);if(j<0)j=0;e.preventDefault();f[(j+(e.shiftKey?-1:1)+f.length)%f.length].focus({preventScroll:true});}
@@ -1735,7 +1758,7 @@ window.addEventListener('DOMContentLoaded',function(){
 
   if(motion){ScrollTrigger.sort();setTimeout(function(){ScrollTrigger.refresh();},200);}
   var tbLoadT=tbHashTarget();
-  if(tbLoadT&&tbPanelOf(tbLoadT)){setTimeout(function(){if(lenis&&lenis.resize)lenis.resize();var g=tbGoal(tbLoadT);if(lenis)lenis.scrollTo(landAt(g),{offset:0,immediate:true});else g.scrollIntoView();},320);}
+  if(tbLoadT&&tbPanelOf(tbLoadT)){setTimeout(function(){if(lenis&&lenis.resize)lenis.resize();var g=tbGoal(tbLoadT);if(lenis)lenis.scrollTo(landAt(g),{offset:landOff(g),immediate:true});else g.scrollIntoView();},320);}
 })();
 });
 </script>
