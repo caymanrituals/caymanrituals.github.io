@@ -233,6 +233,9 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:400;margin:0;text-wrap:balanc
 .sample:target{display:block}
 :root.js .sample{display:block;position:fixed;inset:0;z-index:50;overflow:auto;opacity:0;visibility:hidden;transform:translateY(24px);transition:opacity 500ms var(--ease-out),transform 500ms var(--ease-out),visibility 0s linear 500ms}
 :root.js .sample.is-on{opacity:1;visibility:visible;transform:none;transition-delay:0s,0s,0s}
+/* A closed study is not rendered, so its lazy images are not fetched until it opens (they were all loading at page start).
+   The flip waits out the fade, as visibility does. JS pages only: without JS the :target rule still opens a study. */
+:root.js .sample:not(.is-on){content-visibility:hidden;transition:opacity 500ms var(--ease-out),transform 500ms var(--ease-out),visibility 0s linear 500ms,content-visibility 0s linear 500ms allow-discrete}
 .sample,.idx{overscroll-behavior:contain}
 .sample-in{max-width:1180px;margin:0 auto;padding:var(--s7) 20px var(--s8);display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5);min-height:100vh;align-content:center}
 @media(min-width:1000px){.sample-in{grid-template-columns:minmax(0,4fr) minmax(0,7fr);column-gap:var(--s7);padding-inline:var(--s6)}}
@@ -495,7 +498,7 @@ footer .fine{margin-top:var(--s3);font-size:var(--t1);max-width:70ch}
   
   .idx-btn{transition:color 300ms var(--ease-out),opacity 400ms var(--ease-out),background-color 300ms var(--ease-out),box-shadow 300ms var(--ease-out)}
   .idx-btn.is-plate:not([aria-expanded="true"]){background:var(--trench);box-shadow:inset 0 0 0 1px var(--rule-dark);padding-inline:14px;margin-right:-6px}}
-@media(max-width:899px){.idx-btn{background:var(--limestone);border:1px solid var(--rule-light);padding:12px 14px;min-height:44px}.idx-btn.is-dark{background:var(--trench);border-color:var(--rule-dark)}}
+@media(max-width:899px){.idx-btn{position:absolute;background:var(--limestone);border:1px solid var(--rule-light);padding:12px 14px;min-height:44px}.idx-btn.is-dark{background:var(--trench);border-color:var(--rule-dark)}}
 .idx{position:fixed;inset:0;z-index:40;background:var(--trench);color:var(--bone);overflow:auto;opacity:0;visibility:hidden;transition:opacity 500ms var(--ease-out),visibility 0s linear 500ms}
 .idx.is-on{opacity:1;visibility:visible;transition-delay:0s,0s}
 .idx[hidden]{display:block}
@@ -538,7 +541,7 @@ footer .ul{display:inline-block;padding-block:11px}
   :root.js .sea::before{transform:none;transition:none}
   :root.js .seax.is-in .sea::after{animation:none;opacity:0}
   :root.js .snow{display:none}
-  :root.js .sample{transition:none}
+  :root.js .sample,:root.js .sample:not(.is-on){transition:none}
   .seax-c{display:none}
   .stratum,.lab,.ld,.leads{transition:none}
   .core .stack,.core.is-open .stack{margin-bottom:calc(4*var(--g))}
@@ -718,19 +721,34 @@ footer .ul{display:inline-block;padding-block:11px}
 .layer-register-grid #sealevel .seax-c{display:none}
 .layer-register-grid #sealevel.has-gl .sea{opacity:1}
 .layer-register-grid #trench .snow{display:none}
+/* The page makes every .layer transparent so its ground can colour-shift while it scrolls; inside the register the
+   grid's hairline colour showed through and flattened three panels to one grey. Each panel keeps its own ground. */
+.layer-register-grid>#bluff{background:var(--limestone)}
+.layer-register-grid>#caymanite{background:var(--clay)}
+.layer-register-grid>#thatch{background:var(--thatch)}
+/* Five panels in a two-column grid: Thatch takes the whole row, so no cell is ever empty (Bluff | Caymanite, Thatch,
+   the waterline, Ironshore | Trench). */
+.layer-register-grid>#thatch{grid-column:1/-1}
+/* Safe zone for the fixed chrome (wordmark, INDEX): the register's targets land below it, so a numeral or the
+   waterline is never printed under the wordmark or the INDEX button when you jump to it. */
+:root{--chrome-safe:80px}
+#layers,.layer-register-grid>*{scroll-margin-top:var(--chrome-safe)}
 #mani-1{min-height:0;padding-block:var(--s3);display:block}
 #mani-1 .mani-l{margin:0}
 @media(min-width:900px){
  .layer-register-head{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end;column-gap:var(--s6);padding-block:var(--s6)}
 
- .layer-register-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
- .layer-register-grid #trench{grid-column:span 2}
+ :root{--chrome-safe:112px}
+ /* the wordmark is fixed against the left edge and the elevation gauge against the right: the panels that reach either edge keep their text clear of it, as the rest of the page does */
+ .layer-register-grid>#bluff,.layer-register-grid>#thatch,.layer-register-grid>#ironshore{padding-left:max(clamp(16px,2.4vw,34px),160px)}
+ .layer-register-grid>#caymanite,.layer-register-grid>#thatch,.layer-register-grid>#trench{padding-right:max(clamp(16px,2.4vw,34px),160px)}
  .fall-in{height:auto;min-height:0;overflow:visible;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:center;gap:var(--s6);padding:clamp(24px,5vw,72px)}
  .fall-fig,.fall-frame,.fall-win{position:relative;inset:auto}
  .fall-win{aspect-ratio:4/3}
  .fall-cred{position:static;inset:auto;display:block;margin:var(--s2) 0 0;max-width:52ch;text-align:left;color:var(--bone-soft)}
   .fall-txt{position:relative;left:auto;right:auto;bottom:auto;padding:0}
 }
+@media(min-width:700px){.layer-register-grid>#thatch .chap-in{columns:2;column-gap:var(--s6)}.layer-register-grid>#thatch .notes{break-before:column}.layer-register-grid>#thatch .elev,.layer-register-grid>#thatch .name,.layer-register-grid>#thatch h3,.layer-register-grid>#thatch .status,.layer-register-grid>#thatch .ch-studies{break-inside:avoid}}
 @media(max-width:359px){.layer-register-grid{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:899px){.fall-in{height:auto;min-height:0}.fall-win{aspect-ratio:4/3}}
 @media(prefers-reduced-motion:reduce){.layer-register *{scroll-behavior:auto!important;transition:none!important}}
@@ -989,11 +1007,11 @@ footer .ul{display:inline-block;padding-block:11px}
     </div>
     <div class="w pcs">
       <ul class="rail" id="rail" tabindex="0" aria-label="Coming soon studies">
-        <li class="card tb-it"><a class="card-a" href="#sample-keeper"><span class="card-f"><picture><source type="image/avif" srcset="img/g-keeper-600.avif 600w" sizes="(min-width:1180px) 290px, (min-width:900px) 24vw, (min-width:600px) 44vw, 90vw" data-srcset="img/g-keeper-600.avif 600w, img/g-keeper-900.avif 900w, img/g-keeper.avif 1200w"><img src="img/g-keeper.jpg" alt="Concept render: a polished disc of banded caymanite engraved with CAY over RIT, shown at a lapidary bench." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">The Keeper</span><span class="card-l">Coming soon. A future concept for a reusable candle lid; material, refill fit and any numbered run remain to be confirmed.</span></span></a></li>
-        <li class="card tb-it"><a class="card-a" href="#sample-slab"><span class="card-f"><picture><source type="image/avif" srcset="img/g-slab-600.avif 600w" sizes="(min-width:1180px) 290px, (min-width:900px) 24vw, (min-width:600px) 44vw, 90vw" data-srcset="img/g-slab-600.avif 600w, img/g-slab-900.avif 900w, img/g-slab.avif 1200w"><img src="img/g-slab.jpg" alt="Concept render: a rectangular pendant of banded red and cream stone in a thin gold frame on a fine chain." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">The Slab</span><span class="card-l">A future study of banded stone in a plain gold frame; sourcing, final materials and any edition size remain to be confirmed.</span></span></a></li>
-        <li class="card tb-it"><a class="card-a" href="#sample-rope"><span class="card-f"><picture><source type="image/avif" srcset="img/f-bracelet-600.avif 600w" sizes="(min-width:1180px) 290px, (min-width:900px) 24vw, (min-width:600px) 44vw, 90vw" data-srcset="img/f-bracelet-600.avif 600w, img/f-bracelet-900.avif 900w, img/f-bracelet.avif 1200w"><img src="img/f-bracelet.jpg" alt="Concept render: a pale palm-fibre rope bracelet with brass end caps." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">The Rope</span><span class="card-l">A future bracelet study referencing Caymanian silver-thatch rope; material, craft method and any numbering remain to be confirmed.</span></span></a></li>
-        <li class="card tb-it"><a class="card-a" href="#sample-edp"><span class="card-f"><picture><source type="image/avif" srcset="img/g-edp-600.avif 600w" sizes="(min-width:1180px) 290px, (min-width:900px) 24vw, (min-width:600px) 44vw, 90vw" data-srcset="img/g-edp-600.avif 600w, img/g-edp-900.avif 900w, img/g-edp.avif 1200w"><img src="img/g-edp.jpg" alt="Concept render: a heavy square glass perfume bottle with a cap wrapped in pale palm cord, on wet black rock." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">Eau de parfum</span><span class="card-l">Coming soon. A future plain-glass eau de parfum concept, with a cap intended to explore woven fibre.</span></span></a></li>
-        <li class="card tb-it"><a class="card-a" href="#sample-candle"><span class="card-f"><picture><source type="image/avif" srcset="img/g-candle-600.avif 600w" sizes="(min-width:1180px) 290px, (min-width:900px) 24vw, (min-width:600px) 44vw, 90vw" data-srcset="img/g-candle-600.avif 600w, img/g-candle-900.avif 900w, img/g-candle.avif 1200w"><img src="img/g-candle.jpg" alt="Concept render: a heavy glass tumbler candle design with three horizontal bands of cream, oxblood and umber." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">The Section Candle</span><span class="card-l">Coming soon. A future three-band candle study; formula, burn behaviour and finish remain to be confirmed.</span></span></a></li>
+        <li class="card tb-it"><a class="card-a" href="#sample-keeper"><span class="card-f"><picture><source type="image/avif" srcset="img/g-keeper-600.avif 600w" sizes="(min-width:1180px) 290px, (min-width:900px) 24vw, (min-width:600px) 44vw, 90vw" data-srcset="img/g-keeper-600.avif 600w, img/g-keeper-900.avif 900w, img/g-keeper.avif 1200w"><img loading="lazy" decoding="async" src="img/g-keeper.jpg" alt="Concept render: a polished disc of banded caymanite engraved with CAY over RIT, shown at a lapidary bench." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">The Keeper</span><span class="card-l">Coming soon. A future concept for a reusable candle lid; material, refill fit and any numbered run remain to be confirmed.</span></span></a></li>
+        <li class="card tb-it"><a class="card-a" href="#sample-slab"><span class="card-f"><picture><source type="image/avif" srcset="img/g-slab-600.avif 600w" sizes="(min-width:1180px) 290px, (min-width:900px) 24vw, (min-width:600px) 44vw, 90vw" data-srcset="img/g-slab-600.avif 600w, img/g-slab-900.avif 900w, img/g-slab.avif 1200w"><img loading="lazy" decoding="async" src="img/g-slab.jpg" alt="Concept render: a rectangular pendant of banded red and cream stone in a thin gold frame on a fine chain." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">The Slab</span><span class="card-l">A future study of banded stone in a plain gold frame; sourcing, final materials and any edition size remain to be confirmed.</span></span></a></li>
+        <li class="card tb-it"><a class="card-a" href="#sample-rope"><span class="card-f"><picture><source type="image/avif" srcset="img/f-bracelet-600.avif 600w" sizes="(min-width:1180px) 290px, (min-width:900px) 24vw, (min-width:600px) 44vw, 90vw" data-srcset="img/f-bracelet-600.avif 600w, img/f-bracelet-900.avif 900w, img/f-bracelet.avif 1200w"><img loading="lazy" decoding="async" src="img/f-bracelet.jpg" alt="Concept render: a pale palm-fibre rope bracelet with brass end caps." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">The Rope</span><span class="card-l">A future bracelet study referencing Caymanian silver-thatch rope; material, craft method and any numbering remain to be confirmed.</span></span></a></li>
+        <li class="card tb-it"><a class="card-a" href="#sample-edp"><span class="card-f"><picture><source type="image/avif" srcset="img/g-edp-600.avif 600w" sizes="(min-width:1180px) 290px, (min-width:900px) 24vw, (min-width:600px) 44vw, 90vw" data-srcset="img/g-edp-600.avif 600w, img/g-edp-900.avif 900w, img/g-edp.avif 1200w"><img loading="lazy" decoding="async" src="img/g-edp.jpg" alt="Concept render: a heavy square glass perfume bottle with a cap wrapped in pale palm cord, on wet black rock." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">Eau de parfum</span><span class="card-l">Coming soon. A future plain-glass eau de parfum concept, with a cap intended to explore woven fibre.</span></span></a></li>
+        <li class="card tb-it"><a class="card-a" href="#sample-candle"><span class="card-f"><picture><source type="image/avif" srcset="img/g-candle-600.avif 600w" sizes="(min-width:1180px) 290px, (min-width:900px) 24vw, (min-width:600px) 44vw, 90vw" data-srcset="img/g-candle-600.avif 600w, img/g-candle-900.avif 900w, img/g-candle.avif 1200w"><img loading="lazy" decoding="async" src="img/g-candle.jpg" alt="Concept render: a heavy glass tumbler candle design with three horizontal bands of cream, oxblood and umber." width="1200" height="900"></picture></span><span class="card-t"><span class="card-s">Coming soon</span><span class="card-n">The Section Candle</span><span class="card-l">Coming soon. A future three-band candle study; formula, burn behaviour and finish remain to be confirmed.</span></span></a></li>
       </ul>
     </div>
   </div>
@@ -1271,10 +1289,12 @@ window.addEventListener('DOMContentLoaded',function(){
   }
   
   function landAt(el){var st=fallTl&&fallTl.scrollTrigger;return (st&&el&&(el.id==='fall'||el.classList.contains('fall-in')))?st.end:el;}
-  function scrollToEl(el){if(lenis)lenis.scrollTo(landAt(el),{offset:0,duration:1.4});else el.scrollIntoView();}
+  /* a target may ask to land below the fixed chrome (CSS scroll-margin-top); Lenis does not read it, the native path does */
+  function landOff(el){var m=0;try{m=parseFloat(getComputedStyle(el).scrollMarginTop)||0;}catch(e){}return -m;}
+  function scrollToEl(el){if(lenis)lenis.scrollTo(landAt(el),{offset:landOff(el),duration:1.4});else el.scrollIntoView();}
   
   function goTo(t){tbShow(t);if(lenis&&lenis.resize)lenis.resize();scrollToEl(tbGoal(t));}
-  [].forEach.call(doc.querySelectorAll('a[href^="#"]:not(.card-a):not(.sample-x):not(.idx-a):not(.bench-t)'),function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h.length<2)return;var t=doc.querySelector(h);if(t&&(lenis||tbPanelOf(t))){e.preventDefault();goTo(t);}});});
+  [].forEach.call(doc.querySelectorAll('a[href^="#"]:not(.card-a):not(.sample-x):not(.idx-a):not(.bench-t):not([href^="#sample-"])'),function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h.length<2)return;var t=doc.querySelector(h);if(t&&(lenis||tbPanelOf(t))){e.preventDefault();goTo(t);}});});
 
   
   var heroImg=doc.querySelector('.hero-img');if(heroImg&&heroImg.decode)heroImg.decode().catch(function(){});
@@ -1353,14 +1373,16 @@ window.addEventListener('DOMContentLoaded',function(){
     [].forEach.call(doc.querySelectorAll('.fall-fig,.fall-txt,.fall-plate'),function(f){f.classList.add('is-in');});
   }
   
-  var fallTl=null;
+  var fallTl=null,fallH2ST=null;
   
   function fallH2(){
     if(!fallTl||fallTl._h2)return;var hl=doc.querySelectorAll('#fall-h .lmi');if(!hl.length)return;fallTl._h2=1;
-    fallTl.fromTo(hl,{y:0,yPercent:112},{yPercent:0,ease:'power2.out',duration:.28,stagger:.05},.4);
+    var open=function(){gsap.fromTo(hl,{y:0,yPercent:112},{yPercent:0,ease:'power2.out',duration:.55,stagger:.06,overwrite:true});};
+    if(fallIn&&fallIn.getBoundingClientRect().top<window.innerHeight*.8)open();
+    else fallH2ST=ScrollTrigger.create({trigger:fallIn,start:'top 80%',once:true,onEnter:open,onLeave:open});
   }
   function fallUndo(){
-    try{if(fallTl){if(fallTl.scrollTrigger)fallTl.scrollTrigger.kill(true);fallTl.kill();fallTl=null;}
+    try{if(fallH2ST){fallH2ST.kill(true);fallH2ST=null;}if(fallTl){if(fallTl.scrollTrigger)fallTl.scrollTrigger.kill(true);fallTl.kill();fallTl=null;}
       gsap.set(doc.querySelectorAll('.fall-win,.fall-img,.fall-line,.fall-veil,.fall-in .fu,.fall-in .lmi,.fall-f,.fall-f img,.fall-plate .fu,.fall-plate .lmi,.tb-head .fu,.tb-head .lmi'),{clearProps:'all'});}catch(e){}
   }
   if(motion){
@@ -1462,6 +1484,12 @@ window.addEventListener('DOMContentLoaded',function(){
   
   var tableBox=doc.getElementById('table');
   function overTable(y){if(!tableBox)return false;var r=tableBox.getBoundingClientRect();return r.top<=y&&r.bottom>y;}
+  /* fixed chrome never prints over register text or the waterline: the wordmark steps aside while any of it is beneath, the gauge while the waterline crosses it, and INDEX takes its plate */
+  var regGrid=doc.getElementById('layers'),regText=regGrid?[].slice.call(regGrid.querySelectorAll('.layer-register-head .eyebrow,.layer-register-head h2,.elev .n,.name,.layer h3,.seax-l,.status,.aside,summary,.notes p,.ch-study-title,.ch-study-status')):[];
+  function hits(a,b,pad){return a.width>0&&b.width>0&&a.bottom>b.top-pad&&a.top<b.bottom+pad&&a.right>b.left-pad&&a.left<b.right+pad;}
+  function overSea(r){return !!seax&&hits(seax.getBoundingClientRect(),r,0);}
+  function overRegText(r){if(!regGrid)return false;var g=regGrid.getBoundingClientRect();if(g.bottom<r.top||g.top>r.bottom)return false;
+    for(var i=0;i<regText.length;i++){if(hits(regText[i].getBoundingClientRect(),r,8))return true;}return false;}
   function darkAt(y){for(var i=grounds.length-1;i>=0;i--){var r=grounds[i].getBoundingClientRect();if(r.top<=y&&r.bottom>y){var s=grounds[i];if(s.id==='sealevel')return y>=r.top+r.height/2;return s.id==='hero'||s.classList.contains('dark');}}return false;}
   function tick(){
     var vh=window.innerHeight,mid=vh*0.5,cur=0;
@@ -1471,12 +1499,12 @@ window.addEventListener('DOMContentLoaded',function(){
     var ea=+a.dataset.elev;
     if(gv)gv.textContent=fmt(ea);
     if(gl)gl.textContent=a.dataset.label;
-    if(g){var gr=g.getBoundingClientRect(),gm=gr.top+gr.height/2;g.classList.toggle('is-dark',darkAt(gm));g.classList.toggle('is-on',cur>0&&!overFall(gm)&&!overCarry(gm));}
+    if(g){var gr=g.getBoundingClientRect(),gm=gr.top+gr.height/2;g.classList.toggle('is-dark',darkAt(gm));g.classList.toggle('is-on',cur>0&&!overFall(gm)&&!overCarry(gm)&&!overSea(gr));}
     var ib=idxBtn.getBoundingClientRect(),mb=mast.getBoundingClientRect();
     
-    mast.classList.toggle('is-off',overFall(mb.top+mb.height/2)||overTable(mb.top+mb.height/2));
-    idxBtn.classList.toggle('is-dark',darkAt(ib.top+ib.height/2));
-    idxBtn.classList.toggle('is-plate',overFall(ib.top+ib.height/2)||overCarry(ib.top+ib.height/2));
+    mast.classList.toggle('is-off',overFall(mb.top+mb.height/2)||overTable(mb.top+mb.height/2)||overRegText(mb));
+    idxBtn.classList.toggle('is-dark',darkAt(ib.top+ib.height/2)||overSea(ib));
+    idxBtn.classList.toggle('is-plate',overFall(ib.top+ib.height/2)||overCarry(ib.top+ib.height/2)||overSea(ib));
     mast.classList.toggle('is-dark',darkAt(mb.top+mb.height/2));
     mast.classList.toggle('is-on',a.id!=='hero');
     if(bench){var bw=benchWanted(vh);if(bw!==bench._on){bench._on=bw;bench.classList.toggle('is-on',bw);bench.inert=!bw;}}
@@ -1655,7 +1683,7 @@ window.addEventListener('DOMContentLoaded',function(){
     s.classList.remove('is-on');setBehind(false);root.classList.remove('sample-open');if(lenis)lenis.start();onScroll();
     if(!silent&&lastFocus)lastFocus.focus({preventScroll:true});
   }
-  [].forEach.call(doc.querySelectorAll('.card-a'),function(a){a.addEventListener('click',function(e){var s=doc.querySelector(a.getAttribute('href'));if(!s)return;
+  [].forEach.call(doc.querySelectorAll('.card-a,a[href^="#sample-"]'),function(a){a.addEventListener('click',function(e){var s=doc.querySelector(a.getAttribute('href'));if(!s)return;
     
     if(!s.classList.contains('sample')){if(lenis||tbPanelOf(s)){e.preventDefault();goTo(s);}return;}
     e.preventDefault();openSample(s,a);});});
@@ -1717,7 +1745,7 @@ window.addEventListener('DOMContentLoaded',function(){
   idxLinks.forEach(function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h.charAt(0)!=='#')return;var t=doc.querySelector(h);if(!t)return;e.preventDefault();closeIdx();
     if(!t.hasAttribute('tabindex'))t.setAttribute('tabindex','-1');
     
-    setTimeout(function(){tbShow(t);var g=tbGoal(t);if(lenis){lenis.start();if(lenis.resize)lenis.resize();lenis.scrollTo(landAt(g),{offset:0,duration:1.6,onComplete:function(){t.focus({preventScroll:true});}});}else{g.scrollIntoView();t.focus({preventScroll:true});}},rm?0:80);});});
+    setTimeout(function(){tbShow(t);var g=tbGoal(t);if(lenis){lenis.start();if(lenis.resize)lenis.resize();lenis.scrollTo(landAt(g),{offset:landOff(g),duration:1.6,onComplete:function(){t.focus({preventScroll:true});}});}else{g.scrollIntoView();t.focus({preventScroll:true});}},rm?0:80);});});
   idx.addEventListener('keydown',function(e){
     var i=idxLinks.indexOf(doc.activeElement);
     if(e.key==='Tab'){var f=[idxBtn].concat(idxLinks);var j=f.indexOf(doc.activeElement);if(j<0)j=0;e.preventDefault();f[(j+(e.shiftKey?-1:1)+f.length)%f.length].focus({preventScroll:true});}
@@ -1732,7 +1760,7 @@ window.addEventListener('DOMContentLoaded',function(){
 
   if(motion){ScrollTrigger.sort();setTimeout(function(){ScrollTrigger.refresh();},200);}
   var tbLoadT=tbHashTarget();
-  if(tbLoadT&&tbPanelOf(tbLoadT)){setTimeout(function(){if(lenis&&lenis.resize)lenis.resize();var g=tbGoal(tbLoadT);if(lenis)lenis.scrollTo(landAt(g),{offset:0,immediate:true});else g.scrollIntoView();},320);}
+  if(tbLoadT&&tbPanelOf(tbLoadT)){setTimeout(function(){if(lenis&&lenis.resize)lenis.resize();var g=tbGoal(tbLoadT);if(lenis)lenis.scrollTo(landAt(g),{offset:landOff(g),immediate:true});else g.scrollIntoView();},320);}
 })();
 });
 </script>
